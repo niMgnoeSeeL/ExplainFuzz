@@ -1,0 +1,9 @@
+[submodule "custom-generator-sql"]
+	path = custom-generator-sql
+	url = https://github.com/annaellebgt/custom-generator-sql.git
+[submodule "cfg2pc"]
+	path = cfg2pc
+	url = https://github.com/jjcmoon/cfg2pc.git
+[submodule "GrammarRefactoring"]
+	path = GrammarRefactoring
+	url = https://github.com/annaellebgt/GrammarRefactoring.git
