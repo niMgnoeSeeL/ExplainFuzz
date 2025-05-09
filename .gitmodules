@@ -7,3 +7,6 @@
 [submodule "GrammarRefactoring"]
 	path = GrammarRefactoring
 	url = https://github.com/annaellebgt/GrammarRefactoring.git
+[submodule "grammarinator-fuzzing"]
+	path = grammarinator-fuzzing
+	url = git@github.com:annaellebgt/grammarinator-fuzzing.git
