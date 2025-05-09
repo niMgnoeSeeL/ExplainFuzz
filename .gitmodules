@@ -10,3 +10,6 @@
 [submodule "grammarinator-fuzzing"]
 	path = grammarinator-fuzzing
 	url = git@github.com:annaellebgt/grammarinator-fuzzing.git
+[submodule "grammarinator_fuzzing"]
+	path = grammarinator_fuzzing
+	url = git@github.com:annaellebgt/grammarinator_fuzzing.git
