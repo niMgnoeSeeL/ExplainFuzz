@@ -10,3 +10,6 @@
 [submodule "grammarinator_fuzzing"]
 	path = grammarinator_fuzzing
 	url = git@github.com:annaellebgt/grammarinator_fuzzing.git
+[submodule "custom_generator_sql"]
+	path = custom_generator_sql
+	url = git@github.com:annaellebgt/custom_generator_sql.git
