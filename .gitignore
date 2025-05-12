@@ -1,3 +1,10 @@
+data/intermediate/fuzz_outputs
+data/intermediate/generated/generator
+data/intermediate/generated/population
+data/intermediate/generated/parser/*/*.interp
+data/intermediate/generated/parser/*/*.tokens
+data/intermediate/dataset/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

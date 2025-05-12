@@ -12,12 +12,13 @@ def fuzzing_campaign(prefix_grammar, domain, start_rule):
         first_time=True,
     )
 
+if __name__=="__main__":
+    # Test for SQL
+    prefix_grammar = "SQLSimplified"
+    domain = "SQL"
+    start_rule = "start"
 
-prefix_grammar = "SQLSimplified"
-domain = "SQL"
-start_rule = "start"
-
-fuzzing_campaign(prefix_grammar, domain, start_rule)
+    fuzzing_campaign(prefix_grammar, domain, start_rule)
 
 
 # def concretization(conninfo, anonymized_queries, lexer_file_path):
