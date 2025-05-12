@@ -9,7 +9,7 @@ def fuzzing_campaign(prefix_grammar, domain, start_rule):
         domain=domain,
         start_rule=start_rule,
         num_inputs=10,
-        first_time=True,
+        first_time=False,
     )
 
 if __name__=="__main__":
