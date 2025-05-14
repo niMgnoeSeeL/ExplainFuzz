@@ -14,9 +14,9 @@ def fuzzing_campaign(prefix_grammar, domain, start_rule):
         first_time=True,
     )
 
-def refactoring_grammar(domain, initial_grammar_path, grammar_name, grammar_refactored_dir):
+def refactoring_grammar(domain, initial_grammar_path, grammar_name, grammar_refactored_dir,parser_generated_dir,start_rule):
     grammar,parser_path,lexer_path = grammar_refactoring_main(
-        domain, initial_grammar_path, grammar_name, grammar_refactored_dir, start_rule
+        domain, initial_grammar_path, grammar_name, grammar_refactored_dir,parser_generated_dir, start_rule
     )
     return grammar,parser_path,lexer_path 
 
@@ -27,28 +27,29 @@ def train_pc(grammar,grammar_name,domain,start_rule,mode,save_model_dir):
 def build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,start_rule=None):
     # Refactoring the grammar
     
-
     grammar_refactored_dir = Path("data/intermediate/grammars/")
-    grammar_refactored_dir.mkdir(parents=True,exist_ok=True)
-
     grammar_final_dir = Path("data/intermediate/grammars/final/")
-
-    grammar = grammar_refactoring_main(
-        domain, initial_grammar_paths, grammar_name, grammar_refactored_dir, start_rule
-    )
-
-    # Fuzzing campaign
-    seeds_dir = "data/input/seeds/"
-
     generator_dir = Path("data/intermediate/generated/generator/")
     population_dir = Path("data/intermediate/generated/population/")
     gen_parser_dir = Path("data/intermediate/generated/parser/")
     fuzz_outputs_dir = Path("data/intermediate/fuzz_outputs/")
     dataset_dir = Path("data/intermediate/dataset/")
+    seeds_dir = Path("data/input/seeds/")
 
-    for directory in [generator_dir, population_dir, gen_parser_dir, fuzz_outputs_dir, dataset_dir]:
+    for directory in [grammar_refactored_dir,grammar_final_dir,generator_dir, population_dir, gen_parser_dir, fuzz_outputs_dir, dataset_dir,seeds_dir]:
         directory.mkdir(parents=True, exist_ok=True)
-     
+
+    print("-----Refactoring the grammar----")
+    print("")
+    grammar = grammar_refactoring_main(
+        domain, initial_grammar_paths, grammar_name, grammar_refactored_dir,gen_parser_dir, seeds_dir,start_rule
+    )
+    print("")
+
+
+    # Fuzzing campaign
+    print("-----Fuzzing Campaign-----")
+    print("")
     grammar_fuzz_main(
         prefix_grammar=grammar_name,
         domain=domain,
@@ -63,8 +64,10 @@ def build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,start_rule=N
         num_inputs=10,
         first_time=True,
     )
+    print("")
 
     # CFG to PC
+    print("-----Building the Probabilistic Circuit----")
     save_model_dir = Path("data/intermediate/model")
     save_model_dir.mkdir(parents=True, exist_ok=True)
     mode = "no-generate"

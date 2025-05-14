@@ -11,6 +11,15 @@ To pull from existing submodules :
 git pull --recurse-submodules 
 ````
 
+## Grammarinator Refactoring 
+
+Use antlr 4.11.1 jar file.
+
+```
+wget https://www.antlr.org/download/antlr-4.11.1-complete.jar
+```
+
+Create an `.env` file and add the path to this jar `ANTLR_JAR_PATH=`
 
 ## Grammarinator_fuzzing
 
@@ -19,8 +28,6 @@ In order to run it as a package, run this :
 ```
 pip install -e grammarinator_fuzzing/
 ```
-
-Create an `.env` file by adding `ANTLR_JAR_PATH=`
 
 ## custom_generator_sql
 

@@ -57,48 +57,48 @@ def serializedATN():
         7,0,94,95,5,7,0,0,95,96,5,13,0,0,96,97,5,16,0,0,97,98,5,10,0,0,98,
         131,1,0,0,0,99,100,5,7,0,0,100,101,5,16,0,0,101,102,3,8,4,0,102,
         103,5,12,0,0,103,131,1,0,0,0,104,131,5,4,0,0,105,131,5,5,0,0,106,
-        107,5,7,0,0,107,108,5,16,0,0,108,131,5,12,0,0,109,110,5,7,0,0,110,
-        111,5,16,0,0,111,112,5,10,0,0,112,113,3,14,7,0,113,114,5,7,0,0,114,
-        115,5,13,0,0,115,116,5,16,0,0,116,117,5,10,0,0,117,131,1,0,0,0,118,
-        119,5,7,0,0,119,120,5,16,0,0,120,131,5,12,0,0,121,122,5,7,0,0,122,
-        123,5,16,0,0,123,124,5,10,0,0,124,125,3,14,7,0,125,126,5,7,0,0,126,
-        127,5,13,0,0,127,128,5,16,0,0,128,129,5,10,0,0,129,131,1,0,0,0,130,
+        107,5,7,0,0,107,108,5,16,0,0,108,109,5,10,0,0,109,110,3,14,7,0,110,
+        111,5,7,0,0,111,112,5,13,0,0,112,113,5,16,0,0,113,114,5,10,0,0,114,
+        131,1,0,0,0,115,116,5,7,0,0,116,117,5,16,0,0,117,131,5,12,0,0,118,
+        119,5,7,0,0,119,120,5,16,0,0,120,121,5,10,0,0,121,122,3,14,7,0,122,
+        123,5,7,0,0,123,124,5,13,0,0,124,125,5,16,0,0,125,126,5,10,0,0,126,
+        131,1,0,0,0,127,128,5,7,0,0,128,129,5,16,0,0,129,131,5,12,0,0,130,
         86,1,0,0,0,130,87,1,0,0,0,130,88,1,0,0,0,130,89,1,0,0,0,130,99,1,
-        0,0,0,130,104,1,0,0,0,130,105,1,0,0,0,130,106,1,0,0,0,130,109,1,
-        0,0,0,130,118,1,0,0,0,130,121,1,0,0,0,131,11,1,0,0,0,132,133,3,10,
+        0,0,0,130,104,1,0,0,0,130,105,1,0,0,0,130,106,1,0,0,0,130,115,1,
+        0,0,0,130,118,1,0,0,0,130,127,1,0,0,0,131,11,1,0,0,0,132,133,3,10,
         5,0,133,134,3,28,14,0,134,180,1,0,0,0,135,180,5,2,0,0,136,180,5,
         18,0,0,137,180,5,1,0,0,138,139,5,7,0,0,139,140,5,16,0,0,140,141,
         3,8,4,0,141,142,5,10,0,0,142,143,3,14,7,0,143,144,5,7,0,0,144,145,
         5,13,0,0,145,146,5,16,0,0,146,147,5,10,0,0,147,180,1,0,0,0,148,149,
         5,7,0,0,149,150,5,16,0,0,150,151,3,8,4,0,151,152,5,12,0,0,152,180,
         1,0,0,0,153,180,5,4,0,0,154,180,5,5,0,0,155,156,5,7,0,0,156,157,
-        5,16,0,0,157,180,5,12,0,0,158,159,5,7,0,0,159,160,5,16,0,0,160,161,
-        5,10,0,0,161,162,3,14,7,0,162,163,5,7,0,0,163,164,5,13,0,0,164,165,
-        5,16,0,0,165,166,5,10,0,0,166,180,1,0,0,0,167,168,5,7,0,0,168,169,
-        5,16,0,0,169,180,5,12,0,0,170,171,5,7,0,0,171,172,5,16,0,0,172,173,
-        5,10,0,0,173,174,3,14,7,0,174,175,5,7,0,0,175,176,5,13,0,0,176,177,
-        5,16,0,0,177,178,5,10,0,0,178,180,1,0,0,0,179,132,1,0,0,0,179,135,
+        5,16,0,0,157,158,5,10,0,0,158,159,3,14,7,0,159,160,5,7,0,0,160,161,
+        5,13,0,0,161,162,5,16,0,0,162,163,5,10,0,0,163,180,1,0,0,0,164,165,
+        5,7,0,0,165,166,5,16,0,0,166,180,5,12,0,0,167,168,5,7,0,0,168,169,
+        5,16,0,0,169,170,5,10,0,0,170,171,3,14,7,0,171,172,5,7,0,0,172,173,
+        5,13,0,0,173,174,5,16,0,0,174,175,5,10,0,0,175,180,1,0,0,0,176,177,
+        5,7,0,0,177,178,5,16,0,0,178,180,5,12,0,0,179,132,1,0,0,0,179,135,
         1,0,0,0,179,136,1,0,0,0,179,137,1,0,0,0,179,138,1,0,0,0,179,148,
-        1,0,0,0,179,153,1,0,0,0,179,154,1,0,0,0,179,155,1,0,0,0,179,158,
-        1,0,0,0,179,167,1,0,0,0,179,170,1,0,0,0,180,13,1,0,0,0,181,182,3,
+        1,0,0,0,179,153,1,0,0,0,179,154,1,0,0,0,179,155,1,0,0,0,179,164,
+        1,0,0,0,179,167,1,0,0,0,179,176,1,0,0,0,180,13,1,0,0,0,181,182,3,
         28,14,0,182,183,3,16,8,0,183,238,1,0,0,0,184,185,3,12,6,0,185,186,
-        3,16,8,0,186,238,1,0,0,0,187,238,1,0,0,0,188,238,5,9,0,0,189,238,
-        5,6,0,0,190,191,3,10,5,0,191,192,3,28,14,0,192,238,1,0,0,0,193,238,
-        5,2,0,0,194,238,5,18,0,0,195,238,5,1,0,0,196,197,5,7,0,0,197,198,
-        5,16,0,0,198,199,3,8,4,0,199,200,5,10,0,0,200,201,3,14,7,0,201,202,
-        5,7,0,0,202,203,5,13,0,0,203,204,5,16,0,0,204,205,5,10,0,0,205,238,
-        1,0,0,0,206,207,5,7,0,0,207,208,5,16,0,0,208,209,3,8,4,0,209,210,
-        5,12,0,0,210,238,1,0,0,0,211,238,5,4,0,0,212,238,5,5,0,0,213,214,
-        5,7,0,0,214,215,5,16,0,0,215,238,5,12,0,0,216,217,5,7,0,0,217,218,
-        5,16,0,0,218,219,5,10,0,0,219,220,3,14,7,0,220,221,5,7,0,0,221,222,
-        5,13,0,0,222,223,5,16,0,0,223,224,5,10,0,0,224,238,1,0,0,0,225,226,
-        5,7,0,0,226,227,5,16,0,0,227,238,5,12,0,0,228,229,5,7,0,0,229,230,
-        5,16,0,0,230,231,5,10,0,0,231,232,3,14,7,0,232,233,5,7,0,0,233,234,
-        5,13,0,0,234,235,5,16,0,0,235,236,5,10,0,0,236,238,1,0,0,0,237,181,
-        1,0,0,0,237,184,1,0,0,0,237,187,1,0,0,0,237,188,1,0,0,0,237,189,
-        1,0,0,0,237,190,1,0,0,0,237,193,1,0,0,0,237,194,1,0,0,0,237,195,
-        1,0,0,0,237,196,1,0,0,0,237,206,1,0,0,0,237,211,1,0,0,0,237,212,
-        1,0,0,0,237,213,1,0,0,0,237,216,1,0,0,0,237,225,1,0,0,0,237,228,
+        3,16,8,0,186,238,1,0,0,0,187,238,1,0,0,0,188,189,3,10,5,0,189,190,
+        3,28,14,0,190,238,1,0,0,0,191,238,5,2,0,0,192,238,5,18,0,0,193,238,
+        5,1,0,0,194,195,5,7,0,0,195,196,5,16,0,0,196,197,3,8,4,0,197,198,
+        5,10,0,0,198,199,3,14,7,0,199,200,5,7,0,0,200,201,5,13,0,0,201,202,
+        5,16,0,0,202,203,5,10,0,0,203,238,1,0,0,0,204,205,5,7,0,0,205,206,
+        5,16,0,0,206,207,3,8,4,0,207,208,5,12,0,0,208,238,1,0,0,0,209,238,
+        5,4,0,0,210,238,5,5,0,0,211,212,5,7,0,0,212,213,5,16,0,0,213,214,
+        5,10,0,0,214,215,3,14,7,0,215,216,5,7,0,0,216,217,5,13,0,0,217,218,
+        5,16,0,0,218,219,5,10,0,0,219,238,1,0,0,0,220,221,5,7,0,0,221,222,
+        5,16,0,0,222,238,5,12,0,0,223,224,5,7,0,0,224,225,5,16,0,0,225,226,
+        5,10,0,0,226,227,3,14,7,0,227,228,5,7,0,0,228,229,5,13,0,0,229,230,
+        5,16,0,0,230,231,5,10,0,0,231,238,1,0,0,0,232,233,5,7,0,0,233,234,
+        5,16,0,0,234,238,5,12,0,0,235,238,5,9,0,0,236,238,5,6,0,0,237,181,
+        1,0,0,0,237,184,1,0,0,0,237,187,1,0,0,0,237,188,1,0,0,0,237,191,
+        1,0,0,0,237,192,1,0,0,0,237,193,1,0,0,0,237,194,1,0,0,0,237,204,
+        1,0,0,0,237,209,1,0,0,0,237,210,1,0,0,0,237,211,1,0,0,0,237,220,
+        1,0,0,0,237,223,1,0,0,0,237,232,1,0,0,0,237,235,1,0,0,0,237,236,
         1,0,0,0,238,15,1,0,0,0,239,240,3,12,6,0,240,241,3,16,8,0,241,290,
         1,0,0,0,242,243,3,10,5,0,243,244,3,28,14,0,244,290,1,0,0,0,245,290,
         5,2,0,0,246,290,5,18,0,0,247,290,5,1,0,0,248,249,5,7,0,0,249,250,
@@ -106,27 +106,27 @@ def serializedATN():
         5,7,0,0,254,255,5,13,0,0,255,256,5,16,0,0,256,257,5,10,0,0,257,290,
         1,0,0,0,258,259,5,7,0,0,259,260,5,16,0,0,260,261,3,8,4,0,261,262,
         5,12,0,0,262,290,1,0,0,0,263,290,5,4,0,0,264,290,5,5,0,0,265,266,
-        5,7,0,0,266,267,5,16,0,0,267,290,5,12,0,0,268,269,5,7,0,0,269,270,
-        5,16,0,0,270,271,5,10,0,0,271,272,3,14,7,0,272,273,5,7,0,0,273,274,
-        5,13,0,0,274,275,5,16,0,0,275,276,5,10,0,0,276,290,1,0,0,0,277,278,
-        5,7,0,0,278,279,5,16,0,0,279,290,5,12,0,0,280,281,5,7,0,0,281,282,
-        5,16,0,0,282,283,5,10,0,0,283,284,3,14,7,0,284,285,5,7,0,0,285,286,
-        5,13,0,0,286,287,5,16,0,0,287,288,5,10,0,0,288,290,1,0,0,0,289,239,
+        5,7,0,0,266,267,5,16,0,0,267,268,5,10,0,0,268,269,3,14,7,0,269,270,
+        5,7,0,0,270,271,5,13,0,0,271,272,5,16,0,0,272,273,5,10,0,0,273,290,
+        1,0,0,0,274,275,5,7,0,0,275,276,5,16,0,0,276,290,5,12,0,0,277,278,
+        5,7,0,0,278,279,5,16,0,0,279,280,5,10,0,0,280,281,3,14,7,0,281,282,
+        5,7,0,0,282,283,5,13,0,0,283,284,5,16,0,0,284,285,5,10,0,0,285,290,
+        1,0,0,0,286,287,5,7,0,0,287,288,5,16,0,0,288,290,5,12,0,0,289,239,
         1,0,0,0,289,242,1,0,0,0,289,245,1,0,0,0,289,246,1,0,0,0,289,247,
         1,0,0,0,289,248,1,0,0,0,289,258,1,0,0,0,289,263,1,0,0,0,289,264,
-        1,0,0,0,289,265,1,0,0,0,289,268,1,0,0,0,289,277,1,0,0,0,289,280,
+        1,0,0,0,289,265,1,0,0,0,289,274,1,0,0,0,289,277,1,0,0,0,289,286,
         1,0,0,0,290,17,1,0,0,0,291,292,5,7,0,0,292,293,5,16,0,0,293,294,
         3,8,4,0,294,295,5,10,0,0,295,296,3,14,7,0,296,297,5,7,0,0,297,298,
         5,13,0,0,298,299,5,16,0,0,299,300,5,10,0,0,300,331,1,0,0,0,301,302,
         5,7,0,0,302,303,5,16,0,0,303,304,3,8,4,0,304,305,5,12,0,0,305,331,
-        1,0,0,0,306,307,5,7,0,0,307,308,5,16,0,0,308,309,5,10,0,0,309,310,
-        3,14,7,0,310,311,5,7,0,0,311,312,5,13,0,0,312,313,5,16,0,0,313,314,
-        5,10,0,0,314,331,1,0,0,0,315,316,5,7,0,0,316,317,5,16,0,0,317,331,
-        5,12,0,0,318,319,5,7,0,0,319,320,5,16,0,0,320,321,5,10,0,0,321,322,
-        3,14,7,0,322,323,5,7,0,0,323,324,5,13,0,0,324,325,5,16,0,0,325,326,
-        5,10,0,0,326,331,1,0,0,0,327,328,5,7,0,0,328,329,5,16,0,0,329,331,
-        5,12,0,0,330,291,1,0,0,0,330,301,1,0,0,0,330,306,1,0,0,0,330,315,
-        1,0,0,0,330,318,1,0,0,0,330,327,1,0,0,0,331,19,1,0,0,0,332,333,7,
+        1,0,0,0,306,307,5,7,0,0,307,308,5,16,0,0,308,331,5,12,0,0,309,310,
+        5,7,0,0,310,311,5,16,0,0,311,312,5,10,0,0,312,313,3,14,7,0,313,314,
+        5,7,0,0,314,315,5,13,0,0,315,316,5,16,0,0,316,317,5,10,0,0,317,331,
+        1,0,0,0,318,319,5,7,0,0,319,320,5,16,0,0,320,331,5,12,0,0,321,322,
+        5,7,0,0,322,323,5,16,0,0,323,324,5,10,0,0,324,325,3,14,7,0,325,326,
+        5,7,0,0,326,327,5,13,0,0,327,328,5,16,0,0,328,329,5,10,0,0,329,331,
+        1,0,0,0,330,291,1,0,0,0,330,301,1,0,0,0,330,306,1,0,0,0,330,309,
+        1,0,0,0,330,318,1,0,0,0,330,321,1,0,0,0,331,19,1,0,0,0,332,333,7,
         0,0,0,333,21,1,0,0,0,334,335,5,16,0,0,335,336,5,14,0,0,336,337,5,
         15,0,0,337,23,1,0,0,0,338,339,7,1,0,0,339,25,1,0,0,0,340,341,7,2,
         0,0,341,27,1,0,0,0,342,343,7,1,0,0,343,29,1,0,0,0,10,41,49,60,70,
@@ -761,27 +761,27 @@ class XMLParser ( Parser ):
                 self.state = 107
                 self.match(XMLParser.Name)
                 self.state = 108
-                self.match(XMLParser.SLASH_CLOSE)
+                self.match(XMLParser.CLOSE)
+                self.state = 109
+                self.content()
+                self.state = 110
+                self.match(XMLParser.OPEN)
+                self.state = 111
+                self.match(XMLParser.SLASH)
+                self.state = 112
+                self.match(XMLParser.Name)
+                self.state = 113
+                self.match(XMLParser.CLOSE)
                 pass
 
             elif la_ == 9:
                 self.enterOuterAlt(localctx, 9)
-                self.state = 109
-                self.match(XMLParser.OPEN)
-                self.state = 110
-                self.match(XMLParser.Name)
-                self.state = 111
-                self.match(XMLParser.CLOSE)
-                self.state = 112
-                self.content()
-                self.state = 113
-                self.match(XMLParser.OPEN)
-                self.state = 114
-                self.match(XMLParser.SLASH)
                 self.state = 115
-                self.match(XMLParser.Name)
+                self.match(XMLParser.OPEN)
                 self.state = 116
-                self.match(XMLParser.CLOSE)
+                self.match(XMLParser.Name)
+                self.state = 117
+                self.match(XMLParser.SLASH_CLOSE)
                 pass
 
             elif la_ == 10:
@@ -791,27 +791,27 @@ class XMLParser ( Parser ):
                 self.state = 119
                 self.match(XMLParser.Name)
                 self.state = 120
-                self.match(XMLParser.SLASH_CLOSE)
+                self.match(XMLParser.CLOSE)
+                self.state = 121
+                self.content()
+                self.state = 122
+                self.match(XMLParser.OPEN)
+                self.state = 123
+                self.match(XMLParser.SLASH)
+                self.state = 124
+                self.match(XMLParser.Name)
+                self.state = 125
+                self.match(XMLParser.CLOSE)
                 pass
 
             elif la_ == 11:
                 self.enterOuterAlt(localctx, 11)
-                self.state = 121
-                self.match(XMLParser.OPEN)
-                self.state = 122
-                self.match(XMLParser.Name)
-                self.state = 123
-                self.match(XMLParser.CLOSE)
-                self.state = 124
-                self.content()
-                self.state = 125
-                self.match(XMLParser.OPEN)
-                self.state = 126
-                self.match(XMLParser.SLASH)
                 self.state = 127
-                self.match(XMLParser.Name)
+                self.match(XMLParser.OPEN)
                 self.state = 128
-                self.match(XMLParser.CLOSE)
+                self.match(XMLParser.Name)
+                self.state = 129
+                self.match(XMLParser.SLASH_CLOSE)
                 pass
 
 
@@ -987,27 +987,27 @@ class XMLParser ( Parser ):
                 self.state = 156
                 self.match(XMLParser.Name)
                 self.state = 157
-                self.match(XMLParser.SLASH_CLOSE)
+                self.match(XMLParser.CLOSE)
+                self.state = 158
+                self.content()
+                self.state = 159
+                self.match(XMLParser.OPEN)
+                self.state = 160
+                self.match(XMLParser.SLASH)
+                self.state = 161
+                self.match(XMLParser.Name)
+                self.state = 162
+                self.match(XMLParser.CLOSE)
                 pass
 
             elif la_ == 10:
                 self.enterOuterAlt(localctx, 10)
-                self.state = 158
-                self.match(XMLParser.OPEN)
-                self.state = 159
-                self.match(XMLParser.Name)
-                self.state = 160
-                self.match(XMLParser.CLOSE)
-                self.state = 161
-                self.content()
-                self.state = 162
-                self.match(XMLParser.OPEN)
-                self.state = 163
-                self.match(XMLParser.SLASH)
                 self.state = 164
-                self.match(XMLParser.Name)
+                self.match(XMLParser.OPEN)
                 self.state = 165
-                self.match(XMLParser.CLOSE)
+                self.match(XMLParser.Name)
+                self.state = 166
+                self.match(XMLParser.SLASH_CLOSE)
                 pass
 
             elif la_ == 11:
@@ -1017,27 +1017,27 @@ class XMLParser ( Parser ):
                 self.state = 168
                 self.match(XMLParser.Name)
                 self.state = 169
-                self.match(XMLParser.SLASH_CLOSE)
+                self.match(XMLParser.CLOSE)
+                self.state = 170
+                self.content()
+                self.state = 171
+                self.match(XMLParser.OPEN)
+                self.state = 172
+                self.match(XMLParser.SLASH)
+                self.state = 173
+                self.match(XMLParser.Name)
+                self.state = 174
+                self.match(XMLParser.CLOSE)
                 pass
 
             elif la_ == 12:
                 self.enterOuterAlt(localctx, 12)
-                self.state = 170
-                self.match(XMLParser.OPEN)
-                self.state = 171
-                self.match(XMLParser.Name)
-                self.state = 172
-                self.match(XMLParser.CLOSE)
-                self.state = 173
-                self.content()
-                self.state = 174
-                self.match(XMLParser.OPEN)
-                self.state = 175
-                self.match(XMLParser.SLASH)
                 self.state = 176
-                self.match(XMLParser.Name)
+                self.match(XMLParser.OPEN)
                 self.state = 177
-                self.match(XMLParser.CLOSE)
+                self.match(XMLParser.Name)
+                self.state = 178
+                self.match(XMLParser.SLASH_CLOSE)
                 pass
 
 
@@ -1068,12 +1068,6 @@ class XMLParser ( Parser ):
         def block_0(self):
             return self.getTypedRuleContext(XMLParser.Block_0Context,0)
 
-
-        def TEXT(self):
-            return self.getToken(XMLParser.TEXT, 0)
-
-        def SEA_WS(self):
-            return self.getToken(XMLParser.SEA_WS, 0)
 
         def block_2(self):
             return self.getTypedRuleContext(XMLParser.Block_2Context,0)
@@ -1126,6 +1120,12 @@ class XMLParser ( Parser ):
         def CharRef(self):
             return self.getToken(XMLParser.CharRef, 0)
 
+        def TEXT(self):
+            return self.getToken(XMLParser.TEXT, 0)
+
+        def SEA_WS(self):
+            return self.getToken(XMLParser.SEA_WS, 0)
+
         def getRuleIndex(self):
             return XMLParser.RULE_content
 
@@ -1172,145 +1172,145 @@ class XMLParser ( Parser ):
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
                 self.state = 188
-                self.match(XMLParser.TEXT)
+                self.block_2()
+                self.state = 189
+                self.chardata_question()
                 pass
 
             elif la_ == 5:
                 self.enterOuterAlt(localctx, 5)
-                self.state = 189
-                self.match(XMLParser.SEA_WS)
+                self.state = 191
+                self.match(XMLParser.CDATA)
                 pass
 
             elif la_ == 6:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 190
-                self.block_2()
-                self.state = 191
-                self.chardata_question()
+                self.state = 192
+                self.match(XMLParser.PI)
                 pass
 
             elif la_ == 7:
                 self.enterOuterAlt(localctx, 7)
                 self.state = 193
-                self.match(XMLParser.CDATA)
+                self.match(XMLParser.COMMENT)
                 pass
 
             elif la_ == 8:
                 self.enterOuterAlt(localctx, 8)
                 self.state = 194
-                self.match(XMLParser.PI)
+                self.match(XMLParser.OPEN)
+                self.state = 195
+                self.match(XMLParser.Name)
+                self.state = 196
+                self.attribute_star()
+                self.state = 197
+                self.match(XMLParser.CLOSE)
+                self.state = 198
+                self.content()
+                self.state = 199
+                self.match(XMLParser.OPEN)
+                self.state = 200
+                self.match(XMLParser.SLASH)
+                self.state = 201
+                self.match(XMLParser.Name)
+                self.state = 202
+                self.match(XMLParser.CLOSE)
                 pass
 
             elif la_ == 9:
                 self.enterOuterAlt(localctx, 9)
-                self.state = 195
-                self.match(XMLParser.COMMENT)
+                self.state = 204
+                self.match(XMLParser.OPEN)
+                self.state = 205
+                self.match(XMLParser.Name)
+                self.state = 206
+                self.attribute_star()
+                self.state = 207
+                self.match(XMLParser.SLASH_CLOSE)
                 pass
 
             elif la_ == 10:
                 self.enterOuterAlt(localctx, 10)
-                self.state = 196
-                self.match(XMLParser.OPEN)
-                self.state = 197
-                self.match(XMLParser.Name)
-                self.state = 198
-                self.attribute_star()
-                self.state = 199
-                self.match(XMLParser.CLOSE)
-                self.state = 200
-                self.content()
-                self.state = 201
-                self.match(XMLParser.OPEN)
-                self.state = 202
-                self.match(XMLParser.SLASH)
-                self.state = 203
-                self.match(XMLParser.Name)
-                self.state = 204
-                self.match(XMLParser.CLOSE)
+                self.state = 209
+                self.match(XMLParser.EntityRef)
                 pass
 
             elif la_ == 11:
                 self.enterOuterAlt(localctx, 11)
-                self.state = 206
-                self.match(XMLParser.OPEN)
-                self.state = 207
-                self.match(XMLParser.Name)
-                self.state = 208
-                self.attribute_star()
-                self.state = 209
-                self.match(XMLParser.SLASH_CLOSE)
+                self.state = 210
+                self.match(XMLParser.CharRef)
                 pass
 
             elif la_ == 12:
                 self.enterOuterAlt(localctx, 12)
                 self.state = 211
-                self.match(XMLParser.EntityRef)
-                pass
-
-            elif la_ == 13:
-                self.enterOuterAlt(localctx, 13)
+                self.match(XMLParser.OPEN)
                 self.state = 212
-                self.match(XMLParser.CharRef)
-                pass
-
-            elif la_ == 14:
-                self.enterOuterAlt(localctx, 14)
-                self.state = 213
-                self.match(XMLParser.OPEN)
-                self.state = 214
                 self.match(XMLParser.Name)
+                self.state = 213
+                self.match(XMLParser.CLOSE)
+                self.state = 214
+                self.content()
                 self.state = 215
-                self.match(XMLParser.SLASH_CLOSE)
-                pass
-
-            elif la_ == 15:
-                self.enterOuterAlt(localctx, 15)
-                self.state = 216
                 self.match(XMLParser.OPEN)
+                self.state = 216
+                self.match(XMLParser.SLASH)
                 self.state = 217
                 self.match(XMLParser.Name)
                 self.state = 218
                 self.match(XMLParser.CLOSE)
-                self.state = 219
-                self.content()
+                pass
+
+            elif la_ == 13:
+                self.enterOuterAlt(localctx, 13)
                 self.state = 220
                 self.match(XMLParser.OPEN)
                 self.state = 221
-                self.match(XMLParser.SLASH)
+                self.match(XMLParser.Name)
                 self.state = 222
-                self.match(XMLParser.Name)
-                self.state = 223
-                self.match(XMLParser.CLOSE)
-                pass
-
-            elif la_ == 16:
-                self.enterOuterAlt(localctx, 16)
-                self.state = 225
-                self.match(XMLParser.OPEN)
-                self.state = 226
-                self.match(XMLParser.Name)
-                self.state = 227
                 self.match(XMLParser.SLASH_CLOSE)
                 pass
 
-            elif la_ == 17:
-                self.enterOuterAlt(localctx, 17)
-                self.state = 228
+            elif la_ == 14:
+                self.enterOuterAlt(localctx, 14)
+                self.state = 223
                 self.match(XMLParser.OPEN)
+                self.state = 224
+                self.match(XMLParser.Name)
+                self.state = 225
+                self.match(XMLParser.CLOSE)
+                self.state = 226
+                self.content()
+                self.state = 227
+                self.match(XMLParser.OPEN)
+                self.state = 228
+                self.match(XMLParser.SLASH)
                 self.state = 229
                 self.match(XMLParser.Name)
                 self.state = 230
                 self.match(XMLParser.CLOSE)
-                self.state = 231
-                self.content()
+                pass
+
+            elif la_ == 15:
+                self.enterOuterAlt(localctx, 15)
                 self.state = 232
                 self.match(XMLParser.OPEN)
                 self.state = 233
-                self.match(XMLParser.SLASH)
-                self.state = 234
                 self.match(XMLParser.Name)
+                self.state = 234
+                self.match(XMLParser.SLASH_CLOSE)
+                pass
+
+            elif la_ == 16:
+                self.enterOuterAlt(localctx, 16)
                 self.state = 235
-                self.match(XMLParser.CLOSE)
+                self.match(XMLParser.TEXT)
+                pass
+
+            elif la_ == 17:
+                self.enterOuterAlt(localctx, 17)
+                self.state = 236
+                self.match(XMLParser.SEA_WS)
                 pass
 
 
@@ -1502,27 +1502,27 @@ class XMLParser ( Parser ):
                 self.state = 266
                 self.match(XMLParser.Name)
                 self.state = 267
-                self.match(XMLParser.SLASH_CLOSE)
+                self.match(XMLParser.CLOSE)
+                self.state = 268
+                self.content()
+                self.state = 269
+                self.match(XMLParser.OPEN)
+                self.state = 270
+                self.match(XMLParser.SLASH)
+                self.state = 271
+                self.match(XMLParser.Name)
+                self.state = 272
+                self.match(XMLParser.CLOSE)
                 pass
 
             elif la_ == 11:
                 self.enterOuterAlt(localctx, 11)
-                self.state = 268
-                self.match(XMLParser.OPEN)
-                self.state = 269
-                self.match(XMLParser.Name)
-                self.state = 270
-                self.match(XMLParser.CLOSE)
-                self.state = 271
-                self.content()
-                self.state = 272
-                self.match(XMLParser.OPEN)
-                self.state = 273
-                self.match(XMLParser.SLASH)
                 self.state = 274
-                self.match(XMLParser.Name)
+                self.match(XMLParser.OPEN)
                 self.state = 275
-                self.match(XMLParser.CLOSE)
+                self.match(XMLParser.Name)
+                self.state = 276
+                self.match(XMLParser.SLASH_CLOSE)
                 pass
 
             elif la_ == 12:
@@ -1532,27 +1532,27 @@ class XMLParser ( Parser ):
                 self.state = 278
                 self.match(XMLParser.Name)
                 self.state = 279
-                self.match(XMLParser.SLASH_CLOSE)
+                self.match(XMLParser.CLOSE)
+                self.state = 280
+                self.content()
+                self.state = 281
+                self.match(XMLParser.OPEN)
+                self.state = 282
+                self.match(XMLParser.SLASH)
+                self.state = 283
+                self.match(XMLParser.Name)
+                self.state = 284
+                self.match(XMLParser.CLOSE)
                 pass
 
             elif la_ == 13:
                 self.enterOuterAlt(localctx, 13)
-                self.state = 280
-                self.match(XMLParser.OPEN)
-                self.state = 281
-                self.match(XMLParser.Name)
-                self.state = 282
-                self.match(XMLParser.CLOSE)
-                self.state = 283
-                self.content()
-                self.state = 284
-                self.match(XMLParser.OPEN)
-                self.state = 285
-                self.match(XMLParser.SLASH)
                 self.state = 286
-                self.match(XMLParser.Name)
+                self.match(XMLParser.OPEN)
                 self.state = 287
-                self.match(XMLParser.CLOSE)
+                self.match(XMLParser.Name)
+                self.state = 288
+                self.match(XMLParser.SLASH_CLOSE)
                 pass
 
 
@@ -1667,27 +1667,27 @@ class XMLParser ( Parser ):
                 self.state = 307
                 self.match(XMLParser.Name)
                 self.state = 308
-                self.match(XMLParser.CLOSE)
-                self.state = 309
-                self.content()
-                self.state = 310
-                self.match(XMLParser.OPEN)
-                self.state = 311
-                self.match(XMLParser.SLASH)
-                self.state = 312
-                self.match(XMLParser.Name)
-                self.state = 313
-                self.match(XMLParser.CLOSE)
+                self.match(XMLParser.SLASH_CLOSE)
                 pass
 
             elif la_ == 4:
                 self.enterOuterAlt(localctx, 4)
-                self.state = 315
+                self.state = 309
                 self.match(XMLParser.OPEN)
-                self.state = 316
+                self.state = 310
                 self.match(XMLParser.Name)
-                self.state = 317
-                self.match(XMLParser.SLASH_CLOSE)
+                self.state = 311
+                self.match(XMLParser.CLOSE)
+                self.state = 312
+                self.content()
+                self.state = 313
+                self.match(XMLParser.OPEN)
+                self.state = 314
+                self.match(XMLParser.SLASH)
+                self.state = 315
+                self.match(XMLParser.Name)
+                self.state = 316
+                self.match(XMLParser.CLOSE)
                 pass
 
             elif la_ == 5:
@@ -1697,27 +1697,27 @@ class XMLParser ( Parser ):
                 self.state = 319
                 self.match(XMLParser.Name)
                 self.state = 320
-                self.match(XMLParser.CLOSE)
-                self.state = 321
-                self.content()
-                self.state = 322
-                self.match(XMLParser.OPEN)
-                self.state = 323
-                self.match(XMLParser.SLASH)
-                self.state = 324
-                self.match(XMLParser.Name)
-                self.state = 325
-                self.match(XMLParser.CLOSE)
+                self.match(XMLParser.SLASH_CLOSE)
                 pass
 
             elif la_ == 6:
                 self.enterOuterAlt(localctx, 6)
-                self.state = 327
+                self.state = 321
                 self.match(XMLParser.OPEN)
-                self.state = 328
+                self.state = 322
                 self.match(XMLParser.Name)
-                self.state = 329
-                self.match(XMLParser.SLASH_CLOSE)
+                self.state = 323
+                self.match(XMLParser.CLOSE)
+                self.state = 324
+                self.content()
+                self.state = 325
+                self.match(XMLParser.OPEN)
+                self.state = 326
+                self.match(XMLParser.SLASH)
+                self.state = 327
+                self.match(XMLParser.Name)
+                self.state = 328
+                self.match(XMLParser.CLOSE)
                 pass
 
 
