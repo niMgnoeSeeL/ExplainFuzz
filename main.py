@@ -1,5 +1,6 @@
 from grammarinator_fuzzing.main import main as grammar_fuzz_main
 from custom_generator_sql.main import main as custom_gen_sql_main
+from GrammarRefactoring.main import refactor_grammar as grammar_refactoring_main
 import os
 from pathlib import Path
 import argparse
@@ -13,23 +14,28 @@ def fuzzing_campaign(prefix_grammar, domain, start_rule):
         first_time=True,
     )
 
-def refactoring_grammar(initial_grammar,grammar_refactored_dir):
-    # Creates a Lexer and Parser
-    start_rule = ""
-    prefix_grammar = ""
-    lexer_path = ""
-    parser_path = ""
-    return prefix_grammar,start_rule,lexer_path,parser_path
+def refactoring_grammar(domain, initial_grammar_path, grammar_name, grammar_refactored_dir):
+    grammar,parser_path,lexer_path = grammar_refactoring_main(
+        domain, initial_grammar_path, grammar_name, grammar_refactored_dir, start_rule
+    )
+    return grammar,parser_path,lexer_path 
 
-def train_pc(prefix_grammar,domain,start_rule,mode):
+def train_pc(grammar,grammar_name,domain,start_rule,mode,save_model_dir):
     model = ""
     return model
 
-def build_model(domain,initial_grammar,seeds_dir,start_rule=None):
+def build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,start_rule=None):
     # Refactoring the grammar
-    initial_grammar = "data/input/initial_grammars/"
-    grammar_refactored_dir = "data/input/grammars/"
-    prefix_grammar,start_rule = refactoring_grammar(initial_grammar,grammar_refactored_dir)
+    
+
+    grammar_refactored_dir = Path("data/intermediate/grammars/")
+    grammar_refactored_dir.mkdir(parents=True,exist_ok=True)
+
+    grammar_final_dir = Path("data/intermediate/grammars/final/")
+
+    grammar = grammar_refactoring_main(
+        domain, initial_grammar_paths, grammar_name, grammar_refactored_dir, start_rule
+    )
 
     # Fuzzing campaign
     seeds_dir = "data/input/seeds/"
@@ -44,10 +50,10 @@ def build_model(domain,initial_grammar,seeds_dir,start_rule=None):
         directory.mkdir(parents=True, exist_ok=True)
      
     grammar_fuzz_main(
-        prefix_grammar=prefix_grammar,
+        prefix_grammar=grammar_name,
         domain=domain,
         start_rule=start_rule,
-        grammar_dir = grammar_refactored_dir,
+        grammar_dir = grammar_final_dir,
         seeds_dir = seeds_dir,
         generator_dir = generator_dir,
         population_dir = population_dir,
@@ -61,8 +67,8 @@ def build_model(domain,initial_grammar,seeds_dir,start_rule=None):
     # CFG to PC
     save_model_dir = Path("data/intermediate/model")
     save_model_dir.mkdir(parents=True, exist_ok=True)
-    
-    model = train_pc(prefix_grammar,domain,start_rule,mode,save_model_dir)
+    mode = "no-generate"
+    model = train_pc(grammar,grammar_name,domain,start_rule,mode,save_model_dir)
 
     return model 
 
@@ -119,28 +125,49 @@ def generate_inputs(model,domain,mode):
 
 
 if __name__=="__main__":
-    # Test for SQL
-    prefix_grammar = "SQLSimplified"
-    domain = "SQL"
-    start_rule = "start"
-    fuzzing_campaign(prefix_grammar, domain, start_rule)
+    # # Test for SQL
+    # prefix_grammar = "SQLSimplified"
+    # domain = "SQL"
+    # start_rule = "start"
+    # fuzzing_campaign(prefix_grammar, domain, start_rule)
 
-    # Generation inputs
-    conninfo = "dbname=testdb user=bloblo password=bloblotest host=127.0.0.1 port=5432"
-    mode = "no-generate"
-    input_file_name = f"anonymized_queries_{mode.replace('-','_')}.txt"
-    query_input = os.path.join("data/intermediate/anonymized/",domain,input_file_name)
-    output_file_name = f"valid_inputs_{mode.replace('-','_')}.txt" 
-    output_dir = Path(os.path.join("data/output/",domain))
-    output_dir.mkdir(parents=True, exist_ok=True)
-    output_path = os.path.join(output_dir,output_file_name)
-    success_rate = concretization(conninfo, query_input,output_path)
-    print("The success rate is",success_rate)
+    # # Generation inputs
+    # conninfo = "dbname=testdb user=bloblo password=bloblotest host=127.0.0.1 port=5432"
+    # mode = "no-generate"
+    # input_file_name = f"anonymized_queries_{mode.replace('-','_')}.txt"
+    # query_input = os.path.join("data/intermediate/anonymized/",domain,input_file_name)
+    # output_file_name = f"valid_inputs_{mode.replace('-','_')}.txt" 
+    # output_dir = Path(os.path.join("data/output/",domain))
+    # output_dir.mkdir(parents=True, exist_ok=True)
+    # output_path = os.path.join(output_dir,output_file_name)
+    # success_rate = concretization(conninfo, query_input,output_path)
+    # print("The success rate is",success_rate)
 
   
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--prefix_grammar", type=str)
-    parser.add_argument("--domain", type=str)
-    parser.add_argument("--start_rule", type=str)
-    args = parser.parse_args()
-    # main(args.prefix_grammar, args.domain, args.start_rule)
+    # parser = argparse.ArgumentParser()
+    # parser.add_argument("--prefix_grammar", type=str)
+    # parser.add_argument("--domain", type=str)
+    # parser.add_argument("--start_rule", type=str)
+    # args = parser.parse_args()
+    # # main(args.prefix_grammar, args.domain, args.start_rule)
+
+    # domain = "CSV"
+    
+    # initial_grammar = "data/input/grammars/CSV/CSV.g4"
+    # seeds_dir = ""
+    # start_rule = "start"
+   
+
+    domain = "XML"
+    grammar_name = "XML"
+    start_rule = "document"
+    parser_path = "data/input/grammars/XML/XMLParser.g4"
+    lexer_path = "data/input/grammars/XML/XMLLexer.g4"
+    seeds_dir = "data/input/seeds/XML/"
+    grammar_dir = "data/intermediate/grammars/"
+    initial_grammar_paths =[parser_path,lexer_path]
+
+
+    build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,start_rule)
+
+

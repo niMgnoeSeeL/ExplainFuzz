@@ -4,6 +4,7 @@ data/intermediate/generated/population
 data/intermediate/generated/parser/*/*.interp
 data/intermediate/generated/parser/*/*.tokens
 data/intermediate/dataset/
+out/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
