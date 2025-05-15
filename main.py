@@ -2,8 +2,21 @@ from grammarinator_fuzzing.main import main as grammar_fuzz_main
 from custom_generator_sql.main import main as custom_gen_sql_main
 from GrammarRefactoring.main import refactor_grammar as grammar_refactoring_main
 import os
+import torch
 from pathlib import Path
 import argparse
+from cfg2pc.grammar import parse_grammar
+from cfg2pc.circuit import semi_naive_circuit
+from cfg2pc.dataset import get_tensorized_dataset_from_folder
+from cfg2pc.main import train
+
+def build_pc(grammar_path, max_length):
+    res = {}
+    grammar = parse_grammar(grammar_path)
+    circuit, lit_map = semi_naive_circuit(grammar, max_length, res)
+    model = circuit.to_torch_module(semiring="log", probabilistic=True)
+
+    return model, lit_map, res["circuit_size"]
 
 def fuzzing_campaign(prefix_grammar, domain, start_rule):
     grammar_fuzz_main(
@@ -20,11 +33,12 @@ def refactoring_grammar(domain, initial_grammar_path, grammar_name, grammar_refa
     )
     return grammar,parser_path,lexer_path 
 
-def train_pc(grammar,grammar_name,domain,start_rule,mode,save_model_dir):
-    model = ""
-    return model
+def train_pc(model, dataset, epochs):
+    res = {}
+    train(dataset, model, epochs, res)
+    return model, res["last-training-loss"]
 
-def build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,start_rule=None):
+def build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,load_pc,start_rule=None):
     # Refactoring the grammar
     
     grammar_refactored_dir = Path("data/intermediate/grammars/")
@@ -35,6 +49,8 @@ def build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,start_rule=N
     fuzz_outputs_dir = Path("data/intermediate/fuzz_outputs/")
     dataset_dir = Path("data/intermediate/dataset/")
     seeds_dir = Path("data/input/seeds/")
+    models_dir = Path("out/models/")
+    models_dir.mkdir(parents=True, exist_ok=True)
 
     for directory in [grammar_refactored_dir,grammar_final_dir,generator_dir, population_dir, gen_parser_dir, fuzz_outputs_dir, dataset_dir,seeds_dir]:
         directory.mkdir(parents=True, exist_ok=True)
@@ -66,12 +82,29 @@ def build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,start_rule=N
     )
     print("")
 
+    max_length = 20
+    nb_epochs = 10
+
     # CFG to PC
-    print("-----Building the Probabilistic Circuit----")
-    save_model_dir = Path("data/intermediate/model")
-    save_model_dir.mkdir(parents=True, exist_ok=True)
-    mode = "no-generate"
-    model = train_pc(grammar,grammar_name,domain,start_rule,mode,save_model_dir)
+    if load_pc == None:
+        print("-----Building the Probabilistic Circuit----")
+        save_model_dir = Path("data/intermediate/model")
+        save_model_dir.mkdir(parents=True, exist_ok=True)
+        mode = "no-generate"
+        #model = train_pc(grammar,grammar_name,domain,start_rule,mode,save_model_dir)
+        model, lit_map, size = build_pc(f"{grammar_final_dir}/{grammar_name}/{grammar_name}Parser.g4", max_length)
+        model.size = size
+        # train here
+        train_path = f"{dataset_dir}/{domain}/no-generate/train"
+        # this is not the right function to load datasets
+        #train = get_tensorized_dataset_from_folder(train_path, grammar, max_length, lit_map)
+        print(f"-> Loaded training dataset from {train_path} of length {len(train)}")
+        torch.save(model, f"{models_dir}/{domain}_{max_length}.pt")
+        model, loss = train_pc(model, train, nb_epochs)
+        print(f"-> Trained Circuit over {nb_epochs} epochs with loss={loss}")
+    else:
+        model = torch.load(load_pc, weights_only=False)
+        print(f"-> Circuit loaded with {model.size} nodes")
 
     return model 
 
@@ -125,41 +158,7 @@ def generate_inputs(model,domain,mode):
 
     return output_path,success_rate
 
-
-
-if __name__=="__main__":
-    # # Test for SQL
-    # prefix_grammar = "SQLSimplified"
-    # domain = "SQL"
-    # start_rule = "start"
-    # fuzzing_campaign(prefix_grammar, domain, start_rule)
-
-    # # Generation inputs
-    # conninfo = "dbname=testdb user=bloblo password=bloblotest host=127.0.0.1 port=5432"
-    # mode = "no-generate"
-    # input_file_name = f"anonymized_queries_{mode.replace('-','_')}.txt"
-    # query_input = os.path.join("data/intermediate/anonymized/",domain,input_file_name)
-    # output_file_name = f"valid_inputs_{mode.replace('-','_')}.txt" 
-    # output_dir = Path(os.path.join("data/output/",domain))
-    # output_dir.mkdir(parents=True, exist_ok=True)
-    # output_path = os.path.join(output_dir,output_file_name)
-    # success_rate = concretization(conninfo, query_input,output_path)
-    # print("The success rate is",success_rate)
-
-  
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument("--prefix_grammar", type=str)
-    # parser.add_argument("--domain", type=str)
-    # parser.add_argument("--start_rule", type=str)
-    # args = parser.parse_args()
-    # # main(args.prefix_grammar, args.domain, args.start_rule)
-
-    # domain = "CSV"
-    
-    # initial_grammar = "data/input/grammars/CSV/CSV.g4"
-    # seeds_dir = ""
-    # start_rule = "start"
-   
+if __name__=="__main__": 
 
     domain = "XML"
     grammar_name = "XML"
@@ -168,9 +167,8 @@ if __name__=="__main__":
     lexer_path = "data/input/grammars/XML/XMLLexer.g4"
     seeds_dir = "data/input/seeds/XML/"
     grammar_dir = "data/intermediate/grammars/"
+    load_pc = None
     initial_grammar_paths =[parser_path,lexer_path]
 
 
-    build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,start_rule)
-
-
+    build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,load_pc,start_rule)
