@@ -44,6 +44,15 @@ class CSVParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by CSVParser#terminal1_question.
+    def enterTerminal1_question(self, ctx:CSVParser.Terminal1_questionContext):
+        pass
+
+    # Exit a parse tree produced by CSVParser#terminal1_question.
+    def exitTerminal1_question(self, ctx:CSVParser.Terminal1_questionContext):
+        pass
+
+
     # Enter a parse tree produced by CSVParser#block_0_star.
     def enterBlock_0_star(self, ctx:CSVParser.Block_0_starContext):
         pass

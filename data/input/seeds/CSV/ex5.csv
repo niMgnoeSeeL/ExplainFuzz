@@ -1,0 +1,5 @@
+TransactionID,Date,Customer,Item,Amount
+T001,2025-05-10,John Doe,Keyboard,45.00
+T002,2025-05-11,Jane Roe,Headphones,89.99
+T003,2025-05-12,Bob Stone,Laptop,999.00 
+

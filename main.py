@@ -5,7 +5,7 @@ import os
 import torch
 from pathlib import Path
 import argparse
-from cfg2pc.main import main as cfg2pc_main
+from cfg2pc.main import main_build_train_model
 
 
 def fuzzing_campaign(prefix_grammar, domain, start_rule):
@@ -19,7 +19,13 @@ def fuzzing_campaign(prefix_grammar, domain, start_rule):
 
 
 def build_model(
-    domain, grammar_name, initial_grammar_paths, seeds_dir, load_pc, start_rule=None
+    domain,
+    grammar_name,
+    initial_grammar_paths,
+    seeds_dir,
+    load_pc,
+    start_rule=None,
+    first_time=True,
 ):
     # Refactoring the grammar
 
@@ -58,12 +64,11 @@ def build_model(
         start_rule,
     )
     print("")
-    return
 
     # Fuzzing campaign
     print("-----Fuzzing Campaign-----")
     print("")
-    grammar_fuzz_main(
+    lexer_cls = grammar_fuzz_main(
         prefix_grammar=grammar_name,
         domain=domain,
         start_rule=start_rule,
@@ -86,15 +91,21 @@ def build_model(
     print("-----Building the Probabilistic Circuit----")
     save_model_dir = Path("data/intermediate/model")
     save_model_dir.mkdir(parents=True, exist_ok=True)
+    model_save_path = save_model_dir / domain
     mode = "no-generate"
-    cfg2pc_main(
-        f"{grammar_final_dir}/{domain}/{domain}Parser.g4",
-        f"{dataset_dir}/{domain}/no-generate/train",
-        f"{models_dir}/{domain}_{max_length}.pt",
-        max_length,
-        nb_epochs,
-        load_pc,
+    trainingset_dir = os.path.join(dataset_dir, domain, mode, "train")
+
+    main_build_train_model(
+        grammar, trainingset_dir, model_save_path, max_length, lexer_cls, nb_epochs
     )
+    # cfg2pc_main(
+    #     f"{grammar_final_dir}/{domain}/{domain}Parser.g4",
+    #     f"{dataset_dir}/{domain}/no-generate/train",
+    #     f"{models_dir}/{domain}_{max_length}.pt",
+    #     max_length,
+    #     nb_epochs,
+    #     load_pc,
+    # )
 
 
 def get_pre_trained_model(domain, mode, save_model_dir):
@@ -171,7 +182,7 @@ if __name__ == "__main__":
     seeds_dir = "data/input/seeds/CSV/"
     grammar_dir = "data/intermediate/grammars/"
     load_pc = None
-    initial_grammar_paths = [parser_path, lexer_path]
+    initial_grammar_paths = [parser_path]
 
     build_model(
         domain, grammar_name, initial_grammar_paths, seeds_dir, load_pc, start_rule
