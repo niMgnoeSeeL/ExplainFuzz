@@ -5,18 +5,7 @@ import os
 import torch
 from pathlib import Path
 import argparse
-from cfg2pc.grammar import parse_grammar
-from cfg2pc.circuit import semi_naive_circuit
-from cfg2pc.dataset import get_tensorized_dataset_from_folder
-from cfg2pc.main import train
-
-def build_pc(grammar_path, max_length):
-    res = {}
-    grammar = parse_grammar(grammar_path)
-    circuit, lit_map = semi_naive_circuit(grammar, max_length, res)
-    model = circuit.to_torch_module(semiring="log", probabilistic=True)
-
-    return model, lit_map, res["circuit_size"]
+from cfg2pc.main import main as cfg2pc_main
 
 def fuzzing_campaign(prefix_grammar, domain, start_rule):
     grammar_fuzz_main(
@@ -32,11 +21,6 @@ def refactoring_grammar(domain, initial_grammar_path, grammar_name, grammar_refa
         domain, initial_grammar_path, grammar_name, grammar_refactored_dir,parser_generated_dir, start_rule
     )
     return grammar,parser_path,lexer_path 
-
-def train_pc(model, dataset, epochs):
-    res = {}
-    train(dataset, model, epochs, res)
-    return model, res["last-training-loss"]
 
 def build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,load_pc,start_rule=None):
     # Refactoring the grammar
@@ -86,27 +70,17 @@ def build_model(domain,grammar_name,initial_grammar_paths,seeds_dir,load_pc,star
     nb_epochs = 10
 
     # CFG to PC
-    if load_pc == None:
-        print("-----Building the Probabilistic Circuit----")
-        save_model_dir = Path("data/intermediate/model")
-        save_model_dir.mkdir(parents=True, exist_ok=True)
-        mode = "no-generate"
-        #model = train_pc(grammar,grammar_name,domain,start_rule,mode,save_model_dir)
-        model, lit_map, size = build_pc(f"{grammar_final_dir}/{grammar_name}/{grammar_name}Parser.g4", max_length)
-        model.size = size
-        # train here
-        train_path = f"{dataset_dir}/{domain}/no-generate/train"
-        # this is not the right function to load datasets
-        #train = get_tensorized_dataset_from_folder(train_path, grammar, max_length, lit_map)
-        print(f"-> Loaded training dataset from {train_path} of length {len(train)}")
-        torch.save(model, f"{models_dir}/{domain}_{max_length}.pt")
-        model, loss = train_pc(model, train, nb_epochs)
-        print(f"-> Trained Circuit over {nb_epochs} epochs with loss={loss}")
-    else:
-        model = torch.load(load_pc, weights_only=False)
-        print(f"-> Circuit loaded with {model.size} nodes")
-
-    return model 
+    print("-----Building the Probabilistic Circuit----")
+    save_model_dir = Path("data/intermediate/model")
+    save_model_dir.mkdir(parents=True, exist_ok=True)
+    mode = "no-generate"
+    cfg2pc_main(f"{grammar_final_dir}/{domain}/{domain}Parser.g4", 
+        f"{dataset_dir}/{domain}/no-generate/train", 
+        f"{models_dir}/{domain}_{max_length}.pt",
+        max_length, 
+        nb_epochs,
+        load_pc
+    )
 
 def get_pre_trained_model(domain,mode,save_model_dir):
     # Load the model
