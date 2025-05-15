@@ -11,3 +11,4 @@ torch
 numpy
 klaycircuits @ git+https://github.com/ML-KULeuven/klay@main
 transformers
+gradio
