@@ -1,8 +1,8 @@
 lexer grammar CSVLexer;
 
-TERMINAL0 : ',' ;
-TERMINAL1 : '\r' ;
-TERMINAL2 : '\n' ;
+TERM_0 : ',' ;
+TERM_1 : '\r' ;
+TERM_2 : '\n' ;
 
 TEXT : ~ [,\n\r"]+ ;
 STRING : '"' ( '""' | ~ '"' )* '"' ;

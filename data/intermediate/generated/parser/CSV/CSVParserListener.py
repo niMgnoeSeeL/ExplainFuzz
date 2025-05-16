@@ -44,12 +44,12 @@ class CSVParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by CSVParser#terminal1_question.
-    def enterTerminal1_question(self, ctx:CSVParser.Terminal1_questionContext):
+    # Enter a parse tree produced by CSVParser#term_1_question.
+    def enterTerm_1_question(self, ctx:CSVParser.Term_1_questionContext):
         pass
 
-    # Exit a parse tree produced by CSVParser#terminal1_question.
-    def exitTerminal1_question(self, ctx:CSVParser.Terminal1_questionContext):
+    # Exit a parse tree produced by CSVParser#term_1_question.
+    def exitTerm_1_question(self, ctx:CSVParser.Term_1_questionContext):
         pass
 
 

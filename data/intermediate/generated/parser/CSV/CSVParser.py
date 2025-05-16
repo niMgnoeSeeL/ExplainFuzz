@@ -47,25 +47,25 @@ class CSVParser ( Parser ):
 
     literalNames = [ "<INVALID>", "','", "'\\r'", "'\\n'" ]
 
-    symbolicNames = [ "<INVALID>", "TERMINAL0", "TERMINAL1", "TERMINAL2", 
-                      "TEXT", "STRING" ]
+    symbolicNames = [ "<INVALID>", "TERM_0", "TERM_1", "TERM_2", "TEXT", 
+                      "STRING" ]
 
     RULE_csvFile = 0
     RULE_row_plus = 1
     RULE_block_0 = 2
     RULE_row = 3
-    RULE_terminal1_question = 4
+    RULE_term_1_question = 4
     RULE_block_0_star = 5
     RULE_field = 6
     RULE_hdr = 7
 
-    ruleNames =  [ "csvFile", "row_plus", "block_0", "row", "terminal1_question", 
+    ruleNames =  [ "csvFile", "row_plus", "block_0", "row", "term_1_question", 
                    "block_0_star", "field", "hdr" ]
 
     EOF = Token.EOF
-    TERMINAL0=1
-    TERMINAL1=2
-    TERMINAL2=3
+    TERM_0=1
+    TERM_1=2
+    TERM_2=3
     TEXT=4
     STRING=5
 
@@ -154,12 +154,12 @@ class CSVParser ( Parser ):
             return self.getTypedRuleContext(CSVParser.Block_0_starContext,0)
 
 
-        def terminal1_question(self):
-            return self.getTypedRuleContext(CSVParser.Terminal1_questionContext,0)
+        def term_1_question(self):
+            return self.getTypedRuleContext(CSVParser.Term_1_questionContext,0)
 
 
-        def TERMINAL2(self):
-            return self.getToken(CSVParser.TERMINAL2, 0)
+        def TERM_2(self):
+            return self.getToken(CSVParser.TERM_2, 0)
 
         def getRuleIndex(self):
             return CSVParser.RULE_row_plus
@@ -198,9 +198,9 @@ class CSVParser ( Parser ):
                 self.state = 24
                 self.block_0_star()
                 self.state = 25
-                self.terminal1_question()
+                self.term_1_question()
                 self.state = 26
-                self.match(CSVParser.TERMINAL2)
+                self.match(CSVParser.TERM_2)
                 pass
 
             elif la_ == 3:
@@ -208,9 +208,9 @@ class CSVParser ( Parser ):
                 self.state = 28
                 self.field()
                 self.state = 29
-                self.terminal1_question()
+                self.term_1_question()
                 self.state = 30
-                self.match(CSVParser.TERMINAL2)
+                self.match(CSVParser.TERM_2)
                 pass
 
 
@@ -230,8 +230,8 @@ class CSVParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def TERMINAL0(self):
-            return self.getToken(CSVParser.TERMINAL0, 0)
+        def TERM_0(self):
+            return self.getToken(CSVParser.TERM_0, 0)
 
         def field(self):
             return self.getTypedRuleContext(CSVParser.FieldContext,0)
@@ -258,7 +258,7 @@ class CSVParser ( Parser ):
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 34
-            self.match(CSVParser.TERMINAL0)
+            self.match(CSVParser.TERM_0)
             self.state = 35
             self.field()
         except RecognitionException as re:
@@ -285,12 +285,12 @@ class CSVParser ( Parser ):
             return self.getTypedRuleContext(CSVParser.Block_0_starContext,0)
 
 
-        def terminal1_question(self):
-            return self.getTypedRuleContext(CSVParser.Terminal1_questionContext,0)
+        def term_1_question(self):
+            return self.getTypedRuleContext(CSVParser.Term_1_questionContext,0)
 
 
-        def TERMINAL2(self):
-            return self.getToken(CSVParser.TERMINAL2, 0)
+        def TERM_2(self):
+            return self.getToken(CSVParser.TERM_2, 0)
 
         def getRuleIndex(self):
             return CSVParser.RULE_row
@@ -321,9 +321,9 @@ class CSVParser ( Parser ):
                 self.state = 38
                 self.block_0_star()
                 self.state = 39
-                self.terminal1_question()
+                self.term_1_question()
                 self.state = 40
-                self.match(CSVParser.TERMINAL2)
+                self.match(CSVParser.TERM_2)
                 pass
 
             elif la_ == 2:
@@ -331,9 +331,9 @@ class CSVParser ( Parser ):
                 self.state = 42
                 self.field()
                 self.state = 43
-                self.terminal1_question()
+                self.term_1_question()
                 self.state = 44
-                self.match(CSVParser.TERMINAL2)
+                self.match(CSVParser.TERM_2)
                 pass
 
 
@@ -346,34 +346,34 @@ class CSVParser ( Parser ):
         return localctx
 
 
-    class Terminal1_questionContext(ParserRuleContext):
+    class Term_1_questionContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def TERMINAL1(self):
-            return self.getToken(CSVParser.TERMINAL1, 0)
+        def TERM_1(self):
+            return self.getToken(CSVParser.TERM_1, 0)
 
         def getRuleIndex(self):
-            return CSVParser.RULE_terminal1_question
+            return CSVParser.RULE_term_1_question
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterTerminal1_question" ):
-                listener.enterTerminal1_question(self)
+            if hasattr( listener, "enterTerm_1_question" ):
+                listener.enterTerm_1_question(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitTerminal1_question" ):
-                listener.exitTerminal1_question(self)
+            if hasattr( listener, "exitTerm_1_question" ):
+                listener.exitTerm_1_question(self)
 
 
 
 
-    def terminal1_question(self):
+    def term_1_question(self):
 
-        localctx = CSVParser.Terminal1_questionContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 8, self.RULE_terminal1_question)
+        localctx = CSVParser.Term_1_questionContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_term_1_question)
         try:
             self.state = 50
             self._errHandler.sync(self)
@@ -381,7 +381,7 @@ class CSVParser ( Parser ):
             if token in [2]:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 48
-                self.match(CSVParser.TERMINAL1)
+                self.match(CSVParser.TERM_1)
                 pass
             elif token in [3]:
                 self.enterOuterAlt(localctx, 2)
@@ -414,8 +414,8 @@ class CSVParser ( Parser ):
             return self.getTypedRuleContext(CSVParser.Block_0_starContext,0)
 
 
-        def TERMINAL0(self):
-            return self.getToken(CSVParser.TERMINAL0, 0)
+        def TERM_0(self):
+            return self.getToken(CSVParser.TERM_0, 0)
 
         def field(self):
             return self.getTypedRuleContext(CSVParser.FieldContext,0)
@@ -454,7 +454,7 @@ class CSVParser ( Parser ):
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 55
-                self.match(CSVParser.TERMINAL0)
+                self.match(CSVParser.TERM_0)
                 self.state = 56
                 self.field()
                 pass
@@ -545,12 +545,12 @@ class CSVParser ( Parser ):
             return self.getTypedRuleContext(CSVParser.Block_0_starContext,0)
 
 
-        def terminal1_question(self):
-            return self.getTypedRuleContext(CSVParser.Terminal1_questionContext,0)
+        def term_1_question(self):
+            return self.getTypedRuleContext(CSVParser.Term_1_questionContext,0)
 
 
-        def TERMINAL2(self):
-            return self.getToken(CSVParser.TERMINAL2, 0)
+        def TERM_2(self):
+            return self.getToken(CSVParser.TERM_2, 0)
 
         def getRuleIndex(self):
             return CSVParser.RULE_hdr
@@ -581,9 +581,9 @@ class CSVParser ( Parser ):
                 self.state = 65
                 self.block_0_star()
                 self.state = 66
-                self.terminal1_question()
+                self.term_1_question()
                 self.state = 67
-                self.match(CSVParser.TERMINAL2)
+                self.match(CSVParser.TERM_2)
                 pass
 
             elif la_ == 2:
@@ -591,9 +591,9 @@ class CSVParser ( Parser ):
                 self.state = 69
                 self.field()
                 self.state = 70
-                self.terminal1_question()
+                self.term_1_question()
                 self.state = 71
-                self.match(CSVParser.TERMINAL2)
+                self.match(CSVParser.TERM_2)
                 pass
 
 

@@ -30,9 +30,9 @@ class CSVLexer(Lexer):
 
     decisionsToDFA = [ DFA(ds, i) for i, ds in enumerate(atn.decisionToState) ]
 
-    TERMINAL0 = 1
-    TERMINAL1 = 2
-    TERMINAL2 = 3
+    TERM_0 = 1
+    TERM_1 = 2
+    TERM_2 = 3
     TEXT = 4
     STRING = 5
 
@@ -44,9 +44,9 @@ class CSVLexer(Lexer):
             "','", "'\\r'", "'\\n'" ]
 
     symbolicNames = [ "<INVALID>",
-            "TERMINAL0", "TERMINAL1", "TERMINAL2", "TEXT", "STRING" ]
+            "TERM_0", "TERM_1", "TERM_2", "TEXT", "STRING" ]
 
-    ruleNames = [ "TERMINAL0", "TERMINAL1", "TERMINAL2", "TEXT", "STRING" ]
+    ruleNames = [ "TERM_0", "TERM_1", "TERM_2", "TEXT", "STRING" ]
 
     grammarFileName = "CSVLexer.g4"
 
