@@ -154,7 +154,6 @@ def build_model(
         first_time=True,
     )
     print("")
-
     # Build PC model
     print("-----Building the Probabilistic Circuit----")
 
@@ -313,32 +312,25 @@ def generate_inputs(model, domain, mode):
 
 
 if __name__ == "__main__":
-    # domain = "CSV"
-    # grammar_name = "CSV"
-    # start_rule = "csvFile"
-    # parser_path = Path("data/input/grammars/CSV/CSV.g4")
-    # seeds_dir = SEEDS_DIR / domain
-    # initial_grammar_paths = [parser_path]
-    # load_pc = None
-
-    domain = "XML"
-    grammar_name = "XML"
-    start_rule = "document"
-    parser_path = Path("data/input/grammars/XML/XMLParser.g4")
-    lexer_path = Path("data/input/grammars/XML/XMLLexer.g4")
+    domain = "HTML"
+    grammar_name = "HTML"
+    start_rule = "htmlDocument"
+    parser_path = Path("data/input/grammars/HTML/HTMLParser.g4")
+    lexer_path = Path("data/input/grammars/HTML/HTMLLexer.g4")
     seeds_dir = SEEDS_DIR / domain
     initial_grammar_paths = [parser_path, lexer_path]
+    load_pc = None
 
-    num_inputs = 10000
-    max_length = 40
-    # build_model(
-    #     domain,
-    #     grammar_name,
-    #     initial_grammar_paths,
-    #     max_length,
-    #     start_rule,
-    #     num_inputs,
-    # )
+    num_inputs = 10
+    max_length = 50
+    build_model(
+        domain,
+        grammar_name,
+        initial_grammar_paths,
+        max_length,
+        start_rule,
+        num_inputs,
+    )
 
     mode = "with-generate"
     sample_inputs(domain, mode, 200, max_length)
