@@ -1,0 +1,30 @@
+[
+  {
+    "method": "PC",
+    "nb_training_queries": 8992,
+    "last-training-loss": 4.998431485928463,
+    "nb_epochs": 10,
+    "nb_test_queries": 1000,
+    "avg-loglikelihood": 5.282873046875,
+    "time_building_circuit": 0.7387709617614746,
+    "train_time": 1592.5233852863312,
+    "circuit_size": 315435,
+    "domain": "CSV",
+    "mode": "no-generate",
+    "max_length": 50
+  },
+  {
+    "method": "PC",
+    "nb_training_queries": 8983,
+    "last-training-loss": 7.331457048963096,
+    "nb_epochs": 10,
+    "nb_test_queries": 996,
+    "avg-loglikelihood": 8.587229778488956,
+    "time_building_circuit": 0.5990509986877441,
+    "train_time": 1548.1178331375122,
+    "circuit_size": 315435,
+    "domain": "CSV",
+    "mode": "with-generate",
+    "max_length": 50
+  }
+]
