@@ -26,5 +26,33 @@
     "domain": "CSV",
     "mode": "with-generate",
     "max_length": 50
+  },
+  {
+    "method": "PC",
+    "nb_training_queries": 2181,
+    "last-training-loss": 2.0178729028452542,
+    "nb_epochs": 10,
+    "nb_test_queries": 243,
+    "avg-loglikelihood": 1.9999594354825745,
+    "time_building_circuit": 7.825210094451904,
+    "train_time": 973.1066761016846,
+    "circuit_size": 1038960,
+    "domain": "XML",
+    "mode": "no-generate",
+    "max_length": 40
+  },
+  {
+    "method": "PC",
+    "nb_training_queries": 2182,
+    "last-training-loss": 3.7578229219076507,
+    "nb_epochs": 10,
+    "nb_test_queries": 253,
+    "avg-loglikelihood": 4.405290807188735,
+    "time_building_circuit": 7.3302600383758545,
+    "train_time": 625.653980255127,
+    "circuit_size": 1038960,
+    "domain": "XML",
+    "mode": "with-generate",
+    "max_length": 40
   }
 ]

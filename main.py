@@ -110,28 +110,28 @@ def build_model(
     ]
     ensure_directories_exist(refactoring_dirs)
 
-    # grammar = grammar_refactoring_main(
-    #     initial_grammar_paths,
-    #     grammar_name,
-    #     intermediate_dir,
-    #     refactored_dir,
-    #     final_dir,
-    #     antlr_output_dir,
-    #     seeds_dir,
-    #     start_rule,
-    # )
+    grammar = grammar_refactoring_main(
+        initial_grammar_paths,
+        grammar_name,
+        intermediate_dir,
+        refactored_dir,
+        final_dir,
+        antlr_output_dir,
+        seeds_dir,
+        start_rule,
+    )
 
     # Analyze the grammar - compute metrics
     parser_final_file_path = final_dir / f"{grammar_name}Parser.g4"
-    # grammar_metrics = analyze_antlr_grammar(parser_final_file_path)
-    # grammar_metrics["domain"] = domain
-    # results_grammar_dir = RESULTS_DIR / "grammars"
-    # save_results(results_grammar_dir, grammar_metrics, "results_grammars.json")
-    # print("")
+    grammar_metrics = analyze_antlr_grammar(parser_final_file_path)
+    grammar_metrics["domain"] = domain
+    results_grammar_dir = RESULTS_DIR / "grammars"
+    save_results(results_grammar_dir, grammar_metrics, "results_grammars.json")
+    print("")
 
     # Fuzzing campaign
-    # print("-----Fuzzing Campaign-----")
-    # print("")
+    print("-----Fuzzing Campaign-----")
+    print("")
 
     generator_dir = GENERATOR_DIR / domain
     population_dir = POPULATION_DIR / domain
@@ -140,20 +140,20 @@ def build_model(
     fuzzing_dirs = [generator_dir, population_dir, fuzz_outputs_dir, dataset_dir]
     ensure_directories_exist(fuzzing_dirs)
 
-    # grammar_fuzz_main(
-    #     prefix_grammar=grammar_name,
-    #     start_rule=start_rule,
-    #     grammar_dir=final_dir,
-    #     seeds_dir=seeds_dir,
-    #     generator_dir=generator_dir,
-    #     population_dir=population_dir,
-    #     gen_parser_dir=antlr_output_dir,
-    #     fuzz_outputs_dir=fuzz_outputs_dir,
-    #     dataset_dir=dataset_dir,
-    #     num_inputs=num_inputs,
-    #     first_time=True,
-    # )
-    # print("")
+    grammar_fuzz_main(
+        prefix_grammar=grammar_name,
+        start_rule=start_rule,
+        grammar_dir=final_dir,
+        seeds_dir=seeds_dir,
+        generator_dir=generator_dir,
+        population_dir=population_dir,
+        gen_parser_dir=antlr_output_dir,
+        fuzz_outputs_dir=fuzz_outputs_dir,
+        dataset_dir=dataset_dir,
+        num_inputs=num_inputs,
+        first_time=True,
+    )
+    print("")
 
     # Build PC model
     print("-----Building the Probabilistic Circuit----")
@@ -161,12 +161,11 @@ def build_model(
     nb_epochs = 10
     model_save_dir = MODEL_DIR / domain
 
-    # for mode in ["no-generate", "with-generate"]:
-    for mode in ["with-generate"]:
+    for mode in ["no-generate", "with-generate"]:
         print(
             f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
         )
-        model_save_path = model_save_dir / f"{domain}-{mode}.pt"
+        model_save_path = model_save_dir / f"{domain}-{mode}-{max_length}.pt"
         trainingset_dir = dataset_dir / mode / "train"
         testingset_dir = dataset_dir / mode / "test"
         ensure_directories_exist([model_save_dir, trainingset_dir, testingset_dir])
@@ -279,8 +278,8 @@ def concretization(conninfo, anonymized_queries, output_path):
     )
 
 
-def sample_inputs(domain, mode, nb_inputs):
-    model_save_path = MODEL_DIR / domain / f"{domain}-{mode}.pt"
+def sample_inputs(domain, mode, nb_inputs, max_length):
+    model_save_path = MODEL_DIR / domain / f"{domain}-{mode}-{max_length}.pt"
     output_dir = SAMPLES_DIR / domain / mode
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"anonymized_inputs_{mode.replace('-','_')}.txt"
@@ -314,36 +313,44 @@ def generate_inputs(model, domain, mode):
 
 
 if __name__ == "__main__":
-    domain = "CSV"
-    grammar_name = "CSV"
-    start_rule = "csvFile"
-    parser_path = Path("data/input/grammars/CSV/CSV.g4")
+    # domain = "CSV"
+    # grammar_name = "CSV"
+    # start_rule = "csvFile"
+    # parser_path = Path("data/input/grammars/CSV/CSV.g4")
+    # seeds_dir = SEEDS_DIR / domain
+    # initial_grammar_paths = [parser_path]
+    # load_pc = None
+
+    domain = "XML"
+    grammar_name = "XML"
+    start_rule = "document"
+    parser_path = Path("data/input/grammars/XML/XMLParser.g4")
+    lexer_path = Path("data/input/grammars/XML/XMLLexer.g4")
     seeds_dir = SEEDS_DIR / domain
-    initial_grammar_paths = [parser_path]
-    load_pc = None
+    initial_grammar_paths = [parser_path, lexer_path]
 
     num_inputs = 10000
-    max_length = 50
-    build_model(
-        domain,
-        grammar_name,
-        initial_grammar_paths,
-        max_length,
-        start_rule,
-        num_inputs,
-    )
+    max_length = 40
+    # build_model(
+    #     domain,
+    #     grammar_name,
+    #     initial_grammar_paths,
+    #     max_length,
+    #     start_rule,
+    #     num_inputs,
+    # )
 
-    # mode = "no-generate"
-    # sample_inputs(domain, mode, 200)
+    mode = "with-generate"
+    sample_inputs(domain, mode, 200, max_length)
 
-    dataset_dir = DATASET_DIR / domain
-    antlr_output_dir = GEN_PARSER_DIR / domain
-    parser_final_file_path = GRAMMAR_FINAL_DIR / domain / f"{grammar_name}Parser.g4"
-    evaluate_PC(
-        domain,
-        dataset_dir,
-        grammar_name,
-        antlr_output_dir,
-        parser_final_file_path,
-        max_time=300,
-    )
+    # dataset_dir = DATASET_DIR / domain
+    # antlr_output_dir = GEN_PARSER_DIR / domain
+    # parser_final_file_path = GRAMMAR_FINAL_DIR / domain / f"{grammar_name}Parser.g4"
+    # evaluate_PC(
+    #     domain,
+    #     dataset_dir,
+    #     grammar_name,
+    #     antlr_output_dir,
+    #     parser_final_file_path,
+    #     max_time=300,
+    # )

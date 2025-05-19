@@ -1,4 +1,4 @@
-# Generated from XMLLexer.g4 by ANTLR 4.11.1
+# Generated from /Users/annaellebaiget/Desktop/MS_Thesis/ExplainFuzz/data/intermediate/grammars/final/XML/XMLLexer.g4 by ANTLR 4.11.1
 from antlr4 import *
 from io import StringIO
 import sys

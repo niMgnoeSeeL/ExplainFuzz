@@ -22,5 +22,89 @@
     "num_recursive_rules": 2,
     "percent_recursive": 0.25,
     "domain": "CSV"
+  },
+  {
+    "num_rules": 15,
+    "num_productions": 86,
+    "num_terminals": 17,
+    "num_nonterminals": 11,
+    "avg_production_length": 3.011627906976744,
+    "avg_arity": 5.733333333333333,
+    "max_arity": 17,
+    "num_recursive_rules": 4,
+    "percent_recursive": 0.26666666666666666,
+    "domain": "XML"
+  },
+  {
+    "num_rules": 15,
+    "num_productions": 86,
+    "num_terminals": 17,
+    "num_nonterminals": 11,
+    "avg_production_length": 3.011627906976744,
+    "avg_arity": 5.733333333333333,
+    "max_arity": 17,
+    "num_recursive_rules": 4,
+    "percent_recursive": 0.26666666666666666,
+    "domain": "XML"
+  },
+  {
+    "num_rules": 15,
+    "num_productions": 86,
+    "num_terminals": 17,
+    "num_nonterminals": 11,
+    "avg_production_length": 3.011627906976744,
+    "avg_arity": 5.733333333333333,
+    "max_arity": 17,
+    "num_recursive_rules": 4,
+    "percent_recursive": 0.26666666666666666,
+    "domain": "XML"
+  },
+  {
+    "num_rules": 15,
+    "num_productions": 86,
+    "num_terminals": 17,
+    "num_nonterminals": 11,
+    "avg_production_length": 3.011627906976744,
+    "avg_arity": 5.733333333333333,
+    "max_arity": 17,
+    "num_recursive_rules": 4,
+    "percent_recursive": 0.26666666666666666,
+    "domain": "XML"
+  },
+  {
+    "num_rules": 15,
+    "num_productions": 86,
+    "num_terminals": 17,
+    "num_nonterminals": 11,
+    "avg_production_length": 3.011627906976744,
+    "avg_arity": 5.733333333333333,
+    "max_arity": 17,
+    "num_recursive_rules": 4,
+    "percent_recursive": 0.26666666666666666,
+    "domain": "XML"
+  },
+  {
+    "num_rules": 15,
+    "num_productions": 86,
+    "num_terminals": 17,
+    "num_nonterminals": 11,
+    "avg_production_length": 3.011627906976744,
+    "avg_arity": 5.733333333333333,
+    "max_arity": 17,
+    "num_recursive_rules": 4,
+    "percent_recursive": 0.26666666666666666,
+    "domain": "XML"
+  },
+  {
+    "num_rules": 15,
+    "num_productions": 86,
+    "num_terminals": 17,
+    "num_nonterminals": 11,
+    "avg_production_length": 3.011627906976744,
+    "avg_arity": 5.733333333333333,
+    "max_arity": 17,
+    "num_recursive_rules": 4,
+    "percent_recursive": 0.26666666666666666,
+    "domain": "XML"
   }
 ]

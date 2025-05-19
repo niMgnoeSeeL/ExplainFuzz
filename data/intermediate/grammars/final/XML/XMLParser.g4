@@ -31,10 +31,10 @@ block_2 : CDATA
 | OPEN Name attribute_star SLASH_CLOSE 
 | EntityRef 
 | CharRef 
-| OPEN Name CLOSE content OPEN SLASH Name CLOSE 
 | OPEN Name SLASH_CLOSE 
 | OPEN Name CLOSE content OPEN SLASH Name CLOSE 
-| OPEN Name SLASH_CLOSE ;
+| OPEN Name SLASH_CLOSE 
+| OPEN Name CLOSE content OPEN SLASH Name CLOSE ;
 
 block_0 : block_2 chardata_question 
 | CDATA 
@@ -44,14 +44,16 @@ block_0 : block_2 chardata_question
 | OPEN Name attribute_star SLASH_CLOSE 
 | EntityRef 
 | CharRef 
-| OPEN Name CLOSE content OPEN SLASH Name CLOSE 
 | OPEN Name SLASH_CLOSE 
 | OPEN Name CLOSE content OPEN SLASH Name CLOSE 
-| OPEN Name SLASH_CLOSE ;
+| OPEN Name SLASH_CLOSE 
+| OPEN Name CLOSE content OPEN SLASH Name CLOSE ;
 
 content : chardata_question block_0_star 
 | block_0 block_0_star 
 |  
+| TEXT 
+| SEA_WS 
 | block_2 chardata_question 
 | CDATA 
 | PI 
@@ -60,12 +62,10 @@ content : chardata_question block_0_star
 | OPEN Name attribute_star SLASH_CLOSE 
 | EntityRef 
 | CharRef 
-| OPEN Name CLOSE content OPEN SLASH Name CLOSE 
 | OPEN Name SLASH_CLOSE 
 | OPEN Name CLOSE content OPEN SLASH Name CLOSE 
 | OPEN Name SLASH_CLOSE 
-| TEXT 
-| SEA_WS ;
+| OPEN Name CLOSE content OPEN SLASH Name CLOSE ;
 
 block_0_star : block_0 block_0_star 
 | block_2 chardata_question 
@@ -76,17 +76,17 @@ block_0_star : block_0 block_0_star
 | OPEN Name attribute_star SLASH_CLOSE 
 | EntityRef 
 | CharRef 
-| OPEN Name CLOSE content OPEN SLASH Name CLOSE 
-| OPEN Name SLASH_CLOSE 
-| OPEN Name CLOSE content OPEN SLASH Name CLOSE 
-| OPEN Name SLASH_CLOSE ;
-
-element : OPEN Name attribute_star CLOSE content OPEN SLASH Name CLOSE 
-| OPEN Name attribute_star SLASH_CLOSE 
 | OPEN Name SLASH_CLOSE 
 | OPEN Name CLOSE content OPEN SLASH Name CLOSE 
 | OPEN Name SLASH_CLOSE 
 | OPEN Name CLOSE content OPEN SLASH Name CLOSE ;
+
+element : OPEN Name attribute_star CLOSE content OPEN SLASH Name CLOSE 
+| OPEN Name attribute_star SLASH_CLOSE 
+| OPEN Name CLOSE content OPEN SLASH Name CLOSE 
+| OPEN Name SLASH_CLOSE 
+| OPEN Name CLOSE content OPEN SLASH Name CLOSE 
+| OPEN Name SLASH_CLOSE ;
 
 reference : EntityRef 
 | CharRef ;
