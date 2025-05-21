@@ -142,7 +142,9 @@ def run_model_with_timeout(queue, *args):
         queue.put({"error": str(e)})
 
 
-def evaluate_PC(domain, grammar_name, max_seeds_length, skip_rules, max_time):
+def evaluate_PC(
+    domain, grammar_name, start_rule, max_seeds_length, skip_rules, max_time
+):
     nb_epochs = 10
     model_save_dir = MODEL_DIR / domain
     dataset_dir = DATASET_DIR / domain
@@ -151,9 +153,7 @@ def evaluate_PC(domain, grammar_name, max_seeds_length, skip_rules, max_time):
 
     lengths_success = []
     for mode in ["no-generate", "with-generate"]:
-        # TODO : PUT AGAIN THE CORRECT ONE
-        # for max_length in range(5, max_seeds_length + 10, 5):
-        for max_length in [15]:
+        for max_length in range(5, max_seeds_length + 10, 5):
             print(
                 f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
             )
@@ -228,6 +228,7 @@ def evaluate_one_domain(
     lengths = evaluate_PC(
         domain,
         grammar_name,
+        start_rule,
         max_seeds_length,
         skip_rules,
         max_time=1500,
@@ -250,7 +251,7 @@ def evaluate_one_domain(
 if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
-    domain = "REDIS"
+    domain = "JANUS"
     domain_config = domains_config[domain]
     evaluate_one_domain(
         domain,
