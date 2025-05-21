@@ -1,0 +1,67 @@
+{
+    "XML": {
+      "grammar_name": "XML",
+      "start_rule": "document",
+      "parser_path": "data/input/grammars/XML/XMLParser.g4",
+      "lexer_path": "data/input/grammars/XML/XMLLexer.g4",
+      "seeds_dir": "SEEDS_DIR/XML",
+      "initial_grammar_paths": ["data/input/grammars/XML/XMLParser.g4", "data/input/grammars/XML/XMLLexer.g4"],
+      "with_serializer": false,
+      "skip_rules": [],
+      "max_length": 30
+    },
+    "HTML": {
+      "grammar_name": "HTML",
+      "start_rule": "htmlDocument",
+      "parser_path": "data/input/grammars/HTML/HTMLParser.g4",
+      "lexer_path": "data/input/grammars/HTML/HTMLLexer.g4",
+      "seeds_dir": "SEEDS_DIR/HTML",
+      "initial_grammar_paths": ["data/input/grammars/HTML/HTMLParser.g4", "data/input/grammars/HTML/HTMLLexer.g4"],
+      "with_serializer": true,
+      "skip_rules": ["TAG_WHITESPACE"],
+      "max_length": 35
+    },
+    "REDIS": {
+      "grammar_name": "Redis",
+      "start_rule": "root",
+      "parser_path": "data/input/grammars/REDIS/RedisParser.g4",
+      "lexer_path": "data/input/grammars/REDIS/RedisLexer.g4",
+      "seeds_dir": "SEEDS_DIR/REDIS",
+      "initial_grammar_paths": ["data/input/grammars/REDIS/RedisParser.g4", "data/input/grammars/REDIS/RedisLexer.g4"],
+      "with_serializer": true,
+      "skip_rules": ["SPACE"],
+      "max_length": 15
+    },
+    "SQL": {
+      "grammar_name": "SQLSimplified",
+      "start_rule": "start",
+      "parser_path": "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+      "lexer_path": "data/input/grammars/SQL/SQLSimplifiedLexer.g4",
+      "seeds_dir": "SEEDS_DIR/SQL",
+      "initial_grammar_paths": ["data/input/grammars/SQL/SQLSimplifiedParser.g4", "data/input/grammars/SQL/SQLSimplifiedLexer.g4"],
+      "with_serializer": true,
+      "skip_rules": ["Whitespace", "Newline"],
+      "max_length": 35
+    },
+    "JANUS": {
+      "grammar_name": "janus",
+      "start_rule": "program",
+      "parser_path": "data/input/grammars/JANUS/janus.g4",
+      "seeds_dir": "SEEDS_DIR/JANUS",
+      "initial_grammar_paths": ["data/input/grammars/JANUS/janus.g4"],
+      "with_serializer": true,
+      "skip_rules": ["WS"],
+      "max_length": 20
+    },
+    "MDX": {
+      "grammar_name": "mdx",
+      "start_rule": "mdx_statement",
+      "parser_path": "data/input/grammars/MDX/mdx.g4",
+      "seeds_dir": "SEEDS_DIR/MDX",
+      "initial_grammar_paths": ["data/input/grammars/MDX/mdx.g4"],
+      "with_serializer": true,
+      "skip_rules": ["WS"],
+      "max_length": 25
+    }
+  }
+  

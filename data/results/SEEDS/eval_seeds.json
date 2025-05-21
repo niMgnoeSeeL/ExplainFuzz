@@ -1,0 +1,11 @@
+{
+  "REDIS": [
+    {
+      "domain": "REDIS",
+      "nb_seeds": 7,
+      "min_sequence_length": 4,
+      "max_sequence_length": 8,
+      "avg_sequence_length": 6.428571428571429
+    }
+  ]
+}
