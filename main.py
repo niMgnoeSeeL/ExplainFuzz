@@ -158,7 +158,6 @@ def build_model(
         with_serializer=with_serializer,
     )
     print("")
-
     # Build PC model
     print("-----Building the Probabilistic Circuit----")
 
@@ -377,7 +376,6 @@ if __name__ == "__main__":
 
     num_inputs = 20
     max_length = 25
-
     build_model(
         domain,
         grammar_name,
