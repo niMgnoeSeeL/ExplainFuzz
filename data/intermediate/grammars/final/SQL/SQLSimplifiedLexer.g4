@@ -41,6 +41,7 @@ lexer grammar SQLSimplifiedLexer;
  * http://www.postgresql.org/docs/9.3/static/sql-syntax-lexical.html
  */
 
+
 options {
     //superClass = PostgreSQLLexerBase; commented out by Miryung Kim
     caseInsensitive = true;

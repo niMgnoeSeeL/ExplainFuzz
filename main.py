@@ -6,6 +6,7 @@ from GrammarRefactoring.main import (
 )
 from GrammarRefactoring.refactor_grammar.checker import load_parser_lexer
 from pathlib import Path
+
 from cfg2pc.main import main_build_train_model, main_sampling
 import json
 import multiprocessing
@@ -73,6 +74,8 @@ def build_model(
     max_length,
     start_rule=None,
     num_inputs=10,
+    skip_rules=[],
+    with_serializer=False,
 ):
     # Create necessary directories
     required_dirs = [
@@ -152,6 +155,7 @@ def build_model(
         dataset_dir=dataset_dir,
         num_inputs=num_inputs,
         first_time=True,
+        with_serializer=with_serializer,
     )
     print("")
     # Build PC model
@@ -172,12 +176,14 @@ def build_model(
 
         pc_metrics = main_build_train_model(
             parser_final_file_path,
+            start_rule,
             trainingset_dir,
             model_save_path,
             max_length,
             lexer_cls,
             nb_epochs,
             testingset_dir,
+            skip_rules,
         )
         pc_metrics["domain"] = domain
         pc_metrics["mode"] = mode
@@ -207,7 +213,7 @@ def evaluate_PC(
     model_save_dir = MODEL_DIR / domain
 
     for mode in ["no-generate", "with-generate"]:
-        for max_length in range(5, 100, 5):
+        for max_length in range(40, 100, 5):
             print(
                 f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
             )
@@ -285,44 +291,91 @@ def sample_inputs(domain, mode, nb_inputs, max_length):
     main_sampling(model_save_path, nb_inputs, output_path)
 
 
-def generate_inputs(model, domain, mode):
-    sample_inputs(model)
+# def generate_inputs(model, domain, mode):
+#     sample_inputs(model)
 
-    conninfo = "dbname=testdb user=bloblo password=bloblotest host=127.0.0.1 port=5432"
+#     conninfo = "dbname=testdb user=bloblo password=bloblotest host=127.0.0.1 port=5432"
 
-    input_file_name = f"anonymized_queries_{mode.replace('-','_')}.txt"
-    query_input = INTERMEDIATE_DIR / "anonymized" / domain / input_file_name
-    output_file_name = f"valid_inputs_{mode.replace('-','_')}.txt"
-    output_dir = OUTPUT_DIR / domain
-    output_dir.mkdir(parents=True, exist_ok=True)
-    output_path = output_dir / output_file_name
+#     input_file_name = f"anonymized_queries_{mode.replace('-','_')}.txt"
+#     query_input = INTERMEDIATE_DIR / "anonymized" / domain / input_file_name
+#     output_file_name = f"valid_inputs_{mode.replace('-','_')}.txt"
+#     output_dir = OUTPUT_DIR / domain
+#     output_dir.mkdir(parents=True, exist_ok=True)
+#     output_path = output_dir / output_file_name
 
-    success_rate = concretization(conninfo, query_input, output_path)
+#     success_rate = concretization(conninfo, query_input, output_path)
 
-    custom_gen_sql_main(
-        conninfo,
-        query_input,
-        output_path,
-        max_queries=100,
-        length_batch=20,
-        dry_run=False,
-    )
+#     custom_gen_sql_main(
+#         conninfo,
+#         query_input,
+#         output_path,
+#         max_queries=100,
+#         length_batch=20,
+#         dry_run=False,
+#     )
 
-    return output_path, success_rate
+#     return output_path, success_rate
 
 
 if __name__ == "__main__":
-    domain = "HTML"
-    grammar_name = "HTML"
-    start_rule = "htmlDocument"
-    parser_path = Path("data/input/grammars/HTML/HTMLParser.g4")
-    lexer_path = Path("data/input/grammars/HTML/HTMLLexer.g4")
+    # domain = "XML"
+    # grammar_name = "XML"
+    # start_rule = "document"
+    # parser_path = Path("data/input/grammars/XML/XMLParser.g4")
+    # lexer_path = Path("data/input/grammars/XML/XMLLexer.g4")
+    # seeds_dir = SEEDS_DIR / domain
+    # initial_grammar_paths = [parser_path, lexer_path]
+    # load_pc = None
+
+    # domain = "HTML"
+    # grammar_name = "HTML"
+    # start_rule = "htmlDocument"
+    # parser_path = Path("data/input/grammars/HTML/HTMLParser.g4")
+    # lexer_path = Path("data/input/grammars/HTML/HTMLLexer.g4")
+    # seeds_dir = SEEDS_DIR / domain
+    # initial_grammar_paths = [parser_path, lexer_path]
+
+    ####### WORKING DOMAINS ######
+    # domain = "REDIS"
+    # grammar_name = "Redis"
+    # start_rule = "root"
+    # parser_path = Path(f"data/input/grammars/{domain}/{grammar_name}Parser.g4")
+    # lexer_path = Path(f"data/input/grammars/{domain}/{grammar_name}Lexer.g4")
+    # seeds_dir = SEEDS_DIR / domain
+    # initial_grammar_paths = [parser_path, lexer_path]
+    # skip_rules = ["SPACE"]
+    # with_serializer = True
+
+    domain = "SQL"
+    grammar_name = "SQLSimplified"
+    start_rule = "start"
+    parser_path = Path(f"data/input/grammars/{domain}/{grammar_name}Parser.g4")
+    lexer_path = Path(f"data/input/grammars/{domain}/{grammar_name}Lexer.g4")
     seeds_dir = SEEDS_DIR / domain
     initial_grammar_paths = [parser_path, lexer_path]
-    load_pc = None
+    skip_rules = ["Whitespace", "Newline"]
+    with_serializer = True
 
-    num_inputs = 10
-    max_length = 50
+    # domain = "JANUS"
+    # grammar_name = "janus"
+    # start_rule = "program"
+    # parser_path = Path(f"data/input/grammars/{domain}/{grammar_name}.g4")
+    # seeds_dir = SEEDS_DIR / domain
+    # initial_grammar_paths = [parser_path]
+    # skip_rules = ["WS"]
+    # with_serializer = True
+
+    # domain = "MDX"
+    # grammar_name = "mdx"
+    # start_rule = "mdx_statement"
+    # parser_path = Path(f"data/input/grammars/{domain}/{grammar_name}.g4")
+    # seeds_dir = SEEDS_DIR / domain
+    # initial_grammar_paths = [parser_path]
+    # skip_rules = ["WS"]
+    # with_serializer = True
+
+    num_inputs = 20
+    max_length = 25
     build_model(
         domain,
         grammar_name,
@@ -330,10 +383,12 @@ if __name__ == "__main__":
         max_length,
         start_rule,
         num_inputs,
+        skip_rules,
+        with_serializer,
     )
 
-    mode = "with-generate"
-    sample_inputs(domain, mode, 200, max_length)
+    # mode = "with-generate"
+    # sample_inputs(domain, mode, 200, max_length)
 
     # dataset_dir = DATASET_DIR / domain
     # antlr_output_dir = GEN_PARSER_DIR / domain
@@ -344,5 +399,5 @@ if __name__ == "__main__":
     #     grammar_name,
     #     antlr_output_dir,
     #     parser_final_file_path,
-    #     max_time=300,
+    #     max_time=1500,
     # )

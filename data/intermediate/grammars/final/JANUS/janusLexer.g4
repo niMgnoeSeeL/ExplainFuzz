@@ -1,0 +1,31 @@
+lexer grammar janusLexer;
+
+TERM_0 : '[' ;
+TERM_1 : ']' ;
+TERM_2 : 'PROCEDURE' ;
+TERM_3 : 'IF' ;
+TERM_4 : 'THEN' ;
+TERM_5 : 'ELSE' ;
+TERM_6 : 'FI' ;
+TERM_7 : 'FROM' ;
+TERM_8 : 'DO' ;
+TERM_9 : 'LOOP' ;
+TERM_10 : 'UNTIL' ;
+TERM_11 : 'CALL' ;
+TERM_12 : 'UNCALL' ;
+TERM_13 : 'READ' ;
+TERM_14 : 'WRITE' ;
+TERM_15 : '+=' ;
+TERM_16 : '-=' ;
+TERM_17 : '!=' ;
+TERM_18 : '<=>' ;
+TERM_19 : ':' ;
+TERM_20 : '(' ;
+TERM_21 : ')' ;
+TERM_22 : '~' ;
+
+BINOP : '+' | '-' | '!' | '<' | '>' | '&' | '|' | '=' | '#' | '<=' | '>=' | '*' | '/' | '\\' ;
+IDENT : [a-zA-Z] [a-zA-Z0-9]* ;
+NUM : [0-9] ;
+COMMENT : ';' ~ [\r\n]* -> skip ;
+WS : [ \t\r\n]+ -> skip ;
