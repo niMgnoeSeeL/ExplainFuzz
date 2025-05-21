@@ -152,9 +152,9 @@ def evaluate_PC(
     antlr_output_dir = GEN_PARSER_DIR / domain
     parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
 
-    lengths_success = []
+    lengths_success = {}
     for mode in ["no-generate", "with-generate"]:
-        for max_length in range(5, max_seeds_length + 10, 5):
+        for max_length in range(25, 100, 5):
             print(
                 f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
             )
@@ -201,9 +201,9 @@ def evaluate_PC(
 
             results_pc_dir = RESULTS_DIR / "PC"
             save_results(results_pc_dir, pc_metrics, domain, "eval_PC_model.json")
-            lengths_success.append(max_length)
+            lengths_success.add(max_length)
 
-    return lengths_success
+    return list(lengths_success)
 
 
 def evaluate_one_domain(
