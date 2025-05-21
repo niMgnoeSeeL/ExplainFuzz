@@ -1,0 +1,64 @@
+{
+  "REDIS": [
+    {
+      "method": "PCFG",
+      "domain": "REDIS",
+      "max-length": 5,
+      "nb_training_queries": 1757,
+      "nb_test_queries": 182,
+      "avg-loglikelihood": 5.024284139279386,
+      "time_training": 16.541540145874023,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "REDIS",
+      "max-length": 5,
+      "nb_training_queries": 3163,
+      "nb_test_queries": 383,
+      "avg-loglikelihood": 6.691257190172818,
+      "time_training": 25.191810131072998,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "REDIS",
+      "max-length": 10,
+      "nb_training_queries": 8942,
+      "nb_test_queries": 998,
+      "avg-loglikelihood": 4.447000997647737,
+      "time_training": 113.69310998916626,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "REDIS",
+      "max-length": 10,
+      "nb_training_queries": 8941,
+      "nb_test_queries": 999,
+      "avg-loglikelihood": 6.09116011431283,
+      "time_training": 105.07306003570557,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "REDIS",
+      "max-length": 15,
+      "nb_training_queries": 8998,
+      "nb_test_queries": 1002,
+      "avg-loglikelihood": 4.466382723516498,
+      "time_training": 633.0124700069427,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "REDIS",
+      "max-length": 15,
+      "nb_training_queries": 8995,
+      "nb_test_queries": 1002,
+      "avg-loglikelihood": 6.137907541012207,
+      "time_training": 100.8594479560852,
+      "mode": "with-generate"
+    }
+  ]
+}
