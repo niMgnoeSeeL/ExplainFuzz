@@ -226,7 +226,7 @@ if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
 
-    domain = "SQL"
+    domain = "C"
     domain_config = domains_config[domain]
 
     num_inputs = 10000
