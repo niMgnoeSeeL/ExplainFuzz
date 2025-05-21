@@ -1,6 +1,6 @@
-# Generated from SQLSimplifiedParser.g4 by ANTLR 4.13.1
+# Generated from /Users/annaellebaiget/Desktop/MS_Thesis/ExplainFuzz/data/intermediate/grammars/final/SQL/SQLSimplifiedParser.g4 by ANTLR 4.11.1
 from antlr4 import *
-if "." in __name__:
+if __name__ is not None and "." in __name__:
     from .SQLSimplifiedParser import SQLSimplifiedParser
 else:
     from SQLSimplifiedParser import SQLSimplifiedParser

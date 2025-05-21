@@ -36,3 +36,16 @@ In order to run it as a package, run this :
 ```
 pip install -e custom_generator_sql/
 ```
+
+## cfg2pc
+
+```
+pip install -e cfg2pc/
+```
+
+## GrammarRefactoring 
+
+````
+pip install -e GrammarRefactoring/
+````
+
