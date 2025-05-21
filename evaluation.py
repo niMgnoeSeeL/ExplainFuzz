@@ -59,6 +59,7 @@ def evaluate_PCFG(
     domain,
     grammar_name,
     start_rule,
+    skip_rules,
 ):
     modes = ["no-generate", "with-generate"]
     results_pcfg_dir = RESULTS_DIR / "PCFG"
@@ -222,8 +223,8 @@ def evaluate_one_domain(
     print("-> Evaluating the Grammar")
     evaluate_grammar(domain, grammar_name)
 
-    ##### EVALUATE PC COMPILATION AND TRAINING #######
-    max_seeds_length = 15
+    #### EVALUATE PC COMPILATION AND TRAINING #######
+
     print("->Evaluating the PC compilation and training")
     lengths = evaluate_PC(
         domain,
@@ -241,6 +242,7 @@ def evaluate_one_domain(
         domain,
         grammar_name,
         start_rule,
+        skip_rules,
     )
 
     ###### EVALUATE LLM #######
