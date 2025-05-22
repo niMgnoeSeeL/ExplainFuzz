@@ -152,7 +152,7 @@ def evaluate_PC(
     antlr_output_dir = GEN_PARSER_DIR / domain
     parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
 
-    lengths_success = {}
+    lengths_success = set()
     for mode in ["no-generate", "with-generate"]:
         for max_length in range(25, 100, 5):
             print(
@@ -253,7 +253,7 @@ def evaluate_one_domain(
 if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
-    domain = "JANUS"
+    domain = "MDX"
     domain_config = domains_config[domain]
     evaluate_one_domain(
         domain,
