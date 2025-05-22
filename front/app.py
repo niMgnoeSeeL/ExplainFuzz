@@ -12,6 +12,13 @@ def get_tokens(domain):
         "CloudFormation": ["Resources", "Type", "Properties", "Outputs", "Conditions", "Parameters"]
     }.get(domain, [])
 
+def get_query(query_type):
+    return {
+    "Marginal": ["MCQ 1", "MCQ 2", "MCQ 3"],
+    "Conditional": ["Code 1", "Code 2"],
+    "Evi": ["Written 1", "Written 2", "Written 3"],
+    "Mmap": ["MMAR A", "MMAR B"]}.get(query_type, [])
+
 def compute_probability(domain, after_token, current_token):
     # Dummy logic for probability
     return f"Probability of seeing '{current_token}' after '{after_token}' in {domain}: 42%"
@@ -42,6 +49,25 @@ with gr.Blocks() as demo:
     token_list = gr.State(get_tokens("SQL"))
 
     with gr.Tab("🔢 Probability Query"):
+        with gr.Row():
+            radio = gr.Radio(
+                choices=["Marginal", "Conditional", "Evi", "Mmap"],
+                label="Query Type",
+                value="Marginal",
+                interactive=True
+            )
+            dropdown = gr.Dropdown(
+                label="Query Options",
+                choices=get_query("Marginal"),
+                value=None,
+                interactive=True
+            )
+
+        def update_dropdown(selected_type):
+            return gr.update(choices=get_query(selected_type), value=None)
+
+        radio.change(fn=update_dropdown, inputs=radio, outputs=dropdown)
+
         with gr.Row():
             after_token = gr.Dropdown(choices=get_tokens("SQL"), label="Previous Token")
             current_token = gr.Dropdown(choices=get_tokens("SQL"), label="Current Token")
