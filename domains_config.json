@@ -9,7 +9,7 @@
       "with_serializer": false,
       "skip_rules": [],
       "max_length": 30,
-      "depth":20
+      "depth":8
     },
     "HTML": {
       "grammar_name": "HTML",
@@ -33,7 +33,7 @@
       "with_serializer": true,
       "skip_rules": ["SPACE"],
       "max_length": 15,
-      "depth":20
+      "depth":5
     },
     "SQL": {
       "grammar_name": "SQLSimplified",

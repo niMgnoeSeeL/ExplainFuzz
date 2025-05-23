@@ -154,7 +154,7 @@ def evaluate_PC(
 
     lengths_success = set()
     for mode in ["no-generate", "with-generate"]:
-        for max_length in range(25, 100, 5):
+        for max_length in range(5, 100, 5):
             print(
                 f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
             )
@@ -203,6 +203,9 @@ def evaluate_PC(
             save_results(results_pc_dir, pc_metrics, domain, "eval_PC_model.json")
             lengths_success.add(max_length)
 
+            if pc_metrics["nb_training_queries"] > 8960:
+                break
+
     return list(lengths_success)
 
 
@@ -232,7 +235,7 @@ def evaluate_one_domain(
         start_rule,
         max_seeds_length,
         skip_rules,
-        max_time=1500,
+        max_time=2000,
     )
 
     ###### EVALUATE PCFG ######
@@ -253,7 +256,35 @@ def evaluate_one_domain(
 if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
-    domain = "MDX"
+
+    domain = "REDIS"
+    domain_config = domains_config[domain]
+    evaluate_one_domain(
+        domain,
+        domain_config["grammar_name"],
+        domain_config["start_rule"],
+        domain_config["skip_rules"],
+    )
+
+    domain = "XML"
+    domain_config = domains_config[domain]
+    evaluate_one_domain(
+        domain,
+        domain_config["grammar_name"],
+        domain_config["start_rule"],
+        domain_config["skip_rules"],
+    )
+
+    domain = "B"
+    domain_config = domains_config[domain]
+    evaluate_one_domain(
+        domain,
+        domain_config["grammar_name"],
+        domain_config["start_rule"],
+        domain_config["skip_rules"],
+    )
+
+    domain = "JANUS"
     domain_config = domains_config[domain]
     evaluate_one_domain(
         domain,
