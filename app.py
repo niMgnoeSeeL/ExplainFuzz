@@ -84,7 +84,6 @@ with gr.Blocks() as demo:
             tokens = get_tokens(domain)
             return (
                 gr.update(choices=tokens, value=None),
-                gr.update(choices=tokens, value=None),
                 tokens,
             )
 

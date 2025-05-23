@@ -41,7 +41,7 @@
     ],
     "with_serializer": true,
     "skip_rules": ["SPACE"],
-    "max_length": 15,
+    "max_length": 10,
     "depth": 5
   },
   "SQL": {
@@ -98,7 +98,7 @@
     "initial_grammar_paths": ["data/input/grammars/B/b.g4"],
     "with_serializer": true,
     "skip_rules": ["WS"],
-    "max_length": 80,
+    "max_length": 40,
     "depth": 20
   }
 }
