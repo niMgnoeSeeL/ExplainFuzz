@@ -52,6 +52,7 @@ def build_model(
     num_inputs=10,
     skip_rules=[],
     with_serializer=False,
+    depth=20,
 ):
     # Create necessary directories
     required_dirs = [
@@ -127,6 +128,7 @@ def build_model(
         num_inputs=num_inputs,
         first_time=True,
         with_serializer=with_serializer,
+        depth=depth,
     )
     print("")
     # Build PC model
@@ -226,10 +228,10 @@ if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
 
-    domain = "C"
+    domain = "B"
     domain_config = domains_config[domain]
 
-    num_inputs = 10000
+    num_inputs = 10
 
     build_model(
         domain,
@@ -240,10 +242,11 @@ if __name__ == "__main__":
         num_inputs=num_inputs,
         skip_rules=domain_config["skip_rules"],
         with_serializer=domain_config["with_serializer"],
+        depth=domain_config["depth"],
     )
 
-    for mode in ["no-generate", "with-generate"]:
-        sample_inputs(domain, mode, 200, domain_config["max_length"])
+    # for mode in ["no-generate", "with-generate"]:
+    #     sample_inputs(domain, mode, 200, domain_config["max_length"])
 
     # dataset_dir = DATASET_DIR / domain
     # antlr_output_dir = GEN_PARSER_DIR / domain

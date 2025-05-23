@@ -8,7 +8,8 @@
       "initial_grammar_paths": ["data/input/grammars/XML/XMLParser.g4", "data/input/grammars/XML/XMLLexer.g4"],
       "with_serializer": false,
       "skip_rules": [],
-      "max_length": 30
+      "max_length": 30,
+      "depth":20
     },
     "HTML": {
       "grammar_name": "HTML",
@@ -19,7 +20,8 @@
       "initial_grammar_paths": ["data/input/grammars/HTML/HTMLParser.g4", "data/input/grammars/HTML/HTMLLexer.g4"],
       "with_serializer": true,
       "skip_rules": ["TAG_WHITESPACE"],
-      "max_length": 35
+      "max_length": 35,
+      "depth":20
     },
     "REDIS": {
       "grammar_name": "Redis",
@@ -30,7 +32,8 @@
       "initial_grammar_paths": ["data/input/grammars/REDIS/RedisParser.g4", "data/input/grammars/REDIS/RedisLexer.g4"],
       "with_serializer": true,
       "skip_rules": ["SPACE"],
-      "max_length": 15
+      "max_length": 15,
+      "depth":20
     },
     "SQL": {
       "grammar_name": "SQLSimplified",
@@ -41,7 +44,8 @@
       "initial_grammar_paths": ["data/input/grammars/SQL/SQLSimplifiedParser.g4", "data/input/grammars/SQL/SQLSimplifiedLexer.g4"],
       "with_serializer": true,
       "skip_rules": ["Whitespace", "Newline"],
-      "max_length": 35
+      "max_length": 35,
+      "depth":7
     },
     "JANUS": {
       "grammar_name": "janus",
@@ -51,7 +55,8 @@
       "initial_grammar_paths": ["data/input/grammars/JANUS/janus.g4"],
       "with_serializer": true,
       "skip_rules": ["WS"],
-      "max_length": 20
+      "max_length": 20,
+      "depth":20
     },
     "MDX": {
       "grammar_name": "mdx",
@@ -61,7 +66,8 @@
       "initial_grammar_paths": ["data/input/grammars/MDX/mdx.g4"],
       "with_serializer": true,
       "skip_rules": ["WS"],
-      "max_length": 25
+      "max_length": 25,
+      "depth":20
     },
     "B": {
       "grammar_name": "b",
@@ -71,7 +77,8 @@
       "initial_grammar_paths": ["data/input/grammars/B/b.g4"],
       "with_serializer": true,
       "skip_rules": ["WS"],
-      "max_length": 80
+      "max_length": 80,
+      "depth":20
     }
   }
   
