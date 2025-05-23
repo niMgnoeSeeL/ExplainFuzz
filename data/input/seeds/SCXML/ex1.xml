@@ -1,0 +1,6 @@
+<scxml initial="s">
+  <state id="s">
+    <transition target="end"/>
+  </state>
+  <final id="end"/>
+</scxml>

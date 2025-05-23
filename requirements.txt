@@ -12,3 +12,4 @@ numpy
 klaycircuits @ git+https://github.com/ML-KULeuven/klay@main
 transformers
 gradio
+seaborn==0.13.2

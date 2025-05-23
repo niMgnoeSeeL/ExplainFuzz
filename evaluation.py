@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from GrammarRefactoring.refactor_grammar.checker import load_parser_lexer
+from cfg2pc.dataset import get_dataset_from_dataset_path
 from cfg2pc.evaluate_llm import get_res_evaluation
 from cfg2pc.evaluation_seeds import compute_metrics_seeds
 from cfg2pc.main import anonymize_folder_inputs, main_build_train_model
@@ -18,6 +19,7 @@ from main import (
     load_domains_config,
 )
 import multiprocessing
+import matplotlib.pyplot as plt
 
 
 def save_results(
@@ -154,7 +156,7 @@ def evaluate_PC(
 
     lengths_success = set()
     for mode in ["no-generate", "with-generate"]:
-        for max_length in range(25, 100, 5):
+        for max_length in range(5, 100, 5):
             print(
                 f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
             )
@@ -203,7 +205,56 @@ def evaluate_PC(
             save_results(results_pc_dir, pc_metrics, domain, "eval_PC_model.json")
             lengths_success.add(max_length)
 
-    return list(lengths_success)
+            # if the training queries was already more than 95% of the dataset, we can stop the evaluation here
+            if pc_metrics["nb_training_queries"] >= 8550:
+                break
+
+    return sorted(list(lengths_success))
+
+
+def evaluate_dataset(domain, grammar_name, start_rule, skip_rules):
+    dataset_dir = DATASET_DIR / domain
+
+    parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
+    antlr_output_dir = GEN_PARSER_DIR / domain
+    _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
+
+    for mode in ["no-generate", "with-generate"]:
+        trainingset_dir = dataset_dir / mode / "train"
+        print("get the anonymized dataset...")
+        anonymized_dataset = anonymize_folder_inputs(
+            trainingset_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules
+        )
+        lengths = [len(input) for input in anonymized_dataset]
+
+        bins = list(range(0, 50, 5)) + [float("inf")]
+        labels = [
+            f"{bins[i]}–{bins[i+1]-1 if bins[i+1] != float('inf') else '+'}"
+            for i in range(len(bins) - 1)
+        ]
+
+        # Count frequencies per bin
+        print("starting evaluating  the bin counts")
+        counts = [0] * (len(bins) - 1)
+
+        for l in lengths:
+            idx = l // 5
+            if idx >= len(counts):
+                counts[len(counts) - 1] += 1
+            else:
+                counts[idx] += 1
+
+        print("plotting the histogram")
+        # Plot histogram
+        plt.figure(figsize=(12, 5))
+        plt.bar(labels, counts, edgecolor="black")
+        plt.title(f"Input Length Distribution ({domain}, mode={mode})")
+        plt.xlabel("Number of Tokens (binned)")
+        plt.ylabel("Frequency")
+        plt.xticks(rotation=45)
+        plt.grid(axis="y", linestyle="--", alpha=0.7)
+        plt.tight_layout()
+        plt.show()
 
 
 def evaluate_one_domain(
@@ -215,11 +266,11 @@ def evaluate_one_domain(
     print(f"##### EVALUATION OF THE DOMAIN {domain} ########")
     print("")
 
-    # ##### EVALUATE SEEDS #######
+    ##### EVALUATE SEEDS #######
     print("-> Evaluation the seeds")
     max_seeds_length = evaluate_seeds(domain, grammar_name, start_rule, skip_rules)
 
-    # ##### EVALUATE GRAMMAR ######
+    ##### EVALUATE GRAMMAR ######
     print("-> Evaluating the Grammar")
     evaluate_grammar(domain, grammar_name)
 
@@ -232,7 +283,7 @@ def evaluate_one_domain(
         start_rule,
         max_seeds_length,
         skip_rules,
-        max_time=1500,
+        max_time=2000,
     )
 
     ###### EVALUATE PCFG ######
@@ -253,7 +304,26 @@ def evaluate_one_domain(
 if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
-    domain = "MDX"
+
+    # domain = "REDIS"
+    # domain_config = domains_config[domain]
+    # evaluate_one_domain(
+    #     domain,
+    #     domain_config["grammar_name"],
+    #     domain_config["start_rule"],
+    #     domain_config["skip_rules"],
+    # )
+
+    # domain = "XML"
+    # domain_config = domains_config[domain]
+    # evaluate_one_domain(
+    #     domain,
+    #     domain_config["grammar_name"],
+    #     domain_config["start_rule"],
+    #     domain_config["skip_rules"],
+    # )
+
+    domain = "B"
     domain_config = domains_config[domain]
     evaluate_one_domain(
         domain,
@@ -261,3 +331,36 @@ if __name__ == "__main__":
         domain_config["start_rule"],
         domain_config["skip_rules"],
     )
+
+    domain = "JANUS"
+    domain_config = domains_config[domain]
+    evaluate_one_domain(
+        domain,
+        domain_config["grammar_name"],
+        domain_config["start_rule"],
+        domain_config["skip_rules"],
+    )
+    # evaluate_dataset(
+    #     domain,
+    #     domain_config["grammar_name"],
+    #     domain_config["start_rule"],
+    #     domain_config["skip_rules"],
+    # )
+
+    # domain = "JANUS"
+    # domain_config = domains_config[domain]
+    # evaluate_one_domain(
+    #     domain,
+    #     domain_config["grammar_name"],
+    #     domain_config["start_rule"],
+    #     domain_config["skip_rules"],
+    # )
+
+    # domain = "REDIS"
+    # domain_config = domains_config[domain]
+    # evaluate_one_domain(
+    #     domain,
+    #     domain_config["grammar_name"],
+    #     domain_config["start_rule"],
+    #     domain_config["skip_rules"],
+    # )

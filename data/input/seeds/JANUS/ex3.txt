@@ -1,0 +1,9 @@
+PROCEDURE loopAndCheck
+  FROM count = 5
+  DO
+    IF flag = 1 THEN
+      value += 2
+    ELSE
+      value -= 2
+    FI flag
+  UNTIL count = 0
