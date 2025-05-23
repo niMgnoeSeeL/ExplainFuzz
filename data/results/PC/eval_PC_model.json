@@ -27,83 +27,90 @@
       "domain": "SQL",
       "mode": "no-generate",
       "max_length": 15
-    },{
+    },
+    {
       "method": "PC",
-    "nb_test_queries": 308,
-    "avg-loglikelihood": 4.125641661804992,
-    "time_building_circuit": 0.3365931510925293,
-    "train_time": 135.63268089294434,
-    "circuit_size": 43795,
-    "domain": "SQL",
-    "mode": "no-generate",
-    "max_length": 20
-  },{
-    "method": "PC",
-    "nb_training_queries": 5436,
-    "last-training-loss": 5.1221340074312876,
-    "nb_epochs": 10,
-    "nb_test_queries": 611,
-    "avg-loglikelihood": 5.462467874130524,
-    "time_building_circuit": 0.6248750686645508,
-    "train_time": 505.28328919410706,
-    "circuit_size": 134904,
-    "domain": "SQL",
-    "mode": "no-generate",
-    "max_length": 25
-  },{
-    "method": "PC",
-    "nb_training_queries": 352,
-    "last-training-loss": 3.8387653732841667,
-    "nb_epochs": 10,
-    "nb_test_queries": 39,
-    "avg-loglikelihood": 4.144737439277844,
-    "time_building_circuit": 0.10074210166931152,
-    "train_time": 9.997177124023438,
-    "circuit_size": 1451,
-    "domain": "SQL",
-    "mode": "with-generate",
-    "max_length": 10
-  },{
-    "method": "PC",
-    "nb_training_queries": 975,
-    "last-training-loss": 6.92123731197455,
-    "nb_epochs": 10,
-    "nb_test_queries": 98,
-    "avg-loglikelihood": 7.527458346619898,
-    "time_building_circuit": 0.17085790634155273,
-    "train_time": 29.619222164154053,
-    "circuit_size": 10013,
-    "domain": "SQL",
-    "mode": "with-generate",
-    "max_length": 15
-  },{
-    "method": "PC",
-    "nb_training_queries": 1715,
-    "last-training-loss": 9.309502513207082,
-    "nb_epochs": 10,
-    "nb_test_queries": 185,
-    "avg-loglikelihood": 11.692869774070946,
-    "time_building_circuit": 0.3249821662902832,
-    "train_time": 89.8453311920166,
-    "circuit_size": 43795,
-    "domain": "SQL",
-    "mode": "with-generate",
-    "max_length": 20
-  },{
-    "method": "PC",
-    "nb_training_queries": 2467,
-    "last-training-loss": 11.100647206919176,
-    "nb_epochs": 10,
-    "nb_test_queries": 281,
-    "avg-loglikelihood": 15.579471683162812,
-    "time_building_circuit": 0.6363341808319092,
-    "train_time": 216.54367995262146,
-    "circuit_size": 134904,
-    "domain": "SQL",
-    "mode": "with-generate",
-    "max_length": 25
-  }],
-    "REDIS":[
+      "nb_test_queries": 308,
+      "avg-loglikelihood": 4.125641661804992,
+      "time_building_circuit": 0.3365931510925293,
+      "train_time": 135.63268089294434,
+      "circuit_size": 43795,
+      "domain": "SQL",
+      "mode": "no-generate",
+      "max_length": 20
+    },
+    {
+      "method": "PC",
+      "nb_training_queries": 5436,
+      "last-training-loss": 5.1221340074312876,
+      "nb_epochs": 10,
+      "nb_test_queries": 611,
+      "avg-loglikelihood": 5.462467874130524,
+      "time_building_circuit": 0.6248750686645508,
+      "train_time": 505.28328919410706,
+      "circuit_size": 134904,
+      "domain": "SQL",
+      "mode": "no-generate",
+      "max_length": 25
+    },
+    {
+      "method": "PC",
+      "nb_training_queries": 352,
+      "last-training-loss": 3.8387653732841667,
+      "nb_epochs": 10,
+      "nb_test_queries": 39,
+      "avg-loglikelihood": 4.144737439277844,
+      "time_building_circuit": 0.10074210166931152,
+      "train_time": 9.997177124023438,
+      "circuit_size": 1451,
+      "domain": "SQL",
+      "mode": "with-generate",
+      "max_length": 10
+    },
+    {
+      "method": "PC",
+      "nb_training_queries": 975,
+      "last-training-loss": 6.92123731197455,
+      "nb_epochs": 10,
+      "nb_test_queries": 98,
+      "avg-loglikelihood": 7.527458346619898,
+      "time_building_circuit": 0.17085790634155273,
+      "train_time": 29.619222164154053,
+      "circuit_size": 10013,
+      "domain": "SQL",
+      "mode": "with-generate",
+      "max_length": 15
+    },
+    {
+      "method": "PC",
+      "nb_training_queries": 1715,
+      "last-training-loss": 9.309502513207082,
+      "nb_epochs": 10,
+      "nb_test_queries": 185,
+      "avg-loglikelihood": 11.692869774070946,
+      "time_building_circuit": 0.3249821662902832,
+      "train_time": 89.8453311920166,
+      "circuit_size": 43795,
+      "domain": "SQL",
+      "mode": "with-generate",
+      "max_length": 20
+    },
+    {
+      "method": "PC",
+      "nb_training_queries": 2467,
+      "last-training-loss": 11.100647206919176,
+      "nb_epochs": 10,
+      "nb_test_queries": 281,
+      "avg-loglikelihood": 15.579471683162812,
+      "time_building_circuit": 0.6363341808319092,
+      "train_time": 216.54367995262146,
+      "circuit_size": 134904,
+      "domain": "SQL",
+      "mode": "with-generate",
+      "max_length": 25
+    }
+  ],
+  "REDIS": [
     {
       "method": "PC",
       "nb_training_queries": 2617,
@@ -258,8 +265,9 @@
       "circuit_size": 84295,
       "domain": "JANUS",
       "mode": "no-generate",
-      "max_length": 20},
-      
+      "max_length": 20
+    },
+
     {
       "method": "PC",
       "nb_training_queries": 5089,
@@ -272,7 +280,8 @@
       "circuit_size": 400466,
       "domain": "JANUS",
       "mode": "no-generate",
-      "max_length": 25},
+      "max_length": 25
+    },
     {
       "method": "PC",
       "nb_training_queries": 1780,
@@ -299,7 +308,8 @@
       "circuit_size": 2317,
       "domain": "JANUS",
       "mode": "with-generate",
-      "max_length": 10},
+      "max_length": 10
+    },
     {
       "method": "PC",
       "nb_training_queries": 3922,
@@ -312,7 +322,8 @@
       "circuit_size": 15318,
       "domain": "JANUS",
       "mode": "with-generate",
-      "max_length": 15},
+      "max_length": 15
+    },
     {
       "method": "PC",
       "nb_training_queries": 4403,
@@ -325,7 +336,8 @@
       "circuit_size": 84295,
       "domain": "JANUS",
       "mode": "with-generate",
-      "max_length": 20},
+      "max_length": 20
+    },
     {
       "method": "PC",
       "nb_training_queries": 4725,
@@ -338,7 +350,8 @@
       "circuit_size": 400466,
       "domain": "JANUS",
       "mode": "with-generate",
-      "max_length": 25},
+      "max_length": 25
+    },
     {
       "method": "PC",
       "nb_training_queries": 3266,
