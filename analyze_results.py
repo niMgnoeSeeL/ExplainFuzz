@@ -176,10 +176,41 @@ def compare_results_model(domain, results_PC_file, results_PCFG_file, results_LL
     plt.show()
 
 
+def comparison_likelihood_domains(
+    domains, results_PC_file, results_PCFG_file, results_LLM_file
+):
+    all_data = []
+
+    for domain in domains:
+        df_PC = get_df_domain(domain, results_PC_file)
+        df_PCFG = get_df_domain(domain, results_PCFG_file)
+        df_LLM = get_df_domain(domain, results_LLM_file)
+
+        all_data.append(pd.concat([df_PC, df_PCFG, df_LLM], ignore_index=True))
+
+    # Combine all domains' data
+    df_all = pd.concat(all_data, ignore_index=True)
+
+    # Filter to only 'no-generate' mode
+    df_filtered = df_all[df_all["mode"] == "no-generate"]
+
+    # Plot: Domain on X-axis, avg-loglikelihood as bars, grouped by method
+    plt.figure(figsize=(10, 6))
+    sns.barplot(
+        data=df_filtered, x="domain", y="avg-loglikelihood", hue="method", errorbar="sd"
+    )
+    plt.title("Average Log-Likelihood (no-generate) Across Domains")
+    plt.xlabel("Domain")
+    plt.ylabel("Average Log-Likelihood")
+    plt.tight_layout()
+    plt.legend(title="Method")
+    plt.show()
+
+
 if __name__ == "__main__":
-    domain = "SQL"
-    analyze_results_PC(domain, "data/results/PC/eval_PC_model.json")
-    # analyze_results_PCFG(domain, "data/results/PCFG/eval_PCFG_fix_depth.json")
+    # domain = "JANUS"
+    # analyze_results_PC(domain, "data/results/PC/eval_PC_model.json")
+    # # analyze_results_PCFG(domain, "data/results/PCFG/eval_PCFG_fix_depth.json")
 
     # compare_results_model(
     #     domain,
@@ -187,3 +218,11 @@ if __name__ == "__main__":
     #     "data/results/PCFG/eval_PCFG.json",
     #     "data/results/LLM/eval_llm.json",
     # )
+
+    domains = ["SQL", "JANUS", "REDIS", "B"]
+    comparison_likelihood_domains(
+        domains,
+        "data/results/PC/eval_PC_model.json",
+        "data/results/PCFG/eval_PCFG.json",
+        "data/results/LLM/eval_llm.json",
+    )
