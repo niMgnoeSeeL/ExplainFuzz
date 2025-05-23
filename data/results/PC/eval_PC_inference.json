@@ -1,0 +1,514 @@
+{
+  "SQL": [
+    [
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "SELECT",
+        "model_prob": 1.0000001192092896,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "DOT",
+        "model_prob": 0.9978264430872414,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "ORDER",
+        "model_prob": 0.8392739978509667,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "BY",
+        "model_prob": 0.8422022545123582,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "FROM",
+        "model_prob": 1.000000110533369,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "STAR",
+        "model_prob": 0.3375478102303191,
+        "seed_prob": 0.3333333333333333
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "SELECT",
+        "given_token": "FROM",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "ORDER",
+        "given_token": "BY",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "BY",
+        "given_token": "ORDER",
+        "model_prob": -1.0813685007438067e-06,
+        "seed_prob": 0.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "HAVING",
+        "given_token": "ASC",
+        "model_prob": 0.00012953180504282624,
+        "seed_prob": 0.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "SELECT",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "DOT",
+        "model_prob": 0.17520592905930243,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "ORDER",
+        "model_prob": 0.41871877445373684,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "BY",
+        "model_prob": 0.4623241601511836,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "FROM",
+        "model_prob": 0.9999999828141881,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "STAR",
+        "model_prob": 0.6826024079709896,
+        "seed_prob": 0.3333333333333333
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "SELECT",
+        "given_token": "FROM",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "ORDER",
+        "given_token": "BY",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "BY",
+        "given_token": "ORDER",
+        "model_prob": -0.00026994050867990005,
+        "seed_prob": 0.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "HAVING",
+        "given_token": "ASC",
+        "model_prob": -0.025420484181572167,
+        "seed_prob": 0.0
+      }
+    ],
+    [
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "SELECT",
+        "model_prob": 1.0000001192092896,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "DOT",
+        "model_prob": 0.9978264430872414,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "ORDER",
+        "model_prob": 0.8392739978509667,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "BY",
+        "model_prob": 0.8422022545123582,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "FROM",
+        "model_prob": 1.000000110533369,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "STAR",
+        "model_prob": 0.3375478102303191,
+        "seed_prob": 0.3333333333333333
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "SELECT",
+        "given_token": "FROM",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "ORDER",
+        "given_token": "BY",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "BY",
+        "given_token": "ORDER",
+        "model_prob": -1.0813685007438067e-06,
+        "seed_prob": 0.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "HAVING",
+        "given_token": "ASC",
+        "model_prob": 0.00012953180504282624,
+        "seed_prob": 0.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "SELECT",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "DOT",
+        "model_prob": 0.17520592905930243,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "ORDER",
+        "model_prob": 0.41871877445373684,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "BY",
+        "model_prob": 0.4623241601511836,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "FROM",
+        "model_prob": 0.9999999828141881,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "STAR",
+        "model_prob": 0.6826024079709896,
+        "seed_prob": 0.3333333333333333
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "SELECT",
+        "given_token": "FROM",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "ORDER",
+        "given_token": "BY",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "BY",
+        "given_token": "ORDER",
+        "model_prob": -0.00026994050867990005,
+        "seed_prob": 0.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "HAVING",
+        "given_token": "ASC",
+        "model_prob": -0.025420484181572167,
+        "seed_prob": 0.0
+      }
+    ],
+    [
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "SELECT",
+        "model_prob": 1.0000001192092896,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "DOT",
+        "model_prob": 0.9978264430872414,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "ORDER",
+        "model_prob": 0.8392739978509667,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "BY",
+        "model_prob": 0.8422022545123582,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "FROM",
+        "model_prob": 1.000000110533369,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "STAR",
+        "model_prob": 0.3375478102303191,
+        "seed_prob": 0.3333333333333333
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "SELECT",
+        "given_token": "FROM",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "ORDER",
+        "given_token": "BY",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "BY",
+        "given_token": "ORDER",
+        "model_prob": -1.0813685007438067e-06,
+        "seed_prob": 0.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "HAVING",
+        "given_token": "ASC",
+        "model_prob": 0.00012953180504282624,
+        "seed_prob": 0.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "SELECT",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "DOT",
+        "model_prob": 0.17520592905930243,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "ORDER",
+        "model_prob": 0.41871877445373684,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "BY",
+        "model_prob": 0.4623241601511836,
+        "seed_prob": 0.8333333333333334
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "FROM",
+        "model_prob": 0.9999999828141881,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "STAR",
+        "model_prob": 0.6826024079709896,
+        "seed_prob": 0.3333333333333333
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "SELECT",
+        "given_token": "FROM",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "ORDER",
+        "given_token": "BY",
+        "model_prob": 1.0,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "BY",
+        "given_token": "ORDER",
+        "model_prob": -0.00026994050867990005,
+        "seed_prob": 0.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "HAVING",
+        "given_token": "ASC",
+        "model_prob": -0.025420484181572167,
+        "seed_prob": 0.0
+      }
+    ]
+  ]
+}
