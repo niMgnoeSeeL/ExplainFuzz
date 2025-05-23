@@ -149,13 +149,13 @@ commands_question :
 | HSCAN hashKeyName decimal matchclause_question countclause_question novalues_question 
 | HSTRLEN hashKeyName identifier 
 | HVALS hashKeyName 
-| ZREVRANGE sortedSetKeyName decimal decimal 
-| ZDIFF POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus 
-| ZRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
-| ZREVRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
 | ZINTER POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question 
 | ZUNION POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question 
-| ZRANGE sortedSetKeyName lexicalScore lexicalScore rangetypeclause_question rev_question limitoffsetclause_question ;
+| ZDIFF POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus 
+| ZREVRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
+| ZRANGE sortedSetKeyName lexicalScore lexicalScore rangetypeclause_question rev_question limitoffsetclause_question 
+| ZREVRANGE sortedSetKeyName decimal decimal 
+| ZRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question ;
 
 commands : command newline_star 
 | command newline_plus commands 
@@ -303,11 +303,11 @@ commands : command newline_star
 | HVALS hashKeyName 
 | ZINTER POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question 
 | ZUNION POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question 
+| ZDIFF POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus 
+| ZREVRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
 | ZRANGE sortedSetKeyName lexicalScore lexicalScore rangetypeclause_question rev_question limitoffsetclause_question 
 | ZREVRANGE sortedSetKeyName decimal decimal 
-| ZDIFF POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus 
-| ZRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
-| ZREVRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question ;
+| ZRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question ;
 
 newline_plus : NEWLINE newline_plus 
 | NEWLINE ;
@@ -990,13 +990,13 @@ sortedSetCommand : ZMPOP POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus minMaxCl
 | ZSCAN sortedSetKeyName decimal matchclause_question countclause_question 
 | ZUNION POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question withscores_question 
 | ZUNIONSTORE identifier POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question 
-| ZREVRANGE sortedSetKeyName decimal decimal 
-| ZDIFF POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus 
-| ZREVRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
 | ZRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
 | ZINTER POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question 
 | ZUNION POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question 
-| ZRANGE sortedSetKeyName lexicalScore lexicalScore rangetypeclause_question rev_question limitoffsetclause_question ;
+| ZDIFF POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus 
+| ZREVRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
+| ZRANGE sortedSetKeyName lexicalScore lexicalScore rangetypeclause_question rev_question limitoffsetclause_question 
+| ZREVRANGE sortedSetKeyName decimal decimal ;
 
 hashCommand : HDEL hashKeyName identifier_plus 
 | HEXISTS hashKeyName identifier 
@@ -1205,11 +1205,12 @@ command : COPY keyName identifier dbclause_question replace_question
 | HSCAN hashKeyName decimal matchclause_question countclause_question novalues_question 
 | HSTRLEN hashKeyName identifier 
 | HVALS hashKeyName 
-| ZRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
-| ZREVRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
 | ZINTER POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question 
 | ZUNION POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question 
+| ZDIFF POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus 
+| ZREVRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question 
 | ZRANGE sortedSetKeyName lexicalScore lexicalScore rangetypeclause_question rev_question limitoffsetclause_question 
+| ZINTER POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus weightsclause_question aggregateclause_question 
 | ZREVRANGE sortedSetKeyName decimal decimal 
-| ZDIFF POSITIVE_DECIMAL_LITERAL sortedsetkeyname_plus ;
+| ZRANGEBYSCORE sortedSetKeyName decimalScore decimalScore limitoffsetclause_question ;
 

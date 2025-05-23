@@ -6,7 +6,7 @@ from GrammarRefactoring.main import (
 from GrammarRefactoring.refactor_grammar.checker import load_parser_lexer
 from pathlib import Path
 
-from cfg2pc.main import main_build_train_model, main_sampling
+from cfg2pc.main import anonymize_folder_inputs, main_build_train_model, main_sampling
 import json
 
 # === Global Path Variables ===
@@ -132,38 +132,32 @@ def build_model(
     )
     print("")
     # Build PC model
-    print("-----Building the Probabilistic Circuit----")
+    # print("-----Building the Probabilistic Circuit----")
 
-    nb_epochs = 10
-    model_save_dir = MODEL_DIR / domain
+    # nb_epochs = 10
+    # model_save_dir = MODEL_DIR / domain
 
-    for mode in ["no-generate", "with-generate"]:
-        print(
-            f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
-        )
-        model_save_path = model_save_dir / f"{domain}-{mode}-{max_length}.pt"
-        trainingset_dir = dataset_dir / mode / "train"
-        testingset_dir = dataset_dir / mode / "test"
-        ensure_directories_exist([model_save_dir, trainingset_dir, testingset_dir])
-        _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
+    # for mode in ["no-generate", "with-generate"]:
+    #     print(
+    #         f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
+    #     )
+    #     model_save_path = model_save_dir / f"{domain}-{mode}-{max_length}.pt"
+    #     trainingset_dir = dataset_dir / mode / "train"
+    #     testingset_dir = dataset_dir / mode / "test"
+    #     ensure_directories_exist([model_save_dir, trainingset_dir, testingset_dir])
+    #     _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
 
-        pc_metrics = main_build_train_model(
-            parser_final_file_path,
-            start_rule,
-            trainingset_dir,
-            model_save_path,
-            max_length,
-            lexer_cls,
-            nb_epochs,
-            testingset_dir,
-            skip_rules,
-        )
-        # pc_metrics["domain"] = domain
-        # pc_metrics["mode"] = mode
-        # pc_metrics["max_length"] = max_length
-
-        # results_pc_dir = RESULTS_DIR / "PC"
-        # save_results(results_pc_dir, pc_metrics, "results_PC_model.json")
+    #      main_build_train_model(
+    #         parser_final_file_path,
+    #         start_rule,
+    #         trainingset_dir,
+    #         model_save_path,
+    #         max_length,
+    #         lexer_cls,
+    #         nb_epochs,
+    #         testingset_dir,
+    #         skip_rules,
+    #     )
 
 
 def inference(domain, max_length, grammar_name, type_of_question):
@@ -228,22 +222,30 @@ if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
 
-    domain = "B"
+    domain = "REDIS"
     domain_config = domains_config[domain]
 
-    num_inputs = 10
+    num_inputs = 10000
 
-    build_model(
-        domain,
-        grammar_name=domain_config["grammar_name"],
-        initial_grammar_paths=domain_config["initial_grammar_paths"],
-        max_length=domain_config["max_length"],
-        start_rule=domain_config["start_rule"],
-        num_inputs=num_inputs,
-        skip_rules=domain_config["skip_rules"],
-        with_serializer=domain_config["with_serializer"],
-        depth=domain_config["depth"],
-    )
+    # build_model(
+    #     domain,
+    #     grammar_name=domain_config["grammar_name"],
+    #     initial_grammar_paths=domain_config["initial_grammar_paths"],
+    #     max_length=domain_config["max_length"],
+    #     start_rule=domain_config["start_rule"],
+    #     num_inputs=num_inputs,
+    #     skip_rules=domain_config["skip_rules"],
+    #     with_serializer=domain_config["with_serializer"],
+    #     depth=domain_config["depth"],
+    # )
+
+    # generate_anonymized_dataset(
+    #     domain,
+    #     grammar_name=domain_config["grammar_name"],
+    #     start_rule=domain_config["start_rule"],
+    #     skip_rules=domain_config["skip_rules"],
+    #     output_dir=Path("anonymized_dataset/SQL/"),
+    # )
 
     # for mode in ["no-generate", "with-generate"]:
     #     sample_inputs(domain, mode, 200, domain_config["max_length"])

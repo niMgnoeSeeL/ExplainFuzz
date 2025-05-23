@@ -1,66 +1,174 @@
 {
-  "REDIS": [
+  "SQL": [
     {
       "method": "PCFG",
-      "domain": "REDIS",
-      "max-length": 5,
-      "nb_training_queries": 1757,
-      "nb_test_queries": 182,
-      "avg-loglikelihood": 5.024284139279386,
-      "time_training": 16.541540145874023,
+      "domain": "SQL",
+      "max_length": 35,
+      "nb_training_queries": 8326,
+      "nb_test_queries": 926,
+      "avg-loglikelihood": 9.536656428778194,
+      "time_training": 800.2002508640289,
       "mode": "no-generate"
     },
     {
       "method": "PCFG",
-      "domain": "REDIS",
-      "max-length": 5,
-      "nb_training_queries": 3163,
-      "nb_test_queries": 383,
-      "avg-loglikelihood": 6.691257190172818,
-      "time_training": 25.191810131072998,
+      "domain": "SQL",
+      "max_length": 35,
+      "nb_training_queries": 4007,
+      "nb_test_queries": 445,
+      "avg-loglikelihood": 17.020801677412194,
+      "time_training": 314.29613304138184,
       "mode": "with-generate"
     },
     {
       "method": "PCFG",
-      "domain": "REDIS",
-      "max-length": 10,
-      "nb_training_queries": 8942,
-      "nb_test_queries": 998,
-      "avg-loglikelihood": 4.447000997647737,
-      "time_training": 113.69310998916626,
+      "domain": "SQL",
+      "max_length": 10,
+      "nb_training_queries": 37,
+      "nb_test_queries": 3,
+      "avg-loglikelihood": 1.7931406030444286,
+      "time_training": 3.5453929901123047,
       "mode": "no-generate"
     },
     {
       "method": "PCFG",
-      "domain": "REDIS",
-      "max-length": 10,
-      "nb_training_queries": 8941,
-      "nb_test_queries": 999,
-      "avg-loglikelihood": 6.09116011431283,
-      "time_training": 105.07306003570557,
+      "domain": "SQL",
+      "max_length": 10,
+      "nb_training_queries": 352,
+      "nb_test_queries": 39,
+      "avg-loglikelihood": 4.180077573387363,
+      "time_training": 6.309957265853882,
       "mode": "with-generate"
     },
     {
       "method": "PCFG",
-      "domain": "REDIS",
-      "max-length": 15,
-      "nb_training_queries": 8998,
-      "nb_test_queries": 1002,
-      "avg-loglikelihood": 4.466382723516498,
-      "time_training": 633.0124700069427,
+      "domain": "SQL",
+      "max_length": 15,
+      "nb_training_queries": 1170,
+      "nb_test_queries": 131,
+      "avg-loglikelihood": 4.93141968393117,
+      "time_training": 14.4077730178833,
+      "mode": "no-generate"
+    },
+    {
+      "domain": "SQL",
+      "max_length": 30,
+      "nb_training_queries": 3266,
+      "nb_test_queries": 360,
+      "avg-loglikelihood": 14.609456674158062,
+      "time_training": 46.202889919281006,
+      "mode": "with-generate"
+    },{
+      "domain": "SQL",
+      "max_length": 15,
+      "nb_training_queries": 975,
+      "nb_test_queries": 98,
+      "avg-loglikelihood": 7.1466885772001065,
+      "time_training": 11.747767210006714,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "SQL",
+      "max_length": 20,
+      "nb_training_queries": 2617,
+      "nb_test_queries": 308,
+      "avg-loglikelihood": 6.702233084193675,
+      "time_training": 35.01511573791504,
       "mode": "no-generate"
     },
     {
       "method": "PCFG",
-      "domain": "REDIS",
-      "max-length": 15,
-      "nb_training_queries": 8995,
-      "nb_test_queries": 1002,
-      "avg-loglikelihood": 6.137907541012207,
-      "time_training": 100.8594479560852,
+      "domain": "SQL",
+      "max_length": 20,
+      "nb_training_queries": 1715,
+      "nb_test_queries": 185,
+      "avg-loglikelihood": 10.407437669984143,
+      "time_training": 21.07547688484192,
       "mode": "with-generate"
-    }
-  ],
+    },
+    {
+      "method": "PCFG",
+      "domain": "SQL",
+      "max_length": 25,
+      "nb_training_queries": 5436,
+      "nb_test_queries": 611,
+      "avg-loglikelihood": 8.102884608859293,
+      "time_training": 94.99007368087769,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "SQL",
+      "max_length": 25,
+      "nb_training_queries": 2467,
+      "nb_test_queries": 281,
+      "avg-loglikelihood": 12.77477841767102,
+      "time_training": 33.123756885528564,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "SQL",
+      "max_length": 30,
+      "nb_training_queries": 7965,
+      "nb_test_queries": 892,
+      "avg-loglikelihood": 9.049664790892347,
+      "time_training": 157.98924779891968,
+      "mode": "no-generate"
+    }],
+    
+  "REDIS":[{
+    "method": "PCFG",
+    "domain": "REDIS",
+    "max-length": 15,
+    "nb_training_queries": 8995,
+    "nb_test_queries": 1002,
+    "avg-loglikelihood": 6.137907541012207,
+    "time_training": 100.8594479560852,
+    "mode": "with-generate"
+  },
+  {
+    "method": "PCFG",
+    "domain": "REDIS",
+    "max_length": 10,
+    "nb_training_queries": 8998,
+    "nb_test_queries": 1000,
+    "avg-loglikelihood": 4.583140620244232,
+    "time_training": 114.18140888214111,
+    "mode": "no-generate"
+  },
+  {
+    "method": "PCFG",
+    "domain": "REDIS",
+    "max_length": 10,
+    "nb_training_queries": 8985,
+    "nb_test_queries": 1000,
+    "avg-loglikelihood": 7.38891298108367,
+    "time_training": 70.93458604812622,
+    "mode": "with-generate"
+  },
+  {
+    "method": "PCFG",
+    "domain": "REDIS",
+    "max_length": 5,
+    "nb_training_queries": 1839,
+    "nb_test_queries": 218,
+    "avg-loglikelihood": 4.7937491828650955,
+    "time_training": 17.513653993606567,
+    "mode": "no-generate"
+  },
+  {
+    "method": "PCFG",
+    "domain": "REDIS",
+    "max_length": 5,
+    "nb_training_queries": 7073,
+    "nb_test_queries": 799,
+    "avg-loglikelihood": 6.839595515515703,
+    "time_training": 47.572691202163696,
+    "mode": "with-generate"
+  }],
+
   "JANUS": [
     {
       "method": "PCFG",
@@ -80,57 +188,7 @@
       "nb_test_queries": 68,
       "avg-loglikelihood": 1.923697558429071,
       "time_training": 2.977471113204956,
-      "mode": "with-generate"
-    },
-    {
-      "method": "PCFG",
-      "domain": "JANUS",
-      "max-length": 10,
-      "nb_training_queries": 342,
-      "nb_test_queries": 45,
-      "avg-loglikelihood": 3.4948654212442194,
-      "time_training": 2.432129144668579,
-      "mode": "no-generate"
-    },
-    {
-      "method": "PCFG",
-      "domain": "JANUS",
-      "max-length": 10,
-      "nb_training_queries": 1273,
-      "nb_test_queries": 125,
-      "avg-loglikelihood": 3.9415910754301002,
-      "time_training": 3.3316428661346436,
-      "mode": "with-generate"
-    },
-    {
-      "method": "PCFG",
-      "domain": "JANUS",
-      "max-length": 15,
-      "nb_training_queries": 1879,
-      "nb_test_queries": 203,
-      "avg-loglikelihood": 6.906099028443689,
-      "time_training": 7.082560062408447,
-      "mode": "no-generate"
-    },
-    {
-      "method": "PCFG",
-      "domain": "JANUS",
-      "max-length": 15,
-      "nb_training_queries": 2527,
-      "nb_test_queries": 282,
-      "avg-loglikelihood": 6.9975017628068565,
-      "time_training": 7.192678928375244,
-      "mode": "with-generate"
-    },
-    {
-      "method": "PCFG",
-      "domain": "JANUS",
-      "max-length": 20,
-      "nb_training_queries": 3454,
-      "nb_test_queries": 389,
-      "avg-loglikelihood": 10.70041213504947,
-      "time_training": 13.660367250442505,
-      "mode": "no-generate"
+      "mode":"with-generate"
     },
     {
       "method": "PCFG",
@@ -161,6 +219,106 @@
       "avg-loglikelihood": 13.403627044862365,
       "time_training": 21.98701810836792,
       "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 5,
+      "nb_training_queries": 193,
+      "nb_test_queries": 27,
+      "avg-loglikelihood": 1.3806150125569134,
+      "time_training": 3.2090370655059814,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 5,
+      "nb_training_queries": 1780,
+      "nb_test_queries": 187,
+      "avg-loglikelihood": 1.8469995686329583,
+      "time_training": 3.694056987762451,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 10,
+      "nb_training_queries": 358,
+      "nb_test_queries": 49,
+      "avg-loglikelihood": 3.7509882703389037,
+      "time_training": 2.5907070636749268,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 10,
+      "nb_training_queries": 3241,
+      "nb_test_queries": 365,
+      "avg-loglikelihood": 3.925737607129011,
+      "time_training": 6.485162019729614,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 15,
+      "nb_training_queries": 1878,
+      "nb_test_queries": 204,
+      "avg-loglikelihood": 6.754743547010318,
+      "time_training": 7.454913854598999,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 15,
+      "nb_training_queries": 3922,
+      "nb_test_queries": 445,
+      "avg-loglikelihood": 5.172320105251145,
+      "time_training": 8.23035717010498,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 20,
+      "nb_training_queries": 3366,
+      "nb_test_queries": 387,
+      "avg-loglikelihood": 10.824906493361041,
+      "time_training": 14.372097730636597,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 20,
+      "nb_training_queries": 4403,
+      "nb_test_queries": 484,
+      "avg-loglikelihood": 6.124081492862976,
+      "time_training": 10.498363018035889,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 25,
+      "nb_training_queries": 5089,
+      "nb_test_queries": 564,
+      "avg-loglikelihood": 14.782955970587563,
+      "time_training": 25.698946237564087,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 25,
+      "nb_training_queries": 4725,
+      "nb_test_queries": 519,
+      "avg-loglikelihood": 7.261994660917255,
+      "time_training": 12.868235111236572,
+      "mode": "with-generate"
     }
   ],
   "MDX": [
@@ -182,6 +340,168 @@
       "nb_test_queries": 241,
       "avg-loglikelihood": 15.363596129046286,
       "time_training": 87.6923041343689,
+      "mode":"with-generate"}
+      
+  ],
+  "B": [
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 35,
+      "nb_training_queries": 5087,
+      "nb_test_queries": 557,
+      "avg-loglikelihood": 19.38159026681708,
+      "time_training": 84.31322598457336,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 35,
+      "nb_training_queries": 4371,
+      "nb_test_queries": 459,
+      "avg-loglikelihood": 10.066157617221677,
+      "time_training": 23.445553064346313,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 5,
+      "nb_training_queries": 65,
+      "nb_test_queries": 12,
+      "avg-loglikelihood": 2.323377771809425,
+      "time_training": 3.4543709754943848,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 5,
+      "nb_training_queries": 1925,
+      "nb_test_queries": 200,
+      "avg-loglikelihood": 2.667057487723475,
+      "time_training": 4.2222068309783936,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 40,
+      "nb_training_queries": 6320,
+      "nb_test_queries": 685,
+      "avg-loglikelihood": 23.533191516530366,
+      "time_training": 119.87988376617432,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 40,
+      "nb_training_queries": 4412,
+      "nb_test_queries": 465,
+      "avg-loglikelihood": 10.590354155725347,
+      "time_training": 24.508955240249634,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 10,
+      "nb_training_queries": 210,
+      "nb_test_queries": 26,
+      "avg-loglikelihood": 4.209678786857218,
+      "time_training": 4.671941757202148,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 10,
+      "nb_training_queries": 3011,
+      "nb_test_queries": 316,
+      "avg-loglikelihood": 5.037647768764739,
+      "time_training": 8.72642993927002,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 15,
+      "nb_training_queries": 346,
+      "nb_test_queries": 59,
+      "avg-loglikelihood": 8.596167241850218,
+      "time_training": 5.561053991317749,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 15,
+      "nb_training_queries": 3653,
+      "nb_test_queries": 371,
+      "avg-loglikelihood": 6.573800892960795,
+      "time_training": 13.462953805923462,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 20,
+      "nb_training_queries": 1354,
+      "nb_test_queries": 174,
+      "avg-loglikelihood": 11.27447841498705,
+      "time_training": 16.0742769241333,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 20,
+      "nb_training_queries": 4013,
+      "nb_test_queries": 415,
+      "avg-loglikelihood": 7.8700085732174765,
+      "time_training": 17.339051961898804,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 25,
+      "nb_training_queries": 2618,
+      "nb_test_queries": 307,
+      "avg-loglikelihood": 13.921721409485862,
+      "time_training": 32.60180306434631,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 25,
+      "nb_training_queries": 4194,
+      "nb_test_queries": 437,
+      "avg-loglikelihood": 8.842361901554133,
+      "time_training": 20.07958722114563,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 30,
+      "nb_training_queries": 2914,
+      "nb_test_queries": 340,
+      "avg-loglikelihood": 15.748401675905464,
+      "time_training": 37.68642711639404,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "B",
+      "max_length": 30,
+      "nb_training_queries": 4303,
+      "nb_test_queries": 452,
+      "avg-loglikelihood": 9.600121953718835,
+      "time_training": 22.036171913146973,
       "mode": "with-generate"
     }
   ]
