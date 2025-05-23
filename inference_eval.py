@@ -51,7 +51,7 @@ def eval_inference_domain(
 
         ##### MAR 1 ######
         toks_marginals = inference_inputs["MAR1"]
-        res_list, res_str = query_marginals(
+        res_list, res_str = eval_MAR1(
             model, lit_map, max_length, lit_size, toks_marginals, seeds, mode, domain
         )
         results += res_list
@@ -59,7 +59,7 @@ def eval_inference_domain(
 
         ##### COND 1 ######
         seqs_cond = inference_inputs["COND1"]
-        res_list, res_str = query_bi_conds(
+        res_list, res_str = eval_COND1(
             model, lit_map, max_length, lit_size, seqs_cond, seeds, mode, domain
         )
         results += res_list
@@ -74,7 +74,7 @@ def eval_inference_domain(
     print(results_string)
 
 
-def query_marginals(model, lit_map, max_length, lit_size, toks, seeds, mode, domain):
+def eval_MAR1(model, lit_map, max_length, lit_size, toks, seeds, mode, domain):
     """
     MAR1 : P(token) ?
     """
@@ -103,7 +103,7 @@ def query_marginals(model, lit_map, max_length, lit_size, toks, seeds, mode, dom
     return results, str_res
 
 
-def query_bi_conds(model, lit_map, max_length, lit_size, seqs, seeds, mode, domain):
+def eval_COND1(model, lit_map, max_length, lit_size, seqs, seeds, mode, domain):
     """
     COND1 : P(token2|token1) ?
     """
