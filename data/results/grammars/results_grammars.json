@@ -66,7 +66,9 @@
       "max_arity": 16,
       "num_recursive_rules": 11,
       "percent_recursive": 0.21153846153846154,
-      "domain": "B"}],
+      "domain": "B"
+    }
+  ],
   "SQL": [
     {
       "num_rules": 31,

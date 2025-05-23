@@ -1,15 +1,12 @@
 [submodule "cfg2pc"]
 	path = cfg2pc
-	url = https://github.com/jjcmoon/cfg2pc.git
-[submodule "GrammarRefactoring"]
-	path = GrammarRefactoring
-	url = https://github.com/annaellebgt/GrammarRefactoring.git
-[submodule "grammarinator-fuzzing"]
-	path = grammarinator-fuzzing
-	url = git@github.com:annaellebgt/grammarinator-fuzzing.git
-[submodule "grammarinator_fuzzing"]
-	path = grammarinator_fuzzing
-	url = git@github.com:annaellebgt/grammarinator_fuzzing.git
+	url = git@github.com:jjcmoon/cfg2pc.git
 [submodule "custom_generator_sql"]
 	path = custom_generator_sql
 	url = git@github.com:annaellebgt/custom_generator_sql.git
+[submodule "GrammarRefactoring"]
+	path = GrammarRefactoring
+	url = git@github.com:annaellebgt/GrammarRefactoring.git
+[submodule "grammarinator_fuzzing"]
+	path = grammarinator_fuzzing
+	url = git@github.com:annaellebgt/grammarinator_fuzzing.git
