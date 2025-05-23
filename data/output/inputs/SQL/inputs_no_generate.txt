@@ -1,0 +1,8 @@
+SELECT * FROM identifier WHERE identifier . identifier < integral ORDER BY identifier . identifier ; 
+SELECT * FROM identifier WHERE TIME stringconstant identifier < integral ORDER BY identifier . identifier ; 
+SELECT identifier . * , identifier . identifier FROM identifier WHERE identifier . identifier < integral ORDER BY identifier USING > ; 
+SELECT identifier . identifier , identifier . identifier FROM identifier WHERE identifier . identifier > integral ORDER BY identifier USING < ; 
+SELECT identifier . identifier , identifier . identifier FROM identifier WHERE identifier . identifier < integral ORDER BY identifier USING > ; 
+SELECT identifier . identifier , identifier . identifier FROM identifier WHERE identifier . identifier < integral ORDER BY identifier USING < , identifier USING > ; 
+SELECT * FROM identifier WHERE identifier . identifier < integral ORDER BY identifier . identifier ; 
+SELECT identifier . identifier , identifier . identifier FROM identifier WHERE identifier . identifier > integral ORDER BY identifier USING > ; 

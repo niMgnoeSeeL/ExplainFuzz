@@ -1,22 +1,7 @@
-from GrammarRefactoring.refactor_grammar.LiteralExractor import (
-    extract_existing_literals,
-)
 from cfg2pc.query import marginal_query, marginal_query_cond
-from main import GRAMMAR_DIR, MODEL_DIR, load_domains_config
+from main import MODEL_DIR, get_literal_token_mapping, load_domains_config
 import torch
 from pathlib import Path
-
-
-def get_literal_token_mapping(domain: str):
-    """Get the literal mapping from the lexer file"""
-    config_file_path = Path("domains_config.json").resolve()
-    domains_config = load_domains_config(config_file_path)
-    domain_config = domains_config[domain]
-    lexer_path = (
-        GRAMMAR_DIR / "final" / domain / f"{domain_config['grammar_name']}Lexer.g4"
-    )
-    literal_token_mapping = extract_existing_literals(lexer_path)
-    return literal_token_mapping
 
 
 def load_model_and_info(domain: str, mode: str):

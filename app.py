@@ -3,8 +3,8 @@ import gradio as gr
 import zipfile
 import os
 
-from main import load_domains_config
-from inference import ask_query, get_literal_token_mapping, load_model_and_info
+from inference import ask_query, load_model_and_info
+from main import get_literal_token_mapping, main_generate_inputs
 
 """"This is a dummy FE for now"""
 
@@ -42,22 +42,11 @@ def proba_MAR1(domain, lit):
     return f"P({lit})={prob:.4f}"
 
 
-def generate_inputs(domain, sql_conn, num_inputs):
-    # Simulate input generation
-    output_folder = f"generated_{domain.lower()}_inputs"
-    os.makedirs(output_folder, exist_ok=True)
-
-    for i in range(num_inputs):
-        with open(os.path.join(output_folder, f"input_{i}.txt"), "w") as f:
-            f.write(f"Generated input {i+1} for {domain}\n")
-
-    zip_filename = f"{output_folder}.zip"
-    with zipfile.ZipFile(zip_filename, "w") as zipf:
-        for root, _, files in os.walk(output_folder):
-            for file in files:
-                zipf.write(os.path.join(root, file), arcname=file)
-
-    return zip_filename
+def generate_inputs(domain, mode, num_inputs, sql_conn=None):
+    filename = main_generate_inputs(
+        domain, mode, nb_concrete_inputs=num_inputs, conninfo=sql_conn
+    )
+    return filename
 
 
 with gr.Blocks() as demo:
@@ -115,8 +104,9 @@ with gr.Blocks() as demo:
         domain.change(fn=toggle_input_fields, inputs=domain, outputs=sql_conn)
 
         def run_generation(domain, sql_conn, num_inputs):
+            mode = "no-generate"
             generation_status = f"Generating {num_inputs} inputs for {domain}..."
-            zip_file = generate_inputs(domain, sql_conn, int(num_inputs))
+            zip_file = generate_inputs(domain, mode, int(num_inputs), sql_conn)
             return zip_file, f"Done! Download the generated inputs."
 
         generate_btn.click(
