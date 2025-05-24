@@ -1,0 +1,200 @@
+PROCEDURE ident FROM ident binop ident UNTIL ident binop num 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident UNCALL ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident THEN ident += num ELSE ident <=> ident FI num 
+PROCEDURE ident READ ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident CALL ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num FI ident 
+PROCEDURE ident IF ident THEN WRITE ident FI ident ident <=> ident ident -= num 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= ident FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE UNCALL ident FI num 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop num THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident 
+PROCEDURE ident IF ident binop ident THEN ident <=> num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident CALL ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident 
+PROCEDURE ident READ ident ident : ident 
+PROCEDURE ident ident [ num ] : ident [ num ] 
+PROCEDURE ident READ ident UNCALL ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident FI binop binop binop binop num binop binop ident 
+PROCEDURE ident FROM ident binop ident UNTIL ident binop num 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident CALL ident CALL ident UNCALL ident CALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident FROM ident binop ident DO UNCALL ident WRITE ident WRITE ident WRITE ident UNTIL ident binop num 
+PROCEDURE ident IF ident binop ( ident ) THEN ident <=> ident ELSE ident -= ident FI num 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident FROM ident binop ident DO ident += num ident -= ident ident -= ident UNTIL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident CALL ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += ~ ident ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident ident [ num ] += ident ident [ ident ] -= ident [ ident ] 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident ELSE WRITE ident FI binop num ident -= num ident -= ident 
+PROCEDURE ident FROM ident binop ident UNTIL ( ident ) 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident FROM ident binop ident DO ident <=> ( num ) UNTIL binop binop ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident FROM ident binop ident UNTIL num binop num 
+PROCEDURE ident FROM ident binop num DO ident += ( ident ) UNTIL num binop ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident FROM ident DO ident += ident ident += num ident -= num UNTIL ident binop num 
+PROCEDURE ident IF ident binop ident THEN ident += ident ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident FROM binop num UNTIL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE UNCALL ident WRITE ident FI ident 
+PROCEDURE ident CALL ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident FROM ident binop num UNTIL num binop num 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= ident FI ident 
+PROCEDURE ident READ ident WRITE ident ident -= ~ ident [ num binop num ] 
+PROCEDURE ident IF ident binop num THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident ELSE ident += num FI num 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident 
+PROCEDURE ident UNCALL ident WRITE ident CALL ident UNCALL ident CALL ident 
+PROCEDURE ident IF ident binop ident THEN ident [ num ] -= num ELSE ident -= ident FI num 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident 
+PROCEDURE ident IF ident FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= ident FI ident 
+PROCEDURE ident READ ident WRITE ident UNCALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI num 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident FROM ident DO ident += ident ident += ident ident -= num UNTIL ident binop ident 
+PROCEDURE ident ident [ num ] : ident [ num ] READ ident 
+PROCEDURE ident WRITE ident WRITE ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident ident != ~ ~ ( ( ( ( num ) ) ) ) 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI num 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident 
+PROCEDURE ident ident -= binop ident binop ident binop num 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident PROCEDURE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident UNCALL ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop num THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident ident [ ident ] : ident [ num ] CALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += ident ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN CALL ident ELSE ident <=> num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident CALL ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident WRITE ident 
+PROCEDURE ident READ ident WRITE ident UNCALL ident UNCALL ident 
+PROCEDURE ident READ ident 
+PROCEDURE ident IF ident binop ident THEN WRITE ident ELSE ident += num FI num 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident READ ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident READ ident CALL ident ident [ binop num ] != binop ident binop ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE CALL ident FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident CALL ident WRITE ident UNCALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident ident [ ident ] : ident [ num ] 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident FROM ident binop ident DO CALL ident UNTIL num binop num 
+PROCEDURE ident READ ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident WRITE ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident FROM ident binop ident DO ident += num ident -= num CALL ident UNTIL ident binop ident 
+PROCEDURE ident FROM ident binop ident DO ident += ident CALL ident UNTIL binop binop ident 
+PROCEDURE ident FROM ident DO ident += ident ident <=> num ident -= num UNTIL ident binop ident 
+PROCEDURE ident READ ident WRITE ident CALL ident WRITE ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident FROM ident binop ident DO READ ident UNTIL ident binop ident 
+PROCEDURE ident READ ident WRITE ident 
+PROCEDURE ident IF ( ident ) THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident FROM ident UNTIL binop ~ ident binop num binop ident [ num ] 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += num ELSE ident -= num FI ident 
+PROCEDURE ident IF ident binop ident THEN ident += ident ELSE ident -= num FI num 
+PROCEDURE ident READ ident WRITE ident UNCALL ident UNCALL ident 
+PROCEDURE ident UNCALL ident WRITE ident CALL ident UNCALL ident 
+PROCEDURE ident FROM ident binop ident DO ident += ~ ident UNTIL num binop num 

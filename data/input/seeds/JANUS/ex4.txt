@@ -1,0 +1,5 @@
+PROCEDURE ioRoutine
+  READ input
+  WRITE output
+  CALL process
+  UNCALL cleanup

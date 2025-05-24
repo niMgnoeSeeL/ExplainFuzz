@@ -1,0 +1,9 @@
+WITH 
+  SET [TopProducts] AS 
+    { [Product].[Product Name].[Product A], [Product].[Product Name].[Product B] }
+
+SELECT 
+  {[Measures].[Store Sales]} ON COLUMNS,
+  [TopProducts] ON ROWS
+FROM [Sales]
+CELL PROPERTIES VALUE, FORMATTED_VALUE

@@ -1,0 +1,6 @@
+PROCEDURE check
+  IF x < y THEN
+    x += 1
+  ELSE
+    x -= 1
+  FI x

@@ -1,0 +1,12 @@
+[submodule "cfg2pc"]
+	path = cfg2pc
+	url = git@github.com:jjcmoon/cfg2pc.git
+[submodule "custom_generator_sql"]
+	path = custom_generator_sql
+	url = git@github.com:annaellebgt/custom_generator_sql.git
+[submodule "GrammarRefactoring"]
+	path = GrammarRefactoring
+	url = git@github.com:annaellebgt/GrammarRefactoring.git
+[submodule "grammarinator_fuzzing"]
+	path = grammarinator_fuzzing
+	url = git@github.com:annaellebgt/grammarinator_fuzzing.git
