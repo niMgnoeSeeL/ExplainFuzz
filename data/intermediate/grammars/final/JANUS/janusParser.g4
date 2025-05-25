@@ -13,8 +13,8 @@ block_2 : TERM_2 IDENT statements ;
 
 program : block_0_star block_2_star EOF 
 | block_0_star EOF 
-| EOF 
-| block_2_star EOF ;
+| block_2_star EOF 
+| EOF ;
 
 block_2_star : block_2 block_2_star 
 | TERM_2 IDENT statements ;

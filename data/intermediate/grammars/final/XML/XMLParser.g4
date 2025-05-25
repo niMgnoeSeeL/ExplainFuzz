@@ -3,9 +3,9 @@ parser grammar XMLParser;
 options { tokenVocab=XMLLexer;}
 
 document : prolog_question misc_star element misc_star EOF 
-| prolog_question element EOF 
 | prolog_question element misc_star EOF 
-| prolog_question misc_star element EOF ;
+| prolog_question misc_star element EOF 
+| prolog_question element EOF ;
 
 misc_star : misc misc_star 
 | COMMENT 
@@ -54,6 +54,8 @@ block_0 : block_2 chardata_question
 content : chardata_question block_0_star 
 | block_0 block_0_star 
 |  
+| TEXT 
+| SEA_WS 
 | block_2 chardata_question 
 | CDATA 
 | PI 
@@ -65,9 +67,7 @@ content : chardata_question block_0_star
 | OPEN Name SLASH_CLOSE 
 | OPEN Name CLOSE content OPEN SLASH Name CLOSE 
 | OPEN Name SLASH_CLOSE 
-| OPEN Name CLOSE content OPEN SLASH Name CLOSE 
-| TEXT 
-| SEA_WS ;
+| OPEN Name CLOSE content OPEN SLASH Name CLOSE ;
 
 block_0_star : block_0 block_0_star 
 | block_2 chardata_question 
@@ -85,10 +85,10 @@ block_0_star : block_0 block_0_star
 
 element : OPEN Name attribute_star CLOSE content OPEN SLASH Name CLOSE 
 | OPEN Name attribute_star SLASH_CLOSE 
-| OPEN Name CLOSE content OPEN SLASH Name CLOSE 
 | OPEN Name SLASH_CLOSE 
 | OPEN Name CLOSE content OPEN SLASH Name CLOSE 
-| OPEN Name SLASH_CLOSE ;
+| OPEN Name SLASH_CLOSE 
+| OPEN Name CLOSE content OPEN SLASH Name CLOSE ;
 
 reference : EntityRef 
 | CharRef ;

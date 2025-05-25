@@ -1,0 +1,7 @@
+<scxml>
+  <state id="outer">
+    <state id="inner">
+      <onentry><log label="entered inner"/></onentry>
+    </state>
+  </state>
+</scxml>

@@ -1,52 +1,397 @@
 {
-  "REDIS": [
+  "SQL": [
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 35,
+      "avg-loglikelihood": 49.40120344388562,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 35,
+      "avg-loglikelihood": 162.23456170585717,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 10,
+      "avg-loglikelihood": 40.28517405192057,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 10,
+      "avg-loglikelihood": 60.11733314318535,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 15,
+      "avg-loglikelihood": 38.51995366220256,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 15,
+      "avg-loglikelihood": 75.57218504925163,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate REDIS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nCOPY IDENTIFIER IDENTIFIER DB POSITIVE_DECIMAL_LITERAL REPLACE\nBRPOP IDENTIFIER IDENTIFIER POSITIVE_DECIMAL_LITERAL\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER LEFT COUNT POSITIVE_DECIMAL_LITERAL\nLMOVE IDENTIFIER IDENTIFIER LEFT RIGHT\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER IDENTIFIER RIGHT COUNT POSITIVE_DECIMAL_LITERAL\nZRANGE IDENTIFIER POSITIVE_DECIMAL_LITERAL DECIMAL_LITERAL BYSCORE REV WITHSCORES\nSCAN POSITIVE_DECIMAL_LITERAL MATCH IDENTIFIER COUNT POSITIVE_DECIMAL_LITERAL TYPE IDENTIFIER\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 20,
+      "avg-loglikelihood": 44.65685607860615,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 20,
+      "avg-loglikelihood": 103.62828736176363,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 25,
+      "avg-loglikelihood": 43.968269785180226,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 25,
+      "avg-loglikelihood": 126.56322281046694,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 30,
+      "avg-loglikelihood": 45.46408546772773,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "SQL",
+      "max_length": 30,
+      "avg-loglikelihood": 144.00504252115886,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate SQL inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT COMMA Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT COMMA Identifier USING GT SEMI\nSELECT Identifier DOT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier GT Integral ORDER BY Identifier USING LT SEMI\nSELECT Identifier DOT Identifier COMMA Identifier DOT Identifier FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier USING GT SEMI\nSELECT STAR FROM Identifier WHERE Identifier DOT Identifier LT Integral ORDER BY Identifier DOT Identifier SEMI\n\nNow generate the next query:\n"
+}],
+  "REDIS":[
     {
       "method": "LLM",
       "domain": "REDIS",
-      "max-length": 5,
-      "avg-loglikelihood": 46.86932549109826,
+      "max_length": 10,
+      "avg-loglikelihood": 47.92380644226074,
       "mode": "no-generate",
       "prompt": "You are a language model trained to generate REDIS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nCOPY IDENTIFIER IDENTIFIER DB POSITIVE_DECIMAL_LITERAL REPLACE\nBRPOP IDENTIFIER IDENTIFIER POSITIVE_DECIMAL_LITERAL\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER LEFT COUNT POSITIVE_DECIMAL_LITERAL\nLMOVE IDENTIFIER IDENTIFIER LEFT RIGHT\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER IDENTIFIER RIGHT COUNT POSITIVE_DECIMAL_LITERAL\nZRANGE IDENTIFIER POSITIVE_DECIMAL_LITERAL DECIMAL_LITERAL BYSCORE REV WITHSCORES\nSCAN POSITIVE_DECIMAL_LITERAL MATCH IDENTIFIER COUNT POSITIVE_DECIMAL_LITERAL TYPE IDENTIFIER\n\nNow generate the next query:\n"
     },
     {
       "method": "LLM",
       "domain": "REDIS",
-      "max-length": 5,
-      "avg-loglikelihood": 52.283621153072026,
+      "max_length": 10,
+      "avg-loglikelihood": 67.65320603752136,
       "mode": "with-generate",
       "prompt": "You are a language model trained to generate REDIS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nCOPY IDENTIFIER IDENTIFIER DB POSITIVE_DECIMAL_LITERAL REPLACE\nBRPOP IDENTIFIER IDENTIFIER POSITIVE_DECIMAL_LITERAL\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER LEFT COUNT POSITIVE_DECIMAL_LITERAL\nLMOVE IDENTIFIER IDENTIFIER LEFT RIGHT\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER IDENTIFIER RIGHT COUNT POSITIVE_DECIMAL_LITERAL\nZRANGE IDENTIFIER POSITIVE_DECIMAL_LITERAL DECIMAL_LITERAL BYSCORE REV WITHSCORES\nSCAN POSITIVE_DECIMAL_LITERAL MATCH IDENTIFIER COUNT POSITIVE_DECIMAL_LITERAL TYPE IDENTIFIER\n\nNow generate the next query:\n"
     },
     {
       "method": "LLM",
       "domain": "REDIS",
-      "max-length": 10,
-      "avg-loglikelihood": 44.0708141021117,
+      "max_length": 5,
+      "avg-loglikelihood": 52.62100284471424,
       "mode": "no-generate",
       "prompt": "You are a language model trained to generate REDIS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nCOPY IDENTIFIER IDENTIFIER DB POSITIVE_DECIMAL_LITERAL REPLACE\nBRPOP IDENTIFIER IDENTIFIER POSITIVE_DECIMAL_LITERAL\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER LEFT COUNT POSITIVE_DECIMAL_LITERAL\nLMOVE IDENTIFIER IDENTIFIER LEFT RIGHT\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER IDENTIFIER RIGHT COUNT POSITIVE_DECIMAL_LITERAL\nZRANGE IDENTIFIER POSITIVE_DECIMAL_LITERAL DECIMAL_LITERAL BYSCORE REV WITHSCORES\nSCAN POSITIVE_DECIMAL_LITERAL MATCH IDENTIFIER COUNT POSITIVE_DECIMAL_LITERAL TYPE IDENTIFIER\n\nNow generate the next query:\n"
     },
     {
       "method": "LLM",
       "domain": "REDIS",
-      "max-length": 10,
-      "avg-loglikelihood": 49.486670953256116,
+      "max_length": 5,
+      "avg-loglikelihood": 62.25610566169061,
       "mode": "with-generate",
       "prompt": "You are a language model trained to generate REDIS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nCOPY IDENTIFIER IDENTIFIER DB POSITIVE_DECIMAL_LITERAL REPLACE\nBRPOP IDENTIFIER IDENTIFIER POSITIVE_DECIMAL_LITERAL\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER LEFT COUNT POSITIVE_DECIMAL_LITERAL\nLMOVE IDENTIFIER IDENTIFIER LEFT RIGHT\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER IDENTIFIER RIGHT COUNT POSITIVE_DECIMAL_LITERAL\nZRANGE IDENTIFIER POSITIVE_DECIMAL_LITERAL DECIMAL_LITERAL BYSCORE REV WITHSCORES\nSCAN POSITIVE_DECIMAL_LITERAL MATCH IDENTIFIER COUNT POSITIVE_DECIMAL_LITERAL TYPE IDENTIFIER\n\nNow generate the next query:\n"
-    },
+    }
+  ],
+ 
+    
+  "JANUS":[
     {
       "method": "LLM",
-      "domain": "REDIS",
-      "max-length": 15,
-      "avg-loglikelihood": 44.19557453772265,
+      "domain": "JANUS",
+      "max-length": 20,
+      "avg-loglikelihood": 41.74665189218398,
       "mode": "no-generate",
-      "prompt": "You are a language model trained to generate REDIS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nCOPY IDENTIFIER IDENTIFIER DB POSITIVE_DECIMAL_LITERAL REPLACE\nBRPOP IDENTIFIER IDENTIFIER POSITIVE_DECIMAL_LITERAL\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER LEFT COUNT POSITIVE_DECIMAL_LITERAL\nLMOVE IDENTIFIER IDENTIFIER LEFT RIGHT\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER IDENTIFIER RIGHT COUNT POSITIVE_DECIMAL_LITERAL\nZRANGE IDENTIFIER POSITIVE_DECIMAL_LITERAL DECIMAL_LITERAL BYSCORE REV WITHSCORES\nSCAN POSITIVE_DECIMAL_LITERAL MATCH IDENTIFIER COUNT POSITIVE_DECIMAL_LITERAL TYPE IDENTIFIER\n\nNow generate the next query:\n"
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
     },
     {
       "method": "LLM",
-      "domain": "REDIS",
-      "max-length": 15,
-      "avg-loglikelihood": 49.67482605475389,
+      "domain": "JANUS",
+      "max-length": 20,
+      "avg-loglikelihood": 41.22417479969976,
       "mode": "with-generate",
-      "prompt": "You are a language model trained to generate REDIS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nCOPY IDENTIFIER IDENTIFIER DB POSITIVE_DECIMAL_LITERAL REPLACE\nBRPOP IDENTIFIER IDENTIFIER POSITIVE_DECIMAL_LITERAL\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER LEFT COUNT POSITIVE_DECIMAL_LITERAL\nLMOVE IDENTIFIER IDENTIFIER LEFT RIGHT\nBLMPOP POSITIVE_DECIMAL_LITERAL POSITIVE_DECIMAL_LITERAL IDENTIFIER IDENTIFIER RIGHT COUNT POSITIVE_DECIMAL_LITERAL\nZRANGE IDENTIFIER POSITIVE_DECIMAL_LITERAL DECIMAL_LITERAL BYSCORE REV WITHSCORES\nSCAN POSITIVE_DECIMAL_LITERAL MATCH IDENTIFIER COUNT POSITIVE_DECIMAL_LITERAL TYPE IDENTIFIER\n\nNow generate the next query:\n"
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max-length": 25,
+      "avg-loglikelihood": 45.05752552898546,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max-length": 25,
+      "avg-loglikelihood": 44.93784714083299,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max_length": 5,
+      "avg-loglikelihood": 30.739071386831778,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max_length": 5,
+      "avg-loglikelihood": 30.614366306978113,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max_length": 10,
+      "avg-loglikelihood": 33.76266872639559,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max_length": 10,
+      "avg-loglikelihood": 36.675010602768154,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max_length": 15,
+      "avg-loglikelihood": 36.99994295718623,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max_length": 15,
+      "avg-loglikelihood": 40.319603896408935,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max_length": 20,
+      "avg-loglikelihood": 41.80487017668495,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max_length": 20,
+      "avg-loglikelihood": 43.03768144954335,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max_length": 25,
+      "avg-loglikelihood": 45.802258819553025,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JANUS",
+      "max_length": 25,
+      "avg-loglikelihood": 46.32883557372929,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate JANUS inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_2 IDENT TERM_7 IDENT BINOP NUM TERM_8 TERM_3 IDENT BINOP NUM TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT TERM_10 IDENT BINOP NUM\nTERM_2 IDENT TERM_3 IDENT BINOP IDENT TERM_4 IDENT TERM_15 NUM TERM_5 IDENT TERM_16 NUM TERM_6 IDENT\nTERM_2 IDENT TERM_7 IDENT BINOP IDENT TERM_8 IDENT TERM_15 IDENT IDENT TERM_18 IDENT IDENT TERM_16 NUM TERM_10 IDENT BINOP NUM\nTERM_2 IDENT IDENT TERM_0 NUM TERM_1 TERM_19 IDENT TERM_0 NUM TERM_1 IDENT TERM_0 NUM TERM_1 TERM_15 NUM IDENT TERM_0 NUM TERM_1 TERM_16 IDENT TERM_0 NUM TERM_1\nTERM_2 IDENT TERM_13 IDENT TERM_14 IDENT TERM_11 IDENT TERM_12 IDENT\n\nNow generate the next query:\n"
+    }
+  ],
+  "MDX": [
+    {
+      "method": "LLM",
+      "domain": "MDX",
+      "max-length": 25,
+      "avg-loglikelihood": 46.07610341122276,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate MDX inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT ID DOT ID ON ID COMMA LBRACE QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID DOT ID COMMA QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID DOT ID RBRACE ON ID FROM QUOTED_ID\nSELECT QUOTED_ID DOT QUOTED_ID ON ID COMMA QUOTED_ID DOT ID ON ID FROM ID WHERE LPAREN QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID RPAREN\nSELECT LBRACE QUOTED_ID DOT QUOTED_ID RBRACE ON ID COMMA LBRACE QUOTED_ID DOT QUOTED_ID COMMA QUOTED_ID DOT QUOTED_ID RBRACE ON ID FROM ID WHERE LPAREN QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID RPAREN\nSELECT NON EMPTY QUOTED_ID DOT QUOTED_ID DOT ID ON ID COMMA NON EMPTY QUOTED_ID DOT QUOTED_ID DOT ID ON ID FROM QUOTED_ID CELL PROPERTIES VALUE COMMA FORMATTED_VALUE\nWITH SET QUOTED_ID AS LBRACE QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID COMMA QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID RBRACE SELECT LBRACE QUOTED_ID DOT QUOTED_ID RBRACE ON ID COMMA QUOTED_ID ON ID FROM QUOTED_ID CELL PROPERTIES VALUE COMMA FORMATTED_VALUE\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "MDX",
+      "max-length": 25,
+      "avg-loglikelihood": 58.10589304405624,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate MDX inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nSELECT ID DOT ID ON ID COMMA LBRACE QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID DOT ID COMMA QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID DOT ID RBRACE ON ID FROM QUOTED_ID\nSELECT QUOTED_ID DOT QUOTED_ID ON ID COMMA QUOTED_ID DOT ID ON ID FROM ID WHERE LPAREN QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID RPAREN\nSELECT LBRACE QUOTED_ID DOT QUOTED_ID RBRACE ON ID COMMA LBRACE QUOTED_ID DOT QUOTED_ID COMMA QUOTED_ID DOT QUOTED_ID RBRACE ON ID FROM ID WHERE LPAREN QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID RPAREN\nSELECT NON EMPTY QUOTED_ID DOT QUOTED_ID DOT ID ON ID COMMA NON EMPTY QUOTED_ID DOT QUOTED_ID DOT ID ON ID FROM QUOTED_ID CELL PROPERTIES VALUE COMMA FORMATTED_VALUE\nWITH SET QUOTED_ID AS LBRACE QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID COMMA QUOTED_ID DOT QUOTED_ID DOT QUOTED_ID RBRACE SELECT LBRACE QUOTED_ID DOT QUOTED_ID RBRACE ON ID COMMA QUOTED_ID ON ID FROM QUOTED_ID CELL PROPERTIES VALUE COMMA FORMATTED_VALUE\n\nNow generate the next query:\n"
+    }
+  ],
+  "B": [
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 35,
+      "avg-loglikelihood": 48.52304619218974,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 35,
+      "avg-loglikelihood": 46.167347457154385,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 5,
+      "avg-loglikelihood": 28.73402992884318,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 5,
+      "avg-loglikelihood": 29.38360092163086,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 40,
+      "avg-loglikelihood": 52.219988754717974,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 40,
+      "avg-loglikelihood": 47.52973379729897,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 10,
+      "avg-loglikelihood": 33.18273815741906,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 10,
+      "avg-loglikelihood": 33.380434078506276,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 15,
+      "avg-loglikelihood": 44.3250103643385,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 15,
+      "avg-loglikelihood": 36.7315366030382,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 20,
+      "avg-loglikelihood": 42.47528947632888,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 20,
+      "avg-loglikelihood": 40.38492351210261,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 25,
+      "avg-loglikelihood": 42.519776726390326,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 25,
+      "avg-loglikelihood": 42.98435693474602,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 30,
+      "avg-loglikelihood": 45.328584575653075,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 30,
+      "avg-loglikelihood": 45.01856965512301,
+      "mode": "with-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_14 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_1 TERM_6 NAME TERM_2 NAME TERM_0 NAME TERM_3 TERM_5 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_18 STRING2 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 TERM_10 TERM_2 INT TERM_3 TERM_5 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_25 STRING2 TERM_3 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 STRING2 TERM_3 TERM_1 TERM_10 TERM_2 TERM_2 NAME TERM_18 NAME TERM_2 TERM_3 TERM_3 TERM_24 STRING2 TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_2 NAME TERM_3 TERM_24 STRING2 TERM_3 NAME TERM_2 TERM_3 TERM_1 TERM_6 TERM_6\n\nNow generate the next query:\n"
     }
   ]
 }
