@@ -36,10 +36,55 @@ def compute_probability(domain, query_type, inputs):
 def proba_MAR1(domain, lit):
     literal_to_tokens = get_literal_token_mapping(domain)
     token = literal_to_tokens[lit]
+    print(f"Token for {lit}: {token}")
     inputs = [token]
     query_type = "MAR1"
     prob = compute_probability(domain, query_type, inputs)
     return f"P({lit})={prob:.4f}"
+
+def proba_MAR2(domain, lit1, lit2):
+    literal_to_tokens = get_literal_token_mapping(domain)
+    token1 = literal_to_tokens[lit1]
+    token2 = literal_to_tokens[lit2]
+    inputs = [token1, token2]
+    query_type = "MAR2"
+    prob = compute_probability(domain, query_type, inputs)
+    return f"P({lit})={prob:.4f}"
+
+def prob_COND1(domain, lit1, lit2):
+    literal_to_tokens = get_literal_token_mapping(domain)
+    token1 = literal_to_tokens[lit1]
+    token2 = literal_to_tokens[lit2]
+    inputs = [token1, token2]
+    query_type = "COND1"
+    prob = compute_probability(domain, query_type, inputs)
+    return f"P({lit})={prob:.4f}"
+
+def prob_COND2(domain, lit1, lit2):
+    literal_to_tokens = get_literal_token_mapping(domain)
+    token1 = literal_to_tokens[lit1]
+    token2 = literal_to_tokens[lit2]
+    inputs = [token1, token2]
+    query_type = "COND2"
+    prob = compute_probability(domain, query_type, inputs)
+    return f"P({lit})={prob:.4f}"
+
+def prob_MMAP1(domain, lit):
+    literal_to_tokens = get_literal_token_mapping(domain)
+    token = literal_to_tokens[lit]
+    inputs = [token]
+    query_type = "MMAP1"
+    prob = compute_probability(domain, query_type, inputs)
+    return f"P({lit})={prob:.4f}"
+
+def prob_MMAP2(domain, lit):
+    literal_to_tokens = get_literal_token_mapping(domain)
+    token = literal_to_tokens[lit]
+    inputs = [token]
+    query_type = "MMAP2"
+    prob = compute_probability(domain, query_type, inputs)
+    return f"P({lit})={prob:.4f}"
+   
 
 
 def generate_inputs(domain, mode, num_inputs, sql_conn=None):
@@ -47,6 +92,22 @@ def generate_inputs(domain, mode, num_inputs, sql_conn=None):
         domain, mode, nb_concrete_inputs=num_inputs, conninfo=sql_conn
     )
     return filename
+
+questions_by_type = {
+    "Marginal": ["Marginal_1", "Marginal_2"],
+    "Conditional": ["Conditional_1", "Conditional_2"],
+    "Marginal Map": ["MarginalMap_1"],
+    "Direct Evidence": ["DirectEvidence_1"]
+}
+
+literal_count_by_question = {
+    "Marginal_1": 1,
+    "Marginal_2": 2,
+    "Conditional_1": 1,
+    "Conditional_2": 2,
+    "MarginalMap_1": 1,
+    "DirectEvidence_1": 1,
+}
 
 
 with gr.Blocks() as demo:
@@ -61,10 +122,43 @@ with gr.Blocks() as demo:
 
     with gr.Tab("🔢 Probability Query"):
         with gr.Row():
-            literal = gr.Dropdown(choices=get_tokens("SQL"), label="Previous Token")
-            # current_token = gr.Dropdown(
-            #     choices=get_tokens("SQL"), label="Current Token"
-            # )
+            query_type = gr.Radio(
+                choices=list(questions_by_type.keys()),
+                label="Query Type",
+                value="Marginal"
+            )
+            question = gr.Dropdown(
+                choices=questions_by_type["Marginal"],
+                label="Question"
+            )
+
+        with gr.Row():
+            literal1 = gr.Dropdown(choices=get_tokens("SQL"), label="Literal 1", visible=True)
+            literal2 = gr.Dropdown(choices=get_tokens("SQL"), label="Literal 2", visible=False)
+
+        # Update function
+        def update_question_choices(qtype):
+            return gr.update(choices=questions_by_type[qtype], value=None)
+
+        query_type.change(
+            fn=update_question_choices,
+            inputs=query_type,
+            outputs=question
+        )
+
+        # When question or domain changes, update literals
+        def update_literal_dropdowns(q):
+            count = literal_count_by_question.get(q, 1)
+            return (
+                gr.update(visible=True, interactive=(count == 2)),
+                gr.update(visible=(count == 2), interactive=(count == 2)),
+            )
+
+        question.change(
+            fn=update_literal_dropdowns,
+            inputs=question,
+            outputs=[literal1, literal2]
+        )
 
         prob_button = gr.Button("Get Probability")
         prob_output = gr.Label()
@@ -79,12 +173,12 @@ with gr.Blocks() as demo:
         domain.change(
             fn=update_token_dropdowns,
             inputs=domain,
-            outputs=[literal, token_list],
+            outputs=[literal1, token_list],
         )
 
         prob_button.click(
             fn=proba_MAR1,
-            inputs=[domain, literal],
+            inputs=[domain, literal1],
             outputs=prob_output,
         )
 
