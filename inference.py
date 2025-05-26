@@ -1,4 +1,4 @@
-from cfg2pc.query import marginal_query, marginal_query_cond
+from cfg2pc.query import marginal_query, marginal_query_cond, evi_query
 from main import MODEL_DIR, get_literal_token_mapping, load_domains_config
 import torch
 from pathlib import Path
@@ -45,7 +45,10 @@ def ask_query(
             # retrive the inputs and call the correct function
             pass
         case "EVI":
-            # retrive the inputs and call the correct function
+            seq = inputs
+            prob = abs(
+                evi_query(model, seq, lit_map, lit_size)
+            )
             pass
         case "MAP":
             # retrive the inputs and call the correct function
@@ -58,7 +61,7 @@ def ask_query(
 if __name__ == "__main__":
     domain = "SQL"
     grammar_name = "SQLSimplified"
-    literal_token_mapping = get_literal_token_mapping(domain, grammar_name)
+    literal_token_mapping = get_literal_token_mapping(domain)
     # print(literal_token_mapping)
 
     # mode = "no-generate"
