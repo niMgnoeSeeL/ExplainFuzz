@@ -32,8 +32,26 @@ def compute_probability(domain, query_type, inputs):
     return ask_query(model, lit_map, lit_size, max_length, query_type, inputs)
 
 
+def dispatch_probability_function(domain, question, lit1, lit2):
+    fn = question_to_function[question]
+    if not fn:
+        return "Unsupported question selected."
+
+    count = literal_count_by_question[question]
+    try:
+        if count == 1:
+            print(fn(domain, lit1))
+            return fn(domain, lit1)
+        elif count == 2:
+            return fn(domain, lit1, lit2)
+        else:
+            return "Unsupported number of literals."
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+
 # TODO : Prepare all the functions for each type of query
-def proba_MAR1(domain, lit):
+def prob_MAR1(domain, lit):
     literal_to_tokens = get_literal_token_mapping(domain)
     token = literal_to_tokens[lit]
     print(f"Token for {lit}: {token}")
@@ -42,7 +60,7 @@ def proba_MAR1(domain, lit):
     prob = compute_probability(domain, query_type, inputs)
     return f"P({lit})={prob:.4f}"
 
-def proba_MAR2(domain, lit1, lit2):
+def prob_MAR2(domain, lit1, lit2):
     literal_to_tokens = get_literal_token_mapping(domain)
     token1 = literal_to_tokens[lit1]
     token2 = literal_to_tokens[lit2]
@@ -58,7 +76,7 @@ def prob_COND1(domain, lit1, lit2):
     inputs = [token1, token2]
     query_type = "COND1"
     prob = compute_probability(domain, query_type, inputs)
-    return f"P({lit})={prob:.4f}"
+    return f"P({lit1, lit2})={prob:.4f}"
 
 def prob_COND2(domain, lit1, lit2):
     literal_to_tokens = get_literal_token_mapping(domain)
@@ -103,10 +121,19 @@ questions_by_type = {
 literal_count_by_question = {
     "Marginal_1": 1,
     "Marginal_2": 2,
-    "Conditional_1": 1,
+    "Conditional_1": 2,
     "Conditional_2": 2,
     "MarginalMap_1": 1,
     "DirectEvidence_1": 1,
+}
+
+question_to_function = {
+    "Marginal_1": prob_MAR1,
+    "Marginal_2": prob_MAR2,
+    "Conditional_1": prob_COND1,
+    "Conditional_2": prob_COND2,
+    "MarginalMap_1": prob_MMAP1,
+    "DirectEvidence_1": prob_MMAP2,
 }
 
 
@@ -166,7 +193,7 @@ with gr.Blocks() as demo:
         def update_token_dropdowns(domain):
             tokens = get_tokens(domain)
             return (
-                gr.update(choices=tokens, value=None),
+                gr.update(choices=tokens, value=None, interactive=True),
                 tokens,
             )
 
@@ -177,8 +204,8 @@ with gr.Blocks() as demo:
         )
 
         prob_button.click(
-            fn=proba_MAR1,
-            inputs=[domain, literal1],
+            fn=dispatch_probability_function,
+            inputs=[domain, question, literal1, literal2],
             outputs=prob_output,
         )
 
