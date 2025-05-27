@@ -98,16 +98,16 @@ def build_model(
     ]
     ensure_directories_exist(refactoring_dirs)
 
-    grammar = grammar_refactoring_main(
-        initial_grammar_paths,
-        grammar_name,
-        intermediate_dir,
-        refactored_dir,
-        final_dir,
-        antlr_output_dir,
-        seeds_dir,
-        start_rule,
-    )
+    # grammar = grammar_refactoring_main(
+    #     initial_grammar_paths,
+    #     grammar_name,
+    #     intermediate_dir,
+    #     refactored_dir,
+    #     final_dir,
+    #     antlr_output_dir,
+    #     seeds_dir,
+    #     start_rule,
+    # )
 
     parser_final_file_path = final_dir / f"{grammar_name}Parser.g4"
     print("")
@@ -132,21 +132,21 @@ def build_model(
     fuzzing_dirs = [generator_dir, population_dir, fuzz_outputs_dir, dataset_dir]
     ensure_directories_exist(fuzzing_dirs)
 
-    grammarinator_fuzz_main(
-        prefix_grammar=grammar_name,
-        start_rule=start_rule,
-        grammar_dir=final_dir,
-        seeds_dir=seeds_dir,
-        generator_dir=generator_dir,
-        population_dir=population_dir,
-        gen_parser_dir=antlr_output_dir,
-        fuzz_outputs_dir=fuzz_outputs_dir,
-        dataset_dir=dataset_dir,
-        num_inputs=num_inputs,
-        first_time=True,
-        with_serializer=with_serializer,
-        depth=depth,
-    )
+    # grammarinator_fuzz_main(
+    #     prefix_grammar=grammar_name,
+    #     start_rule=start_rule,
+    #     grammar_dir=final_dir,
+    #     seeds_dir=seeds_dir,
+    #     generator_dir=generator_dir,
+    #     population_dir=population_dir,
+    #     gen_parser_dir=antlr_output_dir,
+    #     fuzz_outputs_dir=fuzz_outputs_dir,
+    #     dataset_dir=dataset_dir,
+    #     num_inputs=num_inputs,
+    #     first_time=True,
+    #     with_serializer=with_serializer,
+    #     depth=depth,
+    # )
     print("")
 
     # ============================================================
@@ -319,7 +319,7 @@ if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
 
-    domain = "JANUS"
+    domain = "SQL"
     domain_config = domains_config[domain]
 
     num_inputs = 10000
@@ -346,8 +346,8 @@ if __name__ == "__main__":
     #     output_dir=Path("anonymized_dataset/SQL/"),
     # )
 
-    # for mode in ["no-generate", "with-generate"]:
-    #     sample_inputs(domain, mode, 200, domain_config["max_length"])
+    for mode in ["no-generate", "with-generate"]:
+        sample_inputs(domain, mode, 500)
 
     # dataset_dir = DATASET_DIR / domain
     # antlr_output_dir = GEN_PARSER_DIR / domain

@@ -1,0 +1,8 @@
+{
+    "project": "Website Redesign",
+    "tasks": [
+      { "task": "Design homepage", "completed": true },
+      { "task": "Update logo", "completed": false },
+      { "task": "Fix broken links", "completed": false }
+    ]
+  }
