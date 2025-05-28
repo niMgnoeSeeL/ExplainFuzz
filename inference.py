@@ -1,4 +1,4 @@
-from cfg2pc.query import marginal_query, marginal_query_cond
+from cfg2pc.query import marginal_query, marginal_query_cond, evi_query, marginal_sequence_query, marginal_query_contiguous_cond, sequential_query_contiguous_cond, marginal_map_query
 from main import MODEL_DIR, get_literal_token_mapping, load_domains_config
 import torch
 from pathlib import Path
@@ -26,39 +26,53 @@ def ask_query(
             prob = abs(marginal_query(model, tok, lit_map, lit_size, max_length))
             return prob
         case "MAR2":
-            # retrive the inputs and call the correct function
-            pass
-        case "MAR3":
-            # retrive the inputs and call the correct function
-            pass
+            tok = inputs
+            prob = abs(marginal_sequence_query(model, tok, lit_map, lit_size, max_length))
+            return prob
         case "COND1":
+            """ represent input as ([token1, token1]) """
             tok = inputs[0]
             tok2 = inputs[1]
             prob = abs(
                 marginal_query_cond(model, tok, tok2, lit_map, lit_size, max_length)
             )
             return prob
-        case "COND2":
-            # retrive the inputs and call the correct function
-            pass
+        case "COND2": 
+            """ represent input as ([token1, token1], pos) """
+            tok = inputs[0][0]
+            tok2 = inputs[0][1]
+            pos = inputs[1]
+            prob = abs(
+                marginal_query_contiguous_cond(model, tok, tok2, lit_map, lit_size, pos)
+            )
+            return prob
         case "COND3":
-            # retrive the inputs and call the correct function
-            pass
+            """ represent input as ([token1, token1, ...], pos) """
+            sequence = inputs[0][1:len(inputs)-1]
+            tok = inputs[0][len(inputs)-1]
+            pos = inputs[1]
+            prob = abs(
+                sequential_query_contiguous_cond(model, tok, sequence, lit_map, lit_size, pos)
+            )
+            return prob
         case "EVI":
-            # retrive the inputs and call the correct function
-            pass
-        case "MAP":
-            # retrive the inputs and call the correct function
+            seq = inputs
+            prob = abs(
+                evi_query(model, seq, lit_map, lit_size)
+            )
             pass
         case "MMAP":
-            # retrive the inputs and call the correct function
-            pass
+            tok = inputs[0]
+            prob = abs(
+                marginal_query_cond(model, tok, lit_map, lit_size, max_length)
+            )
+            return prob
 
 
 if __name__ == "__main__":
     domain = "SQL"
     grammar_name = "SQLSimplified"
-    literal_token_mapping = get_literal_token_mapping(domain, grammar_name)
+    literal_token_mapping = get_literal_token_mapping(domain)
     # print(literal_token_mapping)
 
     # mode = "no-generate"
