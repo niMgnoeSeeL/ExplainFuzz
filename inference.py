@@ -1,4 +1,12 @@
-from cfg2pc.query import marginal_query, marginal_query_cond, evi_query, marginal_sequence_query, marginal_query_contiguous_cond, sequential_query_contiguous_cond, marginal_map_query
+from cfg2pc.query import (
+    marginal_query,
+    marginal_query_cond,
+    evi_query,
+    marginal_sequence_query,
+    marginal_query_contiguous_cond,
+    sequential_query_contiguous_cond,
+    marginal_map_query,
+)
 from main import MODEL_DIR, get_literal_token_mapping, load_domains_config
 import torch
 from pathlib import Path
@@ -18,7 +26,7 @@ def load_model_and_info(domain: str, mode: str):
 
 
 def ask_query(
-    model, lit_map: dict, lit_size: int, max_length: int, query_type: str, inputs: list
+    model, lit_map: dict, lit_size: int, max_length: int, query_type: str, inputs: tuple
 ):
     match query_type:
         case "MAR1":
@@ -26,19 +34,21 @@ def ask_query(
             prob = abs(marginal_query(model, tok, lit_map, lit_size, max_length))
             return prob
         case "MAR2":
-            tok = inputs
-            prob = abs(marginal_sequence_query(model, tok, lit_map, lit_size, max_length))
+            """represent input as ([token1,...],pos)"""
+            sequence = inputs[0]
+            pos = inputs[1]
+            prob = abs(marginal_sequence_query(model, sequence, lit_map, lit_size, pos))
             return prob
         case "COND1":
-            """ represent input as ([token1, token1]) """
+            """represent input as ([token1, token1])"""
             tok = inputs[0]
             tok2 = inputs[1]
             prob = abs(
                 marginal_query_cond(model, tok, tok2, lit_map, lit_size, max_length)
             )
             return prob
-        case "COND2": 
-            """ represent input as ([token1, token1], pos) """
+        case "COND2":
+            """represent input as ([token1, token1], pos)"""
             tok = inputs[0][0]
             tok2 = inputs[0][1]
             pos = inputs[1]
@@ -47,26 +57,25 @@ def ask_query(
             )
             return prob
         case "COND3":
-            """ represent input as ([token1, token1, ...], pos) """
-            sequence = inputs[0][1:len(inputs)-1]
-            tok = inputs[0][len(inputs)-1]
-            pos = inputs[1]
+            """represent input as ([token1, token2...],tok, pos)"""
+            sequence, tok, pos = inputs
+            print(sequence, tok, pos)
             prob = abs(
-                sequential_query_contiguous_cond(model, tok, sequence, lit_map, lit_size, pos)
+                sequential_query_contiguous_cond(
+                    model, tok, sequence, lit_map, lit_size, pos
+                )
             )
             return prob
         case "EVI":
             seq = inputs
-            prob = abs(
-                evi_query(model, seq, lit_map, lit_size)
-            )
-            pass
+            prob = abs(evi_query(model, seq, lit_map, lit_size))
+            return prob
         case "MMAP":
             tok = inputs[0]
-            prob = abs(
-                marginal_query_cond(model, tok, lit_map, lit_size, max_length)
+            most_probable_token = marginal_map_query(
+                model, tok, lit_map, lit_size, max_length
             )
-            return prob
+            return most_probable_token
 
 
 if __name__ == "__main__":
