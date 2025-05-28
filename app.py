@@ -271,7 +271,6 @@ with gr.Blocks() as demo:
         # When question changes, update literals
         def update_literal_dropdowns(q, domain):
             count = literal_count_by_question.get(q, 1)
-            print("count", count)
             has_pos = position_mapping.get(q, False)
             max_length = max_length_mapping.get(domain, 10) - 2
             return (
