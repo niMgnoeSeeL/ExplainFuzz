@@ -261,6 +261,37 @@ def evaluate_dataset(domain, grammar_name, start_rule, skip_rules):
         plt.show()
 
 
+def generate_anonymized_dataset(domain, grammar_name, start_rule, skip_rules):
+    output_dir = Path("anonymized_dataset")
+    dataset_dir = DATASET_DIR / domain
+    parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
+    antlr_output_dir = GEN_PARSER_DIR / domain
+    _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
+
+    for mode in ["no-generate"]:
+        trainingset_dir = dataset_dir / mode / "train"
+        print("get the anonymized training dataset...")
+        anonymized_dataset = anonymize_folder_inputs(
+            trainingset_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules
+        )
+        train_output_dir = output_dir / domain / mode / "train"
+        train_output_dir.mkdir(parents=True, exist_ok=True)
+        for i, input in enumerate(anonymized_dataset):
+            with open(f"{train_output_dir}/input_{i}.txt", "w") as file:
+                file.write(" ".join(input))
+
+        testingset_dir = dataset_dir / mode / "test"
+        print("get the anonymized testing dataset...")
+        anonymized_dataset = anonymize_folder_inputs(
+            testingset_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules
+        )
+        test_output_dir = output_dir / domain / mode / "test"
+        test_output_dir.mkdir(parents=True, exist_ok=True)
+        for i, input in enumerate(anonymized_dataset):
+            with open(f"{test_output_dir}/input_{i}.txt", "w") as file:
+                file.write(" ".join(input))
+
+
 def evaluate_seeds_and_grammars(domain, grammar_name, start_rule, skip_rules):
     ##### EVALUATE SEEDS #######
     print("-> Evaluation the seeds")
@@ -319,6 +350,16 @@ if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
 
+    for domain in ["HTML", "CSV", "B", "JANUS", "JSON", "REDIS"]:
+        print(f"Generating the dataset for the {domain} domain")
+        domain_config = domains_config[domain]
+        generate_anonymized_dataset(
+            domain,
+            domain_config["grammar_name"],
+            domain_config["start_rule"],
+            domain_config["skip_rules"],
+        )
+
     # domain = "MLIR"
     # domain_config = domains_config[domain]
     # evaluate_seeds_and_grammars(
@@ -328,14 +369,15 @@ if __name__ == "__main__":
     #     domain_config["skip_rules"],
     # )
 
-    domain = "JANUS"
-    domain_config = domains_config[domain]
-    evaluate_one_domain(
-        domain,
-        domain_config["grammar_name"],
-        domain_config["start_rule"],
-        domain_config["skip_rules"],
-    )
+    # domain = "JANUS"
+    # domain_config = domains_config[domain]
+    # evaluate_one_domain(
+    #     domain,
+    #     domain_config["grammar_name"],
+    #     domain_config["start_rule"],
+    #     domain_config["skip_rules"],
+    # )
+
     # evaluate_dataset(
     #     domain,
     #     domain_config["grammar_name"],

@@ -104,13 +104,24 @@ def analyze_results_PCFG(domain, results_file):
 
 
 def compare_results_model(
-    domain, results_PC_file, results_PCFG_file, results_LLM_file, results_seeds_file
+    domain,
+    results_PC_file,
+    results_PCFG_file,
+    results_LLM_file,
+    results_seeds_file,
+    results_PC_HMM_file=None,
 ):
     df_PC = get_df_domain(domain, results_PC_file)
+    df_PC["method"] = "PC (ExplainFuzz)"
     df_PCFG = get_df_domain(domain, results_PCFG_file)
     df_LLM = get_df_domain(domain, results_LLM_file)
+    if results_PC_HMM_file:
+        df_PC_HMM = get_df_domain(domain, results_PC_HMM_file)
     df_seeds = get_df_domain(domain, results_seeds_file)
-    df = pd.concat([df_PC, df_PCFG, df_LLM], ignore_index=True)
+    if results_PC_HMM_file:
+        df = pd.concat([df_PC, df_PCFG, df_LLM, df_PC_HMM], ignore_index=True)
+    else:
+        df = pd.concat([df_PC, df_PCFG, df_LLM], ignore_index=True)
 
     # --- Plot 1: Log-Likelihood vs Max Length ---
 
@@ -247,7 +258,62 @@ def comparison_likelihood_domains(
     # Plot: Domain on X-axis, avg-loglikelihood as bars, grouped by method
     plt.figure(figsize=(10, 6))
     sns.barplot(
-        data=df_filtered, x="domain", y="avg-loglikelihood", hue="method", errorbar="sd"
+        data=df_filtered,
+        x="domain",
+        y="avg-loglikelihood",
+        hue="method",
+        errorbar="sd",
+    )
+    print(sns.color_palette())
+    plt.title("Average Log-Likelihood (no-generate) Across Domains")
+    plt.xlabel("Domain")
+    plt.ylabel("Average Log-Likelihood")
+    plt.tight_layout()
+    plt.legend(title="Method")
+    plt.show()
+
+
+def comparison_likelihood_domains_with_HMM(
+    domains, results_PC_file, results_PCFG_file, results_LLM_file, results_PC_HMM_file
+):
+    all_data = []
+
+    for domain in domains:
+        df_PC = get_df_domain(domain, results_PC_file)
+        df_PC["method"] = "PC (ExplainFuzz)"
+        df_PCFG = get_df_domain(domain, results_PCFG_file)
+        df_LLM = get_df_domain(domain, results_LLM_file)
+        if domain == "SQL":
+            df_PC_HMM = get_df_domain(domain, results_PC_HMM_file)
+
+            all_data.append(
+                pd.concat([df_PC, df_PC_HMM, df_PCFG, df_LLM], ignore_index=True)
+            )
+        else:
+            all_data.append(pd.concat([df_PC, df_PCFG, df_LLM], ignore_index=True))
+
+    # Combine all domains' data
+    df_all = pd.concat(all_data, ignore_index=True)
+
+    # Filter to only 'no-generate' mode
+    df_filtered = df_all[df_all["mode"] == "no-generate"]
+    palette = sns.color_palette()
+    colors = {
+        "PC (ExplainFuzz)": palette[0],
+        "PCFG": palette[1],
+        "LLM": palette[2],
+        "PC (HMM)": palette[3],
+    }
+
+    # Plot: Domain on X-axis, avg-loglikelihood as bars, grouped by method
+    plt.figure(figsize=(10, 6))
+    sns.barplot(
+        data=df_filtered,
+        x="domain",
+        y="avg-loglikelihood",
+        hue="method",
+        errorbar="sd",
+        palette=colors,
     )
     plt.title("Average Log-Likelihood (no-generate) Across Domains")
     plt.xlabel("Domain")
@@ -497,17 +563,18 @@ def compare_train_time(domains, results_PC_file, results_seeds_file):
 
 
 if __name__ == "__main__":
-    domain = "JSON"
+    domain = "SQL"
     # analyze_results_PC(domain, "data/results/PC/eval_PC_model.json")
     # # analyze_results_PCFG(domain, "data/results/PCFG/eval_PCFG_fix_depth.json")
 
-    # compare_results_model(
-    #     domain,
-    #     "data/results/PC/eval_PC_model.json",
-    #     "data/results/PCFG/eval_PCFG.json",
-    #     "data/results/LLM/eval_llm.json",
-    #     "data/results/SEEDS/eval_seeds.json",
-    # )
+    compare_results_model(
+        domain,
+        "data/results/PC/eval_PC_model.json",
+        "data/results/PCFG/eval_PCFG.json",
+        "data/results/LLM/eval_llm.json",
+        "data/results/SEEDS/eval_seeds.json",
+        "data/results/PC-HMM/eval_PC_HMM.json",
+    )
     # domains = ["CSV", "HTML"]
     # for domain in domains:
     #     compare_results_model(
@@ -522,10 +589,10 @@ if __name__ == "__main__":
     domains = ["REDIS", "JANUS", "SQL", "B", "CSV", "HTML", "MLIR", "CLOUDFORMATION"]
     easy_domains = ["JANUS", "SQL", "REDIS", "B", "CSV", "JSON", "HTML"]
     hard_domains = ["MLIR", "CLOUDFORMATION"]
-    compare_grammar_complexity(
-        domains,
-        "data/results/grammars/results_grammars.json",
-    )
+    # compare_grammar_complexity(
+    #     domains,
+    #     "data/results/grammars/results_grammars.json",
+    # )
     # plot_seed_lengths(domains, "data/results/SEEDS/eval_seeds.json")
     # compare_circuit_size(easy_domains, "data/results/PC/eval_scalability.json")
     # compare_train_time(
@@ -533,16 +600,17 @@ if __name__ == "__main__":
     #     "data/results/PC/eval_PC_model.json",
     #     "data/results/SEEDS/eval_seeds.json",
     # )
-    compare_compilation_time(
-        hard_domains,
-        "data/results/PC/eval_PC_model.json",
-        "data/results/SEEDS/eval_seeds.json",
-    )
+    # compare_compilation_time(
+    #     hard_domains,
+    #     "data/results/PC/eval_PC_model.json",
+    #     "data/results/SEEDS/eval_seeds.json",
+    # )
 
     domains = ["SQL", "JANUS", "REDIS", "B", "CSV", "HTML", "JSON"]
-    # comparison_likelihood_domains(
-    #     domains,
-    #     "data/results/PC/eval_PC_model.json",
-    #     "data/results/PCFG/eval_PCFG.json",
-    #     "data/results/LLM/eval_llm.json",
-    # )
+    comparison_likelihood_domains_with_HMM(
+        ["SQL"],
+        "data/results/PC/eval_PC_model.json",
+        "data/results/PCFG/eval_PCFG.json",
+        "data/results/LLM/eval_llm.json",
+        "data/results/PC-HMM/eval_PC_HMM.json",
+    )
