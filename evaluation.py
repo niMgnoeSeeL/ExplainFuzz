@@ -110,7 +110,7 @@ def evaluate_seeds(domain, grammar_name, start_rule, skip_rules):
 
 
 def evaluate_llm(lengths, domain, grammar_name, start_rule, skip_rules):
-    modes = ["no-generate", "with-generate"]
+    modes = ["no-generate"]
     grammar_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
     dataset_dir = DATASET_DIR / domain
     results_llm_dir = RESULTS_DIR / "LLM"
@@ -155,8 +155,8 @@ def evaluate_PC(
     parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
 
     lengths_success = set()
-    for mode in ["no-generate", "with-generate"]:
-        for max_length in range(5, 100, 5):
+    for mode in ["no-generate"]:
+        for max_length in range(30, 60, 5):
             print(
                 f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
             )
@@ -202,8 +202,12 @@ def evaluate_PC(
             pc_metrics["max_length"] = max_length
 
             results_pc_dir = RESULTS_DIR / "PC"
-            save_results(results_pc_dir, pc_metrics, domain, "eval_PC_model.json")
+            # save_results(results_pc_dir, pc_metrics, domain, "eval_PC_model.json")
+            save_results(results_pc_dir, pc_metrics, domain, "eval_scalability.json")
             lengths_success.add(max_length)
+            print(
+                f"It tooks {pc_metrics['time_building_circuit']} s to build a circuit of size {pc_metrics['circuit_size']}"
+            )
 
             # if the training queries was already more than 95% of the dataset, we can stop the evaluation here
             if pc_metrics["nb_training_queries"] >= 8550:
@@ -219,7 +223,7 @@ def evaluate_dataset(domain, grammar_name, start_rule, skip_rules):
     antlr_output_dir = GEN_PARSER_DIR / domain
     _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
 
-    for mode in ["no-generate", "with-generate"]:
+    for mode in ["no-generate"]:
         trainingset_dir = dataset_dir / mode / "train"
         print("get the anonymized dataset...")
         anonymized_dataset = anonymize_folder_inputs(
@@ -227,7 +231,7 @@ def evaluate_dataset(domain, grammar_name, start_rule, skip_rules):
         )
         lengths = [len(input) for input in anonymized_dataset]
 
-        bins = list(range(0, 50, 5)) + [float("inf")]
+        bins = list(range(0, 150, 5)) + [float("inf")]
         labels = [
             f"{bins[i]}–{bins[i+1]-1 if bins[i+1] != float('inf') else '+'}"
             for i in range(len(bins) - 1)
@@ -257,6 +261,47 @@ def evaluate_dataset(domain, grammar_name, start_rule, skip_rules):
         plt.show()
 
 
+def generate_anonymized_dataset(domain, grammar_name, start_rule, skip_rules):
+    output_dir = Path("anonymized_dataset")
+    dataset_dir = DATASET_DIR / domain
+    parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
+    antlr_output_dir = GEN_PARSER_DIR / domain
+    _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
+
+    for mode in ["no-generate"]:
+        trainingset_dir = dataset_dir / mode / "train"
+        print("get the anonymized training dataset...")
+        anonymized_dataset = anonymize_folder_inputs(
+            trainingset_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules
+        )
+        train_output_dir = output_dir / domain / mode / "train"
+        train_output_dir.mkdir(parents=True, exist_ok=True)
+        for i, input in enumerate(anonymized_dataset):
+            with open(f"{train_output_dir}/input_{i}.txt", "w") as file:
+                file.write(" ".join(input))
+
+        testingset_dir = dataset_dir / mode / "test"
+        print("get the anonymized testing dataset...")
+        anonymized_dataset = anonymize_folder_inputs(
+            testingset_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules
+        )
+        test_output_dir = output_dir / domain / mode / "test"
+        test_output_dir.mkdir(parents=True, exist_ok=True)
+        for i, input in enumerate(anonymized_dataset):
+            with open(f"{test_output_dir}/input_{i}.txt", "w") as file:
+                file.write(" ".join(input))
+
+
+def evaluate_seeds_and_grammars(domain, grammar_name, start_rule, skip_rules):
+    ##### EVALUATE SEEDS #######
+    print("-> Evaluation the seeds")
+    evaluate_seeds(domain, grammar_name, start_rule, skip_rules)
+
+    ##### EVALUATE GRAMMAR ######
+    print("-> Evaluating the Grammar")
+    evaluate_grammar(domain, grammar_name)
+
+
 def evaluate_one_domain(
     domain,
     grammar_name,
@@ -267,15 +312,15 @@ def evaluate_one_domain(
     print("")
 
     ##### EVALUATE SEEDS #######
-    print("-> Evaluation the seeds")
-    max_seeds_length = evaluate_seeds(domain, grammar_name, start_rule, skip_rules)
+    # print("-> Evaluation the seeds")
+    # max_seeds_length = evaluate_seeds(domain, grammar_name, start_rule, skip_rules)
 
     ##### EVALUATE GRAMMAR ######
-    print("-> Evaluating the Grammar")
-    evaluate_grammar(domain, grammar_name)
+    # print("-> Evaluating the Grammar")
+    # evaluate_grammar(domain, grammar_name)
 
     #### EVALUATE PC COMPILATION AND TRAINING #######
-
+    max_seeds_length = None
     print("->Evaluating the PC compilation and training")
     lengths = evaluate_PC(
         domain,
@@ -283,9 +328,9 @@ def evaluate_one_domain(
         start_rule,
         max_seeds_length,
         skip_rules,
-        max_time=2000,
+        max_time=5000,
     )
-
+    # lengths = [10, 15, 20, 25, 30, 35, 40, 45, 50]
     ###### EVALUATE PCFG ######
     print("-> Evaluation PCFG training")
     evaluate_PCFG(
@@ -305,7 +350,26 @@ if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
 
-    # domain = "REDIS"
+    for domain in ["HTML", "CSV", "B", "JANUS", "JSON", "REDIS"]:
+        print(f"Generating the dataset for the {domain} domain")
+        domain_config = domains_config[domain]
+        generate_anonymized_dataset(
+            domain,
+            domain_config["grammar_name"],
+            domain_config["start_rule"],
+            domain_config["skip_rules"],
+        )
+
+    # domain = "MLIR"
+    # domain_config = domains_config[domain]
+    # evaluate_seeds_and_grammars(
+    #     domain,
+    #     domain_config["grammar_name"],
+    #     domain_config["start_rule"],
+    #     domain_config["skip_rules"],
+    # )
+
+    # domain = "JANUS"
     # domain_config = domains_config[domain]
     # evaluate_one_domain(
     #     domain,
@@ -314,32 +378,6 @@ if __name__ == "__main__":
     #     domain_config["skip_rules"],
     # )
 
-    # domain = "XML"
-    # domain_config = domains_config[domain]
-    # evaluate_one_domain(
-    #     domain,
-    #     domain_config["grammar_name"],
-    #     domain_config["start_rule"],
-    #     domain_config["skip_rules"],
-    # )
-
-    domain = "B"
-    domain_config = domains_config[domain]
-    evaluate_one_domain(
-        domain,
-        domain_config["grammar_name"],
-        domain_config["start_rule"],
-        domain_config["skip_rules"],
-    )
-
-    domain = "JANUS"
-    domain_config = domains_config[domain]
-    evaluate_one_domain(
-        domain,
-        domain_config["grammar_name"],
-        domain_config["start_rule"],
-        domain_config["skip_rules"],
-    )
     # evaluate_dataset(
     #     domain,
     #     domain_config["grammar_name"],

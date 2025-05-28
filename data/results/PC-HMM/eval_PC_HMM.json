@@ -1,0 +1,53 @@
+{
+    "SQL": [
+      {
+        "method": "PC (HMM)",
+        "max_length": 10,
+        "avg-loglikelihood": 5.4564123,
+        "last-training-loss": 2.2598,
+        "mode": "no-generate",
+        "domain": "SQL"
+      },
+      {
+        "method": "PC (HMM)",
+        "max_length": 15,
+        "avg-loglikelihood": 3.2882702,
+        "last-training-loss": 2.6926,
+        "mode": "no-generate",
+        "domain": "SQL"
+      },
+      {
+        "method": "PC (HMM)",
+        "max_length": 20,
+        "avg-loglikelihood": 5.235959,
+        "last-training-loss": 4.6888,
+        "mode": "no-generate",
+        "domain": "SQL"
+      },
+      {
+        "method": "PC (HMM)",
+        "max_length": 25,
+        "avg-loglikelihood": 6.2979875,
+        "last-training-loss": 5.9648,
+        "mode": "no-generate",
+        "domain": "SQL"
+      },
+      {
+        "method": "PC (HMM)",
+        "max_length": 30,
+        "avg-loglikelihood": 6.730175,
+        "last-training-loss": 6.3727,
+        "mode": "no-generate",
+        "domain": "SQL"
+      },
+      {
+        "method": "PC (HMM)",
+        "max_length": 35,
+        "avg-loglikelihood": 7.24,
+        "last-training-loss": null,
+        "mode": "no-generate",
+        "domain": "SQL"
+      }
+    ]
+  }
+  

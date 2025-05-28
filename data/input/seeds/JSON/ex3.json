@@ -1,0 +1,15 @@
+{
+    "title": "Getting Started with JSON",
+    "author": "John Doe",
+    "published": "2025-05-25",
+    "comments": [
+      {
+        "user": "techgirl42",
+        "message": "Super helpful, thanks!"
+      },
+      {
+        "user": "devguy99",
+        "message": "Clear and concise."
+      }
+    ]
+  }

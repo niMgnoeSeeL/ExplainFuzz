@@ -1,0 +1,7 @@
+{
+    "product_id": "P12345",
+    "name": "Wireless Mouse",
+    "price": 25.99,
+    "in_stock": true,
+    "tags": ["electronics", "accessories", "usb"]
+  }

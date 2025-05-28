@@ -9,6 +9,7 @@ data/intermediate/grammars/refactored/
 data/intermediate/grammars/intermediate/
 out/
 anonymized_dataset/
+old/
 
 
 .DS_Store
