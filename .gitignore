@@ -10,6 +10,7 @@ data/intermediate/grammars/intermediate/
 out/
 anonymized_dataset/
 old/
+data/output/inputs/
 
 
 .DS_Store
