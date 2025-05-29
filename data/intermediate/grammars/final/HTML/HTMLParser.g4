@@ -4,25 +4,25 @@ options { tokenVocab=HTMLLexer;}
 
 htmlDocument : scriptletorseaws_star xml_question scriptletorseaws_star dtd_question scriptletorseaws_star htmlelements_star EOF 
 | scriptletorseaws_star xml_question scriptletorseaws_star dtd_question scriptletorseaws_star EOF 
-| scriptletorseaws_star xml_question dtd_question scriptletorseaws_star EOF 
-| scriptletorseaws_star xml_question scriptletorseaws_star dtd_question htmlelements_star EOF 
-| xml_question scriptletorseaws_star dtd_question EOF 
 | xml_question dtd_question scriptletorseaws_star htmlelements_star EOF 
 | scriptletorseaws_star xml_question dtd_question htmlelements_star EOF 
-| scriptletorseaws_star xml_question scriptletorseaws_star dtd_question EOF 
-| xml_question scriptletorseaws_star dtd_question htmlelements_star EOF 
 | xml_question dtd_question htmlelements_star EOF 
-| scriptletorseaws_star xml_question dtd_question EOF 
-| xml_question dtd_question EOF 
-| xml_question scriptletorseaws_star dtd_question scriptletorseaws_star EOF 
-| xml_question scriptletorseaws_star dtd_question scriptletorseaws_star htmlelements_star EOF 
+| scriptletorseaws_star xml_question dtd_question scriptletorseaws_star htmlelements_star EOF 
 | xml_question dtd_question scriptletorseaws_star EOF 
-| scriptletorseaws_star xml_question dtd_question scriptletorseaws_star htmlelements_star EOF ;
+| scriptletorseaws_star xml_question dtd_question scriptletorseaws_star EOF 
+| xml_question dtd_question EOF 
+| xml_question scriptletorseaws_star dtd_question htmlelements_star EOF 
+| scriptletorseaws_star xml_question scriptletorseaws_star dtd_question htmlelements_star EOF 
+| xml_question scriptletorseaws_star dtd_question scriptletorseaws_star EOF 
+| scriptletorseaws_star xml_question scriptletorseaws_star dtd_question EOF 
+| xml_question scriptletorseaws_star dtd_question EOF 
+| xml_question scriptletorseaws_star dtd_question scriptletorseaws_star htmlelements_star EOF 
+| scriptletorseaws_star xml_question dtd_question EOF ;
 
 htmlelements_star : htmlElements htmlelements_star 
 | htmlmisc_star htmlElement htmlmisc_star 
-| htmlElement htmlmisc_star 
 | htmlmisc_star htmlElement 
+| htmlElement htmlmisc_star 
 | TAG_OPEN TAG_NAME htmlattribute_star block_0 
 | SCRIPTLET 
 | SCRIPT_OPEN block_5 
@@ -95,8 +95,6 @@ block_2 : block_8 htmlchardata_question
 htmlContent : htmlchardata_question block_2_star 
 | block_2 block_2_star 
 |  
-| HTML_TEXT 
-| SEA_WS 
 | block_8 htmlchardata_question 
 | CDATA 
 | TAG_OPEN TAG_NAME htmlattribute_star block_0 
@@ -105,7 +103,9 @@ htmlContent : htmlchardata_question block_2_star
 | HTML_CONDITIONAL_COMMENT 
 | SCRIPT_OPEN block_5 
 | STYLE_OPEN block_6 
-| TAG_OPEN TAG_NAME block_0 ;
+| TAG_OPEN TAG_NAME block_0 
+| HTML_TEXT 
+| SEA_WS ;
 
 block_2_star : block_2 block_2_star 
 | block_8 htmlchardata_question 

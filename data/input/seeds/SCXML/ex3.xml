@@ -1,6 +1,0 @@
-<scxml>
-  <state id="idle">
-    <transition event="start" target="running"/>
-  </state>
-  <state id="running"/>
-</scxml>

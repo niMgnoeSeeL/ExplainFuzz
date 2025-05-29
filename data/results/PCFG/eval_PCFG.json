@@ -117,9 +117,28 @@
       "avg-loglikelihood": 9.049664790892347,
       "time_training": 157.98924779891968,
       "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "SQL",
+      "max_length": 30,
+      "nb_training_queries": 7966,
+      "nb_test_queries": 892,
+      "avg-loglikelihood": 9.049646583158262,
+      "time_training": 155.38308787345886,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "SQL",
+      "max_length": 30,
+      "nb_training_queries": 3271,
+      "nb_test_queries": 360,
+      "avg-loglikelihood": 14.609562343401391,
+      "time_training": 45.62523794174194,
+      "mode": "with-generate"
     }
   ],
-
   "REDIS": [
     {
       "method": "PCFG",
@@ -170,9 +189,28 @@
       "avg-loglikelihood": 6.839595515515703,
       "time_training": 47.572691202163696,
       "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "REDIS",
+      "max_length": 15,
+      "nb_training_queries": 8999,
+      "nb_test_queries": 1000,
+      "avg-loglikelihood": 4.583116029559578,
+      "time_training": 116.38733291625977,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "REDIS",
+      "max_length": 15,
+      "nb_training_queries": 8994,
+      "nb_test_queries": 1000,
+      "avg-loglikelihood": 7.39067364116224,
+      "time_training": 73.933748960495,
+      "mode": "with-generate"
     }
   ],
-
   "JANUS": [
     {
       "method": "PCFG",
@@ -506,6 +544,532 @@
       "nb_test_queries": 452,
       "avg-loglikelihood": 9.600121953718835,
       "time_training": 22.036171913146973,
+      "mode": "with-generate"
+    }
+  ],
+  "CSV": [
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 15,
+      "nb_training_queries": 52,
+      "nb_test_queries": 8,
+      "avg-loglikelihood": 7.424006391978974,
+      "time_training": 3.032438039779663,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 15,
+      "nb_training_queries": 2643,
+      "nb_test_queries": 298,
+      "avg-loglikelihood": 8.48197240861051,
+      "time_training": 7.305956125259399,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 20,
+      "nb_training_queries": 94,
+      "nb_test_queries": 12,
+      "avg-loglikelihood": 8.431773698577173,
+      "time_training": 2.4764647483825684,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 20,
+      "nb_training_queries": 2857,
+      "nb_test_queries": 337,
+      "avg-loglikelihood": 9.75311519741383,
+      "time_training": 7.525708913803101,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 25,
+      "nb_training_queries": 150,
+      "nb_test_queries": 15,
+      "avg-loglikelihood": 9.914047606052057,
+      "time_training": 2.915221691131592,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 25,
+      "nb_training_queries": 2947,
+      "nb_test_queries": 347,
+      "avg-loglikelihood": 10.121741397425568,
+      "time_training": 8.241905927658081,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 30,
+      "nb_training_queries": 408,
+      "nb_test_queries": 33,
+      "avg-loglikelihood": 12.289097964272921,
+      "time_training": 5.81205677986145,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 30,
+      "nb_training_queries": 3122,
+      "nb_test_queries": 370,
+      "avg-loglikelihood": 11.02766666179567,
+      "time_training": 10.48396921157837,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 35,
+      "nb_training_queries": 3681,
+      "nb_test_queries": 425,
+      "avg-loglikelihood": 12.935920170815558,
+      "time_training": 52.502601146698,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 35,
+      "nb_training_queries": 5360,
+      "nb_test_queries": 602,
+      "avg-loglikelihood": 13.723161599001088,
+      "time_training": 42.3195960521698,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 40,
+      "nb_training_queries": 4653,
+      "nb_test_queries": 528,
+      "avg-loglikelihood": 13.682161367254519,
+      "time_training": 70.66135382652283,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 40,
+      "nb_training_queries": 5938,
+      "nb_test_queries": 666,
+      "avg-loglikelihood": 14.10687495006373,
+      "time_training": 53.903581857681274,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 45,
+      "nb_training_queries": 8946,
+      "nb_test_queries": 996,
+      "avg-loglikelihood": 13.854615764923373,
+      "time_training": 160.89105200767517,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "CSV",
+      "max_length": 45,
+      "nb_training_queries": 8938,
+      "nb_test_queries": 996,
+      "avg-loglikelihood": 14.57188921387343,
+      "time_training": 117.50619792938232,
+      "mode": "with-generate"
+    }
+  ],
+  "HTML": [
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 10,
+      "nb_training_queries": 187,
+      "nb_test_queries": 33,
+      "avg-loglikelihood": 2.6190381111464434,
+      "time_training": 6.8873419761657715,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 10,
+      "nb_training_queries": 6754,
+      "nb_test_queries": 763,
+      "avg-loglikelihood": 7.097889876361693,
+      "time_training": 38.936251163482666,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 15,
+      "nb_training_queries": 380,
+      "nb_test_queries": 51,
+      "avg-loglikelihood": 3.8140434352623567,
+      "time_training": 8.47438097000122,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 15,
+      "nb_training_queries": 8077,
+      "nb_test_queries": 907,
+      "avg-loglikelihood": 8.504180664571214,
+      "time_training": 56.95711803436279,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 20,
+      "nb_training_queries": 582,
+      "nb_test_queries": 73,
+      "avg-loglikelihood": 4.359618461836947,
+      "time_training": 11.175910234451294,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 20,
+      "nb_training_queries": 8558,
+      "nb_test_queries": 959,
+      "avg-loglikelihood": 9.264674185886424,
+      "time_training": 65.36155581474304,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 25,
+      "nb_training_queries": 745,
+      "nb_test_queries": 92,
+      "avg-loglikelihood": 4.89818587977987,
+      "time_training": 13.377744913101196,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 25,
+      "nb_training_queries": 8774,
+      "nb_test_queries": 979,
+      "avg-loglikelihood": 9.552320906438613,
+      "time_training": 68.03407788276672,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 30,
+      "nb_training_queries": 898,
+      "nb_test_queries": 112,
+      "avg-loglikelihood": 5.6735967224380754,
+      "time_training": 16.15255904197693,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 30,
+      "nb_training_queries": 8856,
+      "nb_test_queries": 985,
+      "avg-loglikelihood": 9.696034770448456,
+      "time_training": 70.08873414993286,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 35,
+      "nb_training_queries": 2305,
+      "nb_test_queries": 252,
+      "avg-loglikelihood": 5.987038729398095,
+      "time_training": 43.65473794937134,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 35,
+      "nb_training_queries": 8889,
+      "nb_test_queries": 987,
+      "avg-loglikelihood": 9.727879497883373,
+      "time_training": 71.26060485839844,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 40,
+      "nb_training_queries": 2441,
+      "nb_test_queries": 266,
+      "avg-loglikelihood": 6.458803751705512,
+      "time_training": 47.43490791320801,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 40,
+      "nb_training_queries": 8898,
+      "nb_test_queries": 989,
+      "avg-loglikelihood": 9.7718249065809,
+      "time_training": 72.21908688545227,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 45,
+      "nb_training_queries": 2685,
+      "nb_test_queries": 289,
+      "avg-loglikelihood": 7.146629716085984,
+      "time_training": 58.31935906410217,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 45,
+      "nb_training_queries": 8904,
+      "nb_test_queries": 989,
+      "avg-loglikelihood": 9.771762084869273,
+      "time_training": 73.15985202789307,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 50,
+      "nb_training_queries": 2869,
+      "nb_test_queries": 300,
+      "avg-loglikelihood": 7.645981912391873,
+      "time_training": 64.71382904052734,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "HTML",
+      "max_length": 50,
+      "nb_training_queries": 8904,
+      "nb_test_queries": 989,
+      "avg-loglikelihood": 9.771762084869273,
+      "time_training": 72.58935809135437,
+      "mode": "with-generate"
+    }
+  ],
+  "JSON": [
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 5,
+      "nb_training_queries": 138,
+      "nb_test_queries": 12,
+      "avg-loglikelihood": 2.3101671947566325,
+      "time_training": 2.738494873046875,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 5,
+      "nb_training_queries": 6202,
+      "nb_test_queries": 679,
+      "avg-loglikelihood": 2.246336952942706,
+      "time_training": 2.3588860034942627,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 10,
+      "nb_training_queries": 227,
+      "nb_test_queries": 27,
+      "avg-loglikelihood": 4.3997212550680525,
+      "time_training": 1.8380179405212402,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 10,
+      "nb_training_queries": 7304,
+      "nb_test_queries": 808,
+      "avg-loglikelihood": 3.142407044254766,
+      "time_training": 2.016057014465332,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 15,
+      "nb_training_queries": 335,
+      "nb_test_queries": 37,
+      "avg-loglikelihood": 5.692444788697195,
+      "time_training": 1.9681899547576904,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 15,
+      "nb_training_queries": 7763,
+      "nb_test_queries": 863,
+      "avg-loglikelihood": 3.70322725656607,
+      "time_training": 2.6116058826446533,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 20,
+      "nb_training_queries": 1855,
+      "nb_test_queries": 214,
+      "avg-loglikelihood": 9.238996838566754,
+      "time_training": 5.108330965042114,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 20,
+      "nb_training_queries": 7998,
+      "nb_test_queries": 897,
+      "avg-loglikelihood": 4.212259891536763,
+      "time_training": 3.039849042892456,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 25,
+      "nb_training_queries": 2131,
+      "nb_test_queries": 228,
+      "avg-loglikelihood": 9.770111122314868,
+      "time_training": 5.860060930252075,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 25,
+      "nb_training_queries": 8164,
+      "nb_test_queries": 911,
+      "avg-loglikelihood": 4.449971463904957,
+      "time_training": 3.3560590744018555,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 30,
+      "nb_training_queries": 4926,
+      "nb_test_queries": 558,
+      "avg-loglikelihood": 14.056122375437505,
+      "time_training": 15.521225929260254,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 30,
+      "nb_training_queries": 8308,
+      "nb_test_queries": 928,
+      "avg-loglikelihood": 4.849226573899177,
+      "time_training": 3.8752288818359375,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 35,
+      "nb_training_queries": 5250,
+      "nb_test_queries": 588,
+      "avg-loglikelihood": 14.712577506483136,
+      "time_training": 16.730602979660034,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 35,
+      "nb_training_queries": 8410,
+      "nb_test_queries": 942,
+      "avg-loglikelihood": 5.206708948475417,
+      "time_training": 4.096134185791016,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 40,
+      "nb_training_queries": 8085,
+      "nb_test_queries": 900,
+      "avg-loglikelihood": 17.25759977911088,
+      "time_training": 30.224366903305054,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 40,
+      "nb_training_queries": 8491,
+      "nb_test_queries": 949,
+      "avg-loglikelihood": 5.4094940647237175,
+      "time_training": 4.421671152114868,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 45,
+      "nb_training_queries": 8382,
+      "nb_test_queries": 932,
+      "avg-loglikelihood": 17.803234018041906,
+      "time_training": 31.64413619041443,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 45,
+      "nb_training_queries": 8547,
+      "nb_test_queries": 957,
+      "avg-loglikelihood": 5.682972658543977,
+      "time_training": 4.4937050342559814,
+      "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 50,
+      "nb_training_queries": 8531,
+      "nb_test_queries": 942,
+      "avg-loglikelihood": 17.977355096447077,
+      "time_training": 32.736629009246826,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JSON",
+      "max_length": 50,
+      "nb_training_queries": 8601,
+      "nb_test_queries": 959,
+      "avg-loglikelihood": 5.760511261012304,
+      "time_training": 4.969854116439819,
       "mode": "with-generate"
     }
   ]

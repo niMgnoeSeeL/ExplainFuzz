@@ -1,3 +1,5 @@
+from antlr4 import InputStream
+from GrammarRefactoring.refactor_grammar.GrammarVisitor import parse_grammar_antlr
 from GrammarRefactoring.refactor_grammar.LexerRuleExtractor import (
     get_token_to_literal_mapping,
     get_literal_to_token_mapping,
@@ -98,16 +100,16 @@ def build_model(
     ]
     ensure_directories_exist(refactoring_dirs)
 
-    grammar = grammar_refactoring_main(
-        initial_grammar_paths,
-        grammar_name,
-        intermediate_dir,
-        refactored_dir,
-        final_dir,
-        antlr_output_dir,
-        seeds_dir,
-        start_rule,
-    )
+    # grammar = grammar_refactoring_main(
+    #     initial_grammar_paths,
+    #     grammar_name,
+    #     intermediate_dir,
+    #     refactored_dir,
+    #     final_dir,
+    #     antlr_output_dir,
+    #     seeds_dir,
+    #     start_rule,
+    # )
 
     parser_final_file_path = final_dir / f"{grammar_name}Parser.g4"
     print("")
@@ -132,21 +134,21 @@ def build_model(
     fuzzing_dirs = [generator_dir, population_dir, fuzz_outputs_dir, dataset_dir]
     ensure_directories_exist(fuzzing_dirs)
 
-    grammarinator_fuzz_main(
-        prefix_grammar=grammar_name,
-        start_rule=start_rule,
-        grammar_dir=final_dir,
-        seeds_dir=seeds_dir,
-        generator_dir=generator_dir,
-        population_dir=population_dir,
-        gen_parser_dir=antlr_output_dir,
-        fuzz_outputs_dir=fuzz_outputs_dir,
-        dataset_dir=dataset_dir,
-        num_inputs=num_inputs,
-        first_time=True,
-        with_serializer=with_serializer,
-        depth=depth,
-    )
+    # grammarinator_fuzz_main(
+    #     prefix_grammar=grammar_name,
+    #     start_rule=start_rule,
+    #     grammar_dir=final_dir,
+    #     seeds_dir=seeds_dir,
+    #     generator_dir=generator_dir,
+    #     population_dir=population_dir,
+    #     gen_parser_dir=antlr_output_dir,
+    #     fuzz_outputs_dir=fuzz_outputs_dir,
+    #     dataset_dir=dataset_dir,
+    #     num_inputs=num_inputs,
+    #     first_time=True,
+    #     with_serializer=with_serializer,
+    #     depth=depth,
+    # )
     print("")
 
     # ============================================================
@@ -246,7 +248,15 @@ def get_literal_token_mapping(domain: str):
     lexer_path = (
         GRAMMAR_DIR / "final" / domain / f"{domain_config['grammar_name']}Lexer.g4"
     )
+    parser_path = (
+        GRAMMAR_DIR / "final" / domain / f"{domain_config['grammar_name']}Parser.g4"
+    )
     literal_token_mapping = get_literal_to_token_mapping(lexer_path)
+
+    _, terminals = parse_grammar_antlr(str(parser_path))
+    for terminal in terminals:
+        if terminal not in literal_token_mapping.values():
+            literal_token_mapping[terminal] = terminal
     return literal_token_mapping
 
 
@@ -319,8 +329,10 @@ if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
 
-    domain = "JANUS"
+    domain = "SQL"
     domain_config = domains_config[domain]
+
+    get_literal_token_mapping2("SQL")
 
     num_inputs = 10000
     # mode = "no-generate"
@@ -347,7 +359,7 @@ if __name__ == "__main__":
     # )
 
     # for mode in ["no-generate", "with-generate"]:
-    #     sample_inputs(domain, mode, 200, domain_config["max_length"])
+    #     sample_inputs(domain, mode, 500)
 
     # dataset_dir = DATASET_DIR / domain
     # antlr_output_dir = GEN_PARSER_DIR / domain

@@ -82,5 +82,75 @@
       "percent_recursive": 0.2903225806451613,
       "domain": "SQL"
     }
+  ],
+  "CSV": [
+    {
+      "num_rules": 8,
+      "num_productions": 16,
+      "num_terminals": 6,
+      "num_nonterminals": 7,
+      "avg_production_length": 2.1875,
+      "avg_arity": 2.0,
+      "max_arity": 3,
+      "num_recursive_rules": 2,
+      "percent_recursive": 0.25,
+      "domain": "CSV"
+    }
+  ],
+  "HTML": [
+    {
+      "num_rules": 28,
+      "num_productions": 158,
+      "num_terminals": 21,
+      "num_nonterminals": 21,
+      "avg_production_length": 2.240506329113924,
+      "avg_arity": 5.642857142857143,
+      "max_arity": 58,
+      "num_recursive_rules": 5,
+      "percent_recursive": 0.17857142857142858,
+      "domain": "HTML"
+    }
+  ],
+  "JSON": [
+    {
+      "num_rules": 9,
+      "num_productions": 25,
+      "num_terminals": 12,
+      "num_nonterminals": 6,
+      "avg_production_length": 2.32,
+      "avg_arity": 2.7777777777777777,
+      "max_arity": 11,
+      "num_recursive_rules": 3,
+      "percent_recursive": 0.3333333333333333,
+      "domain": "JSON"
+    }
+  ],
+  "CLOUDFORMATION": [
+    {
+      "num_rules": 11,
+      "num_productions": 4985,
+      "num_terminals": 4948,
+      "num_nonterminals": 7,
+      "avg_production_length": 1.0082246740220662,
+      "avg_arity": 453.1818181818182,
+      "max_arity": 4946,
+      "num_recursive_rules": 4,
+      "percent_recursive": 0.36363636363636365,
+      "domain": "CLOUDFORMATION"
+    }
+  ],
+  "MLIR": [
+    {
+      "num_rules": 221,
+      "num_productions": 992,
+      "num_terminals": 34,
+      "num_nonterminals": 127,
+      "avg_production_length": 2.1391129032258065,
+      "avg_arity": 4.48868778280543,
+      "max_arity": 41,
+      "num_recursive_rules": 30,
+      "percent_recursive": 0.13574660633484162,
+      "domain": "MLIR"
+    }
   ]
 }

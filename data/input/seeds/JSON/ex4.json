@@ -1,0 +1,6 @@
+{
+    "city": "Tokyo",
+    "temperature_celsius": 22.5,
+    "condition": "Partly Cloudy",
+    "forecast": ["Sunny", "Rain", "Cloudy", "Clear"]
+  }

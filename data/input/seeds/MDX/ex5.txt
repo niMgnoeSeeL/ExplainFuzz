@@ -1,5 +1,0 @@
-SELECT 
-    NON EMPTY [Product].[Category].Members ON COLUMNS,
-    NON EMPTY [Store].[Store State].Members ON ROWS
-FROM [Sales]
-CELL PROPERTIES VALUE, FORMATTED_VALUE

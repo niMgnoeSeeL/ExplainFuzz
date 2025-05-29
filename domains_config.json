@@ -1,19 +1,4 @@
 {
-  "XML": {
-    "grammar_name": "XML",
-    "start_rule": "document",
-    "parser_path": "data/input/grammars/XML/XMLParser.g4",
-    "lexer_path": "data/input/grammars/XML/XMLLexer.g4",
-    "seeds_dir": "SEEDS_DIR/XML",
-    "initial_grammar_paths": [
-      "data/input/grammars/XML/XMLParser.g4",
-      "data/input/grammars/XML/XMLLexer.g4"
-    ],
-    "with_serializer": false,
-    "skip_rules": [],
-    "max_length": 30,
-    "depth": 8
-  },
   "HTML": {
     "grammar_name": "HTML",
     "start_rule": "htmlDocument",
@@ -27,7 +12,7 @@
     "with_serializer": true,
     "skip_rules": ["TAG_WHITESPACE"],
     "max_length": 35,
-    "depth": 20
+    "depth": 50
   },
   "REDIS": {
     "grammar_name": "Redis",
@@ -76,17 +61,6 @@
     "initial_grammar_paths": ["data/input/grammars/JANUS/janus.g4"],
     "with_serializer": true,
     "skip_rules": ["WS"],
-    "max_length": 20,
-    "depth": 20
-  },
-  "MDX": {
-    "grammar_name": "mdx",
-    "start_rule": "mdx_statement",
-    "parser_path": "data/input/grammars/MDX/mdx.g4",
-    "seeds_dir": "SEEDS_DIR/MDX",
-    "initial_grammar_paths": ["data/input/grammars/MDX/mdx.g4"],
-    "with_serializer": true,
-    "skip_rules": ["WS"],
     "max_length": 25,
     "depth": 20
   },
@@ -99,6 +73,50 @@
     "with_serializer": true,
     "skip_rules": ["WS"],
     "max_length": 40,
+    "depth": 20
+  },
+  "CSV": {
+    "grammar_name": "CSV",
+    "start_rule": "csvFile",
+    "parser_path": "data/input/grammars/CSV/CSV.g4",
+    "seeds_dir": "SEEDS_DIR/CSV",
+    "initial_grammar_paths": ["data/input/grammars/CSV/CSV.g4"],
+    "with_serializer": false,
+    "skip_rules": [],
+    "max_length": 30,
+    "depth": 20
+  },
+  "JSON": {
+    "grammar_name": "JSON",
+    "start_rule": "json",
+    "parser_path": "data/input/grammars/JSON/JSON.g4",
+    "seeds_dir": "SEEDS_DIR/JSON",
+    "initial_grammar_paths": ["data/input/grammars/JSON/JSON.g4"],
+    "with_serializer": false,
+    "skip_rules": ["WS"],
+    "max_length": 30,
+    "depth": 20
+  },
+  "CLOUDFORMATION": {
+    "grammar_name": "JSONLLM",
+    "start_rule": "json",
+    "parser_path": "data/input/grammars/CLOUDFORMATION/JSONLLMParser.g4",
+    "seeds_dir": "SEEDS_DIR/CLOUDFORMATION",
+    "initial_grammar_paths": ["data/input/grammars/CLOUDFORMATION/JSONLLMParser.g4","data/input/grammars/CLOUDFORMATION/JSONLLMLexer.g4"],
+    "with_serializer": false,
+    "skip_rules": ["WS"],
+    "max_length": 50,
+    "depth": 20
+  },
+  "MLIR": {
+    "grammar_name": "mlir_base",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/MLIR/mlir_base.g4",
+    "seeds_dir": "SEEDS_DIR/MLIR",
+    "initial_grammar_paths": ["data/input/grammars/MLIR/mlir_base.g4"],
+    "with_serializer": false,
+    "skip_rules": ["WS"],
+    "max_length": 35,
     "depth": 20
   }
 }
