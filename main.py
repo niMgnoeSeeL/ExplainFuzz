@@ -1,3 +1,5 @@
+from antlr4 import InputStream
+from GrammarRefactoring.refactor_grammar.GrammarVisitor import parse_grammar_antlr
 from GrammarRefactoring.refactor_grammar.LexerRuleExtractor import (
     get_token_to_literal_mapping,
     get_literal_to_token_mapping,
@@ -246,7 +248,15 @@ def get_literal_token_mapping(domain: str):
     lexer_path = (
         GRAMMAR_DIR / "final" / domain / f"{domain_config['grammar_name']}Lexer.g4"
     )
+    parser_path = (
+        GRAMMAR_DIR / "final" / domain / f"{domain_config['grammar_name']}Parser.g4"
+    )
     literal_token_mapping = get_literal_to_token_mapping(lexer_path)
+
+    _, terminals = parse_grammar_antlr(str(parser_path))
+    for terminal in terminals:
+        if terminal not in literal_token_mapping.values():
+            literal_token_mapping[terminal] = terminal
     return literal_token_mapping
 
 
@@ -322,6 +332,8 @@ if __name__ == "__main__":
     domain = "SQL"
     domain_config = domains_config[domain]
 
+    get_literal_token_mapping2("SQL")
+
     num_inputs = 10000
     # mode = "no-generate"
     # main_generate_inputs(domain, mode, domain_config["max_length"])
@@ -346,8 +358,8 @@ if __name__ == "__main__":
     #     output_dir=Path("anonymized_dataset/SQL/"),
     # )
 
-    for mode in ["no-generate", "with-generate"]:
-        sample_inputs(domain, mode, 500)
+    # for mode in ["no-generate", "with-generate"]:
+    #     sample_inputs(domain, mode, 500)
 
     # dataset_dir = DATASET_DIR / domain
     # antlr_output_dir = GEN_PARSER_DIR / domain

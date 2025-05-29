@@ -1,3 +1,5 @@
+from GrammarRefactoring.refactor_grammar.checker import load_parser_lexer
+from cfg2pc.dataset import anonymize_one_input
 from cfg2pc.query import (
     marginal_query,
     marginal_query_cond,
@@ -6,8 +8,15 @@ from cfg2pc.query import (
     marginal_query_contiguous_cond,
     sequential_query_contiguous_cond,
     marginal_map_query,
+    marginal_map_query2,
 )
-from main import MODEL_DIR, get_literal_token_mapping, load_domains_config
+from main import (
+    GEN_PARSER_DIR,
+    MODEL_DIR,
+    get_domain_config,
+    get_literal_token_mapping,
+    load_domains_config,
+)
 import torch
 from pathlib import Path
 
@@ -67,15 +76,36 @@ def ask_query(
             )
             return prob
         case "EVI":
-            seq = inputs
-            prob = abs(evi_query(model, seq, lit_map, lit_size))
+            seq = inputs[0]
+            print(seq)
+            new_seq = seq + ["PAD"] * (max_length - len(seq))
+            print(new_seq, len(new_seq))
+            prob = abs(evi_query(model, new_seq, lit_map, lit_size))
             return prob
-        case "MMAP":
+        case "MMAP1":
             tok = inputs[0]
             most_probable_token = marginal_map_query(
                 model, tok, lit_map, lit_size, max_length
             )
             return most_probable_token
+        case "MMAP2":
+            """represent input as (tok,pos)"""
+            tok = inputs[0]
+            pos = inputs[1]
+            most_probable_token = marginal_map_query2(
+                model, tok, lit_map, lit_size, pos
+            )
+            return most_probable_token
+
+
+def anonymize_original_input(input, domain):
+    domain_config = get_domain_config(domain)
+    skip_rules = domain_config["skip_rules"]
+    grammar_name = domain_config["grammar_name"]
+    antlr_output_dir = GEN_PARSER_DIR / domain
+    _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
+    anonymized_input = anonymize_one_input(input, lexer_cls, skip_rules)
+    return anonymized_input + ["EOF"]
 
 
 if __name__ == "__main__":

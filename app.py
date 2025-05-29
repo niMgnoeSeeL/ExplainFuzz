@@ -1,7 +1,7 @@
 from pathlib import Path
 import gradio as gr
 
-from inference import ask_query, load_model_and_info
+from inference import anonymize_original_input, ask_query, load_model_and_info
 from main import get_literal_token_mapping, main_generate_inputs
 
 """"This is a dummy FE for now"""
@@ -28,14 +28,17 @@ def compute_probability(domain, query_type, inputs, mode):
     return ask_query(model, lit_map, lit_size, max_length, query_type, inputs)
 
 
-def dispatch_probability_function(domain, question, lit1, lit2, lit3, pos, mode):
+def dispatch_probability_function(domain, question, lit1, lit2, lit3, pos, text, mode):
     fn = question_to_function[question]
     if not fn:
         return "Unsupported question selected."
 
     count = literal_count_by_question[question]
     has_pos = position_mapping[question]
+    has_text = text_mapping[question]
     try:
+        if has_text:
+            return fn(domain, text, mode)
         if count == 1:
             if has_pos:
                 return fn(domain, lit1, pos, mode)
@@ -131,23 +134,30 @@ def prob_COND3(domain, lit1, lit2, lit, pos, mode):
 #     return f"P({lit})={prob:.4f}"
 
 
-def prob_MMAP(domain, lit, mode):
+def prob_MMAP1(domain, lit, mode):
     literal_to_tokens = get_literal_token_mapping(domain)
     token = literal_to_tokens[lit]
     inputs = [token]
-    query_type = "MMAP"
+    query_type = "MMAP1"
     likely_token = compute_probability(domain, query_type, inputs, mode)
     return f"The most likely token to appear after {lit} is {likely_token}."
 
 
-def prob_EVI(domain, lit, mode):
-    # TODO : modify that
+def prob_MMAP2(domain, lit, pos, mode):
     literal_to_tokens = get_literal_token_mapping(domain)
     token = literal_to_tokens[lit]
-    inputs = [token]
+    inputs = (token, pos)
+    query_type = "MMAP2"
+    likely_token = compute_probability(domain, query_type, inputs, mode)
+    return f"The most likely token to appear after {lit} is {likely_token}."
+
+
+def prob_EVI(domain, input, mode):
+    anonymized_input = anonymize_original_input(input, domain)
+    inputs = (anonymized_input,)
     query_type = "EVI"
     prob = compute_probability(domain, query_type, inputs, mode)
-    return f"P({lit})={prob:.4f}"
+    return f"P({input})={prob:.4f}"
 
 
 def generate_inputs(domain, mode, num_inputs, sql_conn=None):
@@ -160,7 +170,7 @@ def generate_inputs(domain, mode, num_inputs, sql_conn=None):
 questions_by_type = {
     "Marginal": ["Marginal_1", "Marginal_2"],
     "Conditional": ["Conditional_1", "Conditional_2", "Conditional_3"],
-    "Marginal Map": ["MarginalMap"],
+    "Marginal Map": ["MarginalMap_1", "MarginalMap_2"],
     "Direct Evidence": ["DirectEvidence"],
 }
 
@@ -170,7 +180,8 @@ question_description = {
     "Conditional_1": "P(Literal 2 | Literal 1), where Literal 2 appears anywhere after Literal 1 ?",
     "Conditional_2": "P(Literal 2 | Literal 1), where Literal 2 appears immediately after Literal 1 at position p ?",
     "Conditional_3": "P(Literal 3 | [Literal 1,Literal 2]) given that the sequence appears at position p ?",
-    "MarginalMap": "What is the most likely token appearing anywhere after Literal 1 ?",
+    "MarginalMap_1": "What is the most likely token appearing anywhere after Literal 1 ?",
+    "MarginalMap_2": "What is the most likely token appearing right after Literal 1 given it's at position p ?",
     "DirectEvidence": "What is the probability of seeing the structure of this query ?",
 }
 
@@ -180,7 +191,8 @@ literal_count_by_question = {
     "Conditional_1": 2,
     "Conditional_2": 2,
     "Conditional_3": 3,
-    "MarginalMap": 1,
+    "MarginalMap_1": 1,
+    "MarginalMap_2": 1,
     "DirectEvidence": 1,
 }
 
@@ -190,8 +202,13 @@ position_mapping = {
     "Conditional_1": False,
     "Conditional_2": True,
     "Conditional_3": True,
-    "MarginalMap": False,
+    "MarginalMap_1": False,
+    "MarginalMap_2": True,
     "DirectEvidence": False,
+}
+
+text_mapping = {
+    "DirectEvidence": True,
 }
 
 question_to_function = {
@@ -200,7 +217,8 @@ question_to_function = {
     "Conditional_1": prob_COND1,
     "Conditional_2": prob_COND2,
     "Conditional_3": prob_COND3,
-    "MarginalMap": prob_MMAP,
+    "MarginalMap_1": prob_MMAP1,
+    "MarginalMap_2": prob_MMAP2,
     "DirectEvidence": prob_EVI,
 }
 
@@ -254,6 +272,7 @@ with gr.Blocks() as demo:
             position = gr.Slider(
                 0, maximum=34, value=0, step=1, label="Position", visible=False
             )
+            text = gr.Textbox(value=None, visible=False, label="Input")
 
         # Update function
         def update_question_choices(qtype):
@@ -273,17 +292,27 @@ with gr.Blocks() as demo:
             count = literal_count_by_question.get(q, 1)
             has_pos = position_mapping.get(q, False)
             max_length = max_length_mapping.get(domain, 10) - 2
+            has_text = text_mapping.get(q, False)
+            if has_text:
+                return (
+                    gr.update(visible=False, interactive=False),
+                    gr.update(visible=False, interactive=False),
+                    gr.update(visible=False, interactive=False),
+                    gr.update(visible=False, interactive=False),
+                    gr.update(visible=True, interactive=True),
+                )
             return (
                 gr.update(visible=(count >= 1), interactive=(count >= 1)),
                 gr.update(visible=(count >= 2), interactive=(count >= 2)),
                 gr.update(visible=(count >= 3), interactive=(count >= 3)),
                 gr.update(visible=has_pos, interactive=has_pos, maximum=max_length),
+                gr.update(visible=has_text, interactive=has_text),
             )
 
         question.change(
             fn=update_literal_dropdowns,
             inputs=[question, domain],
-            outputs=[literal1, literal2, literal3, position],
+            outputs=[literal1, literal2, literal3, position, text],
         )
 
         prob_button = gr.Button("Get Probability")
@@ -306,7 +335,16 @@ with gr.Blocks() as demo:
 
         prob_button.click(
             fn=dispatch_probability_function,
-            inputs=[domain, question, literal1, literal2, literal3, position, mode],
+            inputs=[
+                domain,
+                question,
+                literal1,
+                literal2,
+                literal3,
+                position,
+                text,
+                mode,
+            ],
             outputs=prob_output,
         )
 
