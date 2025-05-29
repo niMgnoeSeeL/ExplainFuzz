@@ -21,25 +21,17 @@
         "domain": "SQL",
         "mode": "no-generate",
         "query_type": "MAR1",
-        "token": "ORDER",
-        "model_prob": 0.8392739978509667,
-        "seed_prob": 0.8333333333333334
+        "token": "USING",
+        "model_prob": 0.6503571107174269,
+        "seed_prob": 0.6666666666666666
       },
       {
         "domain": "SQL",
         "mode": "no-generate",
         "query_type": "MAR1",
-        "token": "BY",
-        "model_prob": 0.8422022545123582,
-        "seed_prob": 0.8333333333333334
-      },
-      {
-        "domain": "SQL",
-        "mode": "no-generate",
-        "query_type": "MAR1",
-        "token": "FROM",
-        "model_prob": 1.000000110533369,
-        "seed_prob": 1.0
+        "token": "GT",
+        "model_prob": 0.5379734549174797,
+        "seed_prob": 0.6666666666666666
       },
       {
         "domain": "SQL",
@@ -73,7 +65,7 @@
         "query_type": "COND1",
         "token": "BY",
         "given_token": "ORDER",
-        "model_prob": -1.0813685007438067e-06,
+        "model_prob": 0.010434586518984323,
         "seed_prob": 0.0
       },
       {
@@ -82,8 +74,77 @@
         "query_type": "COND1",
         "token": "HAVING",
         "given_token": "ASC",
-        "model_prob": 0.00012953180504282624,
+        "model_prob": 0.00017466014958866793,
         "seed_prob": 0.0
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "SELECT",
+        "given_token": "STAR",
+        "model_prob": 0.33754785805370113,
+        "seed_prob": 0.3333333333333333
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "EVI",
+        "query": [
+          "SELECT",
+          "STAR",
+          "FROM",
+          "Identifier",
+          "WHERE",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "LT",
+          "Integral",
+          "ORDER",
+          "BY",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "SEMI"
+        ],
+        "model_prob": 0.1177910715341568,
+        "seed_prob": 0.16666666666666666
+      },
+      {
+        "domain": "SQL",
+        "mode": "no-generate",
+        "query_type": "EVI",
+        "query": [
+          "SELECT",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "COMMA",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "FROM",
+          "Identifier",
+          "WHERE",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "GT",
+          "Integral",
+          "ORDER",
+          "BY",
+          "Identifier",
+          "USING",
+          "LT",
+          "COMMA",
+          "Identifier",
+          "USING",
+          "GT",
+          "SEMI"
+        ],
+        "model_prob": 0.020894477143883705,
+        "seed_prob": 0.16666666666666666
       },
       {
         "domain": "SQL",
@@ -105,25 +166,17 @@
         "domain": "SQL",
         "mode": "with-generate",
         "query_type": "MAR1",
-        "token": "ORDER",
-        "model_prob": 0.41871877445373684,
-        "seed_prob": 0.8333333333333334
+        "token": "USING",
+        "model_prob": 0.02809643917802873,
+        "seed_prob": 0.6666666666666666
       },
       {
         "domain": "SQL",
         "mode": "with-generate",
         "query_type": "MAR1",
-        "token": "BY",
-        "model_prob": 0.4623241601511836,
-        "seed_prob": 0.8333333333333334
-      },
-      {
-        "domain": "SQL",
-        "mode": "with-generate",
-        "query_type": "MAR1",
-        "token": "FROM",
-        "model_prob": 0.9999999828141881,
-        "seed_prob": 1.0
+        "token": "GT",
+        "model_prob": 0.016331675086334485,
+        "seed_prob": 0.6666666666666666
       },
       {
         "domain": "SQL",
@@ -157,7 +210,7 @@
         "query_type": "COND1",
         "token": "BY",
         "given_token": "ORDER",
-        "model_prob": -0.00026994050867990005,
+        "model_prob": 0.04755729936667108,
         "seed_prob": 0.0
       },
       {
@@ -166,348 +219,1031 @@
         "query_type": "COND1",
         "token": "HAVING",
         "given_token": "ASC",
-        "model_prob": -0.025420484181572167,
+        "model_prob": 0.009840123511912213,
         "seed_prob": 0.0
-      }
-    ],
-    [
+      },
       {
         "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "SELECT",
+        "given_token": "STAR",
+        "model_prob": 0.6826023757457733,
+        "seed_prob": 0.3333333333333333
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "EVI",
+        "query": [
+          "SELECT",
+          "STAR",
+          "FROM",
+          "Identifier",
+          "WHERE",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "LT",
+          "Integral",
+          "ORDER",
+          "BY",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "SEMI"
+        ],
+        "model_prob": 1.1096739392911105e-20,
+        "seed_prob": 0.16666666666666666
+      },
+      {
+        "domain": "SQL",
+        "mode": "with-generate",
+        "query_type": "EVI",
+        "query": [
+          "SELECT",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "COMMA",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "FROM",
+          "Identifier",
+          "WHERE",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "GT",
+          "Integral",
+          "ORDER",
+          "BY",
+          "Identifier",
+          "USING",
+          "LT",
+          "COMMA",
+          "Identifier",
+          "USING",
+          "GT",
+          "SEMI"
+        ],
+        "model_prob": 2.406029463245711e-42,
+        "seed_prob": 0.16666666666666666
+      }
+    ]
+  ],
+  "B": [
+    [
+      {
+        "domain": "B",
         "mode": "no-generate",
         "query_type": "MAR1",
-        "token": "SELECT",
+        "token": "NAME",
         "model_prob": 1.0000001192092896,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "no-generate",
         "query_type": "MAR1",
-        "token": "DOT",
-        "model_prob": 0.9978264430872414,
+        "token": "TERM_1",
+        "model_prob": 0.9945497902739362,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "no-generate",
         "query_type": "MAR1",
-        "token": "ORDER",
-        "model_prob": 0.8392739978509667,
-        "seed_prob": 0.8333333333333334
+        "token": "TERM_0",
+        "model_prob": 0.4260801467948334,
+        "seed_prob": 0.42857142857142855
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "no-generate",
         "query_type": "MAR1",
-        "token": "BY",
-        "model_prob": 0.8422022545123582,
-        "seed_prob": 0.8333333333333334
+        "token": "STRING2",
+        "model_prob": 0.5412193656553086,
+        "seed_prob": 0.5714285714285714
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "no-generate",
         "query_type": "MAR1",
-        "token": "FROM",
-        "model_prob": 1.000000110533369,
-        "seed_prob": 1.0
+        "token": "TERM_24",
+        "model_prob": 0.004465219971415434,
+        "seed_prob": 0.14285714285714285
       },
       {
-        "domain": "SQL",
-        "mode": "no-generate",
-        "query_type": "MAR1",
-        "token": "STAR",
-        "model_prob": 0.3375478102303191,
-        "seed_prob": 0.3333333333333333
-      },
-      {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "no-generate",
         "query_type": "COND1",
-        "token": "SELECT",
-        "given_token": "FROM",
-        "model_prob": 1.0,
+        "token": "NAME",
+        "given_token": "TERM_2",
+        "model_prob": 0.989770851386088,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "no-generate",
         "query_type": "COND1",
-        "token": "ORDER",
-        "given_token": "BY",
-        "model_prob": 1.0,
+        "token": "TERM_3",
+        "given_token": "TERM_1",
+        "model_prob": 0.9944863341328151,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "no-generate",
         "query_type": "COND1",
-        "token": "BY",
-        "given_token": "ORDER",
-        "model_prob": -1.0813685007438067e-06,
-        "seed_prob": 0.0
+        "token": "STRING2",
+        "given_token": "TERM_11",
+        "model_prob": 0.031217312498923233,
+        "seed_prob": 0.25
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "no-generate",
         "query_type": "COND1",
-        "token": "HAVING",
-        "given_token": "ASC",
-        "model_prob": 0.00012953180504282624,
-        "seed_prob": 0.0
+        "token": "TERM_2",
+        "given_token": "TERM_24",
+        "model_prob": 0.004511234084286553,
+        "seed_prob": 0.14285714285714285
       },
       {
-        "domain": "SQL",
-        "mode": "with-generate",
-        "query_type": "MAR1",
-        "token": "SELECT",
-        "model_prob": 1.0,
+        "domain": "B",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "TERM_18",
+        "given_token": "NAME",
+        "model_prob": 0.9945241726014994,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "B",
+        "mode": "no-generate",
+        "query_type": "EVI",
+        "query": [
+          "NAME",
+          "TERM_2",
+          "TERM_3",
+          "TERM_5",
+          "TERM_15",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_1",
+          "NAME",
+          "TERM_18",
+          "INT",
+          "TERM_1",
+          "NAME",
+          "TERM_18",
+          "INT",
+          "TERM_1",
+          "NAME",
+          "TERM_18",
+          "INT",
+          "TERM_1",
+          "NAME",
+          "TERM_18",
+          "NAME",
+          "TERM_32",
+          "NAME",
+          "TERM_32",
+          "NAME",
+          "TERM_1",
+          "NAME",
+          "TERM_2",
+          "TERM_3",
+          "TERM_1",
+          "TERM_6"
+        ],
+        "model_prob": 0.0232817642390728,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "B",
+        "mode": "no-generate",
+        "query_type": "EVI",
+        "query": [
+          "NAME",
+          "TERM_2",
+          "TERM_3",
+          "TERM_5",
+          "TERM_14",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_1",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_3",
+          "TERM_1",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_3",
+          "TERM_1",
+          "TERM_6",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_3",
+          "TERM_5",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_3",
+          "TERM_1",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_3",
+          "TERM_1",
+          "TERM_6"
+        ],
+        "model_prob": 0.0,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "B",
         "mode": "with-generate",
         "query_type": "MAR1",
-        "token": "DOT",
-        "model_prob": 0.17520592905930243,
+        "token": "NAME",
+        "model_prob": 0.9999997615814209,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "with-generate",
         "query_type": "MAR1",
-        "token": "ORDER",
-        "model_prob": 0.41871877445373684,
-        "seed_prob": 0.8333333333333334
-      },
-      {
-        "domain": "SQL",
-        "mode": "with-generate",
-        "query_type": "MAR1",
-        "token": "BY",
-        "model_prob": 0.4623241601511836,
-        "seed_prob": 0.8333333333333334
-      },
-      {
-        "domain": "SQL",
-        "mode": "with-generate",
-        "query_type": "MAR1",
-        "token": "FROM",
-        "model_prob": 0.9999999828141881,
+        "token": "TERM_1",
+        "model_prob": 0.9705268237071323,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "with-generate",
         "query_type": "MAR1",
-        "token": "STAR",
-        "model_prob": 0.6826024079709896,
-        "seed_prob": 0.3333333333333333
+        "token": "TERM_0",
+        "model_prob": 0.2971183837283604,
+        "seed_prob": 0.42857142857142855
       },
       {
-        "domain": "SQL",
+        "domain": "B",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "STRING2",
+        "model_prob": 0.4028615940182476,
+        "seed_prob": 0.5714285714285714
+      },
+      {
+        "domain": "B",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "TERM_24",
+        "model_prob": 0.0035195522372629684,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "B",
         "mode": "with-generate",
         "query_type": "COND1",
-        "token": "SELECT",
-        "given_token": "FROM",
-        "model_prob": 1.0,
+        "token": "NAME",
+        "given_token": "TERM_2",
+        "model_prob": 0.3906703926731092,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "with-generate",
         "query_type": "COND1",
-        "token": "ORDER",
-        "given_token": "BY",
-        "model_prob": 1.0,
+        "token": "TERM_3",
+        "given_token": "TERM_1",
+        "model_prob": 0.9099681878976634,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "with-generate",
         "query_type": "COND1",
-        "token": "BY",
-        "given_token": "ORDER",
-        "model_prob": -0.00026994050867990005,
-        "seed_prob": 0.0
+        "token": "STRING2",
+        "given_token": "TERM_11",
+        "model_prob": 0.012397209138544252,
+        "seed_prob": 0.25
       },
       {
-        "domain": "SQL",
+        "domain": "B",
         "mode": "with-generate",
         "query_type": "COND1",
-        "token": "HAVING",
-        "given_token": "ASC",
-        "model_prob": -0.025420484181572167,
-        "seed_prob": 0.0
+        "token": "TERM_2",
+        "given_token": "TERM_24",
+        "model_prob": 0.009009307254060017,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "B",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "TERM_18",
+        "given_token": "NAME",
+        "model_prob": 0.8750168952763917,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "B",
+        "mode": "with-generate",
+        "query_type": "EVI",
+        "query": [
+          "NAME",
+          "TERM_2",
+          "TERM_3",
+          "TERM_5",
+          "TERM_15",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_1",
+          "NAME",
+          "TERM_18",
+          "INT",
+          "TERM_1",
+          "NAME",
+          "TERM_18",
+          "INT",
+          "TERM_1",
+          "NAME",
+          "TERM_18",
+          "INT",
+          "TERM_1",
+          "NAME",
+          "TERM_18",
+          "NAME",
+          "TERM_32",
+          "NAME",
+          "TERM_32",
+          "NAME",
+          "TERM_1",
+          "NAME",
+          "TERM_2",
+          "TERM_3",
+          "TERM_1",
+          "TERM_6"
+        ],
+        "model_prob": 0.0,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "B",
+        "mode": "with-generate",
+        "query_type": "EVI",
+        "query": [
+          "NAME",
+          "TERM_2",
+          "TERM_3",
+          "TERM_5",
+          "TERM_14",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_1",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_3",
+          "TERM_1",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_3",
+          "TERM_1",
+          "TERM_6",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_0",
+          "NAME",
+          "TERM_3",
+          "TERM_5",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_3",
+          "TERM_1",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_3",
+          "TERM_1",
+          "TERM_6"
+        ],
+        "model_prob": 0.0,
+        "seed_prob": 0.14285714285714285
       }
-    ],
+    ]
+  ],
+  "JANUS": [
     [
       {
-        "domain": "SQL",
+        "domain": "JANUS",
         "mode": "no-generate",
         "query_type": "MAR1",
-        "token": "SELECT",
-        "model_prob": 1.0000001192092896,
+        "token": "BINOP",
+        "model_prob": 0.4845641021966003,
+        "seed_prob": 0.6
+      },
+      {
+        "domain": "JANUS",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "TERM_2",
+        "model_prob": 1.0000000160215317,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "JANUS",
         "mode": "no-generate",
         "query_type": "MAR1",
-        "token": "DOT",
-        "model_prob": 0.9978264430872414,
+        "token": "NUM",
+        "model_prob": 0.5048275603460883,
+        "seed_prob": 0.8
+      },
+      {
+        "domain": "JANUS",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "TERM_8",
+        "model_prob": 0.0497339506658534,
+        "seed_prob": 0.4
+      },
+      {
+        "domain": "JANUS",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "IDENT",
+        "model_prob": 1.0000000201077537,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
-        "mode": "no-generate",
-        "query_type": "MAR1",
-        "token": "ORDER",
-        "model_prob": 0.8392739978509667,
-        "seed_prob": 0.8333333333333334
-      },
-      {
-        "domain": "SQL",
-        "mode": "no-generate",
-        "query_type": "MAR1",
-        "token": "BY",
-        "model_prob": 0.8422022545123582,
-        "seed_prob": 0.8333333333333334
-      },
-      {
-        "domain": "SQL",
-        "mode": "no-generate",
-        "query_type": "MAR1",
-        "token": "FROM",
-        "model_prob": 1.000000110533369,
-        "seed_prob": 1.0
-      },
-      {
-        "domain": "SQL",
-        "mode": "no-generate",
-        "query_type": "MAR1",
-        "token": "STAR",
-        "model_prob": 0.3375478102303191,
-        "seed_prob": 0.3333333333333333
-      },
-      {
-        "domain": "SQL",
+        "domain": "JANUS",
         "mode": "no-generate",
         "query_type": "COND1",
-        "token": "SELECT",
-        "given_token": "FROM",
-        "model_prob": 1.0,
+        "token": "BINOP",
+        "given_token": "NUM",
+        "model_prob": 0.9516920230848067,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "JANUS",
         "mode": "no-generate",
         "query_type": "COND1",
-        "token": "ORDER",
-        "given_token": "BY",
-        "model_prob": 1.0,
+        "token": "NUM",
+        "given_token": "BINOP",
+        "model_prob": 0.1195141326759469,
+        "seed_prob": 0.5
+      },
+      {
+        "domain": "JANUS",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "IDENT",
+        "given_token": "BINOP",
+        "model_prob": 0.48456405888767595,
+        "seed_prob": 0.6
+      },
+      {
+        "domain": "JANUS",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "IDENT",
+        "given_token": "NUM",
+        "model_prob": 0.5048275634081663,
+        "seed_prob": 0.8
+      },
+      {
+        "domain": "JANUS",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "IDENT",
+        "given_token": "IDENT",
+        "model_prob": 0.9998345903893949,
         "seed_prob": 1.0
       },
       {
-        "domain": "SQL",
+        "domain": "JANUS",
+        "mode": "no-generate",
+        "query_type": "EVI",
+        "query": [
+          "TERM_2",
+          "IDENT",
+          "TERM_13",
+          "IDENT",
+          "TERM_14",
+          "IDENT",
+          "TERM_11",
+          "IDENT",
+          "TERM_12",
+          "IDENT"
+        ],
+        "model_prob": 0.2561194598674774,
+        "seed_prob": 0.2
+      },
+      {
+        "domain": "JANUS",
+        "mode": "no-generate",
+        "query_type": "EVI",
+        "query": [
+          "TERM_2",
+          "IDENT",
+          "TERM_7",
+          "IDENT",
+          "BINOP",
+          "NUM",
+          "TERM_8",
+          "TERM_3",
+          "IDENT",
+          "BINOP",
+          "NUM",
+          "TERM_4",
+          "IDENT",
+          "TERM_15",
+          "NUM",
+          "TERM_5",
+          "IDENT",
+          "TERM_16",
+          "NUM",
+          "TERM_6",
+          "IDENT",
+          "TERM_10",
+          "IDENT",
+          "BINOP",
+          "NUM"
+        ],
+        "model_prob": 0.0,
+        "seed_prob": 0.2
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "BINOP",
+        "model_prob": 0.06689588536391966,
+        "seed_prob": 0.6
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "TERM_2",
+        "model_prob": 0.49099758568627294,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "NUM",
+        "model_prob": 0.5412740272586234,
+        "seed_prob": 0.8
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "TERM_8",
+        "model_prob": 0.008936639380863198,
+        "seed_prob": 0.4
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "IDENT",
+        "model_prob": 1.0000001788139343,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "BINOP",
+        "given_token": "NUM",
+        "model_prob": 0.6489884485791431,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "NUM",
+        "given_token": "BINOP",
+        "model_prob": 0.05621962515695722,
+        "seed_prob": 0.5
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "IDENT",
+        "given_token": "BINOP",
+        "model_prob": 0.06689591999722955,
+        "seed_prob": 0.6
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "IDENT",
+        "given_token": "NUM",
+        "model_prob": 0.5412737802373564,
+        "seed_prob": 0.8
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "IDENT",
+        "given_token": "IDENT",
+        "model_prob": 0.7300136691423836,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "EVI",
+        "query": [
+          "TERM_2",
+          "IDENT",
+          "TERM_13",
+          "IDENT",
+          "TERM_14",
+          "IDENT",
+          "TERM_11",
+          "IDENT",
+          "TERM_12",
+          "IDENT"
+        ],
+        "model_prob": 6.902797171343513e-15,
+        "seed_prob": 0.2
+      },
+      {
+        "domain": "JANUS",
+        "mode": "with-generate",
+        "query_type": "EVI",
+        "query": [
+          "TERM_2",
+          "IDENT",
+          "TERM_7",
+          "IDENT",
+          "BINOP",
+          "NUM",
+          "TERM_8",
+          "TERM_3",
+          "IDENT",
+          "BINOP",
+          "NUM",
+          "TERM_4",
+          "IDENT",
+          "TERM_15",
+          "NUM",
+          "TERM_5",
+          "IDENT",
+          "TERM_16",
+          "NUM",
+          "TERM_6",
+          "IDENT",
+          "TERM_10",
+          "IDENT",
+          "BINOP",
+          "NUM"
+        ],
+        "model_prob": 0.0,
+        "seed_prob": 0.2
+      }
+    ]
+  ],
+  "REDIS": [
+    [
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "COPY",
+        "model_prob": 0.15116694674553252,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "REPLACE",
+        "model_prob": 0.1448136760864328,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "IDENTIFIER",
+        "model_prob": 0.8844270380227154,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "MATCH",
+        "model_prob": 0.11224365780967277,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "MAR1",
+        "token": "COUNT",
+        "model_prob": 0.36002876376744203,
+        "seed_prob": 0.42857142857142855
+      },
+      {
+        "domain": "REDIS",
         "mode": "no-generate",
         "query_type": "COND1",
-        "token": "BY",
-        "given_token": "ORDER",
-        "model_prob": -1.0813685007438067e-06,
+        "token": "COPY",
+        "given_token": "REPLACE",
+        "model_prob": 0.9579719097152928,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "LEFT",
+        "given_token": "RIGHT",
+        "model_prob": 0.2810467731450288,
+        "seed_prob": 0.5
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "SCAN",
+        "given_token": "COUNT",
+        "model_prob": 0.9660943359755485,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "IDENTIFIER",
+        "given_token": "IDENTIFIER",
+        "model_prob": 0.49401977505232764,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "COND1",
+        "token": "COPY",
+        "given_token": "SCAN",
+        "model_prob": 0.0,
         "seed_prob": 0.0
       },
       {
-        "domain": "SQL",
+        "domain": "REDIS",
         "mode": "no-generate",
+        "query_type": "EVI",
+        "query": [
+          "COPY",
+          "IDENTIFIER",
+          "IDENTIFIER",
+          "DB",
+          "POSITIVE_DECIMAL_LITERAL",
+          "REPLACE"
+        ],
+        "model_prob": 0.06290005892515182,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "EVI",
+        "query": [
+          "BRPOP",
+          "IDENTIFIER",
+          "IDENTIFIER",
+          "POSITIVE_DECIMAL_LITERAL"
+        ],
+        "model_prob": 0.04410548135638237,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "EVI",
+        "query": [
+          "ZRANGE",
+          "IDENTIFIER",
+          "POSITIVE_DECIMAL_LITERAL",
+          "DECIMAL_LITERAL",
+          "BYSCORE",
+          "REV",
+          "WITHSCORES"
+        ],
+        "model_prob": 0.013843616470694542,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "REDIS",
+        "mode": "no-generate",
+        "query_type": "EVI",
+        "query": [
+          "SCAN",
+          "POSITIVE_DECIMAL_LITERAL",
+          "MATCH",
+          "IDENTIFIER",
+          "COUNT",
+          "POSITIVE_DECIMAL_LITERAL",
+          "TYPE",
+          "IDENTIFIER"
+        ],
+        "model_prob": 0.05321958288550377,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "REDIS",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "COPY",
+        "model_prob": 0.0062881135693537244,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "REDIS",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "REPLACE",
+        "model_prob": 0.0036596342840515828,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "REDIS",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "IDENTIFIER",
+        "model_prob": 0.3850027558428294,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "REDIS",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "MATCH",
+        "model_prob": 0.013804900182935733,
+        "seed_prob": 0.14285714285714285
+      },
+      {
+        "domain": "REDIS",
+        "mode": "with-generate",
+        "query_type": "MAR1",
+        "token": "COUNT",
+        "model_prob": 0.032331737280230755,
+        "seed_prob": 0.42857142857142855
+      },
+      {
+        "domain": "REDIS",
+        "mode": "with-generate",
         "query_type": "COND1",
-        "token": "HAVING",
-        "given_token": "ASC",
-        "model_prob": 0.00012953180504282624,
+        "token": "COPY",
+        "given_token": "REPLACE",
+        "model_prob": 0.58199263394752,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "REDIS",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "LEFT",
+        "given_token": "RIGHT",
+        "model_prob": 0.1477762569010027,
+        "seed_prob": 0.5
+      },
+      {
+        "domain": "REDIS",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "SCAN",
+        "given_token": "COUNT",
+        "model_prob": 0.4290704219858781,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "REDIS",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "IDENTIFIER",
+        "given_token": "IDENTIFIER",
+        "model_prob": 0.11267464314902575,
+        "seed_prob": 1.0
+      },
+      {
+        "domain": "REDIS",
+        "mode": "with-generate",
+        "query_type": "COND1",
+        "token": "COPY",
+        "given_token": "SCAN",
+        "model_prob": 5.551115123125783e-16,
         "seed_prob": 0.0
       },
       {
-        "domain": "SQL",
+        "domain": "REDIS",
         "mode": "with-generate",
-        "query_type": "MAR1",
-        "token": "SELECT",
-        "model_prob": 1.0,
-        "seed_prob": 1.0
+        "query_type": "EVI",
+        "query": [
+          "COPY",
+          "IDENTIFIER",
+          "IDENTIFIER",
+          "DB",
+          "POSITIVE_DECIMAL_LITERAL",
+          "REPLACE"
+        ],
+        "model_prob": 7.884141256520039e-12,
+        "seed_prob": 0.14285714285714285
       },
       {
-        "domain": "SQL",
+        "domain": "REDIS",
         "mode": "with-generate",
-        "query_type": "MAR1",
-        "token": "DOT",
-        "model_prob": 0.17520592905930243,
-        "seed_prob": 1.0
+        "query_type": "EVI",
+        "query": [
+          "BRPOP",
+          "IDENTIFIER",
+          "IDENTIFIER",
+          "POSITIVE_DECIMAL_LITERAL"
+        ],
+        "model_prob": 0.00010020399349741638,
+        "seed_prob": 0.14285714285714285
       },
       {
-        "domain": "SQL",
+        "domain": "REDIS",
         "mode": "with-generate",
-        "query_type": "MAR1",
-        "token": "ORDER",
-        "model_prob": 0.41871877445373684,
-        "seed_prob": 0.8333333333333334
+        "query_type": "EVI",
+        "query": [
+          "ZRANGE",
+          "IDENTIFIER",
+          "POSITIVE_DECIMAL_LITERAL",
+          "DECIMAL_LITERAL",
+          "BYSCORE",
+          "REV",
+          "WITHSCORES"
+        ],
+        "model_prob": 4.901729690816748e-15,
+        "seed_prob": 0.14285714285714285
       },
       {
-        "domain": "SQL",
+        "domain": "REDIS",
         "mode": "with-generate",
-        "query_type": "MAR1",
-        "token": "BY",
-        "model_prob": 0.4623241601511836,
-        "seed_prob": 0.8333333333333334
-      },
-      {
-        "domain": "SQL",
-        "mode": "with-generate",
-        "query_type": "MAR1",
-        "token": "FROM",
-        "model_prob": 0.9999999828141881,
-        "seed_prob": 1.0
-      },
-      {
-        "domain": "SQL",
-        "mode": "with-generate",
-        "query_type": "MAR1",
-        "token": "STAR",
-        "model_prob": 0.6826024079709896,
-        "seed_prob": 0.3333333333333333
-      },
-      {
-        "domain": "SQL",
-        "mode": "with-generate",
-        "query_type": "COND1",
-        "token": "SELECT",
-        "given_token": "FROM",
-        "model_prob": 1.0,
-        "seed_prob": 1.0
-      },
-      {
-        "domain": "SQL",
-        "mode": "with-generate",
-        "query_type": "COND1",
-        "token": "ORDER",
-        "given_token": "BY",
-        "model_prob": 1.0,
-        "seed_prob": 1.0
-      },
-      {
-        "domain": "SQL",
-        "mode": "with-generate",
-        "query_type": "COND1",
-        "token": "BY",
-        "given_token": "ORDER",
-        "model_prob": -0.00026994050867990005,
-        "seed_prob": 0.0
-      },
-      {
-        "domain": "SQL",
-        "mode": "with-generate",
-        "query_type": "COND1",
-        "token": "HAVING",
-        "given_token": "ASC",
-        "model_prob": -0.025420484181572167,
-        "seed_prob": 0.0
+        "query_type": "EVI",
+        "query": [
+          "SCAN",
+          "POSITIVE_DECIMAL_LITERAL",
+          "MATCH",
+          "IDENTIFIER",
+          "COUNT",
+          "POSITIVE_DECIMAL_LITERAL",
+          "TYPE",
+          "IDENTIFIER"
+        ],
+        "model_prob": 1.4212128652754674e-12,
+        "seed_prob": 0.14285714285714285
       }
     ]
   ]
