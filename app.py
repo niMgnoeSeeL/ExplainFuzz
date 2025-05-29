@@ -35,7 +35,7 @@ def dispatch_probability_function(domain, question, lit1, lit2, lit3, pos, text,
 
     count = literal_count_by_question[question]
     has_pos = position_mapping[question]
-    has_text = text_mapping[question]
+    has_text = text_mapping.get(question, False)
     try:
         if has_text:
             return fn(domain, text, mode)
