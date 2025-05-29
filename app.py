@@ -1,10 +1,7 @@
-from pathlib import Path
 import gradio as gr
 
 from inference import anonymize_original_input, ask_query, load_model_and_info
 from main import get_literal_token_mapping, main_generate_inputs
-
-""""This is a dummy FE for now"""
 
 
 def get_tokens(domain):
