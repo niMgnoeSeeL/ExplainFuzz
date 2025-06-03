@@ -13,8 +13,8 @@ block_2 : TERM_2 IDENT statements ;
 
 program : block_0_star block_2_star EOF 
 | block_0_star EOF 
-| block_2_star EOF 
-| EOF ;
+| EOF 
+| block_2_star EOF ;
 
 block_2_star : block_2 block_2_star 
 | TERM_2 IDENT statements ;
@@ -75,15 +75,15 @@ swapstmt : TERM_19 lvalue ;
 
 expression : minexp BINOP expression 
 | TERM_20 expression TERM_21 
-| BINOP expression 
 | TERM_22 expression 
+| TERM_23 expression 
 | IDENT 
 | IDENT TERM_0 expression TERM_1 
 | NUM ;
 
 minexp : TERM_20 expression TERM_21 
-| BINOP expression 
 | TERM_22 expression 
+| TERM_23 expression 
 | IDENT 
 | IDENT TERM_0 expression TERM_1 
 | NUM ;

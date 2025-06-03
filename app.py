@@ -61,7 +61,6 @@ def dispatch_probability_function(domain, question, lit1, lit2, lit3, pos, text,
 def prob_MAR1(domain, lit, mode):
     literal_to_tokens = get_literal_token_mapping(domain)
     token = literal_to_tokens[lit]
-    print(f"Token for {lit}: {token}")
     inputs = [token]
     query_type = "MAR1"
     prob = compute_probability(domain, query_type, inputs, mode)

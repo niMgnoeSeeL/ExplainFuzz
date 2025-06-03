@@ -1,4 +1,4 @@
-# Generated from /Users/annaellebaiget/Desktop/MS_Thesis/ExplainFuzz/data/intermediate/grammars/final/B/bParser.g4 by ANTLR 4.11.1
+# Generated from /Users/annaellebaiget/Desktop/MS_Thesis/ExplainFuzz/data/intermediate/grammars/final/B/bParser.g4 by ANTLR 4.13.0
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -403,7 +403,7 @@ class bParser ( Parser ):
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.11.1")
+        self.checkVersion("4.13.0")
         self._interp = ParserATNSimulator(self, self.atn, self.decisionsToDFA, self.sharedContextCache)
         self._predicates = None
 
@@ -4392,7 +4392,7 @@ class bParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 618
             _la = self._input.LA(1)
-            if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 137426632704) != 0):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 137426632704) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -4529,7 +4529,7 @@ class bParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 630
             _la = self._input.LA(1)
-            if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 7696581394432) != 0):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 7696581394432) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)
@@ -4626,7 +4626,7 @@ class bParser ( Parser ):
             self.enterOuterAlt(localctx, 1)
             self.state = 634
             _la = self._input.LA(1)
-            if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 8246337208320) != 0):
+            if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 8246337208320) != 0)):
                 self._errHandler.recoverInline(self)
             else:
                 self._errHandler.reportMatch(self)

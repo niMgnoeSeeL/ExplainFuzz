@@ -175,11 +175,11 @@ def compare_results_model(
         hue="method",
         marker="o",
     )
-    plt.title(f"Log-Likelihood vs Max Length ({domain})")
-    plt.xlabel("Max Length")
-    plt.ylabel("Average Log-Likelihood")
-    plt.legend(title="Method / Mode")
-    # plt.xticks([15])
+    plt.title(f"Negative Log-Likelihood vs Max Length ({domain})")
+    plt.xlabel("Max Length", fontsize=16)
+    plt.ylabel("Negative Log-Likelihood", fontsize=14)
+    plt.legend(title="Method", title_fontsize=14, fontsize=14)
+    plt.xticks(fontsize=14)
     plt.tight_layout()
     plt.show()
 
@@ -283,14 +283,11 @@ def comparison_likelihood_domains_with_HMM(
         df_PC["method"] = "PC (ExplainFuzz)"
         df_PCFG = get_df_domain(domain, results_PCFG_file)
         df_LLM = get_df_domain(domain, results_LLM_file)
-        if domain == "SQL":
-            df_PC_HMM = get_df_domain(domain, results_PC_HMM_file)
+        df_PC_HMM = get_df_domain(domain, results_PC_HMM_file)
 
-            all_data.append(
-                pd.concat([df_PC, df_PC_HMM, df_PCFG, df_LLM], ignore_index=True)
-            )
-        else:
-            all_data.append(pd.concat([df_PC, df_PCFG, df_LLM], ignore_index=True))
+        all_data.append(
+            pd.concat([df_PC, df_PC_HMM, df_PCFG, df_LLM], ignore_index=True)
+        )
 
     # Combine all domains' data
     df_all = pd.concat(all_data, ignore_index=True)
@@ -315,11 +312,12 @@ def comparison_likelihood_domains_with_HMM(
         errorbar="sd",
         palette=colors,
     )
-    plt.title("Average Log-Likelihood (no-generate) Across Domains")
-    plt.xlabel("Domain")
-    plt.ylabel("Average Log-Likelihood")
+    plt.title("Average Negative Log-Likelihood Across Domains", fontsize=18)
+    plt.xlabel("Domain", fontsize=18)
+    plt.ylabel("Average Negative Log-Likelihood", fontsize=18)
+    plt.xticks(fontsize=18)
     plt.tight_layout()
-    plt.legend(title="Method")
+    plt.legend(title="Method", title_fontsize=16, fontsize=16)
     plt.show()
 
 
@@ -567,14 +565,14 @@ if __name__ == "__main__":
     # analyze_results_PC(domain, "data/results/PC/eval_PC_model.json")
     # # analyze_results_PCFG(domain, "data/results/PCFG/eval_PCFG_fix_depth.json")
 
-    compare_results_model(
-        domain,
-        "data/results/PC/eval_PC_model.json",
-        "data/results/PCFG/eval_PCFG.json",
-        "data/results/LLM/eval_llm.json",
-        "data/results/SEEDS/eval_seeds.json",
-        "data/results/PC-HMM/eval_PC_HMM.json",
-    )
+    # compare_results_model(
+    #     domain,
+    #     "data/results/PC/eval_PC_model.json",
+    #     "data/results/PCFG/eval_PCFG.json",
+    #     "data/results/LLM/eval_llm.json",
+    #     "data/results/SEEDS/eval_seeds.json",
+    #     "data/results/PC-HMM/eval_PC_HMM.json",
+    # )
     # domains = ["CSV", "HTML"]
     # for domain in domains:
     #     compare_results_model(
@@ -608,7 +606,7 @@ if __name__ == "__main__":
 
     domains = ["SQL", "JANUS", "REDIS", "B", "CSV", "HTML", "JSON"]
     comparison_likelihood_domains_with_HMM(
-        ["SQL"],
+        domains,
         "data/results/PC/eval_PC_model.json",
         "data/results/PCFG/eval_PCFG.json",
         "data/results/LLM/eval_llm.json",

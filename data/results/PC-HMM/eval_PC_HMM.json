@@ -48,6 +48,357 @@
         "mode": "no-generate",
         "domain": "SQL"
       }
-    ]
+    ],
+    "B": [
+    {
+      "method": "PC (HMM)",
+      "max_length": 5,
+      "avg-loglikelihood": 3.5547032674153645,
+      "last-training-loss": 2.6934237480163574,
+      "mode": "no-generate",
+      "domain": "B"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 10,
+      "avg-loglikelihood": 6.5683401784589215,
+      "last-training-loss": 4.878096580505371,
+      "mode": "no-generate",
+      "domain": "B"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 15,
+      "avg-loglikelihood": 11.70458499968998,
+      "last-training-loss": 7.067230224609375,
+      "mode": "no-generate",
+      "domain": "B"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 20,
+      "avg-loglikelihood": 7.203704677483974,
+      "last-training-loss": 5.122729301452637,
+      "mode": "no-generate",
+      "domain": "B"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 25,
+      "avg-loglikelihood": 7.872621193910256,
+      "last-training-loss": 5.837253093719482,
+      "mode": "no-generate",
+      "domain": "B"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 30,
+      "avg-loglikelihood": 8.817937311136498,
+      "last-training-loss": 6.64640474319458,
+      "mode": "no-generate",
+      "domain": "B"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 35,
+      "avg-loglikelihood": 10.539504113661504,
+      "last-training-loss": 8.22169303894043,
+      "mode": "no-generate",
+      "domain": "B"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 40,
+      "avg-loglikelihood": 11.249319642696326,
+      "last-training-loss": 9.273873329162598,
+      "mode": "no-generate",
+      "domain": "B"
+    }
+  ],"CSV": [
+    {
+      "method": "PC (HMM)",
+      "max_length": 15,
+      "avg-loglikelihood": 6.466432359483507,
+      "last-training-loss": 3.6782805919647217,
+      "mode": "no-generate",
+      "domain": "CSV"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 20,
+      "avg-loglikelihood": 6.718374888102214,
+      "last-training-loss": 5.559215068817139,
+      "mode": "no-generate",
+      "domain": "CSV"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 25,
+      "avg-loglikelihood": 6.742866964901195,
+      "last-training-loss": 6.730281352996826,
+      "mode": "no-generate",
+      "domain": "CSV"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 30,
+      "avg-loglikelihood": 7.930251381613991,
+      "last-training-loss": 8.352088928222656,
+      "mode": "no-generate",
+      "domain": "CSV"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 35,
+      "avg-loglikelihood": 6.235719157454649,
+      "last-training-loss": 6.092461585998535,
+      "mode": "no-generate",
+      "domain": "CSV"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 40,
+      "avg-loglikelihood": 6.014158397734094,
+      "last-training-loss": 6.009521007537842,
+      "mode": "no-generate",
+      "domain": "CSV"
+    },
+    {
+      "method": "PC (HMM)",
+      "max_length": 45,
+      "avg-loglikelihood": 6.565876423298298,
+      "last-training-loss": 6.420589923858643,
+      "mode": "no-generate",
+      "domain": "CSV"
+    }
+  ],"HTML": [
+  {
+    "method": "PC (HMM)",
+    "max_length": 10,
+    "avg-loglikelihood": 3.275279998779297,
+    "last-training-loss": 2.2212328910827637,
+    "mode": "no-generate",
+    "domain": "HTML"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 15,
+    "avg-loglikelihood": 4.362586069915254,
+    "last-training-loss": 3.4376418590545654,
+    "mode": "no-generate",
+    "domain": "HTML"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 20,
+    "avg-loglikelihood": 4.512853335027826,
+    "last-training-loss": 3.9895403385162354,
+    "mode": "no-generate",
+    "domain": "HTML"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 25,
+    "avg-loglikelihood": 5.5241959889729815,
+    "last-training-loss": 4.808047771453857,
+    "mode": "no-generate",
+    "domain": "HTML"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 30,
+    "avg-loglikelihood": 6.076337156042588,
+    "last-training-loss": 5.663641452789307,
+    "mode": "no-generate",
+    "domain": "HTML"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 35,
+    "avg-loglikelihood": 4.9463623046875,
+    "last-training-loss": 4.496144771575928,
+    "mode": "no-generate",
+    "domain": "HTML"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 40,
+    "avg-loglikelihood": 4.556487581623134,
+    "last-training-loss": 3.881916046142578,
+    "mode": "no-generate",
+    "domain": "HTML"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 45,
+    "avg-loglikelihood": 6.1536642907001715,
+    "last-training-loss": 5.708518028259277,
+    "mode": "no-generate",
+    "domain": "HTML"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 50,
+    "avg-loglikelihood": 6.567194475446429,
+    "last-training-loss": 6.225980758666992,
+    "mode": "no-generate",
+    "domain": "HTML"
+  }
+],"JANUS": [
+  {
+    "method": "PC (HMM)",
+    "max_length": 5,
+    "avg-loglikelihood": 1.70286865234375,
+    "last-training-loss": 1.5597779750823975,
+    "mode": "no-generate",
+    "domain": "JANUS"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 10,
+    "avg-loglikelihood": 2.419933214865096,
+    "last-training-loss": 2.0695629119873047,
+    "mode": "no-generate",
+    "domain": "JANUS"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 15,
+    "avg-loglikelihood": 4.0751169603924415,
+    "last-training-loss": 3.5104048252105713,
+    "mode": "no-generate",
+    "domain": "JANUS"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 20,
+    "avg-loglikelihood": 4.860798173161395,
+    "last-training-loss": 3.9888834953308105,
+    "mode": "no-generate",
+    "domain": "JANUS"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 25,
+    "avg-loglikelihood": 6.233858755506608,
+    "last-training-loss": 5.676519393920898,
+    "mode": "no-generate",
+    "domain": "JANUS"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 30,
+    "avg-loglikelihood": 8.444576459164766,
+    "last-training-loss": 7.500106334686279,
+    "mode": "no-generate",
+    "domain": "JANUS"
+  }
+],"JSON": [
+  {
+    "method": "PC (HMM)",
+    "max_length": 5,
+    "avg-loglikelihood": 2.3571335474650064,
+    "last-training-loss": 2.484551191329956,
+    "mode": "no-generate",
+    "domain": "JSON"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 10,
+    "avg-loglikelihood": 5.041258187129579,
+    "last-training-loss": 3.4191598892211914,
+    "mode": "no-generate",
+    "domain": "JSON"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 15,
+    "avg-loglikelihood": 5.706401928051098,
+    "last-training-loss": 4.47117280960083,
+    "mode": "no-generate",
+    "domain": "JSON"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 20,
+    "avg-loglikelihood": 3.593971323744159,
+    "last-training-loss": 3.444685697555542,
+    "mode": "no-generate",
+    "domain": "JSON"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 25,
+    "avg-loglikelihood": 4.611968821724929,
+    "last-training-loss": 4.52264928817749,
+    "mode": "no-generate",
+    "domain": "JSON"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 30,
+    "avg-loglikelihood": 5.962724834469193,
+    "last-training-loss": 5.647683143615723,
+    "mode": "no-generate",
+    "domain": "JSON"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 35,
+    "avg-loglikelihood": 6.276587408942145,
+    "last-training-loss": 6.458722114562988,
+    "mode": "no-generate",
+    "domain": "JSON"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 40,
+    "avg-loglikelihood": 7.505306523224044,
+    "last-training-loss": 7.664304733276367,
+    "mode": "no-generate",
+    "domain": "JSON"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 45,
+    "avg-loglikelihood": 8.864099055815508,
+    "last-training-loss": 9.002118110656738,
+    "mode": "no-generate",
+    "domain": "JSON"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 50,
+    "avg-loglikelihood": 8.891243247945386,
+    "last-training-loss": 9.2369966506958,
+    "mode": "no-generate",
+    "domain": "JSON"
+  }
+],"REDIS": [
+  {
+    "method": "PC (HMM)",
+    "max_length": 5,
+    "avg-loglikelihood": 4.302715301513672,
+    "last-training-loss": 3.8644766807556152,
+    "mode": "no-generate",
+    "domain": "REDIS"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 10,
+    "avg-loglikelihood": 4.1818896484375,
+    "last-training-loss": 3.9992902278900146,
+    "mode": "no-generate",
+    "domain": "REDIS"
+  },
+  {
+    "method": "PC (HMM)",
+    "max_length": 15,
+    "avg-loglikelihood": 4.4518095703125,
+    "last-training-loss": 4.251795291900635,
+    "mode": "no-generate",
+    "domain": "REDIS"
+  }
+]
   }
   

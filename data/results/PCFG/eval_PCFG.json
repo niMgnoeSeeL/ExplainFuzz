@@ -361,6 +361,26 @@
       "avg-loglikelihood": 7.261994660917255,
       "time_training": 12.868235111236572,
       "mode": "with-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 30,
+      "nb_training_queries": 7869,
+      "nb_test_queries": 871,
+      "avg-loglikelihood": 17.628080239022534,
+      "time_training": 44.48781895637512,
+      "mode": "no-generate"
+    },
+    {
+      "method": "PCFG",
+      "domain": "JANUS",
+      "max_length": 30,
+      "nb_training_queries": 4975,
+      "nb_test_queries": 551,
+      "avg-loglikelihood": 8.609210462898236,
+      "time_training": 15.045461893081665,
+      "mode": "with-generate"
     }
   ],
   "MDX": [
