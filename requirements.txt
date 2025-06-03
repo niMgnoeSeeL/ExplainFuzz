@@ -11,5 +11,5 @@ torch==2.7.0
 numpy==2.2.5
 klaycircuits @ git+https://github.com/ML-KULeuven/klay@main
 transformers==4.51.3
-gradio==5.29.1
+gradio==5.32.1
 seaborn==0.13.2
