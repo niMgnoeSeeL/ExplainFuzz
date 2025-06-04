@@ -287,7 +287,7 @@ with gr.Blocks() as demo:
         def update_literal_dropdowns(q, domain):
             count = literal_count_by_question.get(q, 1)
             has_pos = position_mapping.get(q, False)
-            max_length = max_length_mapping.get(domain, 10) - 2
+            max_length = max_length_mapping.get(domain, 10) - 1
             has_text = text_mapping.get(q, False)
             if has_text:
                 return (

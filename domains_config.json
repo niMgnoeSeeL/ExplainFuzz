@@ -61,7 +61,7 @@
     "initial_grammar_paths": ["data/input/grammars/JANUS/janus.g4"],
     "with_serializer": true,
     "skip_rules": ["WS"],
-    "max_length": 25,
+    "max_length": 30,
     "depth": 20
   },
   "B": {

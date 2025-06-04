@@ -98,17 +98,16 @@ def build_model(
     ]
     ensure_directories_exist(refactoring_dirs)
 
-    grammar = grammar_refactoring_main(
-        initial_grammar_paths,
-        grammar_name,
-        intermediate_dir,
-        refactored_dir,
-        final_dir,
-        antlr_output_dir,
-        seeds_dir,
-        start_rule,
-    )
-    return
+    # grammar = grammar_refactoring_main(
+    #     initial_grammar_paths,
+    #     grammar_name,
+    #     intermediate_dir,
+    #     refactored_dir,
+    #     final_dir,
+    #     antlr_output_dir,
+    #     seeds_dir,
+    #     start_rule,
+    # )
 
     parser_final_file_path = final_dir / f"{grammar_name}Parser.g4"
     print("")
@@ -133,21 +132,21 @@ def build_model(
     fuzzing_dirs = [generator_dir, population_dir, fuzz_outputs_dir, dataset_dir]
     ensure_directories_exist(fuzzing_dirs)
 
-    grammarinator_fuzz_main(
-        prefix_grammar=grammar_name,
-        start_rule=start_rule,
-        grammar_dir=final_dir,
-        seeds_dir=seeds_dir,
-        generator_dir=generator_dir,
-        population_dir=population_dir,
-        gen_parser_dir=antlr_output_dir,
-        fuzz_outputs_dir=fuzz_outputs_dir,
-        dataset_dir=dataset_dir,
-        num_inputs=num_inputs,
-        first_time=True,
-        with_serializer=with_serializer,
-        depth=depth,
-    )
+    # grammarinator_fuzz_main(
+    #     prefix_grammar=grammar_name,
+    #     start_rule=start_rule,
+    #     grammar_dir=final_dir,
+    #     seeds_dir=seeds_dir,
+    #     generator_dir=generator_dir,
+    #     population_dir=population_dir,
+    #     gen_parser_dir=antlr_output_dir,
+    #     fuzz_outputs_dir=fuzz_outputs_dir,
+    #     dataset_dir=dataset_dir,
+    #     num_inputs=num_inputs,
+    #     first_time=True,
+    #     with_serializer=with_serializer,
+    #     depth=depth,
+    # )
     print("")
 
     # ============================================================
@@ -164,7 +163,9 @@ def build_model(
     nb_epochs = 10
     model_save_dir = MODEL_DIR / domain
 
-    for mode in ["no-generate", "with-generate"]:
+    # TODO : re put the correct one
+    # for mode in ["no-generate", "with-generate"]:
+    for mode in ["with-generate"]:
         print(
             f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
         )
