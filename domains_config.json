@@ -118,5 +118,16 @@
     "skip_rules": ["WS"],
     "max_length": 35,
     "depth": 20
+  },
+  "XML":{
+    "grammar_name": "XML",
+    "start_rule": "document",
+    "parser_path": "data/input/grammars/XML/XMLParser.g4",
+    "seeds_dir": "SEEDS_DIR/XML",
+    "initial_grammar_paths": ["data/input/grammars/XML/XMLParser.g4","data/input/grammars/XML/XMLLexer.g4"],
+    "with_serializer": false,
+    "skip_rules": ["S"],
+    "max_length": 15,
+    "depth": 10
   }
 }
