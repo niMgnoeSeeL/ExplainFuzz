@@ -1,0 +1,224 @@
+{
+  "JSON": [
+    {
+      "method": "LLM",
+      "domain": "JSON",
+      "max_length": 5,
+      "avg-loglikelihood": 28.068275104869496,
+      "perplexity": 4.3101343800984184e+221,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JSON inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_0 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 TERM_6 TERM_2\nTERM_0 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 TERM_6 TERM_1 STRING TERM_3 TERM_4 STRING TERM_1 STRING TERM_1 STRING TERM_5 TERM_2\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JSON",
+      "max_length": 10,
+      "avg-loglikelihood": 30.474120990650075,
+      "perplexity": 2.489748503858884e+77,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JSON inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_0 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 TERM_6 TERM_2\nTERM_0 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 TERM_6 TERM_1 STRING TERM_3 TERM_4 STRING TERM_1 STRING TERM_1 STRING TERM_5 TERM_2\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JSON",
+      "max_length": 15,
+      "avg-loglikelihood": 33.05204993353949,
+      "perplexity": 5.932612223340636e+52,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JSON inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_0 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 TERM_6 TERM_2\nTERM_0 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 TERM_6 TERM_1 STRING TERM_3 TERM_4 STRING TERM_1 STRING TERM_1 STRING TERM_5 TERM_2\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JSON",
+      "max_length": 20,
+      "avg-loglikelihood": 38.932240199267376,
+      "perplexity": 20994.255694227955,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JSON inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_0 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 TERM_6 TERM_2\nTERM_0 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 TERM_6 TERM_1 STRING TERM_3 TERM_4 STRING TERM_1 STRING TERM_1 STRING TERM_5 TERM_2\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JSON",
+      "max_length": 25,
+      "avg-loglikelihood": 39.362399727106094,
+      "perplexity": 13495.656234408036,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JSON inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_0 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 TERM_6 TERM_2\nTERM_0 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 TERM_6 TERM_1 STRING TERM_3 TERM_4 STRING TERM_1 STRING TERM_1 STRING TERM_5 TERM_2\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JSON",
+      "max_length": 30,
+      "avg-loglikelihood": 41.984626108548454,
+      "perplexity": 23.516175085776343,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JSON inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_0 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 TERM_6 TERM_2\nTERM_0 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 TERM_6 TERM_1 STRING TERM_3 TERM_4 STRING TERM_1 STRING TERM_1 STRING TERM_5 TERM_2\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JSON",
+      "max_length": 35,
+      "avg-loglikelihood": 44.44200177474075,
+      "perplexity": 22.036347169775876,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JSON inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_0 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 TERM_6 TERM_2\nTERM_0 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 TERM_6 TERM_1 STRING TERM_3 TERM_4 STRING TERM_1 STRING TERM_1 STRING TERM_5 TERM_2\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "JSON",
+      "max_length": 40,
+      "avg-loglikelihood": 59.96622665141656,
+      "perplexity": 8.351764995180853,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate JSON inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTERM_0 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 TERM_6 TERM_2\nTERM_0 STRING TERM_3 STRING TERM_1 STRING TERM_3 STRING TERM_1 STRING TERM_3 NUMBER TERM_1 STRING TERM_3 TERM_6 TERM_1 STRING TERM_3 TERM_4 STRING TERM_1 STRING TERM_1 STRING TERM_5 TERM_2\n\nNow generate the next query:\n"
+    }
+  ],
+  "CSV": [
+    {
+      "method": "LLM",
+      "domain": "CSV",
+      "max_length": 30,
+      "avg-loglikelihood": 46.20087740156386,
+      "perplexity": 1.1085144870033811e+20,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate CSV inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2\nTEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "CSV",
+      "max_length": 35,
+      "avg-loglikelihood": 43.24872358416893,
+      "perplexity": 16.939922174235164,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate CSV inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2\nTEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "CSV",
+      "max_length": 40,
+      "avg-loglikelihood": 43.312976896300796,
+      "perplexity": 12.107655207609596,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate CSV inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2\nTEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "CSV",
+      "max_length": 45,
+      "avg-loglikelihood": 41.130184005737306,
+      "perplexity": 3.0069160620912476,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate CSV inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nTEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2\nTEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_0 TEXT TERM_2\n\nNow generate the next query:\n"
+    }
+  ],
+  "B": [
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 5,
+      "avg-loglikelihood": 26.635464477539063,
+      "perplexity": "inf",
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 10,
+      "avg-loglikelihood": 33.52033133255808,
+      "perplexity": 3.727170403677551e+127,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 15,
+      "avg-loglikelihood": 33.52033133255808,
+      "perplexity": 3.727170403677551e+127,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 5,
+      "avg-loglikelihood": 26.635464477539063,
+      "perplexity": "inf",
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 10,
+      "avg-loglikelihood": 33.52033133255808,
+      "perplexity": 3.727170403677551e+127,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 15,
+      "avg-loglikelihood": 33.52033133255808,
+      "perplexity": 3.727170403677551e+127,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 20,
+      "avg-loglikelihood": 41.538573265075684,
+      "perplexity": 1671467133.4472685,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 25,
+      "avg-loglikelihood": 56.79015874862671,
+      "perplexity": 171609.74320642505,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 30,
+      "avg-loglikelihood": 58.5254748964491,
+      "perplexity": 33838.42859427774,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 35,
+      "avg-loglikelihood": 56.55587069054401,
+      "perplexity": 118.0960871897327,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 40,
+      "avg-loglikelihood": 56.92228884557917,
+      "perplexity": 29.903939675728697,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    },
+    {
+      "method": "LLM",
+      "domain": "B",
+      "max_length": 45,
+      "avg-loglikelihood": 60.13436531710934,
+      "perplexity": 27.341801682434177,
+      "mode": "no-generate",
+      "prompt": "You are a language model trained to generate B inputs using anonymized grammar tokens.\nBelow are a few examples:\n\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_0 NAME TERM_0 NAME TERM_0 NAME TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 INT TERM_1 NAME TERM_18 NAME TERM_32 NAME TERM_32 NAME TERM_1 NAME TERM_2 TERM_3 TERM_1 TERM_6\nNAME TERM_2 TERM_3 TERM_5 TERM_15 NAME TERM_1 NAME TERM_4 NAME TERM_18 NAME TERM_2 TERM_3 TERM_1 NAME TERM_2 NAME TERM_3 TERM_1 TERM_11 TERM_2 NAME TERM_25 STRING2 TERM_3 TERM_8 NAME TERM_1 TERM_6\n\nNow generate the next query:\n"
+    }
+  ]
+}

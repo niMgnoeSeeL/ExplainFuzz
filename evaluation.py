@@ -13,7 +13,7 @@ from main import (
     GEN_PARSER_DIR,
     GRAMMAR_DIR,
     MODEL_DIR,
-    RESULTS_DIR,
+    NEW_RESULTS_DIR,
     SEEDS_DIR,
     ensure_directories_exist,
     load_domains_config,
@@ -52,7 +52,7 @@ def evaluate_grammar(domain, grammar_name):
     parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
     grammar_metrics = analyze_antlr_grammar(parser_final_file_path)
     grammar_metrics["domain"] = domain
-    results_grammar_dir = RESULTS_DIR / "grammars"
+    results_grammar_dir = NEW_RESULTS_DIR / "grammars"
     save_results(results_grammar_dir, grammar_metrics, domain, "results_grammars.json")
 
 
@@ -63,8 +63,8 @@ def evaluate_PCFG(
     start_rule,
     skip_rules,
 ):
-    modes = ["no-generate", "with-generate"]
-    results_pcfg_dir = RESULTS_DIR / "PCFG"
+    modes = ["no-generate"]
+    results_pcfg_dir = NEW_RESULTS_DIR / "PCFG"
     dataset_dir = DATASET_DIR / domain
     antlr_output_dir = GEN_PARSER_DIR / domain
     grammar_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
@@ -104,7 +104,7 @@ def evaluate_seeds(domain, grammar_name, start_rule, skip_rules):
         domain, grammar_name, grammar_path, start_rule, skip_rules
     )
     res = compute_metrics_seeds(seeds_anonymized, domain)
-    results_seeds_dir = RESULTS_DIR / "SEEDS"
+    results_seeds_dir = NEW_RESULTS_DIR / "SEEDS"
     save_results(results_seeds_dir, res, domain, "eval_seeds.json")
     return res["max_sequence_length"]
 
@@ -113,7 +113,7 @@ def evaluate_llm(lengths, domain, grammar_name, start_rule, skip_rules):
     modes = ["no-generate"]
     grammar_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
     dataset_dir = DATASET_DIR / domain
-    results_llm_dir = RESULTS_DIR / "LLM"
+    results_llm_dir = NEW_RESULTS_DIR / "LLM"
     antlr_output_dir = GEN_PARSER_DIR / domain
     _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
     seeds_anonymized = get_seeds_anonymized(
@@ -156,7 +156,7 @@ def evaluate_PC(
 
     lengths_success = set()
     for mode in ["no-generate"]:
-        for max_length in range(30, 60, 5):
+        for max_length in range(5, 50, 5):
             print(
                 f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
             )
@@ -201,7 +201,7 @@ def evaluate_PC(
             pc_metrics["mode"] = mode
             pc_metrics["max_length"] = max_length
 
-            results_pc_dir = RESULTS_DIR / "PC"
+            results_pc_dir = NEW_RESULTS_DIR / "PC"
             # save_results(results_pc_dir, pc_metrics, domain, "eval_PC_model.json")
             save_results(results_pc_dir, pc_metrics, domain, "eval_scalability.json")
             lengths_success.add(max_length)
@@ -312,12 +312,12 @@ def evaluate_one_domain(
     print("")
 
     ##### EVALUATE SEEDS #######
-    # print("-> Evaluation the seeds")
-    # max_seeds_length = evaluate_seeds(domain, grammar_name, start_rule, skip_rules)
+    print("-> Evaluation the seeds")
+    max_seeds_length = evaluate_seeds(domain, grammar_name, start_rule, skip_rules)
 
     ##### EVALUATE GRAMMAR ######
-    # print("-> Evaluating the Grammar")
-    # evaluate_grammar(domain, grammar_name)
+    print("-> Evaluating the Grammar")
+    evaluate_grammar(domain, grammar_name)
 
     #### EVALUATE PC COMPILATION AND TRAINING #######
     max_seeds_length = None
@@ -330,7 +330,7 @@ def evaluate_one_domain(
         skip_rules,
         max_time=5000,
     )
-    # lengths = [10, 15, 20, 25, 30, 35, 40, 45, 50]
+
     ###### EVALUATE PCFG ######
     print("-> Evaluation PCFG training")
     evaluate_PCFG(
@@ -343,6 +343,7 @@ def evaluate_one_domain(
 
     ###### EVALUATE LLM #######
     print("-> Evaluating LLM ")
+    # lengths = [5, 10, 15, 20, 25, 30, 35, 40]
     evaluate_llm(lengths, domain, grammar_name, start_rule, skip_rules)
 
 
@@ -350,17 +351,17 @@ if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
 
-    for domain in ["HTML", "CSV", "B", "JANUS", "JSON", "REDIS"]:
-        print(f"Generating the dataset for the {domain} domain")
-        domain_config = domains_config[domain]
-        generate_anonymized_dataset(
-            domain,
-            domain_config["grammar_name"],
-            domain_config["start_rule"],
-            domain_config["skip_rules"],
-        )
+    # for domain in ["CSV", "B", "JANUS", "JSON", "C"]:
+    #     print(f"Generating the dataset for the {domain} domain")
+    #     domain_config = domains_config[domain]
+    #     evaluate_one_domain(
+    #         domain,
+    #         domain_config["grammar_name"],
+    #         domain_config["start_rule"],
+    #         domain_config["skip_rules"],
+    #     )
 
-    # domain = "MLIR"
+    # domain = "C"
     # domain_config = domains_config[domain]
     # evaluate_seeds_and_grammars(
     #     domain,
@@ -369,14 +370,14 @@ if __name__ == "__main__":
     #     domain_config["skip_rules"],
     # )
 
-    # domain = "JANUS"
-    # domain_config = domains_config[domain]
-    # evaluate_one_domain(
-    #     domain,
-    #     domain_config["grammar_name"],
-    #     domain_config["start_rule"],
-    #     domain_config["skip_rules"],
-    # )
+    domain = "SQL"
+    domain_config = domains_config[domain]
+    evaluate_one_domain(
+        domain,
+        domain_config["grammar_name"],
+        domain_config["start_rule"],
+        domain_config["skip_rules"],
+    )
 
     # evaluate_dataset(
     #     domain,

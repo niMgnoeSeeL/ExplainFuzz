@@ -33,6 +33,13 @@
       "min_sequence_length": 13,
       "max_sequence_length": 19,
       "avg_sequence_length": 14.8
+    },
+    {
+      "domain": "XML",
+      "nb_seeds": 3,
+      "min_sequence_length": 17,
+      "max_sequence_length": 80,
+      "avg_sequence_length": 45.0
     }
   ],
   "B": [
@@ -96,6 +103,15 @@
       "min_sequence_length": 89,
       "max_sequence_length": 195,
       "avg_sequence_length": 119.8
+    }
+  ],
+  "C": [
+    {
+      "domain": "C",
+      "nb_seeds": 5,
+      "min_sequence_length": 5,
+      "max_sequence_length": 13,
+      "avg_sequence_length": 9.4
     }
   ]
 }

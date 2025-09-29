@@ -2,6 +2,7 @@ from GrammarRefactoring.refactor_grammar.GrammarVisitor import parse_grammar_ant
 from GrammarRefactoring.refactor_grammar.LexerRuleExtractor import (
     get_literal_to_token_mapping,
 )
+from custom_generator_sql.LMM_concretization import generate_concrete_queries
 from grammarinator_fuzzing.main import main as grammarinator_fuzz_main
 from custom_generator_sql.main import main as custom_gen_sql_main
 from GrammarRefactoring.main import (
@@ -31,6 +32,8 @@ MODEL_DIR = OUTPUT_DIR / "model"
 SAMPLES_DIR = INTERMEDIATE_DIR / "samples"
 RESULTS_DIR = BASE_DIR / "results"
 
+NEW_RESULTS_DIR = BASE_DIR / "new_results"
+
 
 def ensure_directories_exist(directories):
     for directory in directories:
@@ -48,6 +51,7 @@ def build_model(
     with_serializer=False,
     depth=20,
 ):
+    print("Inside build model")
     # Create necessary directories
     required_dirs = [
         BASE_DIR,
@@ -98,16 +102,16 @@ def build_model(
     ]
     ensure_directories_exist(refactoring_dirs)
 
-    # grammar = grammar_refactoring_main(
-    #     initial_grammar_paths,
-    #     grammar_name,
-    #     intermediate_dir,
-    #     refactored_dir,
-    #     final_dir,
-    #     antlr_output_dir,
-    #     seeds_dir,
-    #     start_rule,
-    # )
+    grammar = grammar_refactoring_main(
+        initial_grammar_paths,
+        grammar_name,
+        intermediate_dir,
+        refactored_dir,
+        final_dir,
+        antlr_output_dir,
+        seeds_dir,
+        start_rule,
+    )
 
     parser_final_file_path = final_dir / f"{grammar_name}Parser.g4"
     print("")
@@ -228,7 +232,7 @@ def sample_inputs(domain, mode, nb_inputs):
     output_dir = SAMPLES_DIR / domain / mode
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"anonymized_inputs_{mode.replace('-','_')}.txt"
-    main_sampling(model_save_path, nb_inputs, output_path)
+    main_sampling(model_save_path, nb_inputs, output_path, max_length)
 
 
 # ====================================================================
@@ -278,12 +282,16 @@ def deanonymize_samples(domain, samples_path, output_path):
     for sample in samples:
         partial_concrete_inputs += [[literal_map.get(t, t.lower()) for t in sample]]
 
+    return partial_concrete_inputs
+
+
+def save_queries(partial_concrete_inputs,output_path):
     with open(output_path, "w") as file:
         for input in partial_concrete_inputs:
             file.write(" ".join(input) + "\n")
 
 
-def concretization(domain, mode, conninfo, nb_concrete_inputs):
+def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives=""):
     output_dir = OUTPUT_DIR / "inputs" / domain
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"inputs_{mode.replace('-','_')}.txt"
@@ -304,7 +312,11 @@ def concretization(domain, mode, conninfo, nb_concrete_inputs):
             dry_run=False,
         )
     else:
-        deanonymize_samples(domain, samples_path, output_path)
+        partial_concrete_inputs = deanonymize_samples(domain, samples_path, output_path)
+        concrete_queries = generate_concrete_queries(
+            partial_concrete_inputs, domain, custom_directives
+        )
+        save_queries(concrete_queries, output_path)
     return str(output_path)
 
 
@@ -313,7 +325,6 @@ def main_generate_inputs(domain, mode, nb_concrete_inputs=200, conninfo=None):
         nb_sample_inputs = nb_concrete_inputs // 20 + 1
     else:
         nb_sample_inputs = nb_concrete_inputs
-
     sample_inputs(domain, mode, nb_sample_inputs)
     output_path = concretization(domain, mode, conninfo, nb_concrete_inputs)
     return output_path
@@ -325,23 +336,24 @@ def load_domains_config(file_path):
 
 
 if __name__ == "__main__":
-
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
 
-    domain = "JANUS"
+    domain = "SQL"
     domain_config = domains_config[domain]
 
-    num_inputs = 10000
+    num_inputs = 100
 
-    build_model(
-        domain,
-        grammar_name=domain_config["grammar_name"],
-        initial_grammar_paths=domain_config["initial_grammar_paths"],
-        max_length=domain_config["max_length"],
-        start_rule=domain_config["start_rule"],
-        num_inputs=num_inputs,
-        skip_rules=domain_config["skip_rules"],
-        with_serializer=domain_config["with_serializer"],
-        depth=domain_config["depth"],
-    )
+    # build_model(
+    #     domain,
+    #     grammar_name=domain_config["grammar_name"],
+    #     initial_grammar_paths=domain_config["initial_grammar_paths"],
+    #     max_length=domain_config["max_length"],
+    #     start_rule=domain_config["start_rule"],
+    #     num_inputs=num_inputs,
+    #     skip_rules=domain_config["skip_rules"],
+    #     with_serializer=domain_config["with_serializer"],
+    #     depth=domain_config["depth"],
+    # )
+
+    main_generate_inputs(domain, "no-generate", 200)

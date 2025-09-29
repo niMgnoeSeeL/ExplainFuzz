@@ -1,0 +1,4 @@
+.. _example-label:
+
+Here is a paragraph that references another_label_.
+The sentence continues smoothly.

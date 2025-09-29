@@ -1,6 +1,6 @@
-# Generated from /Users/annaellebaiget/Desktop/MS_Thesis/ExplainFuzz/data/intermediate/grammars/final/CSV/CSVParser.g4 by ANTLR 4.11.1
+# Generated from /Users/annaellebaiget/Desktop/MS_Thesis/ExplainFuzz/data/intermediate/grammars/final/CSV/CSVParser.g4 by ANTLR 4.13.0
 from antlr4 import *
-if __name__ is not None and "." in __name__:
+if "." in __name__:
     from .CSVParser import CSVParser
 else:
     from CSVParser import CSVParser
@@ -17,21 +17,12 @@ class CSVParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by CSVParser#row_plus.
-    def enterRow_plus(self, ctx:CSVParser.Row_plusContext):
+    # Enter a parse tree produced by CSVParser#hdr.
+    def enterHdr(self, ctx:CSVParser.HdrContext):
         pass
 
-    # Exit a parse tree produced by CSVParser#row_plus.
-    def exitRow_plus(self, ctx:CSVParser.Row_plusContext):
-        pass
-
-
-    # Enter a parse tree produced by CSVParser#block_0.
-    def enterBlock_0(self, ctx:CSVParser.Block_0Context):
-        pass
-
-    # Exit a parse tree produced by CSVParser#block_0.
-    def exitBlock_0(self, ctx:CSVParser.Block_0Context):
+    # Exit a parse tree produced by CSVParser#hdr.
+    def exitHdr(self, ctx:CSVParser.HdrContext):
         pass
 
 
@@ -44,39 +35,12 @@ class CSVParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by CSVParser#term_1_question.
-    def enterTerm_1_question(self, ctx:CSVParser.Term_1_questionContext):
-        pass
-
-    # Exit a parse tree produced by CSVParser#term_1_question.
-    def exitTerm_1_question(self, ctx:CSVParser.Term_1_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by CSVParser#block_0_star.
-    def enterBlock_0_star(self, ctx:CSVParser.Block_0_starContext):
-        pass
-
-    # Exit a parse tree produced by CSVParser#block_0_star.
-    def exitBlock_0_star(self, ctx:CSVParser.Block_0_starContext):
-        pass
-
-
     # Enter a parse tree produced by CSVParser#field.
     def enterField(self, ctx:CSVParser.FieldContext):
         pass
 
     # Exit a parse tree produced by CSVParser#field.
     def exitField(self, ctx:CSVParser.FieldContext):
-        pass
-
-
-    # Enter a parse tree produced by CSVParser#hdr.
-    def enterHdr(self, ctx:CSVParser.HdrContext):
-        pass
-
-    # Exit a parse tree produced by CSVParser#hdr.
-    def exitHdr(self, ctx:CSVParser.HdrContext):
         pass
 
 
