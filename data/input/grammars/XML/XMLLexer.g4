@@ -72,19 +72,9 @@ fragment NameChar:
     | '-'
     | '.'
     | DIGIT
-    | '\u00B7'
-    | '\u0300' ..'\u036F'
-    | '\u203F' ..'\u2040'
 ;
 
-fragment NameStartChar:
-    [_:a-zA-Z]
-    | '\u2070' ..'\u218F'
-    | '\u2C00' ..'\u2FEF'
-    | '\u3001' ..'\uD7FF'
-    | '\uF900' ..'\uFDCF'
-    | '\uFDF0' ..'\uFFFD'
-;
+fragment NameStartChar: [_:a-zA-Z] ;
 
 // ----------------- Handle <? ... ?> ---------------------
 mode PROC_INSTR;

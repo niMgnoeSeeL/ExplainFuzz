@@ -27,7 +27,7 @@
     "with_serializer": true,
     "skip_rules": ["SPACE"],
     "max_length": 10,
-    "depth": 5
+    "depth": 15
   },
   "SQL": {
     "grammar_name": "SQLSimplified",
@@ -42,7 +42,7 @@
     "with_serializer": true,
     "skip_rules": ["Whitespace", "Newline"],
     "max_length": 35,
-    "depth": 7,
+    "depth": 15,
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
       "COND1": [
@@ -125,9 +125,31 @@
     "parser_path": "data/input/grammars/XML/XMLParser.g4",
     "seeds_dir": "SEEDS_DIR/XML",
     "initial_grammar_paths": ["data/input/grammars/XML/XMLParser.g4","data/input/grammars/XML/XMLLexer.g4"],
-    "with_serializer": false,
-    "skip_rules": ["S"],
-    "max_length": 15,
+    "with_serializer": true,
+    "skip_rules": ["SEA_WS"],
+    "max_length": 25,
     "depth": 10
+  },
+  "C":{
+    "grammar_name": "C",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/C/C.g4",
+    "seeds_dir": "SEEDS_DIR/C",
+    "initial_grammar_paths": ["data/input/grammars/C/C.g4"],
+    "with_serializer": false,
+    "skip_rules": [],
+    "max_length": 25,
+    "depth": 15
+  },
+  "REST":{
+    "grammar_name": "REST",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/REST/REST.g4",
+    "seeds_dir": "SEEDS_DIR/REST",
+    "initial_grammar_paths": ["data/input/grammars/REST/REST.g4"],
+    "with_serializer": false,
+    "skip_rules": [],
+    "max_length": 25,
+    "depth": 15
   }
 }

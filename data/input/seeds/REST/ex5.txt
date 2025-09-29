@@ -1,0 +1,2 @@
+This text mentions config_start_ and also refers to check_end_.
+Both of these are important for setup.

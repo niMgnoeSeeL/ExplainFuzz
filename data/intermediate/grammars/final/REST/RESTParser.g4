@@ -1,0 +1,36 @@
+parser grammar RESTParser;
+options { tokenVocab=RESTLexer; }
+
+start : bodyElements EOF ; 
+bodyElements : bodyElement NEWLINE bodyElements | bodyElement ; 
+bodyElement : sectionTitle NEWLINE | labeledParagraph | paragraph | enumeration ; 
+sectionTitle : titleText NEWLINE underline ; 
+titleText : titleFirstChar | titleFirstChar nobrString ; 
+paragraph : firstParagraphElement paragraphElements NEWLINE ; 
+labeledParagraph : label NEWLINE NEWLINE paragraph ; 
+label : TERM_0 id TERM_1 ; 
+paragraphElements : paragraphElement paragraphElements | paragraphElement ; 
+firstParagraphElement : paragraphCharsNoSpace | internalReferenceNoSpace ; 
+paragraphElement : paragraphChars | internalReference ; 
+internalReference : presep id TERM_2 postsep ; 
+internalReferenceNoSpace : id TERM_2 postsep ; 
+enumeration : enumerationItems NEWLINE ; 
+enumerationItems : enumerationItem NEWLINE enumerationItems | enumerationItem ; 
+enumerationItem : number TERM_3 nobrString ; 
+paragraphChars : paragraphChar paragraphChars | paragraphChar ; 
+paragraphCharsNoSpace : paragraphCharNoSpace paragraphCharsNoSpace | paragraphCharNoSpace ; 
+paragraphChar : PARAGRAPH_CHAR ; 
+paragraphCharNoSpace : PARAGRAPH_CHAR_NOSPACE ; 
+presep : PRESEP ; 
+postsep : POSTSEP ; 
+id : ID ; 
+number : digitNonZero digits | digit ; 
+digitNonZero : DIGIT_NONZERO ; 
+digits : digit digits | digit ; 
+digit : DIGIT ; 
+nobrString : nobrChar | nobrChar nobrString ; 
+nobrChar : NOBR_CHAR ; 
+titleFirstChar : TITLE_FIRST_CHAR ; 
+underline : eqs | dashes ; 
+eqs : TERM_4 | TERM_4 eqs ; 
+dashes : TERM_5 | TERM_5 dashes ; 

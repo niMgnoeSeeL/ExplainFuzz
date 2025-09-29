@@ -1,150 +1,90 @@
+/*
+ [The "BSD licence"]
+ Copyright (c) 2013 Tom Everett
+ All rights reserved.
+
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products
+    derived from this software without specific prior written permission.
+
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+// $antlr-format alignTrailingComments true, columnLimit 150, minEmptyLines 1, maxEmptyLinesToKeep 1, reflowComments false, useTab false
+// $antlr-format allowShortRulesOnASingleLine false, allowShortBlocksOnASingleLine true, alignSemicolons hanging, alignColons hanging
+
 parser grammar HTMLParser;
 
-options { tokenVocab=HTMLLexer;}
+options {
+    tokenVocab = HTMLLexer;
+}
 
-htmlDocument : scriptletorseaws_star xml_question scriptletorseaws_star dtd_question scriptletorseaws_star htmlelements_star EOF 
-| scriptletorseaws_star xml_question scriptletorseaws_star dtd_question scriptletorseaws_star EOF 
-| xml_question dtd_question scriptletorseaws_star htmlelements_star EOF 
-| scriptletorseaws_star xml_question dtd_question htmlelements_star EOF 
-| xml_question dtd_question htmlelements_star EOF 
-| scriptletorseaws_star xml_question dtd_question scriptletorseaws_star htmlelements_star EOF 
-| xml_question dtd_question scriptletorseaws_star EOF 
-| scriptletorseaws_star xml_question dtd_question scriptletorseaws_star EOF 
-| xml_question dtd_question EOF 
-| xml_question scriptletorseaws_star dtd_question htmlelements_star EOF 
-| scriptletorseaws_star xml_question scriptletorseaws_star dtd_question htmlelements_star EOF 
-| xml_question scriptletorseaws_star dtd_question scriptletorseaws_star EOF 
-| scriptletorseaws_star xml_question scriptletorseaws_star dtd_question EOF 
-| xml_question scriptletorseaws_star dtd_question EOF 
-| xml_question scriptletorseaws_star dtd_question scriptletorseaws_star htmlelements_star EOF 
-| scriptletorseaws_star xml_question dtd_question EOF ;
+htmlDocument
+    : scriptletOrSeaWs* XML? scriptletOrSeaWs* DTD? scriptletOrSeaWs* htmlElements* EOF
+    ;
 
-htmlelements_star : htmlElements htmlelements_star 
-| htmlmisc_star htmlElement htmlmisc_star 
-| htmlmisc_star htmlElement 
-| htmlElement htmlmisc_star 
-| TAG_OPEN TAG_NAME htmlattribute_star block_0 
-| SCRIPTLET 
-| SCRIPT_OPEN block_5 
-| STYLE_OPEN block_6 
-| TAG_OPEN TAG_NAME block_0 ;
+scriptletOrSeaWs
+    : SCRIPTLET
+    | SEA_WS
+    ;
 
-dtd_question : DTD 
-|  ;
+htmlElements
+    : htmlMisc* htmlElement htmlMisc*
+    ;
 
-xml_question : XML 
-|  ;
+htmlElement
+    : TAG_OPEN TAG_NAME htmlAttribute* (
+        TAG_CLOSE (htmlContent TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE)?
+        | TAG_SLASH_CLOSE
+    )
+    | SCRIPTLET
+    | script
+    | style
+    ;
 
-scriptletorseaws_star : scriptletOrSeaWs scriptletorseaws_star 
-| SCRIPTLET 
-| SEA_WS ;
+htmlContent
+    : htmlChardata? ((htmlElement | CDATA | htmlComment) htmlChardata?)*
+    ;
 
-scriptletOrSeaWs : SCRIPTLET 
-| SEA_WS ;
+htmlAttribute
+    : TAG_NAME (TAG_EQUALS ATTVALUE_VALUE)?
+    ;
 
-htmlElements : htmlmisc_star htmlElement htmlmisc_star 
-| htmlmisc_star htmlElement 
-| htmlElement htmlmisc_star 
-| TAG_OPEN TAG_NAME htmlattribute_star block_0 
-| SCRIPTLET 
-| SCRIPT_OPEN block_5 
-| STYLE_OPEN block_6 
-| TAG_OPEN TAG_NAME block_0 ;
+htmlChardata
+    : HTML_TEXT
+    | SEA_WS
+    ;
 
-htmlmisc_star : htmlMisc htmlmisc_star 
-| SEA_WS 
-| HTML_COMMENT 
-| HTML_CONDITIONAL_COMMENT ;
+htmlMisc
+    : htmlComment
+    | SEA_WS
+    ;
 
-block_7 : htmlContent TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE ;
+htmlComment
+    : HTML_COMMENT
+    | HTML_CONDITIONAL_COMMENT
+    ;
 
-block_0 : TAG_CLOSE block_7_question 
-| TAG_SLASH_CLOSE ;
+script
+    : SCRIPT_OPEN (SCRIPT_BODY | SCRIPT_SHORT_BODY)
+    ;
 
-block_7_question :  
-| htmlContent TAG_OPEN TAG_SLASH TAG_NAME TAG_CLOSE ;
-
-htmlElement : TAG_OPEN TAG_NAME htmlattribute_star block_0 
-| SCRIPTLET 
-| SCRIPT_OPEN block_5 
-| STYLE_OPEN block_6 
-| TAG_OPEN TAG_NAME block_0 ;
-
-htmlattribute_star : htmlAttribute htmlattribute_star 
-| TAG_NAME block_4_question ;
-
-block_8 : CDATA 
-| TAG_OPEN TAG_NAME htmlattribute_star block_0 
-| SCRIPTLET 
-| HTML_COMMENT 
-| HTML_CONDITIONAL_COMMENT 
-| SCRIPT_OPEN block_5 
-| STYLE_OPEN block_6 
-| TAG_OPEN TAG_NAME block_0 ;
-
-block_2 : block_8 htmlchardata_question 
-| CDATA 
-| TAG_OPEN TAG_NAME htmlattribute_star block_0 
-| SCRIPTLET 
-| HTML_COMMENT 
-| HTML_CONDITIONAL_COMMENT 
-| SCRIPT_OPEN block_5 
-| STYLE_OPEN block_6 
-| TAG_OPEN TAG_NAME block_0 ;
-
-htmlContent : htmlchardata_question block_2_star 
-| block_2 block_2_star 
-|  
-| block_8 htmlchardata_question 
-| CDATA 
-| TAG_OPEN TAG_NAME htmlattribute_star block_0 
-| SCRIPTLET 
-| HTML_COMMENT 
-| HTML_CONDITIONAL_COMMENT 
-| SCRIPT_OPEN block_5 
-| STYLE_OPEN block_6 
-| TAG_OPEN TAG_NAME block_0 
-| HTML_TEXT 
-| SEA_WS ;
-
-block_2_star : block_2 block_2_star 
-| block_8 htmlchardata_question 
-| CDATA 
-| TAG_OPEN TAG_NAME htmlattribute_star block_0 
-| SCRIPTLET 
-| HTML_COMMENT 
-| HTML_CONDITIONAL_COMMENT 
-| SCRIPT_OPEN block_5 
-| STYLE_OPEN block_6 
-| TAG_OPEN TAG_NAME block_0 ;
-
-block_4 : TAG_EQUALS ATTVALUE_VALUE ;
-
-htmlAttribute : TAG_NAME block_4_question ;
-
-block_4_question :  
-| TAG_EQUALS ATTVALUE_VALUE ;
-
-htmlChardata : HTML_TEXT 
-| SEA_WS ;
-
-htmlMisc : SEA_WS 
-| HTML_COMMENT 
-| HTML_CONDITIONAL_COMMENT ;
-
-htmlComment : HTML_COMMENT 
-| HTML_CONDITIONAL_COMMENT ;
-
-block_5 : SCRIPT_BODY 
-| SCRIPT_SHORT_BODY ;
-
-script : SCRIPT_OPEN block_5 ;
-
-block_6 : STYLE_BODY 
-| STYLE_SHORT_BODY ;
-
-style : STYLE_OPEN block_6 ;
-
-htmlchardata_question : HTML_TEXT 
-| SEA_WS ;
-
+style
+    : STYLE_OPEN (STYLE_BODY | STYLE_SHORT_BODY)
+    ;

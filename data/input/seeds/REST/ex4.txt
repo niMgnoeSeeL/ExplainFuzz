@@ -1,0 +1,10 @@
+Usage Guide
+-----------
+
+.. _usage-start:
+
+Begin by reviewing the following steps.
+
+1. Connect the device.
+2. Run diagnostics.
+3. Confirm readiness.

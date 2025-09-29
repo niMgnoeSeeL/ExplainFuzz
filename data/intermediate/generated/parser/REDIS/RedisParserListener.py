@@ -17,15 +17,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#commands_question.
-    def enterCommands_question(self, ctx:RedisParser.Commands_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#commands_question.
-    def exitCommands_question(self, ctx:RedisParser.Commands_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#commands.
     def enterCommands(self, ctx:RedisParser.CommandsContext):
         pass
@@ -35,21 +26,66 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#newline_plus.
-    def enterNewline_plus(self, ctx:RedisParser.Newline_plusContext):
+    # Enter a parse tree produced by RedisParser#command.
+    def enterCommand(self, ctx:RedisParser.CommandContext):
         pass
 
-    # Exit a parse tree produced by RedisParser#newline_plus.
-    def exitNewline_plus(self, ctx:RedisParser.Newline_plusContext):
+    # Exit a parse tree produced by RedisParser#command.
+    def exitCommand(self, ctx:RedisParser.CommandContext):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#newline_star.
-    def enterNewline_star(self, ctx:RedisParser.Newline_starContext):
+    # Enter a parse tree produced by RedisParser#commonCommand.
+    def enterCommonCommand(self, ctx:RedisParser.CommonCommandContext):
         pass
 
-    # Exit a parse tree produced by RedisParser#newline_star.
-    def exitNewline_star(self, ctx:RedisParser.Newline_starContext):
+    # Exit a parse tree produced by RedisParser#commonCommand.
+    def exitCommonCommand(self, ctx:RedisParser.CommonCommandContext):
+        pass
+
+
+    # Enter a parse tree produced by RedisParser#stringCommand.
+    def enterStringCommand(self, ctx:RedisParser.StringCommandContext):
+        pass
+
+    # Exit a parse tree produced by RedisParser#stringCommand.
+    def exitStringCommand(self, ctx:RedisParser.StringCommandContext):
+        pass
+
+
+    # Enter a parse tree produced by RedisParser#listCommand.
+    def enterListCommand(self, ctx:RedisParser.ListCommandContext):
+        pass
+
+    # Exit a parse tree produced by RedisParser#listCommand.
+    def exitListCommand(self, ctx:RedisParser.ListCommandContext):
+        pass
+
+
+    # Enter a parse tree produced by RedisParser#setCommand.
+    def enterSetCommand(self, ctx:RedisParser.SetCommandContext):
+        pass
+
+    # Exit a parse tree produced by RedisParser#setCommand.
+    def exitSetCommand(self, ctx:RedisParser.SetCommandContext):
+        pass
+
+
+    # Enter a parse tree produced by RedisParser#sortedSetCommand.
+    def enterSortedSetCommand(self, ctx:RedisParser.SortedSetCommandContext):
+        pass
+
+    # Exit a parse tree produced by RedisParser#sortedSetCommand.
+    def exitSortedSetCommand(self, ctx:RedisParser.SortedSetCommandContext):
+        pass
+
+
+    # Enter a parse tree produced by RedisParser#hashCommand.
+    def enterHashCommand(self, ctx:RedisParser.HashCommandContext):
+        pass
+
+    # Exit a parse tree produced by RedisParser#hashCommand.
+    def exitHashCommand(self, ctx:RedisParser.HashCommandContext):
         pass
 
 
@@ -59,15 +95,6 @@ class RedisParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by RedisParser#hdelCommand.
     def exitHdelCommand(self, ctx:RedisParser.HdelCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#identifier_plus.
-    def enterIdentifier_plus(self, ctx:RedisParser.Identifier_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#identifier_plus.
-    def exitIdentifier_plus(self, ctx:RedisParser.Identifier_plusContext):
         pass
 
 
@@ -86,15 +113,6 @@ class RedisParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by RedisParser#hexpireCommand.
     def exitHexpireCommand(self, ctx:RedisParser.HexpireCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#expireoptions_question.
-    def enterExpireoptions_question(self, ctx:RedisParser.Expireoptions_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#expireoptions_question.
-    def exitExpireoptions_question(self, ctx:RedisParser.Expireoptions_questionContext):
         pass
 
 
@@ -206,15 +224,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#block_0.
-    def enterBlock_0(self, ctx:RedisParser.Block_0Context):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_0.
-    def exitBlock_0(self, ctx:RedisParser.Block_0Context):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#hsetCommand.
     def enterHsetCommand(self, ctx:RedisParser.HsetCommandContext):
         pass
@@ -224,39 +233,12 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#block_0_plus.
-    def enterBlock_0_plus(self, ctx:RedisParser.Block_0_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_0_plus.
-    def exitBlock_0_plus(self, ctx:RedisParser.Block_0_plusContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#block_1.
-    def enterBlock_1(self, ctx:RedisParser.Block_1Context):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_1.
-    def exitBlock_1(self, ctx:RedisParser.Block_1Context):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#hmsetCommand.
     def enterHmsetCommand(self, ctx:RedisParser.HmsetCommandContext):
         pass
 
     # Exit a parse tree produced by RedisParser#hmsetCommand.
     def exitHmsetCommand(self, ctx:RedisParser.HmsetCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#block_1_plus.
-    def enterBlock_1_plus(self, ctx:RedisParser.Block_1_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_1_plus.
-    def exitBlock_1_plus(self, ctx:RedisParser.Block_1_plusContext):
         pass
 
 
@@ -296,24 +278,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#block_2.
-    def enterBlock_2(self, ctx:RedisParser.Block_2Context):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_2.
-    def exitBlock_2(self, ctx:RedisParser.Block_2Context):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#withvalues_question.
-    def enterWithvalues_question(self, ctx:RedisParser.Withvalues_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#withvalues_question.
-    def exitWithvalues_question(self, ctx:RedisParser.Withvalues_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#hrandfieldCommand.
     def enterHrandfieldCommand(self, ctx:RedisParser.HrandfieldCommandContext):
         pass
@@ -323,48 +287,12 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#block_2_question.
-    def enterBlock_2_question(self, ctx:RedisParser.Block_2_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_2_question.
-    def exitBlock_2_question(self, ctx:RedisParser.Block_2_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#hscanCommand.
     def enterHscanCommand(self, ctx:RedisParser.HscanCommandContext):
         pass
 
     # Exit a parse tree produced by RedisParser#hscanCommand.
     def exitHscanCommand(self, ctx:RedisParser.HscanCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#novalues_question.
-    def enterNovalues_question(self, ctx:RedisParser.Novalues_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#novalues_question.
-    def exitNovalues_question(self, ctx:RedisParser.Novalues_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#countclause_question.
-    def enterCountclause_question(self, ctx:RedisParser.Countclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#countclause_question.
-    def exitCountclause_question(self, ctx:RedisParser.Countclause_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#matchclause_question.
-    def enterMatchclause_question(self, ctx:RedisParser.Matchclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#matchclause_question.
-    def exitMatchclause_question(self, ctx:RedisParser.Matchclause_questionContext):
         pass
 
 
@@ -395,15 +323,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#sortedsetkeyname_plus.
-    def enterSortedsetkeyname_plus(self, ctx:RedisParser.Sortedsetkeyname_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#sortedsetkeyname_plus.
-    def exitSortedsetkeyname_plus(self, ctx:RedisParser.Sortedsetkeyname_plusContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#bzmpopCommand.
     def enterBzmpopCommand(self, ctx:RedisParser.BzmpopCommandContext):
         pass
@@ -419,15 +338,6 @@ class RedisParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by RedisParser#zpopmaxCommand.
     def exitZpopmaxCommand(self, ctx:RedisParser.ZpopmaxCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#positive_decimal_literal_question.
-    def enterPositive_decimal_literal_question(self, ctx:RedisParser.Positive_decimal_literal_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#positive_decimal_literal_question.
-    def exitPositive_decimal_literal_question(self, ctx:RedisParser.Positive_decimal_literal_questionContext):
         pass
 
 
@@ -476,51 +386,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#scorememberclause_plus.
-    def enterScorememberclause_plus(self, ctx:RedisParser.Scorememberclause_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#scorememberclause_plus.
-    def exitScorememberclause_plus(self, ctx:RedisParser.Scorememberclause_plusContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#incr_question.
-    def enterIncr_question(self, ctx:RedisParser.Incr_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#incr_question.
-    def exitIncr_question(self, ctx:RedisParser.Incr_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#ch_question.
-    def enterCh_question(self, ctx:RedisParser.Ch_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#ch_question.
-    def exitCh_question(self, ctx:RedisParser.Ch_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#keyupdateclause_question.
-    def enterKeyupdateclause_question(self, ctx:RedisParser.Keyupdateclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#keyupdateclause_question.
-    def exitKeyupdateclause_question(self, ctx:RedisParser.Keyupdateclause_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#keyexistenceclause_question.
-    def enterKeyexistenceclause_question(self, ctx:RedisParser.Keyexistenceclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#keyexistenceclause_question.
-    def exitKeyexistenceclause_question(self, ctx:RedisParser.Keyexistenceclause_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#keyUpdateClause.
     def enterKeyUpdateClause(self, ctx:RedisParser.KeyUpdateClauseContext):
         pass
@@ -566,15 +431,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#withscores_question.
-    def enterWithscores_question(self, ctx:RedisParser.Withscores_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#withscores_question.
-    def exitWithscores_question(self, ctx:RedisParser.Withscores_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#zdiffstoreCommand.
     def enterZdiffstoreCommand(self, ctx:RedisParser.ZdiffstoreCommandContext):
         pass
@@ -602,39 +458,12 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#aggregateclause_question.
-    def enterAggregateclause_question(self, ctx:RedisParser.Aggregateclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#aggregateclause_question.
-    def exitAggregateclause_question(self, ctx:RedisParser.Aggregateclause_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#weightsclause_question.
-    def enterWeightsclause_question(self, ctx:RedisParser.Weightsclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#weightsclause_question.
-    def exitWeightsclause_question(self, ctx:RedisParser.Weightsclause_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#zintercardCommand.
     def enterZintercardCommand(self, ctx:RedisParser.ZintercardCommandContext):
         pass
 
     # Exit a parse tree produced by RedisParser#zintercardCommand.
     def exitZintercardCommand(self, ctx:RedisParser.ZintercardCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#limitclause_question.
-    def enterLimitclause_question(self, ctx:RedisParser.Limitclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#limitclause_question.
-    def exitLimitclause_question(self, ctx:RedisParser.Limitclause_questionContext):
         pass
 
 
@@ -653,24 +482,6 @@ class RedisParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by RedisParser#weightsClause.
     def exitWeightsClause(self, ctx:RedisParser.WeightsClauseContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#decimal_plus.
-    def enterDecimal_plus(self, ctx:RedisParser.Decimal_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#decimal_plus.
-    def exitDecimal_plus(self, ctx:RedisParser.Decimal_plusContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#block_3.
-    def enterBlock_3(self, ctx:RedisParser.Block_3Context):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_3.
-    def exitBlock_3(self, ctx:RedisParser.Block_3Context):
         pass
 
 
@@ -710,15 +521,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#block_4.
-    def enterBlock_4(self, ctx:RedisParser.Block_4Context):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_4.
-    def exitBlock_4(self, ctx:RedisParser.Block_4Context):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#zrandmemberCommand.
     def enterZrandmemberCommand(self, ctx:RedisParser.ZrandmemberCommandContext):
         pass
@@ -728,48 +530,12 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#block_4_question.
-    def enterBlock_4_question(self, ctx:RedisParser.Block_4_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_4_question.
-    def exitBlock_4_question(self, ctx:RedisParser.Block_4_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#zrangeCommand.
     def enterZrangeCommand(self, ctx:RedisParser.ZrangeCommandContext):
         pass
 
     # Exit a parse tree produced by RedisParser#zrangeCommand.
     def exitZrangeCommand(self, ctx:RedisParser.ZrangeCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#limitoffsetclause_question.
-    def enterLimitoffsetclause_question(self, ctx:RedisParser.Limitoffsetclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#limitoffsetclause_question.
-    def exitLimitoffsetclause_question(self, ctx:RedisParser.Limitoffsetclause_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#rev_question.
-    def enterRev_question(self, ctx:RedisParser.Rev_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#rev_question.
-    def exitRev_question(self, ctx:RedisParser.Rev_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#rangetypeclause_question.
-    def enterRangetypeclause_question(self, ctx:RedisParser.Rangetypeclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#rangetypeclause_question.
-    def exitRangetypeclause_question(self, ctx:RedisParser.Rangetypeclause_questionContext):
         pass
 
 
@@ -824,15 +590,6 @@ class RedisParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by RedisParser#zrankCommand.
     def exitZrankCommand(self, ctx:RedisParser.ZrankCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#withscore_question.
-    def enterWithscore_question(self, ctx:RedisParser.Withscore_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#withscore_question.
-    def exitWithscore_question(self, ctx:RedisParser.Withscore_questionContext):
         pass
 
 
@@ -962,15 +719,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#setkeyname_plus.
-    def enterSetkeyname_plus(self, ctx:RedisParser.Setkeyname_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#setkeyname_plus.
-    def exitSetkeyname_plus(self, ctx:RedisParser.Setkeyname_plusContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#sdiffstoreCommand.
     def enterSdiffstoreCommand(self, ctx:RedisParser.SdiffstoreCommandContext):
         pass
@@ -1070,15 +818,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#decimal_question.
-    def enterDecimal_question(self, ctx:RedisParser.Decimal_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#decimal_question.
-    def exitDecimal_question(self, ctx:RedisParser.Decimal_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#sremCommand.
     def enterSremCommand(self, ctx:RedisParser.SremCommandContext):
         pass
@@ -1148,15 +887,6 @@ class RedisParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by RedisParser#lmpopCommand.
     def exitLmpopCommand(self, ctx:RedisParser.LmpopCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#listkeyname_plus.
-    def enterListkeyname_plus(self, ctx:RedisParser.Listkeyname_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#listkeyname_plus.
-    def exitListkeyname_plus(self, ctx:RedisParser.Listkeyname_plusContext):
         pass
 
 
@@ -1268,24 +998,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#maxlenclause_question.
-    def enterMaxlenclause_question(self, ctx:RedisParser.Maxlenclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#maxlenclause_question.
-    def exitMaxlenclause_question(self, ctx:RedisParser.Maxlenclause_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#rankclause_question.
-    def enterRankclause_question(self, ctx:RedisParser.Rankclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#rankclause_question.
-    def exitRankclause_question(self, ctx:RedisParser.Rankclause_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#rankClause.
     def enterRankClause(self, ctx:RedisParser.RankClauseContext):
         pass
@@ -1385,24 +1097,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#replace_question.
-    def enterReplace_question(self, ctx:RedisParser.Replace_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#replace_question.
-    def exitReplace_question(self, ctx:RedisParser.Replace_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#dbclause_question.
-    def enterDbclause_question(self, ctx:RedisParser.Dbclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#dbclause_question.
-    def exitDbclause_question(self, ctx:RedisParser.Dbclause_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#dbClause.
     def enterDbClause(self, ctx:RedisParser.DbClauseContext):
         pass
@@ -1427,15 +1121,6 @@ class RedisParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by RedisParser#deleteCommand.
     def exitDeleteCommand(self, ctx:RedisParser.DeleteCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#keyname_plus.
-    def enterKeyname_plus(self, ctx:RedisParser.Keyname_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#keyname_plus.
-    def exitKeyname_plus(self, ctx:RedisParser.Keyname_plusContext):
         pass
 
 
@@ -1628,15 +1313,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#typeclause_question.
-    def enterTypeclause_question(self, ctx:RedisParser.Typeclause_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#typeclause_question.
-    def exitTypeclause_question(self, ctx:RedisParser.Typeclause_questionContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#matchClause.
     def enterMatchClause(self, ctx:RedisParser.MatchClauseContext):
         pass
@@ -1691,39 +1367,12 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#block_5.
-    def enterBlock_5(self, ctx:RedisParser.Block_5Context):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_5.
-    def exitBlock_5(self, ctx:RedisParser.Block_5Context):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#stringSetCommand.
     def enterStringSetCommand(self, ctx:RedisParser.StringSetCommandContext):
         pass
 
     # Exit a parse tree produced by RedisParser#stringSetCommand.
     def exitStringSetCommand(self, ctx:RedisParser.StringSetCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#block_5_question.
-    def enterBlock_5_question(self, ctx:RedisParser.Block_5_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_5_question.
-    def exitBlock_5_question(self, ctx:RedisParser.Block_5_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#get_question.
-    def enterGet_question(self, ctx:RedisParser.Get_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#get_question.
-    def exitGet_question(self, ctx:RedisParser.Get_questionContext):
         pass
 
 
@@ -1808,30 +1457,12 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#block_6.
-    def enterBlock_6(self, ctx:RedisParser.Block_6Context):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_6.
-    def exitBlock_6(self, ctx:RedisParser.Block_6Context):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#getExCommand.
     def enterGetExCommand(self, ctx:RedisParser.GetExCommandContext):
         pass
 
     # Exit a parse tree produced by RedisParser#getExCommand.
     def exitGetExCommand(self, ctx:RedisParser.GetExCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#block_6_question.
-    def enterBlock_6_question(self, ctx:RedisParser.Block_6_questionContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_6_question.
-    def exitBlock_6_question(self, ctx:RedisParser.Block_6_questionContext):
         pass
 
 
@@ -1862,24 +1493,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#stringkeyname_plus.
-    def enterStringkeyname_plus(self, ctx:RedisParser.Stringkeyname_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#stringkeyname_plus.
-    def exitStringkeyname_plus(self, ctx:RedisParser.Stringkeyname_plusContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#block_7.
-    def enterBlock_7(self, ctx:RedisParser.Block_7Context):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_7.
-    def exitBlock_7(self, ctx:RedisParser.Block_7Context):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#mSetCommand.
     def enterMSetCommand(self, ctx:RedisParser.MSetCommandContext):
         pass
@@ -1889,39 +1502,12 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#block_7_plus.
-    def enterBlock_7_plus(self, ctx:RedisParser.Block_7_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_7_plus.
-    def exitBlock_7_plus(self, ctx:RedisParser.Block_7_plusContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#block_8.
-    def enterBlock_8(self, ctx:RedisParser.Block_8Context):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_8.
-    def exitBlock_8(self, ctx:RedisParser.Block_8Context):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#mSetNxCommand.
     def enterMSetNxCommand(self, ctx:RedisParser.MSetNxCommandContext):
         pass
 
     # Exit a parse tree produced by RedisParser#mSetNxCommand.
     def exitMSetNxCommand(self, ctx:RedisParser.MSetNxCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#block_8_plus.
-    def enterBlock_8_plus(self, ctx:RedisParser.Block_8_plusContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#block_8_plus.
-    def exitBlock_8_plus(self, ctx:RedisParser.Block_8_plusContext):
         pass
 
 
@@ -2006,60 +1592,6 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#commonCommand.
-    def enterCommonCommand(self, ctx:RedisParser.CommonCommandContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#commonCommand.
-    def exitCommonCommand(self, ctx:RedisParser.CommonCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#stringCommand.
-    def enterStringCommand(self, ctx:RedisParser.StringCommandContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#stringCommand.
-    def exitStringCommand(self, ctx:RedisParser.StringCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#listCommand.
-    def enterListCommand(self, ctx:RedisParser.ListCommandContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#listCommand.
-    def exitListCommand(self, ctx:RedisParser.ListCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#setCommand.
-    def enterSetCommand(self, ctx:RedisParser.SetCommandContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#setCommand.
-    def exitSetCommand(self, ctx:RedisParser.SetCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#sortedSetCommand.
-    def enterSortedSetCommand(self, ctx:RedisParser.SortedSetCommandContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#sortedSetCommand.
-    def exitSortedSetCommand(self, ctx:RedisParser.SortedSetCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#hashCommand.
-    def enterHashCommand(self, ctx:RedisParser.HashCommandContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#hashCommand.
-    def exitHashCommand(self, ctx:RedisParser.HashCommandContext):
-        pass
-
-
     # Enter a parse tree produced by RedisParser#lexicalScore.
     def enterLexicalScore(self, ctx:RedisParser.LexicalScoreContext):
         pass
@@ -2123,21 +1655,12 @@ class RedisParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by RedisParser#keyPattern.
-    def enterKeyPattern(self, ctx:RedisParser.KeyPatternContext):
+    # Enter a parse tree produced by RedisParser#notProperPattern.
+    def enterNotProperPattern(self, ctx:RedisParser.NotProperPatternContext):
         pass
 
-    # Exit a parse tree produced by RedisParser#keyPattern.
-    def exitKeyPattern(self, ctx:RedisParser.KeyPatternContext):
-        pass
-
-
-    # Enter a parse tree produced by RedisParser#command.
-    def enterCommand(self, ctx:RedisParser.CommandContext):
-        pass
-
-    # Exit a parse tree produced by RedisParser#command.
-    def exitCommand(self, ctx:RedisParser.CommandContext):
+    # Exit a parse tree produced by RedisParser#notProperPattern.
+    def exitNotProperPattern(self, ctx:RedisParser.NotProperPatternContext):
         pass
 
 

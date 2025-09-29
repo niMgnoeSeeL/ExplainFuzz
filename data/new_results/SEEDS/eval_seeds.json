@@ -1,0 +1,38 @@
+{
+  "JSON": [
+    {
+      "domain": "JSON",
+      "nb_seeds": 5,
+      "min_sequence_length": 17,
+      "max_sequence_length": 39,
+      "avg_sequence_length": 29.0
+    }
+  ],
+  "CSV": [
+    {
+      "domain": "CSV",
+      "nb_seeds": 5,
+      "min_sequence_length": 32,
+      "max_sequence_length": 41,
+      "avg_sequence_length": 37.2
+    }
+  ],
+  "B": [
+    {
+      "domain": "B",
+      "nb_seeds": 7,
+      "min_sequence_length": 19,
+      "max_sequence_length": 70,
+      "avg_sequence_length": 36.714285714285715
+    }
+  ],
+  "SQL": [
+    {
+      "domain": "SQL",
+      "nb_seeds": 6,
+      "min_sequence_length": 13,
+      "max_sequence_length": 26,
+      "avg_sequence_length": 20.833333333333332
+    }
+  ]
+}

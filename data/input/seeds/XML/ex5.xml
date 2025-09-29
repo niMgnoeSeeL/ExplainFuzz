@@ -1,0 +1,5 @@
+<config>
+    <!-- System configuration -->
+    <path><![CDATA[C:\Program Files\Example]]></path>
+    <enabled>true</enabled>
+</config>

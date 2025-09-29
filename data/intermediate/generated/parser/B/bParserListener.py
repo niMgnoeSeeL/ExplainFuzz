@@ -17,69 +17,6 @@ class bParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by bParser#definition_star.
-    def enterDefinition_star(self, ctx:bParser.Definition_starContext):
-        pass
-
-    # Exit a parse tree produced by bParser#definition_star.
-    def exitDefinition_star(self, ctx:bParser.Definition_starContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_9.
-    def enterBlock_9(self, ctx:bParser.Block_9Context):
-        pass
-
-    # Exit a parse tree produced by bParser#block_9.
-    def exitBlock_9(self, ctx:bParser.Block_9Context):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_0.
-    def enterBlock_0(self, ctx:bParser.Block_0Context):
-        pass
-
-    # Exit a parse tree produced by bParser#block_0.
-    def exitBlock_0(self, ctx:bParser.Block_0Context):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_9_star.
-    def enterBlock_9_star(self, ctx:bParser.Block_9_starContext):
-        pass
-
-    # Exit a parse tree produced by bParser#block_9_star.
-    def exitBlock_9_star(self, ctx:bParser.Block_9_starContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_10.
-    def enterBlock_10(self, ctx:bParser.Block_10Context):
-        pass
-
-    # Exit a parse tree produced by bParser#block_10.
-    def exitBlock_10(self, ctx:bParser.Block_10Context):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_2.
-    def enterBlock_2(self, ctx:bParser.Block_2Context):
-        pass
-
-    # Exit a parse tree produced by bParser#block_2.
-    def exitBlock_2(self, ctx:bParser.Block_2Context):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_10_star.
-    def enterBlock_10_star(self, ctx:bParser.Block_10_starContext):
-        pass
-
-    # Exit a parse tree produced by bParser#block_10_star.
-    def exitBlock_10_star(self, ctx:bParser.Block_10_starContext):
-        pass
-
-
     # Enter a parse tree produced by bParser#definition.
     def enterDefinition(self, ctx:bParser.DefinitionContext):
         pass
@@ -89,30 +26,12 @@ class bParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by bParser#block_2_question.
-    def enterBlock_2_question(self, ctx:bParser.Block_2_questionContext):
+    # Enter a parse tree produced by bParser#ival.
+    def enterIval(self, ctx:bParser.IvalContext):
         pass
 
-    # Exit a parse tree produced by bParser#block_2_question.
-    def exitBlock_2_question(self, ctx:bParser.Block_2_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_0_star.
-    def enterBlock_0_star(self, ctx:bParser.Block_0_starContext):
-        pass
-
-    # Exit a parse tree produced by bParser#block_0_star.
-    def exitBlock_0_star(self, ctx:bParser.Block_0_starContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#constant_question.
-    def enterConstant_question(self, ctx:bParser.Constant_questionContext):
-        pass
-
-    # Exit a parse tree produced by bParser#constant_question.
-    def exitConstant_question(self, ctx:bParser.Constant_questionContext):
+    # Exit a parse tree produced by bParser#ival.
+    def exitIval(self, ctx:bParser.IvalContext):
         pass
 
 
@@ -152,39 +71,12 @@ class bParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by bParser#statement_star.
-    def enterStatement_star(self, ctx:bParser.Statement_starContext):
-        pass
-
-    # Exit a parse tree produced by bParser#statement_star.
-    def exitStatement_star(self, ctx:bParser.Statement_starContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_4.
-    def enterBlock_4(self, ctx:bParser.Block_4Context):
-        pass
-
-    # Exit a parse tree produced by bParser#block_4.
-    def exitBlock_4(self, ctx:bParser.Block_4Context):
-        pass
-
-
     # Enter a parse tree produced by bParser#returnstmt.
     def enterReturnstmt(self, ctx:bParser.ReturnstmtContext):
         pass
 
     # Exit a parse tree produced by bParser#returnstmt.
     def exitReturnstmt(self, ctx:bParser.ReturnstmtContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_4_question.
-    def enterBlock_4_question(self, ctx:bParser.Block_4_questionContext):
-        pass
-
-    # Exit a parse tree produced by bParser#block_4_question.
-    def exitBlock_4_question(self, ctx:bParser.Block_4_questionContext):
         pass
 
 
@@ -215,30 +107,12 @@ class bParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by bParser#block_5.
-    def enterBlock_5(self, ctx:bParser.Block_5Context):
-        pass
-
-    # Exit a parse tree produced by bParser#block_5.
-    def exitBlock_5(self, ctx:bParser.Block_5Context):
-        pass
-
-
     # Enter a parse tree produced by bParser#ifstmt.
     def enterIfstmt(self, ctx:bParser.IfstmtContext):
         pass
 
     # Exit a parse tree produced by bParser#ifstmt.
     def exitIfstmt(self, ctx:bParser.IfstmtContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_5_question.
-    def enterBlock_5_question(self, ctx:bParser.Block_5_questionContext):
-        pass
-
-    # Exit a parse tree produced by bParser#block_5_question.
-    def exitBlock_5_question(self, ctx:bParser.Block_5_questionContext):
         pass
 
 
@@ -251,39 +125,12 @@ class bParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by bParser#block_6.
-    def enterBlock_6(self, ctx:bParser.Block_6Context):
-        pass
-
-    # Exit a parse tree produced by bParser#block_6.
-    def exitBlock_6(self, ctx:bParser.Block_6Context):
-        pass
-
-
     # Enter a parse tree produced by bParser#externsmt.
     def enterExternsmt(self, ctx:bParser.ExternsmtContext):
         pass
 
     # Exit a parse tree produced by bParser#externsmt.
     def exitExternsmt(self, ctx:bParser.ExternsmtContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_6_star.
-    def enterBlock_6_star(self, ctx:bParser.Block_6_starContext):
-        pass
-
-    # Exit a parse tree produced by bParser#block_6_star.
-    def exitBlock_6_star(self, ctx:bParser.Block_6_starContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_7.
-    def enterBlock_7(self, ctx:bParser.Block_7Context):
-        pass
-
-    # Exit a parse tree produced by bParser#block_7.
-    def exitBlock_7(self, ctx:bParser.Block_7Context):
         pass
 
 
@@ -296,12 +143,12 @@ class bParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by bParser#block_7_star.
-    def enterBlock_7_star(self, ctx:bParser.Block_7_starContext):
+    # Enter a parse tree produced by bParser#rvalue.
+    def enterRvalue(self, ctx:bParser.RvalueContext):
         pass
 
-    # Exit a parse tree produced by bParser#block_7_star.
-    def exitBlock_7_star(self, ctx:bParser.Block_7_starContext):
+    # Exit a parse tree produced by bParser#rvalue.
+    def exitRvalue(self, ctx:bParser.RvalueContext):
         pass
 
 
@@ -350,24 +197,6 @@ class bParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by bParser#functionparameters_question.
-    def enterFunctionparameters_question(self, ctx:bParser.Functionparameters_questionContext):
-        pass
-
-    # Exit a parse tree produced by bParser#functionparameters_question.
-    def exitFunctionparameters_question(self, ctx:bParser.Functionparameters_questionContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#block_8.
-    def enterBlock_8(self, ctx:bParser.Block_8Context):
-        pass
-
-    # Exit a parse tree produced by bParser#block_8.
-    def exitBlock_8(self, ctx:bParser.Block_8Context):
-        pass
-
-
     # Enter a parse tree produced by bParser#functionparameters.
     def enterFunctionparameters(self, ctx:bParser.FunctionparametersContext):
         pass
@@ -377,30 +206,12 @@ class bParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by bParser#block_8_star.
-    def enterBlock_8_star(self, ctx:bParser.Block_8_starContext):
-        pass
-
-    # Exit a parse tree produced by bParser#block_8_star.
-    def exitBlock_8_star(self, ctx:bParser.Block_8_starContext):
-        pass
-
-
     # Enter a parse tree produced by bParser#assign.
     def enterAssign(self, ctx:bParser.AssignContext):
         pass
 
     # Exit a parse tree produced by bParser#assign.
     def exitAssign(self, ctx:bParser.AssignContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#binary_question.
-    def enterBinary_question(self, ctx:bParser.Binary_questionContext):
-        pass
-
-    # Exit a parse tree produced by bParser#binary_question.
-    def exitBinary_question(self, ctx:bParser.Binary_questionContext):
         pass
 
 
@@ -455,24 +266,6 @@ class bParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by bParser#name.
     def exitName(self, ctx:bParser.NameContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#ival.
-    def enterIval(self, ctx:bParser.IvalContext):
-        pass
-
-    # Exit a parse tree produced by bParser#ival.
-    def exitIval(self, ctx:bParser.IvalContext):
-        pass
-
-
-    # Enter a parse tree produced by bParser#rvalue.
-    def enterRvalue(self, ctx:bParser.RvalueContext):
-        pass
-
-    # Exit a parse tree produced by bParser#rvalue.
-    def exitRvalue(self, ctx:bParser.RvalueContext):
         pass
 
 

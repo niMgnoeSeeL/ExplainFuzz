@@ -73,6 +73,5 @@ chardata
 
 misc
     : COMMENT
-    | PI
     | SEA_WS
     ;

@@ -53,6 +53,18 @@
       "num_recursive_rules": 4,
       "percent_recursive": 0.26666666666666666,
       "domain": "XML"
+    },
+    {
+      "num_rules": 8,
+      "num_productions": 13,
+      "num_terminals": 16,
+      "num_nonterminals": 6,
+      "avg_production_length": 2.4615384615384617,
+      "avg_arity": 1.625,
+      "max_arity": 3,
+      "num_recursive_rules": 0,
+      "percent_recursive": 0.0,
+      "domain": "XML"
     }
   ],
   "B": [
@@ -151,6 +163,20 @@
       "num_recursive_rules": 30,
       "percent_recursive": 0.13574660633484162,
       "domain": "MLIR"
+    }
+  ],
+  "C": [
+    {
+      "num_rules": 5,
+      "num_productions": 22,
+      "num_terminals": 19,
+      "num_nonterminals": 4,
+      "avg_production_length": 2.8636363636363638,
+      "avg_arity": 4.4,
+      "max_arity": 11,
+      "num_recursive_rules": 2,
+      "percent_recursive": 0.4,
+      "domain": "C"
     }
   ]
 }
