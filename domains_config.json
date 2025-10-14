@@ -41,7 +41,7 @@
     ],
     "with_serializer": true,
     "skip_rules": ["Whitespace", "Newline"],
-    "max_length": 35,
+    "max_length": 37,
     "depth": 15,
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
@@ -49,7 +49,7 @@
         ["SELECT", "FROM"],
         ["ORDER", "BY"],
         ["BY", "ORDER"],
-        ["HAVING","ASC"]
+        ["HAVING", "ASC"]
       ]
     }
   },
@@ -102,7 +102,10 @@
     "start_rule": "json",
     "parser_path": "data/input/grammars/CLOUDFORMATION/JSONLLMParser.g4",
     "seeds_dir": "SEEDS_DIR/CLOUDFORMATION",
-    "initial_grammar_paths": ["data/input/grammars/CLOUDFORMATION/JSONLLMParser.g4","data/input/grammars/CLOUDFORMATION/JSONLLMLexer.g4"],
+    "initial_grammar_paths": [
+      "data/input/grammars/CLOUDFORMATION/JSONLLMParser.g4",
+      "data/input/grammars/CLOUDFORMATION/JSONLLMLexer.g4"
+    ],
     "with_serializer": false,
     "skip_rules": ["WS"],
     "max_length": 50,
@@ -119,18 +122,21 @@
     "max_length": 35,
     "depth": 20
   },
-  "XML":{
+  "XML": {
     "grammar_name": "XML",
     "start_rule": "document",
     "parser_path": "data/input/grammars/XML/XMLParser.g4",
     "seeds_dir": "SEEDS_DIR/XML",
-    "initial_grammar_paths": ["data/input/grammars/XML/XMLParser.g4","data/input/grammars/XML/XMLLexer.g4"],
+    "initial_grammar_paths": [
+      "data/input/grammars/XML/XMLParser.g4",
+      "data/input/grammars/XML/XMLLexer.g4"
+    ],
     "with_serializer": true,
     "skip_rules": ["SEA_WS"],
     "max_length": 25,
     "depth": 10
   },
-  "C":{
+  "C": {
     "grammar_name": "C",
     "start_rule": "start",
     "parser_path": "data/input/grammars/C/C.g4",
@@ -141,7 +147,7 @@
     "max_length": 25,
     "depth": 15
   },
-  "REST":{
+  "REST": {
     "grammar_name": "REST",
     "start_rule": "start",
     "parser_path": "data/input/grammars/REST/REST.g4",

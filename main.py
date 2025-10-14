@@ -136,22 +136,23 @@ def build_model(
     fuzzing_dirs = [generator_dir, population_dir, fuzz_outputs_dir, dataset_dir]
     ensure_directories_exist(fuzzing_dirs)
 
-    # grammarinator_fuzz_main(
-    #     prefix_grammar=grammar_name,
-    #     start_rule=start_rule,
-    #     grammar_dir=final_dir,
-    #     seeds_dir=seeds_dir,
-    #     generator_dir=generator_dir,
-    #     population_dir=population_dir,
-    #     gen_parser_dir=antlr_output_dir,
-    #     fuzz_outputs_dir=fuzz_outputs_dir,
-    #     dataset_dir=dataset_dir,
-    #     num_inputs=num_inputs,
-    #     first_time=True,
-    #     with_serializer=with_serializer,
-    #     depth=depth,
-    # )
+    grammarinator_fuzz_main(
+        prefix_grammar=grammar_name,
+        start_rule=start_rule,
+        grammar_dir=final_dir,
+        seeds_dir=seeds_dir,
+        generator_dir=generator_dir,
+        population_dir=population_dir,
+        gen_parser_dir=antlr_output_dir,
+        fuzz_outputs_dir=fuzz_outputs_dir,
+        dataset_dir=dataset_dir,
+        num_inputs=num_inputs,
+        first_time=True,
+        with_serializer=with_serializer,
+        depth=depth,
+    )
     print("")
+ 
 
     # ============================================================
     #                 PC COMPILATION + TRAINING
@@ -167,9 +168,9 @@ def build_model(
     nb_epochs = 10
     model_save_dir = MODEL_DIR / domain
 
-    # TODO : re put the correct one
+    # # TODO : re put the correct one
     # for mode in ["no-generate", "with-generate"]:
-    for mode in ["with-generate"]:
+    for mode in ["no-generate"]:
         print(
             f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
         )
@@ -190,6 +191,8 @@ def build_model(
             testingset_dir,
             skip_rules,
         )
+
+    return 
 
 
 # ============================================================
@@ -224,7 +227,7 @@ def get_domain_config(domain):
     return domain_config
 
 
-def sample_inputs(domain, mode, nb_inputs):
+def sample_inputs(domain, mode, nb_inputs,token_condition):
     domain_config = get_domain_config(domain)
     max_length = domain_config["max_length"]
 
@@ -232,7 +235,7 @@ def sample_inputs(domain, mode, nb_inputs):
     output_dir = SAMPLES_DIR / domain / mode
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"anonymized_inputs_{mode.replace('-','_')}.txt"
-    main_sampling(model_save_path, nb_inputs, output_path, max_length)
+    main_sampling(model_save_path, nb_inputs, output_path, max_length,token_condition)
 
 
 # ====================================================================
@@ -320,12 +323,12 @@ def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives
     return str(output_path)
 
 
-def main_generate_inputs(domain, mode, nb_concrete_inputs=200, conninfo=None):
+def main_generate_inputs(domain, mode, nb_concrete_inputs=200, token_condition = None,conninfo=None):
     if domain == "SQL":
         nb_sample_inputs = nb_concrete_inputs // 20 + 1
     else:
         nb_sample_inputs = nb_concrete_inputs
-    sample_inputs(domain, mode, nb_sample_inputs)
+    sample_inputs(domain, mode, nb_sample_inputs,token_condition)
     output_path = concretization(domain, mode, conninfo, nb_concrete_inputs)
     return output_path
 
@@ -342,7 +345,7 @@ if __name__ == "__main__":
     domain = "SQL"
     domain_config = domains_config[domain]
 
-    num_inputs = 100
+    num_inputs = 10000
 
     # build_model(
     #     domain,
@@ -356,4 +359,4 @@ if __name__ == "__main__":
     #     depth=domain_config["depth"],
     # )
 
-    main_generate_inputs(domain, "no-generate", 200)
+    main_generate_inputs(domain, "no-generate", 1000)
