@@ -6,41 +6,22 @@ import os
 import numpy as np
 from collections import defaultdict
 
-
 def eval_bug_rate_Grammarinator(required_tokens,sensitive_fields):
-    print("On the train dataset")
-    nb_train_inputs = 8995
     folder_path = "data/intermediate/dataset/SQL/no-generate/train/"
     failing_rate_train, executable_rate_train = test_inputs_SUT_from_folder(folder_path,required_tokens,sensitive_fields)
-
-    print("On the test dataset")
-    nb_test_inputs = 999
-    folder_path = "data/intermediate/dataset/SQL/no-generate/test/"
-    failing_rate_test, executable_rate_test = test_inputs_SUT_from_folder(folder_path,required_tokens,sensitive_fields)
-
-    failing_rate_global = round((failing_rate_train*nb_train_inputs + failing_rate_test*nb_test_inputs)/(nb_train_inputs+nb_test_inputs),2)
-    executable_rate_global = round((executable_rate_test*nb_test_inputs + executable_rate_train*nb_train_inputs)/(nb_train_inputs+nb_test_inputs),2)
-    print(f"Global failing rate for Grammarinator is {failing_rate_global}% and the executable rate is {executable_rate_global}% for a total of {nb_train_inputs+nb_test_inputs} tests")
-    return {"train": {"failing_rate":failing_rate_train, "executable_rate" :executable_rate_train}, "test": {"failing_rate":failing_rate_test, "executable_rate" :executable_rate_test}, "global": {"failing_rate":failing_rate_global, "executable_rate" :executable_rate_global}}
+    return {"global": {"failing_rate":failing_rate_train, "executable_rate" :executable_rate_train}}
 
 def eval_bug_rate_ExplainFuzz(required_tokens,sensitive_fields,token_condition=None):
-    # Check the bug rate of generated inputs by ExplainFuzz + custom generator on the SUT
-    
-    # 2) Test them on the SUT
     print("On the generated dataset by ExplainFuzz")
     file_path = "data/output/inputs/SQL/inputs_no_generate.txt"
     queries = read_queries_from_file(file_path)
     failing_rate,executable_rate = test_inputs_on_SUT(queries,required_tokens,sensitive_fields)
-    print(f"Global failing rate for the ExplainFuzz {'with conditon' + token_condition if token_condition else ''} is {failing_rate}% and the executable rate is {executable_rate}%")
     return {"global":{"failing_rate":failing_rate, "executable_rate" :executable_rate}}
 
 def eval_bug_rate_seeds(required_tokens,sensitive_fields):
     folder_path = "data/input/seeds/SQL/"
     failing_rate, executable_rate = test_inputs_SUT_from_folder(folder_path,required_tokens,sensitive_fields)
-    print(f"Global failing rate for the seeds is {failing_rate}% and the executable rate is {executable_rate}%")
     return {"global": {"failing_rate":failing_rate, "executable_rate" :executable_rate}}
-
-
 
 
 def run_eval(file_path="evaluation_bug_rate_results.json",domain="SQL",mode="no-generate",num_inputs=10000):
