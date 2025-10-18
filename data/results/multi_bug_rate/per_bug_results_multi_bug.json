@@ -1,0 +1,348 @@
+{
+    "SQL1A": {
+        "Grammarinator": {
+            "per_bug_counts_distinct": {
+                "BUG01_select_email_order": 9,
+                "BUG02_where_type_mismatch_salary": 9,
+                "BUG16_order_by_collation_edge": 9
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG01_select_email_order": 0,
+                "BUG02_where_type_mismatch_salary": 0,
+                "BUG16_order_by_collation_edge": 0
+            }
+        },
+        "ExplainFuzz": {
+            "per_bug_counts_distinct": {
+                "BUG02_where_type_mismatch_salary": {
+                    "mean": 472.3333333333333,
+                    "std": 32.601976763516795
+                },
+                "BUG16_order_by_collation_edge": {
+                    "mean": 95.66666666666667,
+                    "std": 21.638443156156644
+                },
+                "BUG01_select_email_order": {
+                    "mean": 489.0,
+                    "std": 32.93427798915086
+                }
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG02_where_type_mismatch_salary": {
+                    "mean": 93.33333333333333,
+                    "std": 3.2998316455372216
+                },
+                "BUG16_order_by_collation_edge": {
+                    "mean": 50.666666666666664,
+                    "std": 8.576453553512405
+                },
+                "BUG01_select_email_order": {
+                    "mean": 91.66666666666667,
+                    "std": 2.8674417556808756
+                }
+            }
+        }
+    },
+    "SQL2A": {
+        "Grammarinator": {
+            "per_bug_counts_distinct": {
+                "BUG02_where_type_mismatch_salary": 23,
+                "BUG01_select_email_order": 5,
+                "BUG16_order_by_collation_edge": 5,
+                "BUG03_join_expose_email_ssn": 5,
+                "BUG04_join_mixed_numeric_types": 1,
+                "BUG05_join_and_where_ssn": 3,
+                "BUG09_subquery_avg_salary": 1,
+                "BUG10_nested_select_ssn": 1
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG02_where_type_mismatch_salary": 0,
+                "BUG01_select_email_order": 0,
+                "BUG16_order_by_collation_edge": 0,
+                "BUG03_join_expose_email_ssn": 0,
+                "BUG04_join_mixed_numeric_types": 0,
+                "BUG05_join_and_where_ssn": 0,
+                "BUG09_subquery_avg_salary": 0,
+                "BUG10_nested_select_ssn": 0
+            }
+        },
+        "ExplainFuzz": {
+            "per_bug_counts_distinct": {
+                "BUG05_join_and_where_ssn": {
+                    "mean": 4.333333333333333,
+                    "std": 2.0548046676563256
+                },
+                "BUG03_join_expose_email_ssn": {
+                    "mean": 6.333333333333333,
+                    "std": 1.8856180831641267
+                },
+                "BUG01_select_email_order": {
+                    "mean": 119.66666666666667,
+                    "std": 6.128258770283411
+                },
+                "BUG07_group_by_having_ssn": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
+                "BUG02_where_type_mismatch_salary": {
+                    "mean": 128.0,
+                    "std": 17.281975195754296
+                },
+                "BUG16_order_by_collation_edge": {
+                    "mean": 32.333333333333336,
+                    "std": 1.699673171197595
+                },
+                "BUG10_nested_select_ssn": {
+                    "mean": 1.6666666666666667,
+                    "std": 1.699673171197595
+                },
+                "BUG09_subquery_avg_salary": {
+                    "mean": 1.6666666666666667,
+                    "std": 0.9428090415820634
+                }
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG05_join_and_where_ssn": {
+                    "mean": 47.666666666666664,
+                    "std": 40.95797304012438
+                },
+                "BUG03_join_expose_email_ssn": {
+                    "mean": 68.0,
+                    "std": 23.55136231020759
+                },
+                "BUG01_select_email_order": {
+                    "mean": 82.33333333333333,
+                    "std": 1.699673171197595
+                },
+                "BUG07_group_by_having_ssn": {
+                    "mean": 33.333333333333336,
+                    "std": 47.14045207910317
+                },
+                "BUG02_where_type_mismatch_salary": {
+                    "mean": 85.0,
+                    "std": 2.8284271247461903
+                },
+                "BUG16_order_by_collation_edge": {
+                    "mean": 23.333333333333332,
+                    "std": 2.494438257849294
+                },
+                "BUG10_nested_select_ssn": {
+                    "mean": 41.666666666666664,
+                    "std": 42.49182927993987
+                },
+                "BUG09_subquery_avg_salary": {
+                    "mean": 77.66666666666667,
+                    "std": 31.584102892999123
+                }
+            }
+        }
+    },
+    "SQL3A": {
+        "Grammarinator": {
+            "per_bug_counts_distinct": {
+                "BUG02_where_type_mismatch_salary": 4,
+                "BUG03_join_expose_email_ssn": 2,
+                "BUG01_select_email_order": 1,
+                "BUG16_order_by_collation_edge": 1,
+                "BUG09_subquery_avg_salary": 1,
+                "BUG10_nested_select_ssn": 1
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG02_where_type_mismatch_salary": 0,
+                "BUG03_join_expose_email_ssn": 0,
+                "BUG01_select_email_order": 0,
+                "BUG16_order_by_collation_edge": 0,
+                "BUG09_subquery_avg_salary": 0,
+                "BUG10_nested_select_ssn": 0
+            }
+        },
+        "ExplainFuzz": {
+            "per_bug_counts_distinct": {
+                "BUG05_join_and_where_ssn": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
+                "BUG03_join_expose_email_ssn": {
+                    "mean": 12.666666666666666,
+                    "std": 5.436502143433364
+                },
+                "BUG01_select_email_order": {
+                    "mean": 14.666666666666666,
+                    "std": 4.496912521077347
+                },
+                "BUG14_where_or_email_salary": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
+                "BUG02_where_type_mismatch_salary": {
+                    "mean": 95.33333333333333,
+                    "std": 15.456030825826172
+                },
+                "BUG16_order_by_collation_edge": {
+                    "mean": 9.0,
+                    "std": 1.4142135623730951
+                },
+                "BUG10_nested_select_ssn": {
+                    "mean": 17.0,
+                    "std": 5.354126134736337
+                },
+                "BUG09_subquery_avg_salary": {
+                    "mean": 17.666666666666668,
+                    "std": 7.039570693980958
+                },
+                "BUG06_group_by_avg_salary": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
+                "BUG13_where_or_salary": {
+                    "mean": 1.0,
+                    "std": 0.816496580927726
+                },
+                "BUG17_aggregate_join_exposure": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                }
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG05_join_and_where_ssn": {
+                    "mean": 33.333333333333336,
+                    "std": 47.14045207910317
+                },
+                "BUG03_join_expose_email_ssn": {
+                    "mean": 61.666666666666664,
+                    "std": 27.182510717166817
+                },
+                "BUG01_select_email_order": {
+                    "mean": 47.666666666666664,
+                    "std": 8.73053390247253
+                },
+                "BUG14_where_or_email_salary": {
+                    "mean": 33.333333333333336,
+                    "std": 47.14045207910317
+                },
+                "BUG02_where_type_mismatch_salary": {
+                    "mean": 83.66666666666667,
+                    "std": 4.642796092394706
+                },
+                "BUG16_order_by_collation_edge": {
+                    "mean": 7.0,
+                    "std": 5.0990195135927845
+                },
+                "BUG10_nested_select_ssn": {
+                    "mean": 52.333333333333336,
+                    "std": 4.4969125210773475
+                },
+                "BUG09_subquery_avg_salary": {
+                    "mean": 51.333333333333336,
+                    "std": 8.993825042154693
+                },
+                "BUG06_group_by_avg_salary": {
+                    "mean": 33.333333333333336,
+                    "std": 47.14045207910317
+                },
+                "BUG13_where_or_salary": {
+                    "mean": 66.66666666666667,
+                    "std": 47.14045207910317
+                },
+                "BUG17_aggregate_join_exposure": {
+                    "mean": 33.333333333333336,
+                    "std": 47.14045207910317
+                }
+            }
+        }
+    },
+    "SQL4A": {
+        "Grammarinator": {
+            "per_bug_counts_distinct": {
+                "BUG01_select_email_order": 5,
+                "BUG16_order_by_collation_edge": 5,
+                "BUG02_where_type_mismatch_salary": 8,
+                "BUG03_join_expose_email_ssn": 4,
+                "BUG04_join_mixed_numeric_types": 1,
+                "BUG05_join_and_where_ssn": 2,
+                "BUG09_subquery_avg_salary": 1,
+                "BUG10_nested_select_ssn": 1
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG01_select_email_order": 0,
+                "BUG16_order_by_collation_edge": 0,
+                "BUG02_where_type_mismatch_salary": 0,
+                "BUG03_join_expose_email_ssn": 0,
+                "BUG04_join_mixed_numeric_types": 0,
+                "BUG05_join_and_where_ssn": 0,
+                "BUG09_subquery_avg_salary": 0,
+                "BUG10_nested_select_ssn": 0
+            }
+        },
+        "ExplainFuzz": {
+            "per_bug_counts_distinct": {
+                "BUG11_union_projection_leak": {
+                    "mean": 0.6666666666666666,
+                    "std": 0.4714045207910317
+                },
+                "BUG05_join_and_where_ssn": {
+                    "mean": 1.6666666666666667,
+                    "std": 1.247219128924647
+                },
+                "BUG03_join_expose_email_ssn": {
+                    "mean": 4.333333333333333,
+                    "std": 2.357022603955158
+                },
+                "BUG01_select_email_order": {
+                    "mean": 109.66666666666667,
+                    "std": 6.79869268479038
+                },
+                "BUG02_where_type_mismatch_salary": {
+                    "mean": 130.0,
+                    "std": 11.343133018115703
+                },
+                "BUG16_order_by_collation_edge": {
+                    "mean": 41.333333333333336,
+                    "std": 7.760297817881877
+                },
+                "BUG10_nested_select_ssn": {
+                    "mean": 2.6666666666666665,
+                    "std": 1.8856180831641267
+                },
+                "BUG09_subquery_avg_salary": {
+                    "mean": 3.3333333333333335,
+                    "std": 1.699673171197595
+                }
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG11_union_projection_leak": {
+                    "mean": 66.66666666666667,
+                    "std": 47.14045207910317
+                },
+                "BUG05_join_and_where_ssn": {
+                    "mean": 66.66666666666667,
+                    "std": 47.14045207910317
+                },
+                "BUG03_join_expose_email_ssn": {
+                    "mean": 44.666666666666664,
+                    "std": 39.12657522565563
+                },
+                "BUG01_select_email_order": {
+                    "mean": 77.66666666666667,
+                    "std": 7.93025150224688
+                },
+                "BUG02_where_type_mismatch_salary": {
+                    "mean": 90.33333333333333,
+                    "std": 2.6246692913372702
+                },
+                "BUG16_order_by_collation_edge": {
+                    "mean": 34.666666666666664,
+                    "std": 5.436502143433364
+                },
+                "BUG10_nested_select_ssn": {
+                    "mean": 8.333333333333334,
+                    "std": 11.785113019775793
+                },
+                "BUG09_subquery_avg_salary": {
+                    "mean": 48.333333333333336,
+                    "std": 36.59083066683358
+                }
+            }
+        }
+    }
+}
