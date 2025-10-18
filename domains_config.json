@@ -4,7 +4,7 @@
     "start_rule": "htmlDocument",
     "parser_path": "data/input/grammars/HTML/HTMLParser.g4",
     "lexer_path": "data/input/grammars/HTML/HTMLLexer.g4",
-    "seeds_dir": "SEEDS_DIR/HTML",
+    "seeds_dir": "data/input/seeds/HTML",
     "initial_grammar_paths": [
       "data/input/grammars/HTML/HTMLParser.g4",
       "data/input/grammars/HTML/HTMLLexer.g4"
@@ -19,7 +19,7 @@
     "start_rule": "root",
     "parser_path": "data/input/grammars/REDIS/RedisParser.g4",
     "lexer_path": "data/input/grammars/REDIS/RedisLexer.g4",
-    "seeds_dir": "SEEDS_DIR/REDIS",
+    "seeds_dir": "data/input/seeds/REDIS",
     "initial_grammar_paths": [
       "data/input/grammars/REDIS/RedisParser.g4",
       "data/input/grammars/REDIS/RedisLexer.g4"
@@ -34,7 +34,7 @@
     "start_rule": "start",
     "parser_path": "data/input/grammars/SQL/SQLSimplifiedParser.g4",
     "lexer_path": "data/input/grammars/SQL/SQLSimplifiedLexer.g4",
-    "seeds_dir": "SEEDS_DIR/SQL",
+    "seeds_dir": "data/input/seeds/SQL",
     "initial_grammar_paths": [
       "data/input/grammars/SQL/SQLSimplifiedParser.g4",
       "data/input/grammars/SQL/SQLSimplifiedLexer.g4"
@@ -53,11 +53,211 @@
       ]
     }
   },
+  "SQL1A": {
+    "grammar_name": "SQLSimplified",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+    "lexer_path": "data/input/grammars/SQL/SQLSimplifiedLexer.g4",
+    "seeds_dir": "data/input/seeds/SQL1",
+    "initial_grammar_paths": [
+      "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+      "data/input/grammars/SQL/SQLSimplifiedLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["Whitespace", "Newline"],
+    "filter_non_executable": false,
+    "max_length": 36,
+    "depth": 15,
+    "inference_inputs": {
+      "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
+      "COND1": [
+        ["SELECT", "FROM"],
+        ["ORDER", "BY"],
+        ["BY", "ORDER"],
+        ["HAVING", "ASC"]
+      ]
+    }
+  },
+  "SQL1B": {
+    "grammar_name": "SQLSimplified",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+    "lexer_path": "data/input/grammars/SQL/SQLSimplifiedLexer.g4",
+    "seeds_dir": "data/input/seeds/SQL1",
+    "initial_grammar_paths": [
+      "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+      "data/input/grammars/SQL/SQLSimplifiedLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["Whitespace", "Newline"],
+    "filter_non_executable": true,
+    "max_length": 36,
+    "depth": 15,
+    "inference_inputs": {
+      "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
+      "COND1": [
+        ["SELECT", "FROM"],
+        ["ORDER", "BY"],
+        ["BY", "ORDER"],
+        ["HAVING", "ASC"]
+      ]
+    }
+  },
+  "SQL2A": {
+    "grammar_name": "SQLSimplified",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+    "lexer_path": "data/input/grammars/SQL/SQLSimplifiedLexer.g4",
+    "seeds_dir": "data/input/seeds/SQL2",
+    "initial_grammar_paths": [
+      "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+      "data/input/grammars/SQL/SQLSimplifiedLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["Whitespace", "Newline"],
+    "filter_non_executable": false,
+    "max_length": 36,
+    "depth": 15,
+    "inference_inputs": {
+      "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
+      "COND1": [
+        ["SELECT", "FROM"],
+        ["ORDER", "BY"],
+        ["BY", "ORDER"],
+        ["HAVING", "ASC"]
+      ]
+    }
+  },
+  "SQL2B": {
+    "grammar_name": "SQLSimplified",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+    "lexer_path": "data/input/grammars/SQL/SQLSimplifiedLexer.g4",
+    "seeds_dir": "data/input/seeds/SQL2",
+    "initial_grammar_paths": [
+      "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+      "data/input/grammars/SQL/SQLSimplifiedLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["Whitespace", "Newline"],
+    "filter_non_executable": true,
+    "max_length": 36,
+    "depth": 15,
+    "inference_inputs": {
+      "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
+      "COND1": [
+        ["SELECT", "FROM"],
+        ["ORDER", "BY"],
+        ["BY", "ORDER"],
+        ["HAVING", "ASC"]
+      ]
+    }
+  },
+  "SQL3A": {
+    "grammar_name": "SQLSimplified",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+    "lexer_path": "data/input/grammars/SQL/SQLSimplifiedLexer.g4",
+    "seeds_dir": "data/input/seeds/SQL3",
+    "initial_grammar_paths": [
+      "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+      "data/input/grammars/SQL/SQLSimplifiedLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["Whitespace", "Newline"],
+    "filter_non_executable": false,
+    "max_length": 36,
+    "depth": 15,
+    "inference_inputs": {
+      "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
+      "COND1": [
+        ["SELECT", "FROM"],
+        ["ORDER", "BY"],
+        ["BY", "ORDER"],
+        ["HAVING", "ASC"]
+      ]
+    }
+  },
+  "SQL3B": {
+    "grammar_name": "SQLSimplified",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+    "lexer_path": "data/input/grammars/SQL/SQLSimplifiedLexer.g4",
+    "seeds_dir": "data/input/seeds/SQL3",
+    "initial_grammar_paths": [
+      "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+      "data/input/grammars/SQL/SQLSimplifiedLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["Whitespace", "Newline"],
+    "filter_non_executable": true,
+    "max_length": 36,
+    "depth": 15,
+    "inference_inputs": {
+      "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
+      "COND1": [
+        ["SELECT", "FROM"],
+        ["ORDER", "BY"],
+        ["BY", "ORDER"],
+        ["HAVING", "ASC"]
+      ]
+    }
+  },
+  "SQL4A": {
+    "grammar_name": "SQLSimplified",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+    "lexer_path": "data/input/grammars/SQL/SQLSimplifiedLexer.g4",
+    "seeds_dir": "data/input/seeds/SQL4",
+    "initial_grammar_paths": [
+      "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+      "data/input/grammars/SQL/SQLSimplifiedLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["Whitespace", "Newline"],
+    "filter_non_executable": false,
+    "max_length": 36,
+    "depth": 15,
+    "inference_inputs": {
+      "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
+      "COND1": [
+        ["SELECT", "FROM"],
+        ["ORDER", "BY"],
+        ["BY", "ORDER"],
+        ["HAVING", "ASC"]
+      ]
+    }
+  },
+  "SQL4B": {
+    "grammar_name": "SQLSimplified",
+    "start_rule": "start",
+    "parser_path": "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+    "lexer_path": "data/input/grammars/SQL/SQLSimplifiedLexer.g4",
+    "seeds_dir": "data/input/seeds/SQL3",
+    "initial_grammar_paths": [
+      "data/input/grammars/SQL/SQLSimplifiedParser.g4",
+      "data/input/grammars/SQL/SQLSimplifiedLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["Whitespace", "Newline"],
+    "filter_non_executable": true,
+    "max_length": 36,
+    "depth": 15,
+    "inference_inputs": {
+      "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
+      "COND1": [
+        ["SELECT", "FROM"],
+        ["ORDER", "BY"],
+        ["BY", "ORDER"],
+        ["HAVING", "ASC"]
+      ]
+    }
+  },
   "JANUS": {
     "grammar_name": "janus",
     "start_rule": "program",
     "parser_path": "data/input/grammars/JANUS/janus.g4",
-    "seeds_dir": "SEEDS_DIR/JANUS",
+    "seeds_dir": "data/input/seeds/JANUS",
     "initial_grammar_paths": ["data/input/grammars/JANUS/janus.g4"],
     "with_serializer": true,
     "skip_rules": ["WS"],
@@ -68,7 +268,7 @@
     "grammar_name": "b",
     "start_rule": "program",
     "parser_path": "data/input/grammars/B/b.g4",
-    "seeds_dir": "SEEDS_DIR/B",
+    "seeds_dir": "data/input/seeds/B",
     "initial_grammar_paths": ["data/input/grammars/B/b.g4"],
     "with_serializer": true,
     "skip_rules": ["WS"],
@@ -79,7 +279,7 @@
     "grammar_name": "CSV",
     "start_rule": "csvFile",
     "parser_path": "data/input/grammars/CSV/CSV.g4",
-    "seeds_dir": "SEEDS_DIR/CSV",
+    "seeds_dir": "data/input/seeds/CSV",
     "initial_grammar_paths": ["data/input/grammars/CSV/CSV.g4"],
     "with_serializer": false,
     "skip_rules": [],
@@ -90,7 +290,7 @@
     "grammar_name": "JSON",
     "start_rule": "json",
     "parser_path": "data/input/grammars/JSON/JSON.g4",
-    "seeds_dir": "SEEDS_DIR/JSON",
+    "seeds_dir": "data/input/seeds/JSON",
     "initial_grammar_paths": ["data/input/grammars/JSON/JSON.g4"],
     "with_serializer": false,
     "skip_rules": ["WS"],
@@ -101,7 +301,7 @@
     "grammar_name": "JSONLLM",
     "start_rule": "json",
     "parser_path": "data/input/grammars/CLOUDFORMATION/JSONLLMParser.g4",
-    "seeds_dir": "SEEDS_DIR/CLOUDFORMATION",
+    "seeds_dir": "data/input/seeds/CLOUDFORMATION",
     "initial_grammar_paths": [
       "data/input/grammars/CLOUDFORMATION/JSONLLMParser.g4",
       "data/input/grammars/CLOUDFORMATION/JSONLLMLexer.g4"
@@ -115,7 +315,7 @@
     "grammar_name": "mlir_base",
     "start_rule": "start",
     "parser_path": "data/input/grammars/MLIR/mlir_base.g4",
-    "seeds_dir": "SEEDS_DIR/MLIR",
+    "seeds_dir": "data/input/seeds/MLIR",
     "initial_grammar_paths": ["data/input/grammars/MLIR/mlir_base.g4"],
     "with_serializer": false,
     "skip_rules": ["WS"],
@@ -126,7 +326,7 @@
     "grammar_name": "XML",
     "start_rule": "document",
     "parser_path": "data/input/grammars/XML/XMLParser.g4",
-    "seeds_dir": "SEEDS_DIR/XML",
+    "seeds_dir": "data/input/seeds/XML",
     "initial_grammar_paths": [
       "data/input/grammars/XML/XMLParser.g4",
       "data/input/grammars/XML/XMLLexer.g4"
@@ -140,7 +340,7 @@
     "grammar_name": "C",
     "start_rule": "start",
     "parser_path": "data/input/grammars/C/C.g4",
-    "seeds_dir": "SEEDS_DIR/C",
+    "seeds_dir": "data/input/seeds/C",
     "initial_grammar_paths": ["data/input/grammars/C/C.g4"],
     "with_serializer": false,
     "skip_rules": [],
@@ -151,7 +351,7 @@
     "grammar_name": "REST",
     "start_rule": "start",
     "parser_path": "data/input/grammars/REST/REST.g4",
-    "seeds_dir": "SEEDS_DIR/REST",
+    "seeds_dir": "data/input/seeds/REST",
     "initial_grammar_paths": ["data/input/grammars/REST/REST.g4"],
     "with_serializer": false,
     "skip_rules": [],
