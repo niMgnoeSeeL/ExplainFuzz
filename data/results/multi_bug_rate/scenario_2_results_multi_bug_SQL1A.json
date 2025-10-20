@@ -14,71 +14,188 @@
         "per_bug_example": {},
         "explicit_sensitive": 0.0
     },
-    "Grammarinator": {
-        "executable_rate": 45.23,
-        "nb_distinct_bugs_triggered": 3,
-        "coverage": 17.65,
-        "total_triggers": 147,
-        "total_distinct_queries": 27,
-        "avg_inputs_per_bug": 49.0,
-        "avg_distinct_per_bug": 9.0,
-        "per_bug_counts": {
-            "BUG01_select_email_order": 49,
-            "BUG02_where_type_mismatch_salary": 49,
-            "BUG16_order_by_collation_edge": 49
+    "Grammarinator": [
+        {
+            "executable_rate": 45.22,
+            "nb_distinct_bugs_triggered": 3,
+            "coverage": 17.65,
+            "total_triggers": 165,
+            "total_distinct_queries": 27,
+            "avg_inputs_per_bug": 55.0,
+            "avg_distinct_per_bug": 9.0,
+            "per_bug_counts": {
+                "BUG01_select_email_order": 55,
+                "BUG02_where_type_mismatch_salary": 55,
+                "BUG16_order_by_collation_edge": 55
+            },
+            "per_bug_counts_distinct": {
+                "BUG01_select_email_order": 9,
+                "BUG02_where_type_mismatch_salary": 9,
+                "BUG16_order_by_collation_edge": 9
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG01_select_email_order": 0,
+                "BUG02_where_type_mismatch_salary": 0,
+                "BUG16_order_by_collation_edge": 0
+            },
+            "explicit_sensitive": 0.0,
+            "per_bug_example": {
+                "BUG01_select_email_order": [
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
+                ],
+                "BUG02_where_type_mismatch_salary": [
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
+                ],
+                "BUG16_order_by_collation_edge": [
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
+                ]
+            }
         },
-        "per_bug_counts_distinct": {
-            "BUG01_select_email_order": 9,
-            "BUG02_where_type_mismatch_salary": 9,
-            "BUG16_order_by_collation_edge": 9
+        {
+            "executable_rate": 44.78,
+            "nb_distinct_bugs_triggered": 3,
+            "coverage": 17.65,
+            "total_triggers": 117,
+            "total_distinct_queries": 27,
+            "avg_inputs_per_bug": 39.0,
+            "avg_distinct_per_bug": 9.0,
+            "per_bug_counts": {
+                "BUG01_select_email_order": 39,
+                "BUG02_where_type_mismatch_salary": 39,
+                "BUG16_order_by_collation_edge": 39
+            },
+            "per_bug_counts_distinct": {
+                "BUG01_select_email_order": 9,
+                "BUG02_where_type_mismatch_salary": 9,
+                "BUG16_order_by_collation_edge": 9
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG01_select_email_order": 0,
+                "BUG02_where_type_mismatch_salary": 0,
+                "BUG16_order_by_collation_edge": 0
+            },
+            "explicit_sensitive": 0.0,
+            "per_bug_example": {
+                "BUG01_select_email_order": [
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
+                ],
+                "BUG02_where_type_mismatch_salary": [
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
+                ],
+                "BUG16_order_by_collation_edge": [
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
+                ]
+            }
         },
-        "per_bug_select_star_pct": {
-            "BUG01_select_email_order": 100.0,
-            "BUG02_where_type_mismatch_salary": 100.0,
-            "BUG16_order_by_collation_edge": 100.0
-        },
-        "per_bug_explicit_sensitive": {
-            "BUG01_select_email_order": 0,
-            "BUG02_where_type_mismatch_salary": 0,
-            "BUG16_order_by_collation_edge": 0
-        },
-        "per_bug_example": {
-            "BUG01_select_email_order": [
-                "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
-            ],
-            "BUG02_where_type_mismatch_salary": [
-                "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
-            ],
-            "BUG16_order_by_collation_edge": [
-                "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
-                "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
-            ]
-        },
-        "explicit_sensitive": 0.0
-    },
+        {
+            "executable_rate": 45.16,
+            "nb_distinct_bugs_triggered": 3,
+            "coverage": 17.65,
+            "total_triggers": 114,
+            "total_distinct_queries": 27,
+            "avg_inputs_per_bug": 38.0,
+            "avg_distinct_per_bug": 9.0,
+            "per_bug_counts": {
+                "BUG01_select_email_order": 38,
+                "BUG02_where_type_mismatch_salary": 38,
+                "BUG16_order_by_collation_edge": 38
+            },
+            "per_bug_counts_distinct": {
+                "BUG01_select_email_order": 9,
+                "BUG02_where_type_mismatch_salary": 9,
+                "BUG16_order_by_collation_edge": 9
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG01_select_email_order": 0,
+                "BUG02_where_type_mismatch_salary": 0,
+                "BUG16_order_by_collation_edge": 0
+            },
+            "explicit_sensitive": 0.0,
+            "per_bug_example": {
+                "BUG01_select_email_order": [
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
+                ],
+                "BUG02_where_type_mismatch_salary": [
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
+                ],
+                "BUG16_order_by_collation_edge": [
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  1       ORDER BY id ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  4       ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  5       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  6       ORDER BY performance_score DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY employee_name ASC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  3       ORDER BY hire_date DESC       ;",
+                    "SELECT *  FROM employees     WHERE department_id  =  2       ORDER BY performance_score DESC       ;"
+                ]
+            }
+        }
+    ],
     "ExplainFuzz": [
         {
             "executable_rate": 74.58,

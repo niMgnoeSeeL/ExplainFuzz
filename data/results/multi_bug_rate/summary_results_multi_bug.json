@@ -1,14 +1,38 @@
 {
     "SQL1A": {
         "Grammarinator": {
-            "executable_rate": 45.23,
-            "nb_distinct_bugs_triggered": 3,
-            "coverage": 17.65,
-            "total_triggers": 147,
-            "total_distinct_queries": 27,
-            "avg_inputs_per_bug": 49.0,
-            "avg_distinct_per_bug": 9.0,
-            "explicit_sensitive": 0.0
+            "executable_rate": {
+                "mean": 45.053333333333335,
+                "std": 0.19482185594936463
+            },
+            "nb_distinct_bugs_triggered": {
+                "mean": 3.0,
+                "std": 0.0
+            },
+            "coverage": {
+                "mean": 17.65,
+                "std": 0.0
+            },
+            "total_triggers": {
+                "mean": 132.0,
+                "std": 23.366642891095847
+            },
+            "total_distinct_queries": {
+                "mean": 27.0,
+                "std": 0.0
+            },
+            "avg_inputs_per_bug": {
+                "mean": 44.0,
+                "std": 7.788880963698615
+            },
+            "avg_distinct_per_bug": {
+                "mean": 9.0,
+                "std": 0.0
+            },
+            "explicit_sensitive": {
+                "mean": 0.0,
+                "std": 0.0
+            }
         },
         "ExplainFuzz": {
             "executable_rate": {
@@ -47,14 +71,38 @@
     },
     "SQL2A": {
         "Grammarinator": {
-            "executable_rate": 42.66,
-            "nb_distinct_bugs_triggered": 8,
-            "coverage": 47.06,
-            "total_triggers": 75,
-            "total_distinct_queries": 31,
-            "avg_inputs_per_bug": 9.38,
-            "avg_distinct_per_bug": 3.88,
-            "explicit_sensitive": 0.0
+            "executable_rate": {
+                "mean": 43.07666666666666,
+                "std": 0.2795631512834898
+            },
+            "nb_distinct_bugs_triggered": {
+                "mean": 8.0,
+                "std": 0.0
+            },
+            "coverage": {
+                "mean": 47.06,
+                "std": 0.0
+            },
+            "total_triggers": {
+                "mean": 80.33333333333333,
+                "std": 9.46337971105226
+            },
+            "total_distinct_queries": {
+                "mean": 30.333333333333332,
+                "std": 0.9428090415820634
+            },
+            "avg_inputs_per_bug": {
+                "mean": 10.043333333333335,
+                "std": 1.184801905617794
+            },
+            "avg_distinct_per_bug": {
+                "mean": 3.793333333333333,
+                "std": 0.12256517540566814
+            },
+            "explicit_sensitive": {
+                "mean": 0.0,
+                "std": 0.0
+            }
         },
         "ExplainFuzz": {
             "executable_rate": {
@@ -93,14 +141,38 @@
     },
     "SQL3A": {
         "Grammarinator": {
-            "executable_rate": 40.95,
-            "nb_distinct_bugs_triggered": 6,
-            "coverage": 35.29,
-            "total_triggers": 105,
-            "total_distinct_queries": 10,
-            "avg_inputs_per_bug": 17.5,
-            "avg_distinct_per_bug": 1.67,
-            "explicit_sensitive": 0.0
+            "executable_rate": {
+                "mean": 39.95666666666667,
+                "std": 0.5995739227892486
+            },
+            "nb_distinct_bugs_triggered": {
+                "mean": 6.0,
+                "std": 0.0
+            },
+            "coverage": {
+                "mean": 35.29,
+                "std": 0.0
+            },
+            "total_triggers": {
+                "mean": 123.66666666666667,
+                "std": 8.993825042154695
+            },
+            "total_distinct_queries": {
+                "mean": 10.0,
+                "std": 0.0
+            },
+            "avg_inputs_per_bug": {
+                "mean": 20.61,
+                "std": 1.500288861075316
+            },
+            "avg_distinct_per_bug": {
+                "mean": 1.67,
+                "std": 0.0
+            },
+            "explicit_sensitive": {
+                "mean": 0.0,
+                "std": 0.0
+            }
         },
         "ExplainFuzz": {
             "executable_rate": {
@@ -139,14 +211,38 @@
     },
     "SQL4A": {
         "Grammarinator": {
-            "executable_rate": 41.82,
-            "nb_distinct_bugs_triggered": 8,
-            "coverage": 47.06,
-            "total_triggers": 79,
-            "total_distinct_queries": 27,
-            "avg_inputs_per_bug": 9.88,
-            "avg_distinct_per_bug": 3.38,
-            "explicit_sensitive": 0.0
+            "executable_rate": {
+                "mean": 42.126666666666665,
+                "std": 0.26233989826601345
+            },
+            "nb_distinct_bugs_triggered": {
+                "mean": 6.666666666666667,
+                "std": 1.247219128924647
+            },
+            "coverage": {
+                "mean": 39.21666666666667,
+                "std": 7.338102994340947
+            },
+            "total_triggers": {
+                "mean": 74.0,
+                "std": 9.899494936611665
+            },
+            "total_distinct_queries": {
+                "mean": 23.0,
+                "std": 3.265986323710904
+            },
+            "avg_inputs_per_bug": {
+                "mean": 11.51,
+                "std": 2.7232456126223106
+            },
+            "avg_distinct_per_bug": {
+                "mean": 3.4899999999999998,
+                "std": 0.22226110770892862
+            },
+            "explicit_sensitive": {
+                "mean": 0.0,
+                "std": 0.0
+            }
         },
         "ExplainFuzz": {
             "executable_rate": {

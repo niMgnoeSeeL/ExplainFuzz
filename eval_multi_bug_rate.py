@@ -28,10 +28,10 @@ def eval_multi_bug_rate(source: str, path: str, from_file: bool = False,bug_spec
 
 
 # Convenience wrappers for readability
-def eval_multi_bug_rate_Grammarinator(domain,scenario):
+def eval_multi_bug_rate_Grammarinator(scenario,folder_path):
     return eval_multi_bug_rate(
         source="Grammarinator",
-        path=f"data/intermediate/dataset/{domain}/no-generate/train/",
+        path=folder_path,
         from_file=False,
         bug_specs=BUG_SPECS,
          scenario=scenario
@@ -60,7 +60,7 @@ def eval_multi_bug_rate_seeds(domain,scenario):
 def run_eval_multi_bug(domain="SQL",mode="no-generate",num_inputs=10000,R=5,file_path=None,scenario=1):
     results = {}
     res_Seeds = eval_multi_bug_rate_seeds(domain,scenario)
-    res_grammarinator = eval_multi_bug_rate_Grammarinator(domain,scenario)
+    res_grammarinator = eval_multi_bug_rate_Grammarinator(scenario)
     res_ExplainFuzz = []
     for _ in range(R):
         main_generate_inputs(domain, mode, num_inputs,None)
@@ -82,6 +82,24 @@ def run_eval_multi_bug(domain="SQL",mode="no-generate",num_inputs=10000,R=5,file
     print(f"🎉 Evaluation complete. Results saved to {file_path}")
 
     return results
+
+def run_eval_Grammarinator(domain,res_file_path):
+    with open(res_file_path, "r") as f:
+        results = json.load(f)
+
+    scenario = 2
+    results_gram = []
+    for try_id in range(1,4):
+        folder_path = f"data/intermediate/fuzz_outputs/{domain}/try-{try_id}/no-generate/"
+        res_gramm = eval_multi_bug_rate_Grammarinator(scenario,folder_path)
+        results_gram.append(res_gramm)
+    
+    
+    results["Grammarinator"] = results_gram
+
+    with open(res_file_path, "w") as f:
+        json.dump(results, f, indent=4, default=str)
+    
 
 def visualize_multi_bug_results(file_path=None,results=None):
     """
@@ -256,7 +274,7 @@ def get_final_summary_multi_bug_evaluation(keys,file_path_summary):
         file_path = f"data/results/multi_bug_rate/scenario_2_results_multi_bug_{domain}.json"
         with open(file_path, "r") as f:
             results = json.load(f)
-        res_grammarinator = filter_results_key(results["Grammarinator"],keys)
+        res_grammarinator = aggregate_results_per_seed(results["Grammarinator"],keys)
         res_explainfuzz = aggregate_results_per_seed(results["ExplainFuzz"],keys)
         final_summary[domain]={"Grammarinator":res_grammarinator,"ExplainFuzz":res_explainfuzz}
 
@@ -327,7 +345,7 @@ def generate_table_per_trigger(file_path):
         for seed in seeds:
             for model in models:
                 counts = summary[seed][model].get("per_bug_counts_distinct", {})
-                if model == "ExplainFuzz":
+                if model == "ExplainFuzz" or model =="Grammarinator":
                     counts = {k: v["mean"] for k, v in counts.items()}  # take mean
 
                 triggered = bug in counts and counts[bug] > 0
@@ -353,6 +371,8 @@ def generate_table_per_trigger(file_path):
     df = df[ordered_cols]
 
     print(df.to_latex(index=False, escape=False)) 
+
+
 
 
 # def add_per_bug_explicit_sensitive_metric_safe(json_path):
@@ -430,5 +450,9 @@ if __name__ == "__main__":
     # keys=["per_bug_counts_distinct","per_bug_explicit_sensitive"]
     # get_final_summary_multi_bug_evaluation(keys,file_path_summary)
 
-    # vizualize_res("data/results/multi_bug_rate/per_bug_results_multi_bug.json")
+    #vizualize_res("data/results/multi_bug_rate/per_bug_results_multi_bug.json")
     generate_table_per_trigger("data/results/multi_bug_rate/per_bug_results_multi_bug.json")
+
+    # for domain in ["SQL1A"]:
+    #     print(f"Evaluation for the domain {domain}")
+    #     run_eval_Grammarinator(domain,f"data/results/multi_bug_rate/scenario_2_results_multi_bug_{domain}.json") # Looks good 

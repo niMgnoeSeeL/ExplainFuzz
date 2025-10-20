@@ -13,95 +13,273 @@
         "explicit_sensitive": 0.0,
         "per_bug_example": {}
     },
-    "Grammarinator": {
-        "executable_rate": 42.66,
-        "nb_distinct_bugs_triggered": 8,
-        "coverage": 47.06,
-        "total_triggers": 75,
-        "total_distinct_queries": 31,
-        "avg_inputs_per_bug": 9.38,
-        "avg_distinct_per_bug": 3.88,
-        "per_bug_counts": {
-            "BUG01_select_email_order": 16,
-            "BUG16_order_by_collation_edge": 16,
-            "BUG02_where_type_mismatch_salary": 25,
-            "BUG03_join_expose_email_ssn": 11,
-            "BUG05_join_and_where_ssn": 4,
-            "BUG04_join_mixed_numeric_types": 1,
-            "BUG09_subquery_avg_salary": 1,
-            "BUG10_nested_select_ssn": 1
+    "Grammarinator": [
+        {
+            "executable_rate": 42.76,
+            "nb_distinct_bugs_triggered": 8,
+            "coverage": 47.06,
+            "total_triggers": 82,
+            "total_distinct_queries": 31,
+            "avg_inputs_per_bug": 10.25,
+            "avg_distinct_per_bug": 3.88,
+            "per_bug_counts": {
+                "BUG01_select_email_order": 18,
+                "BUG16_order_by_collation_edge": 18,
+                "BUG02_where_type_mismatch_salary": 26,
+                "BUG03_join_expose_email_ssn": 13,
+                "BUG05_join_and_where_ssn": 4,
+                "BUG04_join_mixed_numeric_types": 1,
+                "BUG09_subquery_avg_salary": 1,
+                "BUG10_nested_select_ssn": 1
+            },
+            "per_bug_counts_distinct": {
+                "BUG01_select_email_order": 5,
+                "BUG16_order_by_collation_edge": 5,
+                "BUG02_where_type_mismatch_salary": 10,
+                "BUG03_join_expose_email_ssn": 5,
+                "BUG05_join_and_where_ssn": 3,
+                "BUG04_join_mixed_numeric_types": 1,
+                "BUG09_subquery_avg_salary": 1,
+                "BUG10_nested_select_ssn": 1
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG01_select_email_order": 0,
+                "BUG16_order_by_collation_edge": 0,
+                "BUG02_where_type_mismatch_salary": 0,
+                "BUG03_join_expose_email_ssn": 0,
+                "BUG05_join_and_where_ssn": 0,
+                "BUG04_join_mixed_numeric_types": 0,
+                "BUG09_subquery_avg_salary": 0,
+                "BUG10_nested_select_ssn": 0
+            },
+            "explicit_sensitive": 0.0,
+            "per_bug_example": {
+                "BUG01_select_email_order": [
+                    "SELECT *  FROM employees        ORDER BY full_time DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number USING >   , performance_score USING <        ;",
+                    "SELECT *  FROM employees        ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY performance_score USING >   , hire_date USING <        ;"
+                ],
+                "BUG16_order_by_collation_edge": [
+                    "SELECT *  FROM employees        ORDER BY full_time DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number USING >   , performance_score USING <        ;",
+                    "SELECT *  FROM employees        ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY performance_score USING >   , hire_date USING <        ;"
+                ],
+                "BUG02_where_type_mismatch_salary": [
+                    "SELECT *  FROM employees     WHERE NOT  full_time          ;",
+                    "SELECT *  FROM employees     WHERE performance_score  >  75000          ;",
+                    "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees     WHERE performance_score  >  0          ;",
+                    "SELECT *  FROM employees     WHERE performance_score  =  10          ;",
+                    "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees     WHERE ssn_number  =  '408-345-678'          ;",
+                    "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;",
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees     WHERE project_id  =  2          ;"
+                ],
+                "BUG03_join_expose_email_ssn": [
+                    "SELECT employees  . *    , projects  . project_name  AS project     FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;",
+                    "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;",
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
+                ],
+                "BUG05_join_and_where_ssn": [
+                    "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
+                ],
+                "BUG04_join_mixed_numeric_types": [
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
+                ],
+                "BUG09_subquery_avg_salary": [
+                    "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;"
+                ],
+                "BUG10_nested_select_ssn": [
+                    "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;"
+                ]
+            }
         },
-        "per_bug_counts_distinct": {
-            "BUG01_select_email_order": 5,
-            "BUG16_order_by_collation_edge": 5,
-            "BUG02_where_type_mismatch_salary": 10,
-            "BUG03_join_expose_email_ssn": 5,
-            "BUG05_join_and_where_ssn": 3,
-            "BUG04_join_mixed_numeric_types": 1,
-            "BUG09_subquery_avg_salary": 1,
-            "BUG10_nested_select_ssn": 1
+        {
+            "executable_rate": 43.44,
+            "nb_distinct_bugs_triggered": 8,
+            "coverage": 47.06,
+            "total_triggers": 68,
+            "total_distinct_queries": 29,
+            "avg_inputs_per_bug": 8.5,
+            "avg_distinct_per_bug": 3.62,
+            "per_bug_counts": {
+                "BUG02_where_type_mismatch_salary": 24,
+                "BUG03_join_expose_email_ssn": 6,
+                "BUG05_join_and_where_ssn": 3,
+                "BUG09_subquery_avg_salary": 2,
+                "BUG10_nested_select_ssn": 2,
+                "BUG01_select_email_order": 15,
+                "BUG16_order_by_collation_edge": 15,
+                "BUG04_join_mixed_numeric_types": 1
+            },
+            "per_bug_counts_distinct": {
+                "BUG02_where_type_mismatch_salary": 9,
+                "BUG03_join_expose_email_ssn": 4,
+                "BUG05_join_and_where_ssn": 3,
+                "BUG09_subquery_avg_salary": 1,
+                "BUG10_nested_select_ssn": 1,
+                "BUG01_select_email_order": 5,
+                "BUG16_order_by_collation_edge": 5,
+                "BUG04_join_mixed_numeric_types": 1
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG02_where_type_mismatch_salary": 0,
+                "BUG03_join_expose_email_ssn": 0,
+                "BUG05_join_and_where_ssn": 0,
+                "BUG09_subquery_avg_salary": 0,
+                "BUG10_nested_select_ssn": 0,
+                "BUG01_select_email_order": 0,
+                "BUG16_order_by_collation_edge": 0,
+                "BUG04_join_mixed_numeric_types": 0
+            },
+            "explicit_sensitive": 0.0,
+            "per_bug_example": {
+                "BUG02_where_type_mismatch_salary": [
+                    "SELECT *  FROM employees     WHERE NOT  full_time          ;",
+                    "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees     WHERE performance_score  >  85000          ;",
+                    "SELECT *  FROM employees     WHERE performance_score  =  10          ;",
+                    "SELECT *  FROM employees     WHERE performance_score  >  0          ;",
+                    "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees     WHERE ssn_number  =  '408-345-678'          ;",
+                    "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;",
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
+                ],
+                "BUG03_join_expose_email_ssn": [
+                    "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT employees  . *    , projects  . project_name  AS project     FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;"
+                ],
+                "BUG05_join_and_where_ssn": [
+                    "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
+                ],
+                "BUG09_subquery_avg_salary": [
+                    "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;"
+                ],
+                "BUG10_nested_select_ssn": [
+                    "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;"
+                ],
+                "BUG01_select_email_order": [
+                    "SELECT *  FROM employees        ORDER BY full_time DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number USING >   , performance_score USING <        ;",
+                    "SELECT *  FROM employees        ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY performance_score USING >   , hire_date USING <        ;"
+                ],
+                "BUG16_order_by_collation_edge": [
+                    "SELECT *  FROM employees        ORDER BY full_time DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number USING >   , performance_score USING <        ;",
+                    "SELECT *  FROM employees        ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY performance_score USING >   , hire_date USING <        ;"
+                ],
+                "BUG04_join_mixed_numeric_types": [
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
+                ]
+            }
         },
-        "per_bug_explicit_sensitive": {
-            "BUG01_select_email_order": 0,
-            "BUG16_order_by_collation_edge": 0,
-            "BUG02_where_type_mismatch_salary": 0,
-            "BUG03_join_expose_email_ssn": 0,
-            "BUG05_join_and_where_ssn": 0,
-            "BUG04_join_mixed_numeric_types": 0,
-            "BUG09_subquery_avg_salary": 0,
-            "BUG10_nested_select_ssn": 0
-        },
-        "explicit_sensitive": 0.0,
-        "per_bug_example": {
-            "BUG01_select_email_order": [
-                "SELECT *  FROM employees        ORDER BY ssn_number USING >   , performance_score USING <        ;",
-                "SELECT *  FROM employees        ORDER BY ssn_number DESC       ;",
-                "SELECT *  FROM employees        ORDER BY performance_score USING >   , hire_date USING <        ;",
-                "SELECT *  FROM employees        ORDER BY id DESC       ;",
-                "SELECT *  FROM employees        ORDER BY full_time DESC       ;"
-            ],
-            "BUG16_order_by_collation_edge": [
-                "SELECT *  FROM employees        ORDER BY ssn_number USING >   , performance_score USING <        ;",
-                "SELECT *  FROM employees        ORDER BY ssn_number DESC       ;",
-                "SELECT *  FROM employees        ORDER BY performance_score USING >   , hire_date USING <        ;",
-                "SELECT *  FROM employees        ORDER BY id DESC       ;",
-                "SELECT *  FROM employees        ORDER BY full_time DESC       ;"
-            ],
-            "BUG02_where_type_mismatch_salary": [
-                "SELECT *  FROM employees     WHERE project_id  =  2          ;",
-                "SELECT *  FROM employees     WHERE performance_score  >  0          ;",
-                "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;",
-                "SELECT *  FROM employees     WHERE performance_score  =  10          ;",
-                "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
-                "SELECT *  FROM employees     WHERE NOT  full_time          ;",
-                "SELECT *  FROM employees     WHERE ssn_number  =  '408-345-678'          ;",
-                "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
-                "SELECT *  FROM employees     WHERE performance_score  >  75000          ;",
-                "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
-            ],
-            "BUG03_join_expose_email_ssn": [
-                "SELECT employees  . *    , projects  . project_name  AS project     FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;",
-                "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
-                "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
-                "SELECT *  FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;",
-                "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
-            ],
-            "BUG05_join_and_where_ssn": [
-                "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
-                "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
-                "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
-            ],
-            "BUG04_join_mixed_numeric_types": [
-                "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
-            ],
-            "BUG09_subquery_avg_salary": [
-                "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;"
-            ],
-            "BUG10_nested_select_ssn": [
-                "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;"
-            ]
+        {
+            "executable_rate": 43.03,
+            "nb_distinct_bugs_triggered": 8,
+            "coverage": 47.06,
+            "total_triggers": 91,
+            "total_distinct_queries": 31,
+            "avg_inputs_per_bug": 11.38,
+            "avg_distinct_per_bug": 3.88,
+            "per_bug_counts": {
+                "BUG02_where_type_mismatch_salary": 31,
+                "BUG03_join_expose_email_ssn": 11,
+                "BUG04_join_mixed_numeric_types": 1,
+                "BUG05_join_and_where_ssn": 6,
+                "BUG01_select_email_order": 19,
+                "BUG16_order_by_collation_edge": 19,
+                "BUG09_subquery_avg_salary": 2,
+                "BUG10_nested_select_ssn": 2
+            },
+            "per_bug_counts_distinct": {
+                "BUG02_where_type_mismatch_salary": 10,
+                "BUG03_join_expose_email_ssn": 5,
+                "BUG04_join_mixed_numeric_types": 1,
+                "BUG05_join_and_where_ssn": 3,
+                "BUG01_select_email_order": 5,
+                "BUG16_order_by_collation_edge": 5,
+                "BUG09_subquery_avg_salary": 1,
+                "BUG10_nested_select_ssn": 1
+            },
+            "per_bug_explicit_sensitive": {
+                "BUG02_where_type_mismatch_salary": 0,
+                "BUG03_join_expose_email_ssn": 0,
+                "BUG04_join_mixed_numeric_types": 0,
+                "BUG05_join_and_where_ssn": 0,
+                "BUG01_select_email_order": 0,
+                "BUG16_order_by_collation_edge": 0,
+                "BUG09_subquery_avg_salary": 0,
+                "BUG10_nested_select_ssn": 0
+            },
+            "explicit_sensitive": 0.0,
+            "per_bug_example": {
+                "BUG02_where_type_mismatch_salary": [
+                    "SELECT *  FROM employees     WHERE NOT  full_time          ;",
+                    "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees     WHERE performance_score  >  0          ;",
+                    "SELECT *  FROM employees     WHERE performance_score  =  10          ;",
+                    "SELECT *  FROM employees     WHERE performance_score  >  85000          ;",
+                    "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees     WHERE ssn_number  =  '408-345-678'          ;",
+                    "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;",
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees     WHERE project_id  =  2          ;"
+                ],
+                "BUG03_join_expose_email_ssn": [
+                    "SELECT employees  . *    , projects  . project_name  AS project     FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;",
+                    "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;",
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
+                ],
+                "BUG04_join_mixed_numeric_types": [
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
+                ],
+                "BUG05_join_and_where_ssn": [
+                    "SELECT employees  . *    , employees  . department_id     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT *  FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;",
+                    "SELECT employees  . email    , employees  . *     FROM employees    JOIN departments  ON employees  . department_id   =  departments  . dep_number      WHERE NOT  employees  . full_time           ;"
+                ],
+                "BUG01_select_email_order": [
+                    "SELECT *  FROM employees        ORDER BY full_time DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number USING >   , performance_score USING <        ;",
+                    "SELECT *  FROM employees        ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY performance_score USING >   , hire_date USING <        ;"
+                ],
+                "BUG16_order_by_collation_edge": [
+                    "SELECT *  FROM employees        ORDER BY full_time DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY ssn_number USING >   , performance_score USING <        ;",
+                    "SELECT *  FROM employees        ORDER BY id DESC       ;",
+                    "SELECT *  FROM employees        ORDER BY performance_score USING >   , hire_date USING <        ;"
+                ],
+                "BUG09_subquery_avg_salary": [
+                    "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;"
+                ],
+                "BUG10_nested_select_ssn": [
+                    "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM departments     WHERE departments  . dep_number   =  employees  . department_id    AND   departments  . dep_budget    >   400000          )         ;"
+                ]
+            }
         }
-    },
+    ],
     "ExplainFuzz": [
         {
             "executable_rate": 49.26,
