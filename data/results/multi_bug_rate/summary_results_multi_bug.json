@@ -47,47 +47,47 @@
     },
     "SQL2A": {
         "Grammarinator": {
-            "executable_rate": 43.0,
+            "executable_rate": 42.66,
             "nb_distinct_bugs_triggered": 8,
             "coverage": 47.06,
-            "total_triggers": 188,
-            "total_distinct_queries": 44,
-            "avg_inputs_per_bug": 23.5,
-            "avg_distinct_per_bug": 5.5,
+            "total_triggers": 75,
+            "total_distinct_queries": 31,
+            "avg_inputs_per_bug": 9.38,
+            "avg_distinct_per_bug": 3.88,
             "explicit_sensitive": 0.0
         },
         "ExplainFuzz": {
             "executable_rate": {
-                "mean": 49.67666666666667,
-                "std": 1.7452093156855302
+                "mean": 50.00666666666666,
+                "std": 1.0418359862388225
             },
             "nb_distinct_bugs_triggered": {
-                "mean": 7.0,
-                "std": 0.816496580927726
+                "mean": 7.333333333333333,
+                "std": 0.4714045207910317
             },
             "coverage": {
-                "mean": 41.17666666666667,
-                "std": 4.805082956851238
+                "mean": 43.14000000000001,
+                "std": 2.7718585822512676
             },
             "total_triggers": {
-                "mean": 559.3333333333334,
-                "std": 30.879694874715902
+                "mean": 426.3333333333333,
+                "std": 25.037749277618563
             },
             "total_distinct_queries": {
-                "mean": 294.3333333333333,
-                "std": 18.445113776342563
+                "mean": 309.6666666666667,
+                "std": 32.10745846199741
             },
             "avg_inputs_per_bug": {
-                "mean": 81.52999999999999,
-                "std": 13.941494420135408
+                "mean": 58.27333333333333,
+                "std": 3.8523614691366763
             },
             "avg_distinct_per_bug": {
-                "mean": 42.943333333333335,
-                "std": 7.75690803234267
+                "mean": 42.580000000000005,
+                "std": 6.408697215503318
             },
             "explicit_sensitive": {
-                "mean": 66.06333333333333,
-                "std": 13.271981347518873
+                "mean": 64.99333333333334,
+                "std": 2.6822420141035432
             }
         }
     },

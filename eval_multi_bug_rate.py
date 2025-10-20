@@ -218,7 +218,6 @@ def aggregate_results_per_seed(seed_results, keys):
             for seed_res in seed_results:
                 for bug_trig in seed_res[key].keys():
                     bug_ids.add(bug_trig)
-            print(bug_ids)
             agg[key] = {}
             for bug in bug_ids:
                 vals = [run.get(key,{}).get(bug, 0) for run in seed_results]
@@ -278,7 +277,7 @@ def plot_per_bug_bar(gramm_data, ef_data, bug_specs, metric="per_bug_counts_dist
     """
     bug_ids = list(bug_specs.keys())
     n_bugs = len(bug_ids)
-    
+
     gramm_vals = [gramm_data[metric].get(bug, 0) for bug in bug_ids]
     
     ef_means = [ef_data[metric].get(bug,{}).get("mean",0) for bug in bug_ids]
@@ -310,7 +309,7 @@ def vizualize_res(file_path):
         res_domain = results[domain]
         gramm_data = res_domain["Grammarinator"]
         ef_data = res_domain["ExplainFuzz"]
-        plot_per_bug_bar(gramm_data, ef_data, bug_specs=BUG_SPECS, metric=f"per_bug_counts_distinct for the seed {domain[-1]}")
+        plot_per_bug_bar(gramm_data, ef_data, bug_specs=BUG_SPECS, metric=f"per_bug_counts_distinct")
 
 def generate_table_per_trigger(file_path):
     with open(file_path, "r") as f:
@@ -405,23 +404,31 @@ def generate_table_per_trigger(file_path):
 #         json.dump(data, f, indent=4)
 
 if __name__ == "__main__":
-    scenario=2
-    for domain in ["SQL1A","SQL2A","SQL3A","SQL4A","SQL"]:
-        file_path = f"data/results/multi_bug_rate/scenario_{scenario}_results_multi_bug_{domain}.json"
-        #results= run_eval_multi_bug(file_path = file_path,R=3,domain=domain,scenario=scenario)
-        #visualize_multi_bug_results(file_path)
+    # scenario=2
+    # for domain in ["SQL1A","SQL2A","SQL3A","SQL4A","SQL"]:
+    # domain = "SQL2A"
+    # file_path = f"data/results/multi_bug_rate/scenario_{scenario}_results_multi_bug_{domain}.json"
+    # results= run_eval_multi_bug(file_path = file_path,R=3,domain=domain,scenario=scenario)
+    # visualize_multi_bug_results(file_path)
     
     # domain = "SQL4"
     # file_path = f"data/results/bug_rate/analysis_seed_{domain}.json"
     # res = eval_multi_bug_rate_seeds(domain)
     # with open(file_path, "w") as f:
     #     json.dump(res, f, indent=4, default=str)
+    
+    ## Generating the summary file
+    # keys = ["executable_rate", "nb_distinct_bugs_triggered", "coverage",
+    #         "total_triggers", "total_distinct_queries", 
+    #         "avg_inputs_per_bug", "avg_distinct_per_bug","explicit_sensitive"]
+    # file_path_summary = "data/results/multi_bug_rate/summary_results_multi_bug.json"
+    
+    # get_final_summary_multi_bug_evaluation(keys,file_path_summary)
 
-    #get_final_summary_multi_bug_evaluation()
-
+    ## Generate the summary file for the different bugs
     # file_path_summary = "data/results/multi_bug_rate/per_bug_results_multi_bug.json"
     # keys=["per_bug_counts_distinct","per_bug_explicit_sensitive"]
     # get_final_summary_multi_bug_evaluation(keys,file_path_summary)
 
-    #vizualize_res("data/results/multi_bug_rate/per_bug_results_multi_bug.json")
+    # vizualize_res("data/results/multi_bug_rate/per_bug_results_multi_bug.json")
     generate_table_per_trigger("data/results/multi_bug_rate/per_bug_results_multi_bug.json")
