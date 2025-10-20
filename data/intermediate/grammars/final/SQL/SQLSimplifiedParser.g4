@@ -17,6 +17,7 @@ c_expr
     : columnref
     | columnref binary_op_columnref_list
     | unary_op c_expr
+    | binary_op c_expr
     | f_expr
     | OPEN_PAREN select_statement CLOSE_PAREN
     | STAR
@@ -51,14 +52,19 @@ integral_list
     | Integral COMMA integral_list
     ;
 
-binary_op_columnref_list: binary_op columnref | binary_op_columnref_list binary_op columnref;
+binary_op_columnref_list: math_op columnref | binary_op_columnref_list binary_op columnref;
 
 where_clause: WHERE c_expr | ;
 
 join_clause:
-    JOIN columnref ON c_expr
-    | JOIN OPEN_PAREN select_statement CLOSE_PAREN AS table_ref ON c_expr
+    JOIN table_ref ON on_clause
+    | JOIN OPEN_PAREN select_statement CLOSE_PAREN AS Identifier ON on_clause
     |
+    ;
+
+on_clause:
+    columnref binary_op_columnref_list 
+    | unary_op columnref binary_op_columnref_list
     ;
 
 group_clause: GROUP_P BY group_by_list | ;
@@ -123,7 +129,7 @@ columnref
 
 table_ref
     : Identifier
-    | Identifier AS Identifier
+    | Identifier AS collabel
     | f_expr AS Identifier
 ;
 
@@ -131,7 +137,11 @@ typeidentifier:
     Identifier | TIME | INTERVAL | DAY_P
 ;
 
-binary_op: AND | OR | LT | GT | EQUAL;
+binary_op: logic_op | math_op;
+
+math_op : LT | GT | EQUAL;
+
+logic_op : AND | OR;
 
 unary_op: NOT | EXISTS;
 

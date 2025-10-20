@@ -1,0 +1,24 @@
+[
+    {
+        "domain": "SQL2A",
+        "try_id": 2,
+        "nb_total_inputs": 10000,
+        "nb_invalid": 7,
+        "nb_executable": 4337,
+        "nb_valid": 9993,
+        "executable_rate": 43.37,
+        "success_rate_grammar": 100.0,
+        "fail_execute": 5656
+    },
+    {
+        "domain": "SQL2A",
+        "try_id": 3,
+        "nb_total_inputs": 10000,
+        "nb_invalid": 4,
+        "nb_executable": 4299,
+        "nb_valid": 9996,
+        "executable_rate": 42.99,
+        "success_rate_grammar": 99.96,
+        "fail_execute": 5697
+    }
+]

@@ -45,6 +45,8 @@ def build_model(
     grammar_name,
     initial_grammar_paths,
     max_length,
+    seeds_dir,
+    filter_non_executable=False,
     start_rule=None,
     num_inputs=10,
     skip_rules=[],
@@ -91,7 +93,7 @@ def build_model(
     refactored_dir = GRAMMAR_DIR / "refactored" / domain
     final_dir = GRAMMAR_DIR / "final" / domain
     antlr_output_dir = GEN_PARSER_DIR / domain
-    seeds_dir = SEEDS_DIR / domain
+    seeds_dir = Path(seeds_dir)
 
     refactoring_dirs = [
         intermediate_dir,
@@ -102,16 +104,16 @@ def build_model(
     ]
     ensure_directories_exist(refactoring_dirs)
 
-    grammar = grammar_refactoring_main(
-        initial_grammar_paths,
-        grammar_name,
-        intermediate_dir,
-        refactored_dir,
-        final_dir,
-        antlr_output_dir,
-        seeds_dir,
-        start_rule,
-    )
+    # grammar = grammar_refactoring_main(
+    #     initial_grammar_paths,
+    #     grammar_name,
+    #     intermediate_dir,
+    #     refactored_dir,
+    #     final_dir,
+    #     antlr_output_dir,
+    #     seeds_dir,
+    #     start_rule,
+    # )
 
     parser_final_file_path = final_dir / f"{grammar_name}Parser.g4"
     print("")
@@ -131,27 +133,30 @@ def build_model(
 
     generator_dir = GENERATOR_DIR / domain
     population_dir = POPULATION_DIR / domain
-    fuzz_outputs_dir = FUZZ_OUTPUTS_DIR / domain
+    fuzz_outputs_dir = FUZZ_OUTPUTS_DIR / domain 
     dataset_dir = DATASET_DIR / domain
     fuzzing_dirs = [generator_dir, population_dir, fuzz_outputs_dir, dataset_dir]
     ensure_directories_exist(fuzzing_dirs)
 
-    # grammarinator_fuzz_main(
-    #     prefix_grammar=grammar_name,
-    #     start_rule=start_rule,
-    #     grammar_dir=final_dir,
-    #     seeds_dir=seeds_dir,
-    #     generator_dir=generator_dir,
-    #     population_dir=population_dir,
-    #     gen_parser_dir=antlr_output_dir,
-    #     fuzz_outputs_dir=fuzz_outputs_dir,
-    #     dataset_dir=dataset_dir,
-    #     num_inputs=num_inputs,
-    #     first_time=True,
-    #     with_serializer=with_serializer,
-    #     depth=depth,
-    # )
+    grammarinator_fuzz_main(
+        domain=domain,
+        prefix_grammar=grammar_name,
+        start_rule=start_rule,
+        grammar_dir=final_dir,
+        seeds_dir=seeds_dir,
+        generator_dir=generator_dir,
+        population_dir=population_dir,
+        gen_parser_dir=antlr_output_dir,
+        fuzz_outputs_dir=fuzz_outputs_dir,
+        dataset_dir=dataset_dir,
+        num_inputs=num_inputs,
+        first_time=True,
+        with_serializer=with_serializer,
+        depth=depth,
+        filter_non_executable=filter_non_executable
+    )
     print("")
+
 
     # ============================================================
     #                 PC COMPILATION + TRAINING
@@ -167,9 +172,9 @@ def build_model(
     nb_epochs = 10
     model_save_dir = MODEL_DIR / domain
 
-    # TODO : re put the correct one
+    # # TODO : re put the correct one
     # for mode in ["no-generate", "with-generate"]:
-    for mode in ["with-generate"]:
+    for mode in ["no-generate"]:
         print(
             f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
         )
@@ -190,6 +195,8 @@ def build_model(
             testingset_dir,
             skip_rules,
         )
+
+    return 
 
 
 # ============================================================
@@ -224,7 +231,7 @@ def get_domain_config(domain):
     return domain_config
 
 
-def sample_inputs(domain, mode, nb_inputs):
+def sample_inputs(domain, mode, nb_inputs,token_condition):
     domain_config = get_domain_config(domain)
     max_length = domain_config["max_length"]
 
@@ -232,7 +239,7 @@ def sample_inputs(domain, mode, nb_inputs):
     output_dir = SAMPLES_DIR / domain / mode
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"anonymized_inputs_{mode.replace('-','_')}.txt"
-    main_sampling(model_save_path, nb_inputs, output_path, max_length)
+    main_sampling(model_save_path, nb_inputs, output_path, max_length,token_condition)
 
 
 # ====================================================================
@@ -299,7 +306,8 @@ def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives
     input_file_name = f"anonymized_inputs_{mode.replace('-','_')}.txt"
     samples_path = SAMPLES_DIR / domain / mode / input_file_name
 
-    if domain == "SQL":
+    # if domain == "SQL":
+    if "SQL" in domain:
         conninfo = (
             "dbname=testdb user=bloblo password=bloblotest host=127.0.0.1 port=5432"
         )
@@ -320,12 +328,13 @@ def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives
     return str(output_path)
 
 
-def main_generate_inputs(domain, mode, nb_concrete_inputs=200, conninfo=None):
-    if domain == "SQL":
+def main_generate_inputs(domain, mode, nb_concrete_inputs=200, token_condition = None,conninfo=None):
+    # if domain == "SQL":
+    if "SQL" in domain:
         nb_sample_inputs = nb_concrete_inputs // 20 + 1
     else:
         nb_sample_inputs = nb_concrete_inputs
-    sample_inputs(domain, mode, nb_sample_inputs)
+    sample_inputs(domain, mode, nb_sample_inputs,token_condition)
     output_path = concretization(domain, mode, conninfo, nb_concrete_inputs)
     return output_path
 
@@ -335,20 +344,51 @@ def load_domains_config(file_path):
         return json.load(file)
 
 
+def run_sql_models():
+    failing_domains = []
+    for i in range(2,5):
+        for letter in ["A"]:
+            domain = "SQL"+str(i)+letter
+            print(f"###### BUILDING MODEL FOR DOMAIN {domain} #########")
+            print(" ")
+            domain_config = domains_config[domain]
+            num_inputs = 10000
+            try:
+                build_model(
+                    domain,
+                    grammar_name=domain_config["grammar_name"],
+                    initial_grammar_paths=domain_config["initial_grammar_paths"],
+                    max_length=domain_config["max_length"],
+                    seeds_dir=domain_config["seeds_dir"],
+                    filter_non_executable=domain_config.get("filter_non_executable",False),
+                    start_rule=domain_config["start_rule"],
+                    num_inputs=num_inputs,
+                    skip_rules=domain_config["skip_rules"],
+                    with_serializer=domain_config["with_serializer"],
+                    depth=domain_config["depth"],
+                )
+            except Exception as e:
+                print(e)
+                failing_domains.append(domain)
+            print(" ")
+    print(failing_domains)
+
 if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
-
-    domain = "SQL"
+    
+    domain = "SQL1A"
     domain_config = domains_config[domain]
 
-    num_inputs = 100
+    num_inputs = 10000
 
     # build_model(
     #     domain,
     #     grammar_name=domain_config["grammar_name"],
     #     initial_grammar_paths=domain_config["initial_grammar_paths"],
     #     max_length=domain_config["max_length"],
+    #     seeds_dir=domain_config["seeds_dir"],
+    #     filter_non_executable=domain_config.get("filter_non_executable",False),
     #     start_rule=domain_config["start_rule"],
     #     num_inputs=num_inputs,
     #     skip_rules=domain_config["skip_rules"],
@@ -356,4 +396,6 @@ if __name__ == "__main__":
     #     depth=domain_config["depth"],
     # )
 
-    main_generate_inputs(domain, "no-generate", 200)
+    #run_sql_models()
+
+    #main_generate_inputs(domain, "no-generate", 1000)

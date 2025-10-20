@@ -56,6 +56,41 @@ def dispatch_probability_function(domain, question, lit1, lit2, lit3, pos, text,
     except Exception as e:
         return f"Error: {str(e)}"
 
+def eval_mar1_all_tokens(domain, mode):
+    literal_to_tokens = get_literal_token_mapping(domain)
+    results = []
+    valid_results = []
+
+    for lit in literal_to_tokens.keys():
+        try:
+            result = prob_MAR1(domain, lit, mode)  # e.g. "LIT=0.1234 prob"
+            results.append(result)
+            valid_results.append(result)
+        except Exception as e:
+            results.append(f"Error processing {lit}: {str(e)}")
+    
+    results.sort(key=lambda x: float(x.split('=')[-1].strip().split()[0]))
+
+    return "\n".join(results)
+
+def eval_cond1_all_tokens(domain, mode):
+    literal_to_tokens = get_literal_token_mapping(domain)
+    results = []
+    valid_results = []
+
+    for lit1 in literal_to_tokens.keys():
+        for lit2 in literal_to_tokens.keys():
+            if lit1!=lit2:
+                try:
+                    result = prob_COND1(domain, lit1,lit2, mode)  # e.g. "LIT=0.1234 prob"
+                    results.append(result)
+                    valid_results.append(result)
+                except Exception as e:
+                    results.append(f"Error processing {lit1},{lit2}: {str(e)}")
+    
+    results.sort(key=lambda x: float(x.split('=')[-1].strip().split()[0]))
+
+    return "\n".join(results)
 
 # TODO : Prepare all the functions for each type of query
 def prob_MAR1(domain, lit, mode):
@@ -343,6 +378,26 @@ with gr.Blocks() as demo:
             ],
             outputs=prob_output,
         )
+
+        with gr.Row():
+            gr.Markdown("### Or evaluate MAR1 for all tokens")
+            eval_all_btn = gr.Button("Evaluate All")
+            eval_all_output = gr.Textbox(label="Results")
+            eval_all_btn.click(
+                fn=eval_mar1_all_tokens,
+                inputs=[domain, mode],
+                outputs=eval_all_output,
+            )
+        with gr.Row():
+            gr.Markdown("### Or evaluate COND1 for all token pairs")
+            eval_all_cond1_btn = gr.Button("Evaluate All COND1")
+            eval_all_cond1_output = gr.Textbox(label="Results")
+            eval_all_cond1_btn.click(
+                fn=eval_cond1_all_tokens,
+                inputs=[domain, mode],
+                outputs=eval_all_cond1_output,
+            )
+
 
     with gr.Tab("🧬 Input Generator"):
         sql_conn = gr.Textbox(

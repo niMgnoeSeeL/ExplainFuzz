@@ -1,0 +1,24 @@
+[
+    {
+        "domain": "SQL3A",
+        "try_id": 2,
+        "nb_total_inputs": 10000,
+        "nb_invalid": 10,
+        "nb_executable": 3610,
+        "nb_valid": 9990,
+        "executable_rate": 36.1,
+        "success_rate_grammar": 99.9,
+        "fail_execute": 6380
+    },
+    {
+        "domain": "SQL3A",
+        "try_id": 3,
+        "nb_total_inputs": 10000,
+        "nb_invalid": 6,
+        "nb_executable": 3973,
+        "nb_valid": 9994,
+        "executable_rate": 39.73,
+        "success_rate_grammar": 99.94,
+        "fail_execute": 6021
+    }
+]

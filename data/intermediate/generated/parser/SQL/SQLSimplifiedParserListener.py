@@ -116,6 +116,15 @@ class SQLSimplifiedParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by SQLSimplifiedParser#on_clause.
+    def enterOn_clause(self, ctx:SQLSimplifiedParser.On_clauseContext):
+        pass
+
+    # Exit a parse tree produced by SQLSimplifiedParser#on_clause.
+    def exitOn_clause(self, ctx:SQLSimplifiedParser.On_clauseContext):
+        pass
+
+
     # Enter a parse tree produced by SQLSimplifiedParser#group_clause.
     def enterGroup_clause(self, ctx:SQLSimplifiedParser.Group_clauseContext):
         pass
@@ -239,6 +248,24 @@ class SQLSimplifiedParserListener(ParseTreeListener):
 
     # Exit a parse tree produced by SQLSimplifiedParser#binary_op.
     def exitBinary_op(self, ctx:SQLSimplifiedParser.Binary_opContext):
+        pass
+
+
+    # Enter a parse tree produced by SQLSimplifiedParser#math_op.
+    def enterMath_op(self, ctx:SQLSimplifiedParser.Math_opContext):
+        pass
+
+    # Exit a parse tree produced by SQLSimplifiedParser#math_op.
+    def exitMath_op(self, ctx:SQLSimplifiedParser.Math_opContext):
+        pass
+
+
+    # Enter a parse tree produced by SQLSimplifiedParser#logic_op.
+    def enterLogic_op(self, ctx:SQLSimplifiedParser.Logic_opContext):
+        pass
+
+    # Exit a parse tree produced by SQLSimplifiedParser#logic_op.
+    def exitLogic_op(self, ctx:SQLSimplifiedParser.Logic_opContext):
         pass
 
 

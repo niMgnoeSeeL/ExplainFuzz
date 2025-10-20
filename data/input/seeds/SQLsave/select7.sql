@@ -1,0 +1,1 @@
+SELECT hire_date , salary FROM employees JOIN sample_table ON employees.id = sample_table.id GROUP BY hire_date , salary HAVING AVG(salary) > 50000 ORDER BY salary DESC;

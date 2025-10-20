@@ -1,0 +1,1 @@
+SELECT project_name FROM projects WHERE budget > 500000 UNION SELECT department_name FROM departments WHERE dep_budget > 400000;
