@@ -12,7 +12,8 @@
     "with_serializer": true,
     "skip_rules": ["TAG_WHITESPACE"],
     "max_length": 35,
-    "depth": 50
+    "depth": 50,
+    "max_lengths": [10, 15, 20, 25, 30, 35, 40, 50]
   },
   "REDIS": {
     "grammar_name": "Redis",
@@ -27,7 +28,8 @@
     "with_serializer": true,
     "skip_rules": ["SPACE"],
     "max_length": 10,
-    "depth": 15
+    "depth": 15,
+    "max_lengths": [5, 10, 15]
   },
   "SQL": {
     "grammar_name": "SQLSimplified",
@@ -43,6 +45,7 @@
     "skip_rules": ["Whitespace", "Newline"],
     "max_length": 37,
     "depth": 15,
+    "max_lengths": [10, 15, 20, 25, 30, 35],
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
       "COND1": [
@@ -68,6 +71,7 @@
     "filter_non_executable": false,
     "max_length": 36,
     "depth": 15,
+    "max_lengths": [10, 15, 20, 25, 30, 35],
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
       "COND1": [
@@ -93,6 +97,7 @@
     "filter_non_executable": true,
     "max_length": 36,
     "depth": 15,
+    "max_lengths": [10, 15, 20, 25, 30, 35],
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
       "COND1": [
@@ -118,6 +123,7 @@
     "filter_non_executable": false,
     "max_length": 36,
     "depth": 15,
+    "max_lengths": [10, 15, 20, 25, 30, 35],
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
       "COND1": [
@@ -143,6 +149,7 @@
     "filter_non_executable": true,
     "max_length": 36,
     "depth": 15,
+    "max_lengths": [10, 15, 20, 25, 30, 35],
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
       "COND1": [
@@ -168,6 +175,7 @@
     "filter_non_executable": false,
     "max_length": 36,
     "depth": 15,
+    "max_lengths": [10, 15, 20, 25, 30, 35],
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
       "COND1": [
@@ -193,6 +201,7 @@
     "filter_non_executable": true,
     "max_length": 36,
     "depth": 15,
+    "max_lengths": [10, 15, 20, 25, 30, 35],
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
       "COND1": [
@@ -218,6 +227,7 @@
     "filter_non_executable": false,
     "max_length": 36,
     "depth": 15,
+    "max_lengths": [10, 15, 20, 25, 30, 35],
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
       "COND1": [
@@ -243,6 +253,7 @@
     "filter_non_executable": true,
     "max_length": 36,
     "depth": 15,
+    "max_lengths": [10, 15, 20, 25, 30, 35],
     "inference_inputs": {
       "MAR1": ["SELECT", "DOT", "ORDER", "BY", "FROM", "STAR"],
       "COND1": [
@@ -262,7 +273,8 @@
     "with_serializer": true,
     "skip_rules": ["WS"],
     "max_length": 30,
-    "depth": 20
+    "depth": 20,
+    "max_lengths": [10, 15, 20, 25, 30]
   },
   "B": {
     "grammar_name": "b",
@@ -273,7 +285,8 @@
     "with_serializer": true,
     "skip_rules": ["WS"],
     "max_length": 40,
-    "depth": 20
+    "depth": 20,
+    "max_lengths": [10, 15, 20, 25, 30, 35, 40]
   },
   "CSV": {
     "grammar_name": "CSV",
@@ -284,7 +297,8 @@
     "with_serializer": false,
     "skip_rules": [],
     "max_length": 30,
-    "depth": 20
+    "depth": 20,
+    "max_lengths": [15, 20, 25, 30, 35, 40, 45]
   },
   "JSON": {
     "grammar_name": "JSON",
@@ -295,7 +309,8 @@
     "with_serializer": false,
     "skip_rules": ["WS"],
     "max_length": 30,
-    "depth": 20
+    "depth": 20,
+    "max_lengths": [10, 15, 20, 25, 30, 35, 40, 45, 50]
   },
   "CLOUDFORMATION": {
     "grammar_name": "JSONLLM",
@@ -309,7 +324,8 @@
     "with_serializer": false,
     "skip_rules": ["WS"],
     "max_length": 50,
-    "depth": 20
+    "depth": 20,
+    "max_lengths": []
   },
   "MLIR": {
     "grammar_name": "mlir_base",
@@ -320,7 +336,8 @@
     "with_serializer": false,
     "skip_rules": ["WS"],
     "max_length": 35,
-    "depth": 20
+    "depth": 20,
+    "max_lengths": []
   },
   "XML": {
     "grammar_name": "XML",
@@ -334,7 +351,8 @@
     "with_serializer": true,
     "skip_rules": ["SEA_WS"],
     "max_length": 25,
-    "depth": 10
+    "depth": 10,
+    "max_lengths": []
   },
   "C": {
     "grammar_name": "C",
@@ -345,7 +363,8 @@
     "with_serializer": false,
     "skip_rules": [],
     "max_length": 25,
-    "depth": 15
+    "depth": 15,
+    "max_lengths": []
   },
   "REST": {
     "grammar_name": "REST",
@@ -356,6 +375,7 @@
     "with_serializer": false,
     "skip_rules": [],
     "max_length": 25,
-    "depth": 15
+    "depth": 15,
+    "max_lengths": []
   }
 }

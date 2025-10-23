@@ -1,0 +1,156 @@
+{
+  "REDIS": [
+    {
+      "domain": "REDIS",
+      "nb_seeds": 7,
+      "min_sequence_length": 4,
+      "max_sequence_length": 8,
+      "avg_sequence_length": 6.428571428571429,
+      "realistic_max_length": 10,
+      "computed_realistic_max_length": 10,
+      "maximum_max_length_available": 15
+    }
+  ],
+  "JANUS": [
+    {
+      "domain": "JANUS",
+      "nb_seeds": 5,
+      "min_sequence_length": 10,
+      "max_sequence_length": 26,
+      "avg_sequence_length": 19.4,
+      "realistic_max_length": 20,
+      "computed_realistic_max_length": 25,
+      "maximum_max_length_available": 30
+    }
+  ],
+  "MDX": [
+    {
+      "domain": "MDX",
+      "nb_seeds": 5,
+      "min_sequence_length": 22,
+      "max_sequence_length": 36,
+      "avg_sequence_length": 28.6,
+      "realistic_max_length": 35,
+      "computed_realistic_max_length": 33,
+      "maximum_max_length_available": null
+    }
+  ],
+  "XML": [
+    {
+      "domain": "XML",
+      "nb_seeds": 5,
+      "min_sequence_length": 13,
+      "max_sequence_length": 19,
+      "avg_sequence_length": 14.8,
+      "realistic_max_length": 20,
+      "computed_realistic_max_length": 17,
+      "maximum_max_length_available": null
+    },
+    {
+      "domain": "XML",
+      "nb_seeds": 3,
+      "min_sequence_length": 17,
+      "max_sequence_length": 80,
+      "avg_sequence_length": 45.0,
+      "realistic_max_length": 50,
+      "computed_realistic_max_length": 63,
+      "maximum_max_length_available": null
+    }
+  ],
+  "B": [
+    {
+      "domain": "B",
+      "nb_seeds": 7,
+      "min_sequence_length": 19,
+      "max_sequence_length": 70,
+      "avg_sequence_length": 36.714285714285715,
+      "realistic_max_length": 40,
+      "computed_realistic_max_length": 40,
+      "maximum_max_length_available": 40
+    }
+  ],
+  "SQL": [
+    {
+      "domain": "SQL",
+      "nb_seeds": 6,
+      "min_sequence_length": 13,
+      "max_sequence_length": 26,
+      "avg_sequence_length": 20.833333333333332,
+      "realistic_max_length": 25,
+      "computed_realistic_max_length": 25,
+      "maximum_max_length_available": 35
+    }
+  ],
+  "CSV": [
+    {
+      "domain": "CSV",
+      "nb_seeds": 5,
+      "min_sequence_length": 32,
+      "max_sequence_length": 41,
+      "avg_sequence_length": 37.2,
+      "realistic_max_length": 40,
+      "computed_realistic_max_length": 40,
+      "maximum_max_length_available": 45
+    }
+  ],
+  "HTML": [
+    {
+      "domain": "HTML",
+      "nb_seeds": 5,
+      "min_sequence_length": 31,
+      "max_sequence_length": 93,
+      "avg_sequence_length": 56.8,
+      "realistic_max_length": 65,
+      "computed_realistic_max_length": 50,
+      "maximum_max_length_available": 50
+    }
+  ],
+  "JSON": [
+    {
+      "domain": "JSON",
+      "nb_seeds": 5,
+      "min_sequence_length": 17,
+      "max_sequence_length": 39,
+      "avg_sequence_length": 29.0,
+      "realistic_max_length": 35,
+      "computed_realistic_max_length": 35,
+      "maximum_max_length_available": 50
+    }
+  ],
+  "CLOUDFORMATION": [
+    {
+      "domain": "CLOUDFORMATION",
+      "nb_seeds": 5,
+      "min_sequence_length": 1031,
+      "max_sequence_length": 3771,
+      "avg_sequence_length": 2281.6,
+      "realistic_max_length": 2290,
+      "computed_realistic_max_length": 3027,
+      "maximum_max_length_available": null
+    }
+  ],
+  "MLIR": [
+    {
+      "domain": "MLIR",
+      "nb_seeds": 5,
+      "min_sequence_length": 89,
+      "max_sequence_length": 195,
+      "avg_sequence_length": 119.8,
+      "realistic_max_length": 125,
+      "computed_realistic_max_length": 158,
+      "maximum_max_length_available": null
+    }
+  ],
+  "C": [
+    {
+      "domain": "C",
+      "nb_seeds": 5,
+      "min_sequence_length": 5,
+      "max_sequence_length": 13,
+      "avg_sequence_length": 9.4,
+      "realistic_max_length": 10,
+      "computed_realistic_max_length": 12,
+      "maximum_max_length_available": null
+    }
+  ]
+}
