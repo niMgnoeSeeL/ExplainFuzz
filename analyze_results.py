@@ -875,8 +875,8 @@ if __name__ == "__main__":
          "data/results_october/PC/eval_PC_model.json",
         "data/results_october/PCFG/eval_PCFG.json",
         "data/results_october/LLM/eval_llm.json",
-        "data/results/PC-HMM/eval_PC_HMM_with_perplexity_bis.json",
-        "data/results/SEEDS/eval_seeds_updated.json")
+        "data/results_october/PC-HMM/eval_PC_HMM.json",
+        "data/results_october/SEEDS/eval_seeds.json")
     
     latex = df_filtered_to_latex_table(df_filtered,caption= "Perplexity per Domain", label="tab:perplexity_domain_comparison")
     print(latex)
