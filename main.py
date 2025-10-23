@@ -33,6 +33,7 @@ SAMPLES_DIR = INTERMEDIATE_DIR / "samples"
 RESULTS_DIR = BASE_DIR / "results"
 
 NEW_RESULTS_DIR = BASE_DIR / "new_results"
+RESULTS_OCTOBER = BASE_DIR / "results_october"
 
 
 def ensure_directories_exist(directories):

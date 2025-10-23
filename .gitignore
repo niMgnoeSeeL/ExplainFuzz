@@ -4,6 +4,7 @@ data/intermediate/generated/population
 data/intermediate/generated/parser/*/*.interp
 data/intermediate/generated/parser/*/*.tokens
 data/intermediate/dataset/
+data/intermediate/dataset_evaluation/
 data/intermediate/samples/
 data/intermediate/grammars/refactored/
 data/intermediate/grammars/intermediate/
