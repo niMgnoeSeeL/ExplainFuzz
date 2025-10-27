@@ -1,0 +1,2049 @@
+{
+  "SQL1A": {
+    "Grammarinator": {
+      "executable_rate": {
+        "mean": 45.053333333333335,
+        "std": 0.19482185594936463
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 17.65,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 132.0,
+        "std": 23.366642891095847
+      },
+      "total_distinct_queries": {
+        "mean": 27.0,
+        "std": 0.0
+      },
+      "avg_inputs_per_bug": {
+        "mean": 44.0,
+        "std": 7.788880963698615
+      },
+      "avg_distinct_per_bug": {
+        "mean": 9.0,
+        "std": 0.0
+      },
+      "explicit_sensitive": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 9.0,
+          "std": 0.0
+        },
+        "BUG01_order_email": {
+          "mean": 9.0,
+          "std": 0.0
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 9.0,
+          "std": 0.0
+        }
+      }
+    },
+    "ExplainFuzz": {
+      "executable_rate": {
+        "mean": 73.20666666666666,
+        "std": 1.126804725269154
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 17.65,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 1060.0,
+        "std": 81.07198447470412
+      },
+      "total_distinct_queries": {
+        "mean": 1057.0,
+        "std": 82.7808351411525
+      },
+      "avg_inputs_per_bug": {
+        "mean": 353.3333333333333,
+        "std": 27.02322745754515
+      },
+      "avg_distinct_per_bug": {
+        "mean": 352.3333333333333,
+        "std": 27.592900455652632
+      },
+      "explicit_sensitive": {
+        "mean": 78.55333333333333,
+        "std": 4.909150186697852
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 472.3333333333333,
+          "std": 32.601976763516795
+        },
+        "BUG01_order_email": {
+          "mean": 489.0,
+          "std": 32.93427798915086
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 95.66666666666667,
+          "std": 21.638443156156644
+        }
+      }
+    },
+    "ExplainFuzz + ORDER": {
+      "executable_rate": {
+        "mean": 76.68333333333334,
+        "std": 19.453995876311776
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 17.65,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 1008.3333333333334,
+        "std": 201.76113489856155
+      },
+      "total_distinct_queries": {
+        "mean": 1008.0,
+        "std": 201.52584615047934
+      },
+      "avg_inputs_per_bug": {
+        "mean": 336.1133333333334,
+        "std": 67.2552829812565
+      },
+      "avg_distinct_per_bug": {
+        "mean": 336.0,
+        "std": 67.17528761878633
+      },
+      "explicit_sensitive": {
+        "mean": 92.44333333333333,
+        "std": 10.68674048633269
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 466.0,
+          "std": 109.33434958877288
+        },
+        "BUG01_order_email": {
+          "mean": 483.6666666666667,
+          "std": 102.50311648378741
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 58.333333333333336,
+          "std": 10.077477638553983
+        }
+      },
+      "conditioning_token": "ORDER"
+    },
+    "ExplainFuzz + WHERE": {
+      "executable_rate": {
+        "mean": 76.63,
+        "std": 0.12328828005937882
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 17.65,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 936.0,
+        "std": 24.055491403558285
+      },
+      "total_distinct_queries": {
+        "mean": 936.0,
+        "std": 24.055491403558285
+      },
+      "avg_inputs_per_bug": {
+        "mean": 312.0,
+        "std": 8.016187788884844
+      },
+      "avg_distinct_per_bug": {
+        "mean": 312.0,
+        "std": 8.016187788884844
+      },
+      "explicit_sensitive": {
+        "mean": 100.0,
+        "std": 0.0
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 458.6666666666667,
+          "std": 14.65908895153068
+        },
+        "BUG01_order_email": {
+          "mean": 421.6666666666667,
+          "std": 24.944382578492945
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 55.666666666666664,
+          "std": 3.299831645537222
+        }
+      },
+      "conditioning_token": "WHERE"
+    },
+    "ExplainFuzz + JOIN": {
+      "executable_rate": {
+        "mean": 4.306666666666667,
+        "std": 0.4664999702274614
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 4.666666666666667,
+        "std": 0.4714045207910317
+      },
+      "coverage": {
+        "mean": 27.45,
+        "std": 2.771858582251266
+      },
+      "total_triggers": {
+        "mean": 72.0,
+        "std": 9.899494936611665
+      },
+      "total_distinct_queries": {
+        "mean": 72.0,
+        "std": 9.899494936611665
+      },
+      "avg_inputs_per_bug": {
+        "mean": 15.366666666666667,
+        "std": 0.6128258770283415
+      },
+      "avg_distinct_per_bug": {
+        "mean": 15.366666666666667,
+        "std": 0.6128258770283415
+      },
+      "explicit_sensitive": {
+        "mean": 100.0,
+        "std": 0.0
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 2.0,
+          "std": 0.816496580927726
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 20.333333333333332,
+          "std": 6.944222218666553
+        },
+        "BUG02_where_salary": {
+          "mean": 24.0,
+          "std": 7.0710678118654755
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 1.3333333333333333,
+          "std": 0.9428090415820634
+        },
+        "BUG01_order_email": {
+          "mean": 24.333333333333332,
+          "std": 0.4714045207910317
+        }
+      },
+      "conditioning_token": "JOIN"
+    },
+    "ExplainFuzz + GROUP": {
+      "executable_rate": {
+        "mean": 2.8066666666666666,
+        "std": 0.2678722747048591
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 2.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 11.76,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 12.333333333333334,
+        "std": 1.247219128924647
+      },
+      "total_distinct_queries": {
+        "mean": 12.333333333333334,
+        "std": 1.247219128924647
+      },
+      "avg_inputs_per_bug": {
+        "mean": 6.166666666666667,
+        "std": 0.6236095644623235
+      },
+      "avg_distinct_per_bug": {
+        "mean": 6.166666666666667,
+        "std": 0.6236095644623235
+      },
+      "explicit_sensitive": {
+        "mean": 100.0,
+        "std": 0.0
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 6.333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG01_order_email": {
+          "mean": 6.0,
+          "std": 1.4142135623730951
+        }
+      },
+      "conditioning_token": "GROUP"
+    },
+    "ExplainFuzz + SELECT": {
+      "executable_rate": {
+        "mean": 71.10333333333334,
+        "std": 2.3640971967234274
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 17.65,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 968.3333333333334,
+        "std": 85.46474256804511
+      },
+      "total_distinct_queries": {
+        "mean": 966.6666666666666,
+        "std": 85.85776351359006
+      },
+      "avg_inputs_per_bug": {
+        "mean": 322.78000000000003,
+        "std": 28.486678758090882
+      },
+      "avg_distinct_per_bug": {
+        "mean": 322.22333333333336,
+        "std": 28.620721320205913
+      },
+      "explicit_sensitive": {
+        "mean": 82.33333333333333,
+        "std": 3.4729654315712506
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 441.6666666666667,
+          "std": 36.55437350334734
+        },
+        "BUG01_order_email": {
+          "mean": 445.6666666666667,
+          "std": 35.74290916469385
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 79.33333333333333,
+          "std": 19.90533150244482
+        }
+      },
+      "conditioning_token": "SELECT"
+    },
+    "ExplainFuzz + UNION": {
+      "executable_rate": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "total_distinct_queries": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "avg_inputs_per_bug": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "avg_distinct_per_bug": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "explicit_sensitive": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "per_bug_counts_distinct": {},
+      "conditioning_token": "UNION"
+    },
+    "ExplainFuzz + NOT": {
+      "executable_rate": {
+        "mean": 3.5233333333333334,
+        "std": 3.4809034587142587
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 2.0,
+        "std": 1.4142135623730951
+      },
+      "coverage": {
+        "mean": 11.766666666666666,
+        "std": 8.320289791961708
+      },
+      "total_triggers": {
+        "mean": 46.333333333333336,
+        "std": 47.72374205314956
+      },
+      "total_distinct_queries": {
+        "mean": 46.333333333333336,
+        "std": 47.72374205314956
+      },
+      "avg_inputs_per_bug": {
+        "mean": 15.443333333333333,
+        "std": 15.906385160962525
+      },
+      "avg_distinct_per_bug": {
+        "mean": 15.443333333333333,
+        "std": 15.906385160962525
+      },
+      "explicit_sensitive": {
+        "mean": 51.0,
+        "std": 40.849316599750686
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 21.333333333333332,
+          "std": 23.456816114345575
+        },
+        "BUG01_order_email": {
+          "mean": 22.666666666666668,
+          "std": 22.88133640230735
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 2.3333333333333335,
+          "std": 1.699673171197595
+        }
+      },
+      "conditioning_token": "NOT"
+    }
+  },
+  "SQL2A": {
+    "Grammarinator": {
+      "executable_rate": {
+        "mean": 43.07666666666666,
+        "std": 0.2795631512834898
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 8.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 47.06,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 80.33333333333333,
+        "std": 9.46337971105226
+      },
+      "total_distinct_queries": {
+        "mean": 30.333333333333332,
+        "std": 0.9428090415820634
+      },
+      "avg_inputs_per_bug": {
+        "mean": 10.043333333333335,
+        "std": 1.184801905617794
+      },
+      "avg_distinct_per_bug": {
+        "mean": 3.793333333333333,
+        "std": 0.12256517540566814
+      },
+      "explicit_sensitive": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 4.666666666666667,
+          "std": 0.4714045207910317
+        },
+        "BUG02_where_salary": {
+          "mean": 9.666666666666666,
+          "std": 0.4714045207910317
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 3.0,
+          "std": 0.0
+        },
+        "BUG04_join_salary_budget": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "BUG09_nested_salary": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 5.0,
+          "std": 0.0
+        },
+        "BUG01_order_email": {
+          "mean": 5.0,
+          "std": 0.0
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "ExplainFuzz": {
+      "executable_rate": {
+        "mean": 50.00666666666666,
+        "std": 1.0418359862388225
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 7.333333333333333,
+        "std": 0.4714045207910317
+      },
+      "coverage": {
+        "mean": 43.14000000000001,
+        "std": 2.7718585822512676
+      },
+      "total_triggers": {
+        "mean": 426.3333333333333,
+        "std": 25.037749277618563
+      },
+      "total_distinct_queries": {
+        "mean": 309.6666666666667,
+        "std": 32.10745846199741
+      },
+      "avg_inputs_per_bug": {
+        "mean": 58.27333333333333,
+        "std": 3.8523614691366763
+      },
+      "avg_distinct_per_bug": {
+        "mean": 42.580000000000005,
+        "std": 6.408697215503318
+      },
+      "explicit_sensitive": {
+        "mean": 64.99333333333334,
+        "std": 2.6822420141035432
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 2.6666666666666665,
+          "std": 1.247219128924647
+        },
+        "BUG02_where_salary": {
+          "mean": 122.66666666666667,
+          "std": 13.474255287605157
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "BUG11_union_email": {
+          "mean": 0.6666666666666666,
+          "std": 0.9428090415820634
+        },
+        "BUG09_nested_salary": {
+          "mean": 9.666666666666666,
+          "std": 3.39934634239519
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 45.333333333333336,
+          "std": 12.036980056845191
+        },
+        "BUG01_order_email": {
+          "mean": 120.33333333333333,
+          "std": 16.858891488535722
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 7.333333333333333,
+          "std": 1.699673171197595
+        }
+      }
+    },
+    "ExplainFuzz + ORDER": {
+      "executable_rate": {
+        "mean": 58.333333333333336,
+        "std": 20.642665094948914
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 2.6666666666666665,
+        "std": 0.4714045207910317
+      },
+      "coverage": {
+        "mean": 15.686666666666666,
+        "std": 2.776572627459176
+      },
+      "total_triggers": {
+        "mean": 670.0,
+        "std": 382.59900679431985
+      },
+      "total_distinct_queries": {
+        "mean": 647.3333333333334,
+        "std": 376.9689052900193
+      },
+      "avg_inputs_per_bug": {
+        "mean": 231.88666666666666,
+        "std": 116.05001689884504
+      },
+      "avg_distinct_per_bug": {
+        "mean": 224.33333333333334,
+        "std": 114.55049027490988
+      },
+      "explicit_sensitive": {
+        "mean": 90.88666666666666,
+        "std": 9.773761927846525
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 175.33333333333334,
+          "std": 229.13217922316267
+        },
+        "BUG01_order_email": {
+          "mean": 394.3333333333333,
+          "std": 182.94686538871213
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 77.66666666666667,
+          "std": 47.37322262863508
+        }
+      },
+      "conditioning_token": "ORDER"
+    },
+    "ExplainFuzz + WHERE": {
+      "executable_rate": {
+        "mean": 52.23333333333333,
+        "std": 3.108486591396027
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.6666666666666665,
+        "std": 0.9428090415820634
+      },
+      "coverage": {
+        "mean": 21.570000000000004,
+        "std": 5.543717164502533
+      },
+      "total_triggers": {
+        "mean": 499.0,
+        "std": 239.71788975098764
+      },
+      "total_distinct_queries": {
+        "mean": 497.0,
+        "std": 241.1320523420034
+      },
+      "avg_inputs_per_bug": {
+        "mean": 151.57666666666668,
+        "std": 91.99411442526574
+      },
+      "avg_distinct_per_bug": {
+        "mean": 151.04333333333332,
+        "std": 92.3338566772172
+      },
+      "explicit_sensitive": {
+        "mean": 97.02333333333333,
+        "std": 1.931084899451315
+      },
+      "per_bug_counts_distinct": {
+        "BUG14_where_or_email_salary": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG02_where_salary": {
+          "mean": 340.6666666666667,
+          "std": 74.64285334548482
+        },
+        "BUG13_where_or_salary": {
+          "mean": 1.3333333333333333,
+          "std": 1.8856180831641267
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 22.666666666666668,
+          "std": 27.82484900627894
+        },
+        "BUG01_order_email": {
+          "mean": 132.0,
+          "std": 140.06665080120487
+        }
+      },
+      "conditioning_token": "WHERE"
+    },
+    "ExplainFuzz + JOIN": {
+      "executable_rate": {
+        "mean": 29.8,
+        "std": 31.438476426188345
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 2.3333333333333335,
+        "std": 1.699673171197595
+      },
+      "coverage": {
+        "mean": 13.726666666666667,
+        "std": 9.998654353906273
+      },
+      "total_triggers": {
+        "mean": 75.0,
+        "std": 53.04714883949938
+      },
+      "total_distinct_queries": {
+        "mean": 75.0,
+        "std": 53.04714883949938
+      },
+      "avg_inputs_per_bug": {
+        "mean": 21.833333333333332,
+        "std": 15.823681268557229
+      },
+      "avg_distinct_per_bug": {
+        "mean": 21.833333333333332,
+        "std": 15.823681268557229
+      },
+      "explicit_sensitive": {
+        "mean": 47.583333333333336,
+        "std": 36.92353209299216
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 35.666666666666664,
+          "std": 33.229839334884275
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 20.0,
+          "std": 19.252705437591537
+        },
+        "BUG01_order_email": {
+          "mean": 2.0,
+          "std": 2.8284271247461903
+        },
+        "BUG02_where_salary": {
+          "mean": 17.333333333333332,
+          "std": 15.69146972791976
+        }
+      },
+      "conditioning_token": "JOIN"
+    },
+    "ExplainFuzz + GROUP": {
+      "executable_rate": {
+        "mean": 4.153333333333333,
+        "std": 1.842757595441016
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.3333333333333335,
+        "std": 2.0548046676563256
+      },
+      "coverage": {
+        "mean": 19.606666666666666,
+        "std": 12.086036938917939
+      },
+      "total_triggers": {
+        "mean": 27.0,
+        "std": 35.364765892999586
+      },
+      "total_distinct_queries": {
+        "mean": 27.0,
+        "std": 35.364765892999586
+      },
+      "avg_inputs_per_bug": {
+        "mean": 4.943333333333333,
+        "std": 5.576715480957905
+      },
+      "avg_distinct_per_bug": {
+        "mean": 4.943333333333333,
+        "std": 5.576715480957905
+      },
+      "explicit_sensitive": {
+        "mean": 40.943333333333335,
+        "std": 42.78683312526049
+      },
+      "per_bug_counts_distinct": {
+        "BUG14_where_or_email_salary": {
+          "mean": 1.0,
+          "std": 1.4142135623730951
+        },
+        "BUG03_join_email_ssn": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG02_where_salary": {
+          "mean": 6.666666666666667,
+          "std": 9.428090415820632
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 6.333333333333333,
+          "std": 8.956685895029603
+        },
+        "BUG09_nested_salary": {
+          "mean": 6.666666666666667,
+          "std": 9.428090415820632
+        },
+        "BUG13_where_or_salary": {
+          "mean": 1.0,
+          "std": 1.4142135623730951
+        },
+        "BUG06_group_salary_email": {
+          "mean": 4.333333333333333,
+          "std": 5.436502143433364
+        },
+        "BUG07_group_by_having_ssn": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG17_join_group_email_salary": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        }
+      },
+      "conditioning_token": "GROUP"
+    },
+    "ExplainFuzz + SELECT": {
+      "executable_rate": {
+        "mean": 51.723333333333336,
+        "std": 0.9114944992824806
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 8.333333333333334,
+        "std": 0.4714045207910317
+      },
+      "coverage": {
+        "mean": 49.02,
+        "std": 2.771858582251264
+      },
+      "total_triggers": {
+        "mean": 414.0,
+        "std": 47.42010825237187
+      },
+      "total_distinct_queries": {
+        "mean": 293.3333333333333,
+        "std": 24.390344173235622
+      },
+      "avg_inputs_per_bug": {
+        "mean": 50.0,
+        "std": 7.547820877577844
+      },
+      "avg_distinct_per_bug": {
+        "mean": 35.42,
+        "std": 4.44183145410389
+      },
+      "explicit_sensitive": {
+        "mean": 65.06333333333333,
+        "std": 8.219571494643475
+      },
+      "per_bug_counts_distinct": {
+        "BUG06_group_salary_email": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG03_join_email_ssn": {
+          "mean": 5.666666666666667,
+          "std": 2.8674417556808756
+        },
+        "BUG02_where_salary": {
+          "mean": 110.66666666666667,
+          "std": 4.496912521077347
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 0.6666666666666666,
+          "std": 0.4714045207910317
+        },
+        "BUG11_union_email": {
+          "mean": 0.6666666666666666,
+          "std": 0.4714045207910317
+        },
+        "BUG09_nested_salary": {
+          "mean": 4.666666666666667,
+          "std": 2.0548046676563256
+        },
+        "BUG13_where_or_salary": {
+          "mean": 1.0,
+          "std": 1.4142135623730951
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 32.666666666666664,
+          "std": 8.956685895029603
+        },
+        "BUG01_order_email": {
+          "mean": 130.66666666666666,
+          "std": 12.229290885229428
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 6.0,
+          "std": 2.8284271247461903
+        },
+        "BUG07_group_by_having_ssn": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        }
+      },
+      "conditioning_token": "SELECT"
+    },
+    "ExplainFuzz + UNION": {
+      "executable_rate": {
+        "mean": 0.41,
+        "std": 0.48421758194706926
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 1.3333333333333333,
+        "std": 1.8856180831641267
+      },
+      "coverage": {
+        "mean": 7.843333333333334,
+        "std": 11.092148374212977
+      },
+      "total_triggers": {
+        "mean": 14.0,
+        "std": 19.79898987322333
+      },
+      "total_distinct_queries": {
+        "mean": 11.333333333333334,
+        "std": 16.027753706895076
+      },
+      "avg_inputs_per_bug": {
+        "mean": 3.5,
+        "std": 4.949747468305833
+      },
+      "avg_distinct_per_bug": {
+        "mean": 2.8333333333333335,
+        "std": 4.006938426723769
+      },
+      "explicit_sensitive": {
+        "mean": 33.333333333333336,
+        "std": 47.14045207910317
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 5.333333333333333,
+          "std": 7.542472332656507
+        },
+        "BUG11_union_email": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG09_nested_salary": {
+          "mean": 5.333333333333333,
+          "std": 7.542472332656507
+        }
+      },
+      "conditioning_token": "UNION"
+    },
+    "ExplainFuzz + NOT": {
+      "executable_rate": {
+        "mean": 3.796666666666667,
+        "std": 1.230239362436794
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.3333333333333335,
+        "std": 0.4714045207910317
+      },
+      "coverage": {
+        "mean": 19.61,
+        "std": 2.7718585822512676
+      },
+      "total_triggers": {
+        "mean": 77.66666666666667,
+        "std": 40.737642979872504
+      },
+      "total_distinct_queries": {
+        "mean": 77.66666666666667,
+        "std": 40.737642979872504
+      },
+      "avg_inputs_per_bug": {
+        "mean": 25.30333333333333,
+        "std": 14.389860627847959
+      },
+      "avg_distinct_per_bug": {
+        "mean": 25.30333333333333,
+        "std": 14.389860627847959
+      },
+      "explicit_sensitive": {
+        "mean": 92.44666666666667,
+        "std": 7.82260115875077
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 6.333333333333333,
+          "std": 4.109609335312651
+        },
+        "BUG02_where_salary": {
+          "mean": 38.0,
+          "std": 23.366642891095847
+        },
+        "BUG01_order_email": {
+          "mean": 2.3333333333333335,
+          "std": 3.2998316455372216
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 31.0,
+          "std": 16.87206764645835
+        }
+      },
+      "conditioning_token": "NOT"
+    }
+  },
+  "SQL3A": {
+    "Grammarinator": {
+      "executable_rate": {
+        "mean": 39.95666666666667,
+        "std": 0.5995739227892486
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 6.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 35.29,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 123.66666666666667,
+        "std": 8.993825042154695
+      },
+      "total_distinct_queries": {
+        "mean": 10.0,
+        "std": 0.0
+      },
+      "avg_inputs_per_bug": {
+        "mean": 20.61,
+        "std": 1.500288861075316
+      },
+      "avg_distinct_per_bug": {
+        "mean": 1.67,
+        "std": 0.0
+      },
+      "explicit_sensitive": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 2.0,
+          "std": 0.0
+        },
+        "BUG02_where_salary": {
+          "mean": 4.0,
+          "std": 0.0
+        },
+        "BUG09_nested_salary": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "BUG01_order_email": {
+          "mean": 1.0,
+          "std": 0.0
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 1.0,
+          "std": 0.0
+        }
+      }
+    },
+    "ExplainFuzz": {
+      "executable_rate": {
+        "mean": 43.43666666666667,
+        "std": 2.0402995422785923
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 8.0,
+        "std": 0.816496580927726
+      },
+      "coverage": {
+        "mean": 47.06,
+        "std": 4.800999895855028
+      },
+      "total_triggers": {
+        "mean": 212.66666666666666,
+        "std": 25.42090128658349
+      },
+      "total_distinct_queries": {
+        "mean": 168.66666666666666,
+        "std": 21.452790546272112
+      },
+      "avg_inputs_per_bug": {
+        "mean": 26.53333333333333,
+        "std": 0.5839139967114637
+      },
+      "avg_distinct_per_bug": {
+        "mean": 21.073333333333334,
+        "std": 1.2933247422395073
+      },
+      "explicit_sensitive": {
+        "mean": 62.48666666666667,
+        "std": 6.139925804835827
+      },
+      "per_bug_counts_distinct": {
+        "BUG14_where_or_email_salary": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG06_group_salary_email": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG03_join_email_ssn": {
+          "mean": 12.666666666666666,
+          "std": 5.436502143433364
+        },
+        "BUG02_where_salary": {
+          "mean": 95.33333333333333,
+          "std": 15.456030825826172
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG09_nested_salary": {
+          "mean": 17.666666666666668,
+          "std": 7.039570693980958
+        },
+        "BUG13_where_or_salary": {
+          "mean": 1.0,
+          "std": 0.816496580927726
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 9.0,
+          "std": 1.4142135623730951
+        },
+        "BUG01_order_email": {
+          "mean": 14.666666666666666,
+          "std": 4.496912521077347
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 17.0,
+          "std": 5.354126134736337
+        },
+        "BUG17_join_group_email_salary": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        }
+      }
+    },
+    "ExplainFuzz + ORDER": {
+      "executable_rate": {
+        "mean": 76.76,
+        "std": 15.481421123398205
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 2.6666666666666665,
+        "std": 0.4714045207910317
+      },
+      "coverage": {
+        "mean": 15.686666666666666,
+        "std": 2.776572627459176
+      },
+      "total_triggers": {
+        "mean": 470.3333333333333,
+        "std": 93.64590517238625
+      },
+      "total_distinct_queries": {
+        "mean": 154.33333333333334,
+        "std": 129.82381223112432
+      },
+      "avg_inputs_per_bug": {
+        "mean": 188.55333333333337,
+        "std": 71.75021316267213
+      },
+      "avg_distinct_per_bug": {
+        "mean": 54.053333333333335,
+        "std": 41.22401915819897
+      },
+      "explicit_sensitive": {
+        "mean": 51.61333333333334,
+        "std": 27.500904631585406
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 13.666666666666666,
+          "std": 17.249798710580816
+        },
+        "BUG01_order_email": {
+          "mean": 111.66666666666667,
+          "std": 95.29719594802124
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 29.0,
+          "std": 17.795130420052185
+        }
+      },
+      "conditioning_token": "ORDER"
+    },
+    "ExplainFuzz + WHERE": {
+      "executable_rate": {
+        "mean": 38.53666666666667,
+        "std": 4.173865780730802
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.6666666666666665,
+        "std": 1.247219128924647
+      },
+      "coverage": {
+        "mean": 21.566666666666666,
+        "std": 7.338102994340946
+      },
+      "total_triggers": {
+        "mean": 234.66666666666666,
+        "std": 32.6632651290236
+      },
+      "total_distinct_queries": {
+        "mean": 230.0,
+        "std": 27.09243436828813
+      },
+      "avg_inputs_per_bug": {
+        "mean": 71.01666666666667,
+        "std": 20.760151465942847
+      },
+      "avg_distinct_per_bug": {
+        "mean": 69.85000000000001,
+        "std": 20.952207520927242
+      },
+      "explicit_sensitive": {
+        "mean": 90.75,
+        "std": 12.036403117210723
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 184.66666666666666,
+          "std": 38.42163742245016
+        },
+        "BUG09_nested_salary": {
+          "mean": 22.0,
+          "std": 30.40833219146796
+        },
+        "BUG13_where_or_salary": {
+          "mean": 2.0,
+          "std": 0.816496580927726
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG01_order_email": {
+          "mean": 1.3333333333333333,
+          "std": 1.8856180831641267
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 19.666666666666668,
+          "std": 27.812866726670865
+        }
+      },
+      "conditioning_token": "WHERE"
+    },
+    "ExplainFuzz + JOIN": {
+      "executable_rate": {
+        "mean": 46.35666666666666,
+        "std": 20.99924178525395
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.0,
+        "std": 2.160246899469287
+      },
+      "coverage": {
+        "mean": 17.646666666666665,
+        "std": 12.706880900607443
+      },
+      "total_triggers": {
+        "mean": 73.0,
+        "std": 53.34791467339656
+      },
+      "total_distinct_queries": {
+        "mean": 73.0,
+        "std": 53.34791467339656
+      },
+      "avg_inputs_per_bug": {
+        "mean": 16.7,
+        "std": 12.929810516786393
+      },
+      "avg_distinct_per_bug": {
+        "mean": 16.7,
+        "std": 12.929810516786393
+      },
+      "explicit_sensitive": {
+        "mean": 50.333333333333336,
+        "std": 39.684869772860395
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 63.666666666666664,
+          "std": 46.54985380094001
+        },
+        "BUG02_where_salary": {
+          "mean": 3.0,
+          "std": 2.160246899469287
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 2.6666666666666665,
+          "std": 2.0548046676563256
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG01_order_email": {
+          "mean": 3.3333333333333335,
+          "std": 2.494438257849294
+        }
+      },
+      "conditioning_token": "JOIN"
+    },
+    "ExplainFuzz + GROUP": {
+      "executable_rate": {
+        "mean": 12.65,
+        "std": 7.753025216004395
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 0.3333333333333333,
+        "std": 0.4714045207910317
+      },
+      "coverage": {
+        "mean": 1.96,
+        "std": 2.7718585822512662
+      },
+      "total_triggers": {
+        "mean": 0.6666666666666666,
+        "std": 0.9428090415820634
+      },
+      "total_distinct_queries": {
+        "mean": 0.6666666666666666,
+        "std": 0.9428090415820634
+      },
+      "avg_inputs_per_bug": {
+        "mean": 0.6666666666666666,
+        "std": 0.9428090415820634
+      },
+      "avg_distinct_per_bug": {
+        "mean": 0.6666666666666666,
+        "std": 0.9428090415820634
+      },
+      "explicit_sensitive": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "per_bug_counts_distinct": {
+        "BUG06_group_salary_email": {
+          "mean": 0.6666666666666666,
+          "std": 0.9428090415820634
+        }
+      },
+      "conditioning_token": "GROUP"
+    },
+    "ExplainFuzz + SELECT": {
+      "executable_rate": {
+        "mean": 42.093333333333334,
+        "std": 0.8391397711678051
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 7.666666666666667,
+        "std": 0.4714045207910317
+      },
+      "coverage": {
+        "mean": 45.1,
+        "std": 2.7718585822512676
+      },
+      "total_triggers": {
+        "mean": 204.33333333333334,
+        "std": 41.26607430915726
+      },
+      "total_distinct_queries": {
+        "mean": 165.0,
+        "std": 26.981475126464083
+      },
+      "avg_inputs_per_bug": {
+        "mean": 26.463333333333335,
+        "std": 4.115744836060121
+      },
+      "avg_distinct_per_bug": {
+        "mean": 21.403333333333336,
+        "std": 2.440960648779265
+      },
+      "explicit_sensitive": {
+        "mean": 44.95333333333334,
+        "std": 12.688223761512965
+      },
+      "per_bug_counts_distinct": {
+        "BUG14_where_or_email_salary": {
+          "mean": 1.6666666666666667,
+          "std": 1.247219128924647
+        },
+        "BUG03_join_email_ssn": {
+          "mean": 11.666666666666666,
+          "std": 3.39934634239519
+        },
+        "BUG02_where_salary": {
+          "mean": 87.0,
+          "std": 12.754084313139327
+        },
+        "BUG09_nested_salary": {
+          "mean": 15.0,
+          "std": 2.943920288775949
+        },
+        "BUG13_where_or_salary": {
+          "mean": 2.6666666666666665,
+          "std": 0.4714045207910317
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 10.0,
+          "std": 4.320493798938574
+        },
+        "BUG01_order_email": {
+          "mean": 19.0,
+          "std": 6.531972647421808
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 18.0,
+          "std": 5.887840577551898
+        }
+      },
+      "conditioning_token": "SELECT"
+    },
+    "ExplainFuzz + UNION": {
+      "executable_rate": {
+        "mean": 1.9800000000000002,
+        "std": 2.8001428534987283
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 1.3333333333333333,
+        "std": 1.8856180831641267
+      },
+      "coverage": {
+        "mean": 7.843333333333334,
+        "std": 11.092148374212977
+      },
+      "total_triggers": {
+        "mean": 22.0,
+        "std": 31.11269837220809
+      },
+      "total_distinct_queries": {
+        "mean": 22.0,
+        "std": 31.11269837220809
+      },
+      "avg_inputs_per_bug": {
+        "mean": 5.5,
+        "std": 7.7781745930520225
+      },
+      "avg_distinct_per_bug": {
+        "mean": 5.5,
+        "std": 7.7781745930520225
+      },
+      "explicit_sensitive": {
+        "mean": 33.333333333333336,
+        "std": 47.14045207910317
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 9.333333333333334,
+          "std": 13.199326582148887
+        },
+        "BUG11_union_email": {
+          "mean": 1.3333333333333333,
+          "std": 1.8856180831641267
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 2.0,
+          "std": 2.8284271247461903
+        },
+        "BUG09_nested_salary": {
+          "mean": 9.333333333333334,
+          "std": 13.199326582148887
+        }
+      },
+      "conditioning_token": "UNION"
+    },
+    "ExplainFuzz + NOT": {
+      "executable_rate": {
+        "mean": 2.91,
+        "std": 3.6788857008610636
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 0.6666666666666666,
+        "std": 0.4714045207910317
+      },
+      "coverage": {
+        "mean": 3.92,
+        "std": 2.7718585822512662
+      },
+      "total_triggers": {
+        "mean": 9.0,
+        "std": 10.03327796219494
+      },
+      "total_distinct_queries": {
+        "mean": 9.0,
+        "std": 10.03327796219494
+      },
+      "avg_inputs_per_bug": {
+        "mean": 9.0,
+        "std": 10.03327796219494
+      },
+      "avg_distinct_per_bug": {
+        "mean": 9.0,
+        "std": 10.03327796219494
+      },
+      "explicit_sensitive": {
+        "mean": 66.66666666666667,
+        "std": 47.14045207910317
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 1.3333333333333333,
+          "std": 1.8856180831641267
+        },
+        "BUG07_group_by_having_ssn": {
+          "mean": 7.666666666666667,
+          "std": 10.842303978193728
+        }
+      },
+      "conditioning_token": "NOT"
+    }
+  },
+  "SQL4A": {
+    "Grammarinator": {
+      "executable_rate": {
+        "mean": 42.126666666666665,
+        "std": 0.26233989826601345
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 6.666666666666667,
+        "std": 1.247219128924647
+      },
+      "coverage": {
+        "mean": 39.21666666666667,
+        "std": 7.338102994340947
+      },
+      "total_triggers": {
+        "mean": 74.0,
+        "std": 9.899494936611665
+      },
+      "total_distinct_queries": {
+        "mean": 23.0,
+        "std": 3.265986323710904
+      },
+      "avg_inputs_per_bug": {
+        "mean": 11.51,
+        "std": 2.7232456126223106
+      },
+      "avg_distinct_per_bug": {
+        "mean": 3.4899999999999998,
+        "std": 0.22226110770892862
+      },
+      "explicit_sensitive": {
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 3.0,
+          "std": 0.816496580927726
+        },
+        "BUG02_where_salary": {
+          "mean": 7.0,
+          "std": 0.816496580927726
+        },
+        "BUG04_join_salary_budget": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 1.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG09_nested_salary": {
+          "mean": 0.6666666666666666,
+          "std": 0.4714045207910317
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 5.0,
+          "std": 0.0
+        },
+        "BUG01_order_email": {
+          "mean": 5.0,
+          "std": 0.0
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 0.6666666666666666,
+          "std": 0.4714045207910317
+        }
+      }
+    },
+    "ExplainFuzz": {
+      "executable_rate": {
+        "mean": 47.02666666666667,
+        "std": 1.3909309432494805
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 7.0,
+        "std": 1.4142135623730951
+      },
+      "coverage": {
+        "mean": 41.17666666666667,
+        "std": 8.32028979196171
+      },
+      "total_triggers": {
+        "mean": 463.0,
+        "std": 46.26733909213568
+      },
+      "total_distinct_queries": {
+        "mean": 293.6666666666667,
+        "std": 3.8586123009300755
+      },
+      "avg_inputs_per_bug": {
+        "mean": 69.57333333333334,
+        "std": 17.940719668458737
+      },
+      "avg_distinct_per_bug": {
+        "mean": 44.01,
+        "std": 10.185718760434467
+      },
+      "explicit_sensitive": {
+        "mean": 65.11333333333333,
+        "std": 13.073640995869852
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 4.333333333333333,
+          "std": 2.357022603955158
+        },
+        "BUG02_where_salary": {
+          "mean": 130.0,
+          "std": 11.343133018115703
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 1.6666666666666667,
+          "std": 1.247219128924647
+        },
+        "BUG11_union_email": {
+          "mean": 0.6666666666666666,
+          "std": 0.4714045207910317
+        },
+        "BUG09_nested_salary": {
+          "mean": 3.3333333333333335,
+          "std": 1.699673171197595
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 41.333333333333336,
+          "std": 7.760297817881877
+        },
+        "BUG01_order_email": {
+          "mean": 109.66666666666667,
+          "std": 6.79869268479038
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 2.6666666666666665,
+          "std": 1.8856180831641267
+        }
+      }
+    },
+    "ExplainFuzz + ORDER": {
+      "executable_rate": {
+        "mean": 26.856666666666666,
+        "std": 11.345519918550327
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.0,
+        "std": 2.160246899469287
+      },
+      "coverage": {
+        "mean": 17.643333333333334,
+        "std": 12.706880900607443
+      },
+      "total_triggers": {
+        "mean": 156.0,
+        "std": 49.50420857529859
+      },
+      "total_distinct_queries": {
+        "mean": 156.0,
+        "std": 49.50420857529859
+      },
+      "avg_inputs_per_bug": {
+        "mean": 84.44333333333333,
+        "std": 45.42495373935148
+      },
+      "avg_distinct_per_bug": {
+        "mean": 84.44333333333333,
+        "std": 45.42495373935148
+      },
+      "explicit_sensitive": {
+        "mean": 88.27666666666666,
+        "std": 16.579296996220585
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 16.333333333333332,
+          "std": 23.098821518760552
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 0.6666666666666666,
+          "std": 0.9428090415820634
+        },
+        "BUG09_nested_salary": {
+          "mean": 0.6666666666666666,
+          "std": 0.9428090415820634
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 12.333333333333334,
+          "std": 9.177266598624136
+        },
+        "BUG01_order_email": {
+          "mean": 125.66666666666667,
+          "std": 61.77557949725946
+        },
+        "BUG06_group_salary_email": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        }
+      },
+      "conditioning_token": "ORDER"
+    },
+    "ExplainFuzz + WHERE": {
+      "executable_rate": {
+        "mean": 52.776666666666664,
+        "std": 3.3228133996492906
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 17.65,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 470.6666666666667,
+        "std": 223.7503569208823
+      },
+      "total_distinct_queries": {
+        "mean": 470.6666666666667,
+        "std": 223.7503569208823
+      },
+      "avg_inputs_per_bug": {
+        "mean": 156.89000000000001,
+        "std": 74.58501323992644
+      },
+      "avg_distinct_per_bug": {
+        "mean": 156.89000000000001,
+        "std": 74.58501323992644
+      },
+      "explicit_sensitive": {
+        "mean": 99.33333333333333,
+        "std": 0.5429753421862005
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 326.3333333333333,
+          "std": 74.21739837950548
+        },
+        "BUG01_order_email": {
+          "mean": 125.66666666666667,
+          "std": 128.93495345414377
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 18.666666666666668,
+          "std": 23.584363935078304
+        }
+      },
+      "conditioning_token": "WHERE"
+    },
+    "ExplainFuzz + JOIN": {
+      "executable_rate": {
+        "mean": 3.3633333333333333,
+        "std": 1.0986456308665782
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 3.6666666666666665,
+        "std": 1.247219128924647
+      },
+      "coverage": {
+        "mean": 21.566666666666666,
+        "std": 7.338102994340946
+      },
+      "total_triggers": {
+        "mean": 29.333333333333332,
+        "std": 20.07209228976613
+      },
+      "total_distinct_queries": {
+        "mean": 25.666666666666668,
+        "std": 15.542057635833023
+      },
+      "avg_inputs_per_bug": {
+        "mean": 6.916666666666667,
+        "std": 3.2681119251879296
+      },
+      "avg_distinct_per_bug": {
+        "mean": 6.183333333333334,
+        "std": 2.4015041582771044
+      },
+      "explicit_sensitive": {
+        "mean": 51.71666666666667,
+        "std": 34.14811691570838
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 13.0,
+          "std": 9.899494936611665
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 2.0,
+          "std": 1.632993161855452
+        },
+        "BUG04_join_salary_budget": {
+          "mean": 6.666666666666667,
+          "std": 4.988876515698588
+        },
+        "BUG02_where_salary": {
+          "mean": 1.6666666666666667,
+          "std": 1.247219128924647
+        },
+        "BUG01_order_email": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG06_group_salary_email": {
+          "mean": 1.0,
+          "std": 1.4142135623730951
+        },
+        "BUG17_join_group_email_salary": {
+          "mean": 1.0,
+          "std": 1.4142135623730951
+        }
+      },
+      "conditioning_token": "JOIN"
+    },
+    "ExplainFuzz + GROUP": {
+      "executable_rate": {
+        "mean": 2.4833333333333334,
+        "std": 2.1526469494296756
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 0.3333333333333333,
+        "std": 0.4714045207910317
+      },
+      "coverage": {
+        "mean": 1.96,
+        "std": 2.7718585822512662
+      },
+      "total_triggers": {
+        "mean": 1.3333333333333333,
+        "std": 1.8856180831641267
+      },
+      "total_distinct_queries": {
+        "mean": 1.3333333333333333,
+        "std": 1.8856180831641267
+      },
+      "avg_inputs_per_bug": {
+        "mean": 1.3333333333333333,
+        "std": 1.8856180831641267
+      },
+      "avg_distinct_per_bug": {
+        "mean": 1.3333333333333333,
+        "std": 1.8856180831641267
+      },
+      "explicit_sensitive": {
+        "mean": 33.333333333333336,
+        "std": 47.14045207910317
+      },
+      "per_bug_counts_distinct": {
+        "BUG07_group_by_having_ssn": {
+          "mean": 1.3333333333333333,
+          "std": 1.8856180831641267
+        }
+      },
+      "conditioning_token": "GROUP"
+    },
+    "ExplainFuzz + SELECT": {
+      "executable_rate": {
+        "mean": 48.596666666666664,
+        "std": 0.8946631892629896
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 7.0,
+        "std": 0.816496580927726
+      },
+      "coverage": {
+        "mean": 41.17666666666667,
+        "std": 4.805082956851238
+      },
+      "total_triggers": {
+        "mean": 532.6666666666666,
+        "std": 28.1701181317288
+      },
+      "total_distinct_queries": {
+        "mean": 324.3333333333333,
+        "std": 6.128258770283412
+      },
+      "avg_inputs_per_bug": {
+        "mean": 76.87333333333333,
+        "std": 7.296032407335432
+      },
+      "avg_distinct_per_bug": {
+        "mean": 47.04,
+        "std": 6.179487573146067
+      },
+      "explicit_sensitive": {
+        "mean": 50.89666666666667,
+        "std": 7.54909413255804
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 9.666666666666666,
+          "std": 4.4969125210773475
+        },
+        "BUG02_where_salary": {
+          "mean": 111.33333333333333,
+          "std": 13.021349989749739
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 1.6666666666666667,
+          "std": 1.247219128924647
+        },
+        "BUG11_union_email": {
+          "mean": 1.3333333333333333,
+          "std": 1.8856180831641267
+        },
+        "BUG09_nested_salary": {
+          "mean": 6.666666666666667,
+          "std": 2.0548046676563256
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 56.333333333333336,
+          "std": 12.472191289246473
+        },
+        "BUG01_order_email": {
+          "mean": 131.0,
+          "std": 14.719601443879744
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 6.333333333333333,
+          "std": 2.0548046676563256
+        }
+      },
+      "conditioning_token": "SELECT"
+    },
+    "ExplainFuzz + UNION": {
+      "executable_rate": {
+        "mean": 4.473333333333334,
+        "std": 2.5297211089147535
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 4.0,
+        "std": 0.0
+      },
+      "coverage": {
+        "mean": 23.53,
+        "std": 0.0
+      },
+      "total_triggers": {
+        "mean": 71.0,
+        "std": 29.87752778706208
+      },
+      "total_distinct_queries": {
+        "mean": 70.0,
+        "std": 31.283648551066843
+      },
+      "avg_inputs_per_bug": {
+        "mean": 17.75,
+        "std": 7.46938194676552
+      },
+      "avg_distinct_per_bug": {
+        "mean": 17.5,
+        "std": 7.820912137766711
+      },
+      "explicit_sensitive": {
+        "mean": 91.83333333333333,
+        "std": 5.778311941119906
+      },
+      "per_bug_counts_distinct": {
+        "BUG02_where_salary": {
+          "mean": 20.333333333333332,
+          "std": 8.055363982396383
+        },
+        "BUG09_nested_salary": {
+          "mean": 20.333333333333332,
+          "std": 8.055363982396383
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 16.0,
+          "std": 8.524474568362947
+        },
+        "BUG11_union_email": {
+          "mean": 13.333333333333334,
+          "std": 7.039570693980959
+        }
+      },
+      "conditioning_token": "UNION"
+    },
+    "ExplainFuzz + NOT": {
+      "executable_rate": {
+        "mean": 0.7600000000000001,
+        "std": 0.5389495956642576
+      },
+      "nb_distinct_bugs_triggered": {
+        "mean": 2.6666666666666665,
+        "std": 2.0548046676563256
+      },
+      "coverage": {
+        "mean": 15.686666666666667,
+        "std": 12.086577495534273
+      },
+      "total_triggers": {
+        "mean": 20.333333333333332,
+        "std": 14.83988619303471
+      },
+      "total_distinct_queries": {
+        "mean": 12.333333333333334,
+        "std": 10.656244908763853
+      },
+      "avg_inputs_per_bug": {
+        "mean": 5.623333333333334,
+        "std": 4.773652223984855
+      },
+      "avg_distinct_per_bug": {
+        "mean": 2.956666666666667,
+        "std": 2.1819919543593396
+      },
+      "explicit_sensitive": {
+        "mean": 44.44333333333333,
+        "std": 41.57426794972529
+      },
+      "per_bug_counts_distinct": {
+        "BUG03_join_email_ssn": {
+          "mean": 1.0,
+          "std": 1.4142135623730951
+        },
+        "BUG02_where_salary": {
+          "mean": 4.333333333333333,
+          "std": 3.2998316455372216
+        },
+        "BUG05_join_where_ssn": {
+          "mean": 3.6666666666666665,
+          "std": 5.185449728701348
+        },
+        "BUG09_nested_salary": {
+          "mean": 0.6666666666666666,
+          "std": 0.9428090415820634
+        },
+        "BUG16_order_salary_ssn": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        },
+        "BUG01_order_email": {
+          "mean": 2.0,
+          "std": 2.8284271247461903
+        },
+        "BUG10_nested_select_ssn": {
+          "mean": 0.3333333333333333,
+          "std": 0.4714045207910317
+        }
+      },
+      "conditioning_token": "NOT"
+    }
+  }
+}

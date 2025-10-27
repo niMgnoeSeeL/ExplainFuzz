@@ -24,48 +24,48 @@
       "avg_inputs_per_bug": 18.83,
       "avg_distinct_per_bug": 1.67,
       "per_bug_counts": {
-        "BUG02_where_type_mismatch_salary": 56,
-        "BUG03_join_expose_email_ssn": 15,
-        "BUG01_select_email_order": 15,
-        "BUG16_order_by_collation_edge": 15,
-        "BUG09_subquery_avg_salary": 6,
+        "BUG02_where_salary": 56,
+        "BUG03_join_email_ssn": 15,
+        "BUG01_order_email": 15,
+        "BUG16_order_salary_ssn": 15,
+        "BUG09_nested_salary": 6,
         "BUG10_nested_select_ssn": 6
       },
       "per_bug_counts_distinct": {
-        "BUG02_where_type_mismatch_salary": 4,
-        "BUG03_join_expose_email_ssn": 2,
-        "BUG01_select_email_order": 1,
-        "BUG16_order_by_collation_edge": 1,
-        "BUG09_subquery_avg_salary": 1,
+        "BUG02_where_salary": 4,
+        "BUG03_join_email_ssn": 2,
+        "BUG01_order_email": 1,
+        "BUG16_order_salary_ssn": 1,
+        "BUG09_nested_salary": 1,
         "BUG10_nested_select_ssn": 1
       },
       "per_bug_explicit_sensitive": {
-        "BUG02_where_type_mismatch_salary": 0,
-        "BUG03_join_expose_email_ssn": 0,
-        "BUG01_select_email_order": 0,
-        "BUG16_order_by_collation_edge": 0,
-        "BUG09_subquery_avg_salary": 0,
+        "BUG02_where_salary": 0,
+        "BUG03_join_email_ssn": 0,
+        "BUG01_order_email": 0,
+        "BUG16_order_salary_ssn": 0,
+        "BUG09_nested_salary": 0,
         "BUG10_nested_select_ssn": 0
       },
       "explicit_sensitive": 0.0,
       "per_bug_example": {
-        "BUG02_where_type_mismatch_salary": [
+        "BUG02_where_salary": [
           "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM projects     WHERE projects  . proj_number   =  employees  . project_id    AND   projects  . budget    >   100000          )         ;",
           "SELECT *  FROM employees     WHERE performance_score  >  50000   AND   performance_score   <   70000          ;",
           "SELECT *  FROM employees     WHERE department_id  >  2          ;",
           "SELECT *  FROM employees     WHERE full_time  =  TRUE          ;"
         ],
-        "BUG03_join_expose_email_ssn": [
+        "BUG03_join_email_ssn": [
           "SELECT *  FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;",
           "SELECT employees  . *  AS surname    , email    FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;"
         ],
-        "BUG01_select_email_order": [
+        "BUG01_order_email": [
           "SELECT *  FROM employees        ORDER BY hire_date DESC       ;"
         ],
-        "BUG16_order_by_collation_edge": [
+        "BUG16_order_salary_ssn": [
           "SELECT *  FROM employees        ORDER BY hire_date DESC       ;"
         ],
-        "BUG09_subquery_avg_salary": [
+        "BUG09_nested_salary": [
           "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM projects     WHERE projects  . proj_number   =  employees  . project_id    AND   projects  . budget    >   100000          )         ;"
         ],
         "BUG10_nested_select_ssn": [
@@ -82,51 +82,51 @@
       "avg_inputs_per_bug": 22.5,
       "avg_distinct_per_bug": 1.67,
       "per_bug_counts": {
-        "BUG02_where_type_mismatch_salary": 52,
-        "BUG03_join_expose_email_ssn": 21,
-        "BUG09_subquery_avg_salary": 7,
+        "BUG02_where_salary": 52,
+        "BUG03_join_email_ssn": 21,
+        "BUG09_nested_salary": 7,
         "BUG10_nested_select_ssn": 7,
-        "BUG01_select_email_order": 24,
-        "BUG16_order_by_collation_edge": 24
+        "BUG01_order_email": 24,
+        "BUG16_order_salary_ssn": 24
       },
       "per_bug_counts_distinct": {
-        "BUG02_where_type_mismatch_salary": 4,
-        "BUG03_join_expose_email_ssn": 2,
-        "BUG09_subquery_avg_salary": 1,
+        "BUG02_where_salary": 4,
+        "BUG03_join_email_ssn": 2,
+        "BUG09_nested_salary": 1,
         "BUG10_nested_select_ssn": 1,
-        "BUG01_select_email_order": 1,
-        "BUG16_order_by_collation_edge": 1
+        "BUG01_order_email": 1,
+        "BUG16_order_salary_ssn": 1
       },
       "per_bug_explicit_sensitive": {
-        "BUG02_where_type_mismatch_salary": 0,
-        "BUG03_join_expose_email_ssn": 0,
-        "BUG09_subquery_avg_salary": 0,
+        "BUG02_where_salary": 0,
+        "BUG03_join_email_ssn": 0,
+        "BUG09_nested_salary": 0,
         "BUG10_nested_select_ssn": 0,
-        "BUG01_select_email_order": 0,
-        "BUG16_order_by_collation_edge": 0
+        "BUG01_order_email": 0,
+        "BUG16_order_salary_ssn": 0
       },
       "explicit_sensitive": 0.0,
       "per_bug_example": {
-        "BUG02_where_type_mismatch_salary": [
+        "BUG02_where_salary": [
           "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM projects     WHERE projects  . proj_number   =  employees  . project_id    AND   projects  . budget    >   100000          )         ;",
           "SELECT *  FROM employees     WHERE performance_score  >  50000   AND   performance_score   <   70000          ;",
           "SELECT *  FROM employees     WHERE department_id  >  2          ;",
           "SELECT *  FROM employees     WHERE full_time  =  TRUE          ;"
         ],
-        "BUG03_join_expose_email_ssn": [
+        "BUG03_join_email_ssn": [
           "SELECT *  FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;",
           "SELECT employees  . *  AS surname    , email    FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;"
         ],
-        "BUG09_subquery_avg_salary": [
+        "BUG09_nested_salary": [
           "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM projects     WHERE projects  . proj_number   =  employees  . project_id    AND   projects  . budget    >   100000          )         ;"
         ],
         "BUG10_nested_select_ssn": [
           "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM projects     WHERE projects  . proj_number   =  employees  . project_id    AND   projects  . budget    >   100000          )         ;"
         ],
-        "BUG01_select_email_order": [
+        "BUG01_order_email": [
           "SELECT *  FROM employees        ORDER BY hire_date DESC       ;"
         ],
-        "BUG16_order_by_collation_edge": [
+        "BUG16_order_salary_ssn": [
           "SELECT *  FROM employees        ORDER BY hire_date DESC       ;"
         ]
       }
@@ -140,51 +140,51 @@
       "avg_inputs_per_bug": 20.5,
       "avg_distinct_per_bug": 1.67,
       "per_bug_counts": {
-        "BUG02_where_type_mismatch_salary": 58,
-        "BUG09_subquery_avg_salary": 8,
+        "BUG02_where_salary": 58,
+        "BUG09_nested_salary": 8,
         "BUG10_nested_select_ssn": 8,
-        "BUG03_join_expose_email_ssn": 21,
-        "BUG01_select_email_order": 14,
-        "BUG16_order_by_collation_edge": 14
+        "BUG03_join_email_ssn": 21,
+        "BUG01_order_email": 14,
+        "BUG16_order_salary_ssn": 14
       },
       "per_bug_counts_distinct": {
-        "BUG02_where_type_mismatch_salary": 4,
-        "BUG09_subquery_avg_salary": 1,
+        "BUG02_where_salary": 4,
+        "BUG09_nested_salary": 1,
         "BUG10_nested_select_ssn": 1,
-        "BUG03_join_expose_email_ssn": 2,
-        "BUG01_select_email_order": 1,
-        "BUG16_order_by_collation_edge": 1
+        "BUG03_join_email_ssn": 2,
+        "BUG01_order_email": 1,
+        "BUG16_order_salary_ssn": 1
       },
       "per_bug_explicit_sensitive": {
-        "BUG02_where_type_mismatch_salary": 0,
-        "BUG09_subquery_avg_salary": 0,
+        "BUG02_where_salary": 0,
+        "BUG09_nested_salary": 0,
         "BUG10_nested_select_ssn": 0,
-        "BUG03_join_expose_email_ssn": 0,
-        "BUG01_select_email_order": 0,
-        "BUG16_order_by_collation_edge": 0
+        "BUG03_join_email_ssn": 0,
+        "BUG01_order_email": 0,
+        "BUG16_order_salary_ssn": 0
       },
       "explicit_sensitive": 0.0,
       "per_bug_example": {
-        "BUG02_where_type_mismatch_salary": [
+        "BUG02_where_salary": [
           "SELECT *  FROM employees     WHERE performance_score  >  50000   AND   performance_score   <   70000          ;",
           "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM projects     WHERE projects  . proj_number   =  employees  . project_id    AND   projects  . budget    >   100000          )         ;",
           "SELECT *  FROM employees     WHERE department_id  >  2          ;",
           "SELECT *  FROM employees     WHERE full_time  =  TRUE          ;"
         ],
-        "BUG09_subquery_avg_salary": [
+        "BUG09_nested_salary": [
           "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM projects     WHERE projects  . proj_number   =  employees  . project_id    AND   projects  . budget    >   100000          )         ;"
         ],
         "BUG10_nested_select_ssn": [
           "SELECT *  FROM employees     WHERE EXISTS  ( SELECT 1    FROM projects     WHERE projects  . proj_number   =  employees  . project_id    AND   projects  . budget    >   100000          )         ;"
         ],
-        "BUG03_join_expose_email_ssn": [
+        "BUG03_join_email_ssn": [
           "SELECT employees  . *  AS surname    , email    FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;",
           "SELECT *  FROM employees    JOIN projects  ON employees  . project_id   =  projects  . proj_number            ;"
         ],
-        "BUG01_select_email_order": [
+        "BUG01_order_email": [
           "SELECT *  FROM employees        ORDER BY hire_date DESC       ;"
         ],
-        "BUG16_order_by_collation_edge": [
+        "BUG16_order_salary_ssn": [
           "SELECT *  FROM employees        ORDER BY hire_date DESC       ;"
         ]
       }
@@ -200,47 +200,47 @@
       "avg_inputs_per_bug": 27.0,
       "avg_distinct_per_bug": 19.25,
       "per_bug_counts": {
-        "BUG01_select_email_order": 64,
-        "BUG16_order_by_collation_edge": 17,
-        "BUG02_where_type_mismatch_salary": 87,
+        "BUG01_order_email": 64,
+        "BUG16_order_salary_ssn": 17,
+        "BUG02_where_salary": 87,
         "BUG10_nested_select_ssn": 16,
-        "BUG09_subquery_avg_salary": 10,
-        "BUG03_join_expose_email_ssn": 20,
-        "BUG06_group_by_avg_salary": 1,
-        "BUG17_aggregate_join_exposure": 1
+        "BUG09_nested_salary": 10,
+        "BUG03_join_email_ssn": 20,
+        "BUG06_group_salary_email": 1,
+        "BUG17_join_group_email_salary": 1
       },
       "per_bug_counts_distinct": {
-        "BUG01_select_email_order": 11,
-        "BUG16_order_by_collation_edge": 8,
-        "BUG02_where_type_mismatch_salary": 87,
+        "BUG01_order_email": 11,
+        "BUG16_order_salary_ssn": 8,
+        "BUG02_where_salary": 87,
         "BUG10_nested_select_ssn": 16,
-        "BUG09_subquery_avg_salary": 10,
-        "BUG03_join_expose_email_ssn": 20,
-        "BUG06_group_by_avg_salary": 1,
-        "BUG17_aggregate_join_exposure": 1
+        "BUG09_nested_salary": 10,
+        "BUG03_join_email_ssn": 20,
+        "BUG06_group_salary_email": 1,
+        "BUG17_join_group_email_salary": 1
       },
       "per_bug_select_star_pct": {
-        "BUG01_select_email_order": 72.73,
-        "BUG16_order_by_collation_edge": 100.0,
-        "BUG02_where_type_mismatch_salary": 16.09,
+        "BUG01_order_email": 72.73,
+        "BUG16_order_salary_ssn": 100.0,
+        "BUG02_where_salary": 16.09,
         "BUG10_nested_select_ssn": 43.75,
-        "BUG09_subquery_avg_salary": 70.0,
-        "BUG03_join_expose_email_ssn": 0.0,
-        "BUG06_group_by_avg_salary": 0.0,
-        "BUG17_aggregate_join_exposure": 0.0
+        "BUG09_nested_salary": 70.0,
+        "BUG03_join_email_ssn": 0.0,
+        "BUG06_group_salary_email": 0.0,
+        "BUG17_join_group_email_salary": 0.0
       },
       "per_bug_explicit_sensitive": {
-        "BUG01_select_email_order": 36,
-        "BUG16_order_by_collation_edge": 0,
-        "BUG02_where_type_mismatch_salary": 82,
+        "BUG01_order_email": 36,
+        "BUG16_order_salary_ssn": 0,
+        "BUG02_where_salary": 82,
         "BUG10_nested_select_ssn": 56,
-        "BUG09_subquery_avg_salary": 40,
-        "BUG03_join_expose_email_ssn": 40,
-        "BUG06_group_by_avg_salary": 100,
-        "BUG17_aggregate_join_exposure": 100
+        "BUG09_nested_salary": 40,
+        "BUG03_join_email_ssn": 40,
+        "BUG06_group_salary_email": 100,
+        "BUG17_join_group_email_salary": 100
       },
       "per_bug_example": {
-        "BUG01_select_email_order": [
+        "BUG01_order_email": [
           "SELECT * FROM employees ORDER BY full_time DESC",
           "SELECT * FROM employees ORDER BY email DESC",
           "SELECT * FROM employees ORDER BY ssn_number DESC",
@@ -253,7 +253,7 @@
           "SELECT * FROM employees ORDER BY employee_name DESC",
           "SELECT * FROM employees ORDER BY project_id DESC"
         ],
-        "BUG16_order_by_collation_edge": [
+        "BUG16_order_salary_ssn": [
           "SELECT * FROM employees ORDER BY full_time DESC",
           "SELECT * FROM employees ORDER BY email DESC",
           "SELECT * FROM employees ORDER BY ssn_number DESC",
@@ -263,7 +263,7 @@
           "SELECT * FROM employees ORDER BY employee_name DESC",
           "SELECT * FROM employees ORDER BY project_id DESC"
         ],
-        "BUG02_where_type_mismatch_salary": [
+        "BUG02_where_salary": [
           "SELECT salary FROM employees WHERE EXISTS ( SELECT 8588 FROM projects WHERE projects.proj_number = projects.budget AND projects.proj_number > 5062 )",
           "SELECT * FROM employees WHERE EXISTS ( SELECT 1267 FROM departments WHERE departments.department_name = departments.department_name AND departments.dep_number > 7737 )",
           "SELECT employee_name , salary , employees.* AS Bollandist FROM employees WHERE 6988 = department_id",
@@ -370,7 +370,7 @@
           "SELECT ssn_number FROM employees WHERE EXISTS ( SELECT 7760 FROM departments WHERE departments.dep_budget = departments.dep_budget AND departments.dep_budget > 6172 )",
           "SELECT * FROM employees WHERE EXISTS ( SELECT 3971 FROM departments WHERE departments.location = departments.location AND departments.dep_number > 9754 )"
         ],
-        "BUG09_subquery_avg_salary": [
+        "BUG09_nested_salary": [
           "SELECT salary FROM employees WHERE EXISTS ( SELECT 8588 FROM projects WHERE projects.proj_number = projects.budget AND projects.proj_number > 5062 )",
           "SELECT * FROM employees WHERE EXISTS ( SELECT 1319 FROM employees WHERE employees.performance_score = employees.salary AND employees.salary > 4126 )",
           "SELECT salary FROM employees WHERE EXISTS ( SELECT 4261 FROM departments WHERE departments.department_name = departments.department_name AND departments.dep_budget > 4254 )",
@@ -382,7 +382,7 @@
           "SELECT * FROM employees WHERE EXISTS ( SELECT 5352 FROM departments WHERE departments.department_name = departments.department_name AND departments.dep_number > 6779 )",
           "SELECT * FROM employees WHERE EXISTS ( SELECT 3971 FROM departments WHERE departments.location = departments.location AND departments.dep_number > 9754 )"
         ],
-        "BUG03_join_expose_email_ssn": [
+        "BUG03_join_email_ssn": [
           "SELECT full_time , employee_name , employees.* FROM employees JOIN projects ON employees.salary = projects.budget",
           "SELECT employees.* AS pharmacognostics , hire_date FROM employees JOIN projects ON employees.ssn_number = projects.project_name",
           "SELECT ssn_number , department_id , employees.* FROM employees JOIN departments ON employees.employee_name = departments.location",
@@ -404,10 +404,10 @@
           "SELECT employees.* AS postmeridian , ssn_number FROM employees JOIN projects ON employees.employee_name = projects.project_name",
           "SELECT project_id , salary , employees.* FROM employees JOIN projects ON employees.project_id = projects.dep_id"
         ],
-        "BUG06_group_by_avg_salary": [
+        "BUG06_group_salary_email": [
           "SELECT email , salary , project_id , 'taloscaphoid' , 6409 , id , 1894 , 9318 FROM employees JOIN projects ON employees.email > projects.project_name GROUP BY id"
         ],
-        "BUG17_aggregate_join_exposure": [
+        "BUG17_join_group_email_salary": [
           "SELECT email , salary , project_id , 'taloscaphoid' , 6409 , id , 1894 , 9318 FROM employees JOIN projects ON employees.email > projects.project_name GROUP BY id"
         ]
       },
@@ -422,43 +422,43 @@
       "avg_inputs_per_bug": 25.71,
       "avg_distinct_per_bug": 21.86,
       "per_bug_counts": {
-        "BUG01_select_email_order": 46,
-        "BUG16_order_by_collation_edge": 13,
-        "BUG02_where_type_mismatch_salary": 82,
-        "BUG09_subquery_avg_salary": 16,
+        "BUG01_order_email": 46,
+        "BUG16_order_salary_ssn": 13,
+        "BUG02_where_salary": 82,
+        "BUG09_nested_salary": 16,
         "BUG10_nested_select_ssn": 11,
-        "BUG03_join_expose_email_ssn": 11,
+        "BUG03_join_email_ssn": 11,
         "BUG13_where_or_salary": 1
       },
       "per_bug_counts_distinct": {
-        "BUG01_select_email_order": 21,
-        "BUG16_order_by_collation_edge": 11,
-        "BUG02_where_type_mismatch_salary": 82,
-        "BUG09_subquery_avg_salary": 16,
+        "BUG01_order_email": 21,
+        "BUG16_order_salary_ssn": 11,
+        "BUG02_where_salary": 82,
+        "BUG09_nested_salary": 16,
         "BUG10_nested_select_ssn": 11,
-        "BUG03_join_expose_email_ssn": 11,
+        "BUG03_join_email_ssn": 11,
         "BUG13_where_or_salary": 1
       },
       "per_bug_select_star_pct": {
-        "BUG01_select_email_order": 47.62,
-        "BUG16_order_by_collation_edge": 90.91,
-        "BUG02_where_type_mismatch_salary": 10.98,
-        "BUG09_subquery_avg_salary": 43.75,
+        "BUG01_order_email": 47.62,
+        "BUG16_order_salary_ssn": 90.91,
+        "BUG02_where_salary": 10.98,
+        "BUG09_nested_salary": 43.75,
         "BUG10_nested_select_ssn": 63.64,
-        "BUG03_join_expose_email_ssn": 0.0,
+        "BUG03_join_email_ssn": 0.0,
         "BUG13_where_or_salary": 0.0
       },
       "per_bug_explicit_sensitive": {
-        "BUG01_select_email_order": 57,
-        "BUG16_order_by_collation_edge": 9,
-        "BUG02_where_type_mismatch_salary": 90,
-        "BUG09_subquery_avg_salary": 62,
+        "BUG01_order_email": 57,
+        "BUG16_order_salary_ssn": 9,
+        "BUG02_where_salary": 90,
+        "BUG09_nested_salary": 62,
         "BUG10_nested_select_ssn": 55,
-        "BUG03_join_expose_email_ssn": 45,
+        "BUG03_join_email_ssn": 45,
         "BUG13_where_or_salary": 100
       },
       "per_bug_example": {
-        "BUG01_select_email_order": [
+        "BUG01_order_email": [
           "SELECT salary , salary , email FROM employees ORDER BY salary USING < , email USING > , salary USING > , salary USING <",
           "SELECT * FROM employees ORDER BY full_time USING > , salary USING >",
           "SELECT email FROM employees ORDER BY email DESC",
@@ -481,7 +481,7 @@
           "SELECT * FROM employees ORDER BY ssn_number USING > , performance_score USING >",
           "SELECT email , full_time FROM employees ORDER BY email DESC"
         ],
-        "BUG16_order_by_collation_edge": [
+        "BUG16_order_salary_ssn": [
           "SELECT * FROM employees ORDER BY id USING > , hire_date USING >",
           "SELECT * FROM employees ORDER BY project_id USING > , performance_score USING >",
           "SELECT * FROM employees ORDER BY ssn_number DESC",
@@ -494,7 +494,7 @@
           "SELECT * FROM employees ORDER BY employee_name DESC",
           "SELECT ssn_number , email , salary FROM employees ORDER BY ssn_number USING < , email USING > , salary USING > , email USING <"
         ],
-        "BUG02_where_type_mismatch_salary": [
+        "BUG02_where_salary": [
           "SELECT performance_score , salary FROM employees WHERE email > 'hydrophilid'",
           "SELECT hire_date , salary FROM employees WHERE performance_score > department_id AND department_id < 5874 ORDER BY salary USING > , hire_date ASC",
           "SELECT performance_score , salary FROM employees WHERE salary = 3424",
@@ -578,7 +578,7 @@
           "SELECT salary , hire_date FROM employees WHERE id = 1524",
           "SELECT performance_score , salary FROM employees WHERE department_id > 2348"
         ],
-        "BUG09_subquery_avg_salary": [
+        "BUG09_nested_salary": [
           "SELECT salary FROM employees WHERE EXISTS ( SELECT 6385 FROM employees WHERE employees.salary = employees.project_id AND employees.project_id > 6667 )",
           "SELECT salary FROM employees WHERE EXISTS ( SELECT 9578 FROM departments WHERE dep_budget = 3105 )",
           "SELECT * FROM employees WHERE EXISTS ( SELECT 4144 FROM projects WHERE projects.dep_id = projects.dep_id AND projects.dep_id > 4244 )",
@@ -609,7 +609,7 @@
           "SELECT * FROM employees WHERE EXISTS ( SELECT 5635 FROM departments WHERE departments.dep_number = departments.dep_budget AND departments.dep_number > 7084 )",
           "SELECT ssn_number FROM employees WHERE EXISTS ( SELECT 3941 FROM projects WHERE proj_number = 2576 )"
         ],
-        "BUG03_join_expose_email_ssn": [
+        "BUG03_join_email_ssn": [
           "SELECT employees.* AS accountable , ssn_number FROM employees JOIN projects ON employees.hire_date = projects.start_date",
           "SELECT employee_name , ssn_number , email , 'libate' FROM employees JOIN departments ON employees.id = departments.dep_budget",
           "SELECT employees.* AS bias , ssn_number FROM employees JOIN projects ON employees.ssn_number = projects.project_name",
@@ -637,51 +637,51 @@
       "avg_inputs_per_bug": 26.89,
       "avg_distinct_per_bug": 22.11,
       "per_bug_counts": {
-        "BUG02_where_type_mismatch_salary": 117,
-        "BUG09_subquery_avg_salary": 27,
-        "BUG03_join_expose_email_ssn": 7,
-        "BUG01_select_email_order": 52,
+        "BUG02_where_salary": 117,
+        "BUG09_nested_salary": 27,
+        "BUG03_join_email_ssn": 7,
+        "BUG01_order_email": 52,
         "BUG10_nested_select_ssn": 24,
         "BUG13_where_or_salary": 2,
         "BUG14_where_or_email_salary": 1,
-        "BUG16_order_by_collation_edge": 11,
-        "BUG05_join_and_where_ssn": 1
+        "BUG16_order_salary_ssn": 11,
+        "BUG05_join_where_ssn": 1
       },
       "per_bug_counts_distinct": {
-        "BUG02_where_type_mismatch_salary": 117,
-        "BUG09_subquery_avg_salary": 27,
-        "BUG03_join_expose_email_ssn": 7,
-        "BUG01_select_email_order": 12,
+        "BUG02_where_salary": 117,
+        "BUG09_nested_salary": 27,
+        "BUG03_join_email_ssn": 7,
+        "BUG01_order_email": 12,
         "BUG10_nested_select_ssn": 24,
         "BUG13_where_or_salary": 2,
         "BUG14_where_or_email_salary": 1,
-        "BUG16_order_by_collation_edge": 8,
-        "BUG05_join_and_where_ssn": 1
+        "BUG16_order_salary_ssn": 8,
+        "BUG05_join_where_ssn": 1
       },
       "per_bug_select_star_pct": {
-        "BUG02_where_type_mismatch_salary": 23.93,
-        "BUG09_subquery_avg_salary": 48.15,
-        "BUG03_join_expose_email_ssn": 0.0,
-        "BUG01_select_email_order": 58.33,
+        "BUG02_where_salary": 23.93,
+        "BUG09_nested_salary": 48.15,
+        "BUG03_join_email_ssn": 0.0,
+        "BUG01_order_email": 58.33,
         "BUG10_nested_select_ssn": 54.17,
         "BUG13_where_or_salary": 0.0,
         "BUG14_where_or_email_salary": 0.0,
-        "BUG16_order_by_collation_edge": 87.5,
-        "BUG05_join_and_where_ssn": 0.0
+        "BUG16_order_salary_ssn": 87.5,
+        "BUG05_join_where_ssn": 0.0
       },
       "per_bug_explicit_sensitive": {
-        "BUG02_where_type_mismatch_salary": 79,
-        "BUG09_subquery_avg_salary": 52,
-        "BUG03_join_expose_email_ssn": 100,
-        "BUG01_select_email_order": 50,
+        "BUG02_where_salary": 79,
+        "BUG09_nested_salary": 52,
+        "BUG03_join_email_ssn": 100,
+        "BUG01_order_email": 50,
         "BUG10_nested_select_ssn": 46,
         "BUG13_where_or_salary": 100,
         "BUG14_where_or_email_salary": 100,
-        "BUG16_order_by_collation_edge": 12,
-        "BUG05_join_and_where_ssn": 100
+        "BUG16_order_salary_ssn": 12,
+        "BUG05_join_where_ssn": 100
       },
       "per_bug_example": {
-        "BUG02_where_type_mismatch_salary": [
+        "BUG02_where_salary": [
           "SELECT id , salary FROM employees WHERE salary = 2289 AND id < 4934",
           "SELECT salary , hire_date FROM employees WHERE id > 5274",
           "SELECT salary FROM employees WHERE EXISTS ( SELECT 6143 FROM employees WHERE employees.project_id = employees.project_id AND employees.performance_score > 9937 )",
@@ -800,7 +800,7 @@
           "SELECT employee_name , salary FROM employees WHERE salary > 3740",
           "SELECT salary FROM employees WHERE EXISTS ( SELECT 2322 FROM employees WHERE employees.performance_score = employees.salary AND employees.department_id > 9448 )"
         ],
-        "BUG09_subquery_avg_salary": [
+        "BUG09_nested_salary": [
           "SELECT * FROM employees WHERE EXISTS ( SELECT 5781 FROM projects WHERE projects.proj_number = projects.dep_id AND projects.proj_number > 2998 )",
           "SELECT * FROM employees WHERE EXISTS ( SELECT 8579 FROM departments WHERE departments.location = departments.department_name AND departments.dep_budget > 1635 )",
           "SELECT * FROM employees WHERE EXISTS ( SELECT 6995 FROM projects WHERE projects.end_date = projects.end_date AND projects.budget > 278 )",
@@ -829,7 +829,7 @@
           "SELECT salary FROM employees WHERE EXISTS ( SELECT 8101 FROM employees WHERE employees.performance_score = employees.project_id AND employees.department_id > 1596 )",
           "SELECT salary FROM employees WHERE EXISTS ( SELECT 2322 FROM employees WHERE employees.performance_score = employees.salary AND employees.department_id > 9448 )"
         ],
-        "BUG03_join_expose_email_ssn": [
+        "BUG03_join_email_ssn": [
           "SELECT ssn_number , project_id , salary , email FROM employees JOIN departments ON employees.email = departments.department_name",
           "SELECT ssn_number , email , department_id , email FROM employees JOIN departments ON employees.id = departments.dep_number",
           "SELECT email , ssn_number , ssn_number , ssn_number FROM employees JOIN departments ON employees.ssn_number = departments.department_name",
@@ -838,7 +838,7 @@
           "SELECT performance_score , email , hire_date , ssn_number FROM employees JOIN projects ON employees.project_id = projects.proj_number",
           "SELECT ssn_number , hire_date , email , ssn_number FROM employees JOIN projects ON employees.email > projects.project_name"
         ],
-        "BUG01_select_email_order": [
+        "BUG01_order_email": [
           "SELECT * FROM employees ORDER BY email DESC",
           "SELECT * FROM employees ORDER BY department_id DESC",
           "SELECT * FROM employees ORDER BY ssn_number DESC",
@@ -885,7 +885,7 @@
         "BUG14_where_or_email_salary": [
           "SELECT salary , email FROM employees WHERE project_id > 767 OR performance_score < 4382"
         ],
-        "BUG16_order_by_collation_edge": [
+        "BUG16_order_salary_ssn": [
           "SELECT * FROM employees ORDER BY email DESC",
           "SELECT * FROM employees ORDER BY department_id DESC",
           "SELECT * FROM employees ORDER BY ssn_number DESC",
@@ -895,7 +895,7 @@
           "SELECT * FROM employees ORDER BY hire_date DESC",
           "SELECT * FROM employees ORDER BY project_id DESC"
         ],
-        "BUG05_join_and_where_ssn": [
+        "BUG05_join_where_ssn": [
           "SELECT full_time , ssn_number , ssn_number AS nonsequacious FROM employees JOIN projects ON employees.id = projects.dep_id WHERE id > 7175"
         ]
       },

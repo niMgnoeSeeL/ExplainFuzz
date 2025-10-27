@@ -108,6 +108,11 @@ def anonymize_original_input(input, domain):
     return anonymized_input + ["EOF"]
 
 
+def compute_probability(domain, query_type, inputs, mode):
+    model, lit_map, lit_size, max_length = load_model_and_info(domain, mode)
+    return ask_query(model, lit_map, lit_size, max_length, query_type, inputs)
+
+
 if __name__ == "__main__":
     domain = "SQL"
     grammar_name = "SQLSimplified"

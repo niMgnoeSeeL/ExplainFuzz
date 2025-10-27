@@ -82,7 +82,7 @@ def eval_cond1_all_tokens(domain, mode):
         for lit2 in literal_to_tokens.keys():
             if lit1!=lit2:
                 try:
-                    result = prob_COND1(domain, lit1,lit2, mode)  # e.g. "LIT=0.1234 prob"
+                    result = prob_COND1(domain, lit1,lit2, mode) 
                     results.append(result)
                     valid_results.append(result)
                 except Exception as e:
@@ -92,7 +92,7 @@ def eval_cond1_all_tokens(domain, mode):
 
     return "\n".join(results)
 
-# TODO : Prepare all the functions for each type of query
+
 def prob_MAR1(domain, lit, mode):
     literal_to_tokens = get_literal_token_mapping(domain)
     token = literal_to_tokens[lit]

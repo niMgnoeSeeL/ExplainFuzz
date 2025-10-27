@@ -1,6 +1,6 @@
 BUG_SPECS = {
     # === Simple projection / PII leakage ===
-    "BUG01_select_email_order": {
+    "BUG01_order_email": {
         "required": ["ORDER", "BY"],
         "sensitive": ["email"],
         "complexity": "easy",
@@ -11,7 +11,7 @@ BUG_SPECS = {
         ),
     },
 
-    "BUG02_where_type_mismatch_salary": {
+    "BUG02_where_salary": {
         "required": ["WHERE"],
         "sensitive": ["salary"],
         "complexity": "easy",
@@ -23,7 +23,7 @@ BUG_SPECS = {
     },
 
     # === JOIN / multi-table exposure ===
-    "BUG03_join_expose_email_ssn": {
+    "BUG03_join_email_ssn": {
         "required": ["JOIN"],
         "sensitive": ["email", "ssn_number"],
         "complexity": "medium",
@@ -34,7 +34,7 @@ BUG_SPECS = {
         ),
     },
 
-    "BUG04_join_mixed_numeric_types": {
+    "BUG04_join_salary_budget": {
         "required": ["JOIN"],
         "sensitive": ["salary", "dep_budget"],
         "complexity": "medium",
@@ -45,7 +45,7 @@ BUG_SPECS = {
         ),
     },
 
-    "BUG05_join_and_where_ssn": {
+    "BUG05_join_where_ssn": {
         "required": ["JOIN", "WHERE"],
         "sensitive": ["ssn_number"],
         "complexity": "medium",
@@ -57,7 +57,7 @@ BUG_SPECS = {
     },
 
     # === Aggregation / HAVING / GROUP BY ===
-    "BUG06_group_by_avg_salary": {
+    "BUG06_group_salary_email": {
         "required": ["GROUP", "BY"],
         "sensitive": ["salary", "email"],
         "complexity": "medium",
@@ -78,7 +78,7 @@ BUG_SPECS = {
         ),
     },
 
-    "BUG08_group_by_distinct_interaction": {
+    "BUG08_group_distinct_email_salary": {
         "required": ["GROUP", "BY", "DISTINCT"],
         "sensitive": ["email", "salary"],
         "complexity": "hard",
@@ -90,7 +90,7 @@ BUG_SPECS = {
     },
 
     # === Subqueries ===
-    "BUG09_subquery_avg_salary": {
+    "BUG09_nested_salary": {
         "required": ["SELECT", "FROM", "SELECT"],
         "sensitive": ["salary"],
         "complexity": "hard",
@@ -111,7 +111,7 @@ BUG_SPECS = {
     },
 
     # === UNION and set operators ===
-    "BUG11_union_projection_leak": {
+    "BUG11_union_email": {
         "required": ["UNION"],
         "sensitive": ["email"],
         "complexity": "medium",
@@ -122,7 +122,7 @@ BUG_SPECS = {
         ),
     },
 
-    "BUG12_union_type_coercion": {
+    "BUG11_union_salary_budget": {
         "required": ["UNION"],
         "sensitive": ["salary", "budget"],
         "complexity": "hard",
@@ -154,7 +154,7 @@ BUG_SPECS = {
         ),
     },
 
-    "BUG15_not_in_null_semantics": {
+    "BUG15_not_in_salary": {
         "required": ["NOT", "IN"],
         "sensitive": ["salary"],
         "complexity": "hard",
@@ -166,7 +166,7 @@ BUG_SPECS = {
     },
 
     # === ORDER / collation edge ===
-    "BUG16_order_by_collation_edge": {
+    "BUG16_order_salary_ssn": {
         "required": ["ORDER", "BY"],
         "sensitive": ["salary", "ssn_number"],
         "complexity": "medium",
@@ -178,7 +178,7 @@ BUG_SPECS = {
     },
 
     # === Complex combined operators ===
-    "BUG17_aggregate_join_exposure": {
+    "BUG17_join_group_email_salary": {
         "required": ["JOIN", "GROUP", "BY"],
         "sensitive": ["salary", "email"],
         "complexity": "hard",

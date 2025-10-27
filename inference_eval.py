@@ -6,13 +6,14 @@ from cfg2pc.SQL_prob import marginal_proba, conditional_in_order, conditional_di
 from evaluation import save_results
 from collections import defaultdict
 import json
+from inference import compute_probability
 from main import (
     GEN_PARSER_DIR,
     GRAMMAR_DIR,
     MODEL_DIR,
     RESULTS_DIR,
     SEEDS_DIR,
-    load_domains_config,
+    get_literal_token_mapping
 )
 
 
@@ -391,7 +392,57 @@ def analyze_results(file):
 
     print("LaTeX table saved to results_table.tex")
 
+import json
+def eval_mar1_tokens(domain, literals, save_path, mode="no-generate"):
+    with open(save_path, "r") as f:
+        all_res = json.load(f)
     
+    valid_results = {}
+
+    for lit in literals:
+        try:
+            valid_results[lit]=prob_MAR1(domain, lit, mode) 
+        except Exception as e:
+            pass
+
+    all_res[domain]=valid_results
+
+    with open(save_path, "w") as f:
+        json.dump(all_res,f,indent=4)
+    return all_res
+
+def prob_MAR1(domain, lit, mode):
+    literal_to_tokens = get_literal_token_mapping(domain)
+    token = literal_to_tokens[lit]
+    inputs = [token]
+    query_type = "MAR1"
+    prob = compute_probability(domain, query_type, inputs, mode)
+    return prob
+
+
+def generate_table_latex_mar1(input_file):
+    with open(input_file, "r") as f:
+        data = json.load(f)
+    # Get all literals (row labels)
+    literals = list(next(iter(data.values())).keys())
+    domains = list(data.keys())
+
+    # Start LaTeX table
+    latex = "\\begin{tabular}{l" + "c" * len(domains) + "}\n"
+    latex += "Literal & " + " & ".join(domains) + " \\\\\n"
+    latex += "\\hline\n"
+
+    # Fill table rows
+    for literal in literals:
+        row = [f'P("{literal}")']
+        for domain in domains:
+            value = round(data[domain][literal], 2)
+            row.append(f"{value:.2f}")
+        latex += " & ".join(row) + " \\\\\n"
+
+    latex += "\\end{tabular}"
+    print(latex)
+
 
 if __name__ == "__main__":
     # config_file_path = "domains_config.json"
@@ -412,7 +463,17 @@ if __name__ == "__main__":
     #         grammar_path=domain_config["parser_path"]
     #     )
 
-    file = RESULTS_DIR / "PC" / "eval_PC_inference.json"
-    analyze_results(file)
+    # file = RESULTS_DIR / "PC" / "eval_PC_inference.json"
+    # analyze_results(file)
+
+
+    # Evaluate MAR 1 probabilities for different SQL seeds
+    literals = ["SELECT","FROM","WHERE","JOIN","ON","GROUP","ORDER","HAVING","NOT","UNION"]
+    res_path = RESULTS_DIR / "SEEDS" / "eval_mar1_domains_SQL.json"
+    for domain in ["SQL1A","SQL2A","SQL3A","SQL4A"]:
+        print("Evaluating MAR1 tokens for domain",domain)
+        eval_mar1_tokens(domain,literals,res_path)
+
+    generate_table_latex_mar1(res_path)
 
         

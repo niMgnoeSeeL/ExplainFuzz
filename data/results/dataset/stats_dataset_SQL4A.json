@@ -20,5 +20,38 @@
         "executable_rate": 41.68,
         "success_rate_grammar": 99.89,
         "fail_execute": 5821
+    },
+    {
+        "domain": "SQL4A",
+        "try_id": 1,
+        "nb_total_inputs": 10000,
+        "nb_invalid": 10,
+        "nb_executable": 4051,
+        "nb_valid": 9990,
+        "executable_rate": 40.51,
+        "success_rate_grammar": 99.9,
+        "fail_execute": 5939
+    },
+    {
+        "domain": "SQL4A",
+        "try_id": 2,
+        "nb_total_inputs": 10000,
+        "nb_invalid": 8,
+        "nb_executable": 4040,
+        "nb_valid": 9992,
+        "executable_rate": 40.4,
+        "success_rate_grammar": 99.92,
+        "fail_execute": 5952
+    },
+    {
+        "domain": "SQL4A",
+        "try_id": 3,
+        "nb_total_inputs": 10000,
+        "nb_invalid": 3,
+        "nb_executable": 4114,
+        "nb_valid": 9997,
+        "executable_rate": 41.14,
+        "success_rate_grammar": 99.97,
+        "fail_execute": 5883
     }
 ]
