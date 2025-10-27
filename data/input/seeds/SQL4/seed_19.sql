@@ -1,1 +1,1 @@
-SELECT full_time FROM employees ORDER BY full_time DESC;
+SELECT project_id, COUNT(department_id) FROM employees GROUP BY project_id HAVING COUNT(department_id) > 2;

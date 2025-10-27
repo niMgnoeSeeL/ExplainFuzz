@@ -1,1 +1,1 @@
-SELECT project_name, budget FROM projects WHERE budget > 400000 AND budget < 800000;
+SELECT full_time FROM employees ORDER BY full_time DESC;

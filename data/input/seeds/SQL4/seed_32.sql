@@ -1,1 +1,1 @@
-SELECT hire_date, ROUND(salary / 1000, 2) AS salary_k FROM employees ORDER BY salary_k USING >, id USING >;
+SELECT employees.employee_name, full_time FROM employees WHERE NOT full_time;

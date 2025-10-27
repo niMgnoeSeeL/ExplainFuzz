@@ -1,1 +1,1 @@
-SELECT department_name, dep_budget FROM departments WHERE dep_budget > 200000 ORDER BY dep_budget ASC;
+SELECT ssn_number FROM employees ORDER BY hire_date DESC;

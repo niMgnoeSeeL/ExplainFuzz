@@ -1,1 +1,1 @@
-SELECT employee_name, performance_score FROM employees WHERE performance_score > 75000;
+SELECT location, COUNT(proj_number) FROM departments JOIN projects ON projects.dep_id = departments.dep_number GROUP BY location HAVING COUNT(proj_number) > 2;

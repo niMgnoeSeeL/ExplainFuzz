@@ -1,1 +1,1 @@
-SELECT DISTINCT dep_id, end_date FROM projects ORDER BY dep_id USING <, end_date USING >;
+SELECT dep_id, COUNT(proj_number) FROM projects GROUP BY dep_id HAVING COUNT(proj_number) > 2;

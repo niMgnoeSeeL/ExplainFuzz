@@ -1,1 +1,1 @@
-SELECT project_name, budget FROM projects WHERE budget > 250000;
+SELECT * FROM departments;

@@ -1,1 +1,1 @@
-SELECT projects.project_name, departments.department_name AS department FROM projects JOIN departments ON projects.dep_id = departments.dep_number;
+SELECT project_name, end_date FROM projects WHERE end_date > CURRENT_DATE ORDER BY end_date ASC;

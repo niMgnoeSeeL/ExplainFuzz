@@ -1,1 +1,1 @@
-SELECT project_name, end_date FROM projects WHERE end_date > CURRENT_DATE ORDER BY end_date ASC;
+SELECT employees.employee_name, departments.department_name FROM employees JOIN departments ON employees.department_id = departments.dep_number WHERE NOT employees.full_time;

@@ -1,1 +1,1 @@
-SELECT departments.department_name, AVG(employees.salary) FROM departments JOIN employees ON employees.department_id = departments.dep_number GROUP BY departments.department_name;
+SELECT hire_date, ROUND(salary / 1000, 2) AS salary_k FROM employees ORDER BY salary_k DESC, id ASC;

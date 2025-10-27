@@ -1,1 +1,1 @@
-SELECT end_date FROM projects ORDER BY end_date DESC;
+SELECT employee_name FROM employees WHERE full_time UNION SELECT department_name FROM departments;

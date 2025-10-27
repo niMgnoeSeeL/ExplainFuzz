@@ -1,1 +1,1 @@
-SELECT email, project_id FROM employees WHERE project_id = 1;
+SELECT department_id, COUNT(id) FROM employees GROUP BY department_id;

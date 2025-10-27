@@ -1,1 +1,1 @@
-SELECT employee_name FROM employees ORDER BY employee_name DESC;
+SELECT employee_name, ROUND(salary / 1000, 2) AS salary_k FROM employees ORDER BY salary_k DESC;

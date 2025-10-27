@@ -1,1 +1,1 @@
-SELECT hire_date FROM employees WHERE full_time UNION SELECT department_name FROM departments;
+SELECT id, employee_name, salary FROM employees;

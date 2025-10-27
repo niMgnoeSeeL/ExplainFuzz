@@ -1,1 +1,1 @@
-SELECT dep_id, AVG(budget) FROM projects GROUP BY dep_id HAVING AVG(budget) > 300000;
+SELECT project_name, budget FROM projects WHERE budget > 600000;

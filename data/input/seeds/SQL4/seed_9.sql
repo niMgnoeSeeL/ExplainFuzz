@@ -1,1 +1,1 @@
-SELECT projects.project_name, budget FROM projects WHERE budget > 350000 ORDER BY budget USING >, proj_number USING <;
+SELECT project_name, dep_id, budget FROM projects WHERE budget > 300000 ORDER BY dep_id ASC, budget DESC;

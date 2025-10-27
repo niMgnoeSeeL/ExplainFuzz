@@ -1,1 +1,1 @@
-SELECT employee_name, ssn_number FROM employees WHERE ssn_number = "987-456-2345";
+SELECT project_name FROM projects WHERE budget > 500000 UNION SELECT department_name FROM departments WHERE dep_budget > 400000;

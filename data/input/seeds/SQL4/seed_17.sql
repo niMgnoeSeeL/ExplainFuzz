@@ -1,1 +1,1 @@
-SELECT employee_name, performance_score FROM employees WHERE performance_score > 2;
+SELECT department_name, COUNT(id) FROM departments JOIN employees ON departments.dep_number = employees.department_id GROUP BY department_name;

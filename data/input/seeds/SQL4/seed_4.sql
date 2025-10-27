@@ -1,1 +1,1 @@
-SELECT department_name FROM departments ORDER BY department_name DESC;
+SELECT projects.dep_id FROM projects UNION SELECT id FROM employees WHERE NOT full_time;

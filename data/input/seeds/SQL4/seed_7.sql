@@ -1,1 +1,1 @@
-SELECT department_name, SUBSTRING(location FROM 1 FOR 5) AS location_prefix FROM departments ORDER BY location_prefix USING >, dep_number USING <;
+SELECT employee_name, ROUND(salary / 1000, 2) AS salary_k, performance_score FROM employees ORDER BY salary_k DESC, performance_score DESC, id ASC;

@@ -1,1 +1,1 @@
-SELECT employees.employee_name, projects.project_name AS project FROM employees JOIN projects ON employees.project_id = projects.proj_number;
+SELECT proj_number FROM projects WHERE project_name = 'proj' UNION SELECT dep_number FROM departments WHERE dep_budget > 400000;

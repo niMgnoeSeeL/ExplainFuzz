@@ -1,1 +1,1 @@
-SELECT project_name, dep_id, budget FROM projects WHERE budget > 300000 ORDER BY dep_id USING <, budget USING >;
+SELECT employee_name, performance_score FROM employees WHERE performance_score > 50000 AND performance_score < 70000;

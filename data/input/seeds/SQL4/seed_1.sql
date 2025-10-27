@@ -1,1 +1,1 @@
-SELECT employee_name, hire_date, performance_score FROM employees ORDER BY performance_score USING >, hire_date USING <;
+SELECT dep_number, AVG(dep_budget) FROM departments GROUP BY dep_number HAVING AVG(dep_budget) > 400000;

@@ -1,1 +1,1 @@
-SELECT project_name FROM projects WHERE budget > 500000 UNION SELECT department_name FROM departments WHERE dep_budget > 400000;
+SELECT dep_id, COUNT(proj_number) AS n_projects FROM projects GROUP BY dep_id ORDER BY n_projects DESC;
