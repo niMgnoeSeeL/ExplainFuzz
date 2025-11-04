@@ -1,0 +1,5 @@
+<request user_id="102" action="upload">
+  <file path="data/report.xml" name="summary">
+    <content><![CDATA[Report summary version 1.0]]></content>
+  </file>
+</request>

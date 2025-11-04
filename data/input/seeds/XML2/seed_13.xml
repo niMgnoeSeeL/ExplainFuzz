@@ -1,0 +1,5 @@
+<request user_id="112" action="upload">
+  <file path="data/sample.xml">
+    <content><![CDATA[User information v2]]></content>
+  </file>
+</request>

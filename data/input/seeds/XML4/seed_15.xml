@@ -1,0 +1,3 @@
+<request user_id="201" action="update" quota="100">
+  <file name="config.yml" path="configs/config.yml"/>
+</request>

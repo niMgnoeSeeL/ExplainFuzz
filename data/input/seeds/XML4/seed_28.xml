@@ -1,0 +1,4 @@
+<request user_id="209" action="sync" quota="10">
+    <!-- note: role change scheduled -->
+  <file name="sync.xml" path="sync/sync.xml"/>
+</request>

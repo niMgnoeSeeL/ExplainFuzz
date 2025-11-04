@@ -1,0 +1,4 @@
+<request user_id="105" action="export">
+  <query select="user/details"/>
+  <file name="output.xml" path="data/output.xml"/>
+</request>
