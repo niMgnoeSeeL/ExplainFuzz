@@ -1,4 +1,4 @@
 <request>
     <!-- temp user note: role=tester -->
-  <query q="projects/all" limit="12"/>
+  <query q="/projects/all" limit="12"/>
 </request>

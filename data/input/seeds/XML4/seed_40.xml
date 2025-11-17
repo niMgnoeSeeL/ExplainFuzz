@@ -1,4 +1,4 @@
 <request>
-  <query q="metrics/daily" limit="7"/>
+  <query q="/metrics/daily" limit="7"/>
   <file name="metrics.xml" path="data/metrics.xml"/>
 </request>

@@ -1,4 +1,4 @@
 <request user_id="106" quota="200">
-  <query q="users/data" limit="3"/>
+  <query q="/users/data" limit="3"/>
   <file path="data/temp.xml" name="tempfile"/>
 </request>

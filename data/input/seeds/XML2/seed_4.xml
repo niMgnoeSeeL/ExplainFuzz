@@ -1,4 +1,4 @@
 <request user_id="103" action="process">
-  <query q="metadata/item" limit="2"/>
+  <query q="/metadata/item" limit="2"/>
   <file path="config/settings.xml" name="config"/>
 </request>

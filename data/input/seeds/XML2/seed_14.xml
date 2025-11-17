@@ -1,3 +1,3 @@
 <request user_id="113" action="sync" quota="150">
-  <query q="files/file" limit="2"/>
+  <query q="/files/file" limit="2"/>
 </request>

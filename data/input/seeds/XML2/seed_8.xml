@@ -1,4 +1,4 @@
-<request user_id="107" action="validate" file="data/sample.xml">
+<request user_id="107" action="validate" file_path="data/sample.xml">
   <file name="innerfile.xml">
     <content><![CDATA[Nothing <special> inside]]></content>
   </file>
