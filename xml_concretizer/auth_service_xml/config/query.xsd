@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="user.xsd"/>
+  <xs:include schemaLocation="file.xsd"/>
+  <xs:include schemaLocation="message.xsd"/>
+  <xs:element name="query">
+  <xs:complexType mixed="true">
+    <!-- <xs:choice minOccurs="0" maxOccurs="1"> -->
+      <xs:sequence>
+        <xs:element ref="user" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="file" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="message" minOccurs="0" maxOccurs="unbounded"/>
+
+        <xs:element name="select" type="xs:string" minOccurs="0"/>
+        <xs:element name="q" type="xs:string" minOccurs="0"/>
+        <xs:element name="limit" type="xs:int" minOccurs="0"/>
+      </xs:sequence>
+    <!-- </xs:choice> -->
+    <xs:attribute name="select" type="xs:string" use="optional"/>
+    <xs:attribute name="q" type="xs:string" use="optional"/>
+    <xs:attribute name="limit" type="xs:int" use="optional"/>
+  </xs:complexType>
+</xs:element>
+</xs:schema>

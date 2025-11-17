@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="message.xsd"/>
+  <xs:element name="file">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="message" minOccurs="0" maxOccurs="unbounded"/>
+        
+        <xs:element name="path" type="xs:anyURI" minOccurs="0"/>
+        <xs:element name="name" type="xs:string" minOccurs="0"/>
+        <xs:element name="content" type="xs:string" minOccurs="0"/>
+        <xs:element name="author" type="xs:string" minOccurs="0"/>
+        <xs:element name="price" type="xs:float" minOccurs="0"/>
+      </xs:sequence>
+      <xs:attribute name="path" type="xs:anyURI" use="optional"/>
+      <xs:attribute name="name" type="xs:string" use="optional"/>
+      <xs:attribute name="content" type="xs:string" use="optional"/>
+      <xs:attribute name="author" type="xs:string" use="optional"/>
+      <xs:attribute name="price" type="xs:float" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

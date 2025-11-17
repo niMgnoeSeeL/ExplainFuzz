@@ -1,0 +1,5 @@
+<service>
+  <name>AuthServiceXML</name>
+  <maxSessions>100</maxSessions>
+  <trustedNamespace>http://trusted.example.com</trustedNamespace>
+</service>

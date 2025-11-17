@@ -1,0 +1,2 @@
+session_abc123=U100
+session_def456=U101

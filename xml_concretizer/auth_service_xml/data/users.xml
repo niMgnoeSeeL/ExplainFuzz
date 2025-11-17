@@ -1,0 +1,10 @@
+<users>
+  <user id="100" quota="1000">
+    <username>alice</username>
+    <role>reader</role>
+  </user>
+  <user id="101" quota="5000000000">
+    <username>bob</username>
+    <role>admin</role>
+  </user>
+</users>

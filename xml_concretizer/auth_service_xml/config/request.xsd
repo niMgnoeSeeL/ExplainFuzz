@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="user.xsd"/>
+  <xs:include schemaLocation="query.xsd"/>
+  <xs:include schemaLocation="file.xsd"/>
+  <xs:include schemaLocation="message.xsd"/>
+
+  <!-- Define the request element -->
+  <xs:element name="request">
+    <xs:complexType mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:sequence>
+        <!-- Queries and files can appear in any order -->
+        <xs:element ref="query" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="file" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="user" minOccurs="0" maxOccurs="unbounded"/>
+        <xs:element ref="message" minOccurs="0" maxOccurs="unbounded"/>
+        
+        <!-- Optional child elements for request fields -->
+        <xs:element name="user_id" type="xs:long" minOccurs="0"/>
+        <xs:element name="quota" type="xs:long" minOccurs="0"/>
+        <xs:element name="amount" type="xs:int" minOccurs="0"/>
+        <xs:element name="repeat" type="xs:int" minOccurs="0"/>
+        <xs:element name="action" type="xs:string" minOccurs="0"/>
+        <xs:element name="file_path" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+      </xs:choice>
+
+      <!-- Optional attributes for the same fields -->
+      <xs:attribute name="user_id" type="xs:long" use="optional"/>
+      <xs:attribute name="quota" type="xs:long" use="optional"/>
+      <xs:attribute name="amount" type="xs:int" use="optional"/>
+      <xs:attribute name="repeat" type="xs:int" use="optional"/>
+      <xs:attribute name="action" type="xs:string" use="optional"/>
+      <xs:attribute name="file_path" type="xs:string" use="optional"/>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

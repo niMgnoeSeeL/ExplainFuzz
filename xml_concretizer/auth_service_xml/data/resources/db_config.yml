@@ -1,0 +1,5 @@
+db:
+  host: localhost
+  user: fake_user
+  password: FAKE_DB_PASS
+  name: authdb
