@@ -254,7 +254,8 @@ def visualize_bug_eval_results_with_error(file_path="evaluation_bug_rate_results
 
 if __name__ == "__main__":
     # res_list = run_eval("data/new_results/bug_rate/eval_after_gen_improved.json")
-    visualize_bug_eval_results_with_error("data/new_results/bug_rate/eval_after_gen_improved.json")
+    #visualize_bug_eval_results_with_error("data/new_results/bug_rate/eval_after_gen_improved.json")
     #visualize_bug_eval_results_with_error("data/new_results/bug_rate/eval_bug_rate_with_seeds.json")
     # eval_bug_rate_seeds(["ORDER"],None)
     
+    visualize_bug_eval_results_with_error("data/results/multi_bug_rate/XML/eval_XML2_cond_eval_2.json")

@@ -29,7 +29,29 @@
     "skip_rules": ["SPACE"],
     "max_length": 10,
     "depth": 15,
-    "max_lengths": [5, 10, 15]
+    "max_lengths": [5, 10, 15],
+    "inference_inputs": {
+      "MAR1": ["COPY", "REPLACE", "IDENTIFIER", "MATCH", "COUNT"],
+      "COND1": [
+        ["COPY", "REPLACE"],
+        ["SCAN", "COUNT"],
+        ["IDENTIFIER", "IDENTIFIER"],
+        ["COPY", "SCAN"]
+      ],
+      "EVI": [
+        ["LMOVE", "IDENTIFIER", "IDENTIFIER", "LEFT", "LEFT"],
+        [
+          "SCAN",
+          "POSITIVE_DECIMAL_LITERAL",
+          "MATCH",
+          "IDENTIFIER",
+          "COUNT",
+          "POSITIVE_DECIMAL_LITERAL",
+          "TYPE",
+          "IDENTIFIER"
+        ]
+      ]
+    }
   },
   "SQL": {
     "grammar_name": "SQLSimplified",
@@ -53,6 +75,42 @@
         ["ORDER", "BY"],
         ["BY", "ORDER"],
         ["HAVING", "ASC"]
+      ],
+      "EVI": [
+        [
+          "SELECT",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "COMMA",
+          "Identifier",
+          "FROM",
+          "Identifier",
+          "JOIN",
+          "Identifier",
+          "ON",
+          "Identifier",
+          "DOT",
+          "Identifier",
+          "EQUAL",
+          "Identifier",
+          "DOT",
+          "STAR",
+          "SEMI"
+        ],
+        [
+          "SELECT",
+          "Identifier",
+          "COMMA",
+          "Identifier",
+          "FROM",
+          "Identifier",
+          "WHERE",
+          "Identifier",
+          "GT",
+          "Integral",
+          "SEMI"
+        ]
       ]
     }
   },
@@ -274,7 +332,43 @@
     "skip_rules": ["WS"],
     "max_length": 30,
     "depth": 20,
-    "max_lengths": [10, 15, 20, 25, 30]
+    "max_lengths": [10, 15, 20, 25, 30],
+    "inference_inputs": {
+      "MAR1": ["BINOP", "TERM_2", "NUM", "TERM_8", "IDENT"],
+      "COND1": [
+        ["BINOP", "NUM"],
+        ["NUM", "BINOP"],
+        ["IDENT", "BINOP"],
+        ["IDENT", "NUM"],
+        ["IDENT", "IDENT"]
+      ],
+      "EVI": [
+        [
+          "TERM_2",
+          "IDENT",
+          "TERM_13",
+          "IDENT",
+          "TERM_14",
+          "IDENT",
+          "TERM_11",
+          "IDENT",
+          "TERM_12",
+          "IDENT"
+        ],
+        [
+          "TERM_2",
+          "IDENT",
+          "TERM_13",
+          "IDENT",
+          "TERM_14",
+          "IDENT",
+          "TERM_11",
+          "IDENT",
+          "TERM_12",
+          "IDENT"
+        ]
+      ]
+    }
   },
   "B": {
     "grammar_name": "b",
@@ -286,7 +380,72 @@
     "skip_rules": ["WS"],
     "max_length": 40,
     "depth": 20,
-    "max_lengths": [10, 15, 20, 25, 30, 35, 40]
+    "max_lengths": [10, 15, 20, 25, 30, 35, 40],
+    "inference_inputs": {
+      "MAR1": ["NAME", "TERM_1", "TERM_0", "STRING2", "TERM_24"],
+      "COND1": [
+        ["NAME", "TERM_2"],
+        ["TERM_3", "TERM_1"],
+        ["STRING2", "TERM_11"],
+        ["TERM_2", "TERM_24"],
+        ["TERM_18", "NAME"]
+      ],
+      "EVI": [
+        [
+          "NAME",
+          "TERM_2",
+          "TERM_3",
+          "TERM_5",
+          "TERM_15",
+          "NAME",
+          "TERM_1",
+          "NAME",
+          "TERM_4",
+          "NAME",
+          "TERM_18",
+          "NAME",
+          "TERM_2",
+          "TERM_3",
+          "TERM_1",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_3",
+          "TERM_1",
+          "TERM_11",
+          "TERM_2",
+          "NAME",
+          "TERM_25",
+          "STRING2",
+          "TERM_3",
+          "TERM_8",
+          "NAME",
+          "TERM_1",
+          "TERM_6"
+        ],
+        [
+          "NAME",
+          "TERM_2",
+          "TERM_3",
+          "TERM_5",
+          "TERM_15",
+          "NAME",
+          "TERM_1",
+          "NAME",
+          "TERM_18",
+          "NAME",
+          "TERM_2",
+          "TERM_3",
+          "TERM_1",
+          "NAME",
+          "TERM_2",
+          "NAME",
+          "TERM_3",
+          "TERM_1",
+          "TERM_6"
+        ]
+      ]
+    }
   },
   "CSV": {
     "grammar_name": "CSV",
@@ -351,6 +510,66 @@
     "with_serializer": true,
     "skip_rules": ["SEA_WS"],
     "max_length": 25,
+    "depth": 10,
+    "max_lengths": []
+  },
+  "XML1": {
+    "grammar_name": "XML",
+    "start_rule": "document",
+    "parser_path": "data/input/grammars/XML/XMLParser.g4",
+    "seeds_dir": "data/input/seeds/XML1",
+    "initial_grammar_paths": [
+      "data/input/grammars/XML/XMLParser.g4",
+      "data/input/grammars/XML/XMLLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["SEA_WS"],
+    "max_length": 35,
+    "depth": 10,
+    "max_lengths": []
+  },
+  "XML2": {
+    "grammar_name": "XML",
+    "start_rule": "document",
+    "parser_path": "data/input/grammars/XML/XMLParser.g4",
+    "seeds_dir": "data/input/seeds/XML2",
+    "initial_grammar_paths": [
+      "data/input/grammars/XML/XMLParser.g4",
+      "data/input/grammars/XML/XMLLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["SEA_WS"],
+    "max_length": 35,
+    "depth": 10,
+    "max_lengths": []
+  },
+  "XML3": {
+    "grammar_name": "XML",
+    "start_rule": "document",
+    "parser_path": "data/input/grammars/XML/XMLParser.g4",
+    "seeds_dir": "data/input/seeds/XML3",
+    "initial_grammar_paths": [
+      "data/input/grammars/XML/XMLParser.g4",
+      "data/input/grammars/XML/XMLLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["SEA_WS"],
+    "max_length": 35,
+    "depth": 10,
+    "max_lengths": []
+  },
+  "XML4": {
+    "grammar_name": "XML",
+    "start_rule": "document",
+    "parser_path": "data/input/grammars/XML/XMLParser.g4",
+    "seeds_dir": "data/input/seeds/XML4",
+    "initial_grammar_paths": [
+      "data/input/grammars/XML/XMLParser.g4",
+      "data/input/grammars/XML/XMLLexer.g4"
+    ],
+    "with_serializer": true,
+    "skip_rules": ["SEA_WS"],
+    "max_length": 35,
     "depth": 10,
     "max_lengths": []
   },

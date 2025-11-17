@@ -49,7 +49,7 @@ def ask_query(
             prob = abs(marginal_sequence_query(model, sequence, lit_map, lit_size, pos))
             return prob
         case "COND1":
-            """represent input as ([token1, token1])"""
+            """represent input as ([token1, token2])"""
             tok = inputs[0]
             tok2 = inputs[1]
             prob = abs(
@@ -57,7 +57,7 @@ def ask_query(
             )
             return prob
         case "COND2":
-            """represent input as ([token1, token1], pos)"""
+            """represent input as ([token1, token2], pos)"""
             tok = inputs[0][0]
             tok2 = inputs[0][1]
             pos = inputs[1]
