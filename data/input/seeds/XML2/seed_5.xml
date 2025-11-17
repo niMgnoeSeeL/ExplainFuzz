@@ -1,0 +1,5 @@
+<request user_id="104" action="analyze" quota="1000">
+  <file path="data/input.xml" author="alice">
+    <content><![CDATA[Analysis ready content]]></content>
+  </file>
+</request>

@@ -1,0 +1,4 @@
+<request>
+  <query q="/system/status" limit="5"/>
+  <file name="system.xml" path="data/system.xml"/>
+</request>

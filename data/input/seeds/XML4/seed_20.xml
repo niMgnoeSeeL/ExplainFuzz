@@ -1,0 +1,3 @@
+<request user_id="204" action="delete" quota="50">
+  <query q="/logs/recent" limit="3"/>
+</request>

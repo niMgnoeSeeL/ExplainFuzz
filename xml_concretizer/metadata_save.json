@@ -1,0 +1,28 @@
+{
+  "query": {
+    "select": "xs:string",
+    "q": "xs:string",
+    "limit": "xs:int"
+  },
+  "file": {
+    "path": "xs:anyURI",
+    "name": "xs:string",
+    "content": "xs:string",
+    "author": "xs:string",
+    "price": "xs:float"
+  },
+  "request": {
+    "user_id": "xs:long",
+    "quota": "xs:long",
+    "amount": "xs:int",
+    "repeat": "xs:int",
+    "action": "xs:string",
+    "file_path": "xs:string"
+  },
+  "user": {
+    "id": "xs:long",
+    "quota": "xs:long",
+    "username": "xs:string",
+    "role": "xs:string"
+  }
+}

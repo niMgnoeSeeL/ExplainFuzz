@@ -1,0 +1,5 @@
+<request user_id="114" action="report">
+  <file path="data/monthly.xml" author="dave">
+    <content><![CDATA[Monthly summary data]]></content>
+  </file>
+</request>

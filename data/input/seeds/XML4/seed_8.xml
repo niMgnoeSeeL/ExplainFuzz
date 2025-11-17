@@ -1,0 +1,4 @@
+<file path="../secret_file.txt">
+  <name>report.txt</name>
+  <content>This is a short file content.</content>
+</file>

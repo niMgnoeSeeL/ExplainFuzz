@@ -260,35 +260,35 @@ def evaluate_dataset(domain, grammar_name, start_rule, skip_rules):
         plt.show()
 
 
-def generate_anonymized_dataset(domain, grammar_name, start_rule, skip_rules):
-    output_dir = Path("anonymized_dataset")
-    dataset_dir = DATASET_DIR / domain
-    parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
-    antlr_output_dir = GEN_PARSER_DIR / domain
-    _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
+# def generate_anonymized_dataset(domain, grammar_name, start_rule, skip_rules):
+#     output_dir = Path("anonymized_dataset")
+#     dataset_dir = DATASET_DIR / domain
+#     parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
+#     antlr_output_dir = GEN_PARSER_DIR / domain
+#     _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
 
-    for mode in ["no-generate"]:
-        trainingset_dir = dataset_dir / mode / "train"
-        print("get the anonymized training dataset...")
-        anonymized_dataset = anonymize_folder_inputs(
-            trainingset_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules
-        )
-        train_output_dir = output_dir / domain / mode / "train"
-        train_output_dir.mkdir(parents=True, exist_ok=True)
-        for i, input in enumerate(anonymized_dataset):
-            with open(f"{train_output_dir}/input_{i}.txt", "w") as file:
-                file.write(" ".join(input))
+#     for mode in ["no-generate"]:
+#         trainingset_dir = dataset_dir / mode / "train"
+#         print("get the anonymized training dataset...")
+#         anonymized_dataset = anonymize_folder_inputs(
+#             trainingset_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules
+#         )
+#         train_output_dir = output_dir / domain / mode / "train"
+#         train_output_dir.mkdir(parents=True, exist_ok=True)
+#         for i, input in enumerate(anonymized_dataset):
+#             with open(f"{train_output_dir}/input_{i}.txt", "w") as file:
+#                 file.write(" ".join(input))
 
-        testingset_dir = dataset_dir / mode / "test"
-        print("get the anonymized testing dataset...")
-        anonymized_dataset = anonymize_folder_inputs(
-            testingset_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules
-        )
-        test_output_dir = output_dir / domain / mode / "test"
-        test_output_dir.mkdir(parents=True, exist_ok=True)
-        for i, input in enumerate(anonymized_dataset):
-            with open(f"{test_output_dir}/input_{i}.txt", "w") as file:
-                file.write(" ".join(input))
+#         testingset_dir = dataset_dir / mode / "test"
+#         print("get the anonymized testing dataset...")
+#         anonymized_dataset = anonymize_folder_inputs(
+#             testingset_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules
+#         )
+#         test_output_dir = output_dir / domain / mode / "test"
+#         test_output_dir.mkdir(parents=True, exist_ok=True)
+#         for i, input in enumerate(anonymized_dataset):
+#             with open(f"{test_output_dir}/input_{i}.txt", "w") as file:
+#                 file.write(" ".join(input))
 
 
 def evaluate_seeds_and_grammars(domain, grammar_name, start_rule, skip_rules,max_lengths):
@@ -372,15 +372,23 @@ if __name__ == "__main__":
     #     domain_config["lengths"]
     # )
 
-    domain = "SQL"
+    # domain = "SQL"
+    # domain_config = domains_config[domain]
+    # evaluate_one_domain(
+    #     domain,
+    #     domain_config["grammar_name"],
+    #     domain_config["start_rule"],
+    #     domain_config["skip_rules"],
+    #     domain_config["max_lengths"]
+    # )
+
+    domain = "XML1"
     domain_config = domains_config[domain]
-    evaluate_one_domain(
-        domain,
-        domain_config["grammar_name"],
-        domain_config["start_rule"],
-        domain_config["skip_rules"],
-        domain_config["max_lengths"]
-    )
+    grammar_path = "data/intermediate/grammars/final/XML1/XMLParser.g4"
+    ano = get_seeds_anonymized(domain, domain_config["grammar_name"], grammar_path,  domain_config["start_rule"], domain_config["skip_rules"])
+    print(ano)
+    # lens = [len(p) for p in ano]
+    # print(lens)
 
     # evaluate_dataset(
     #     domain,

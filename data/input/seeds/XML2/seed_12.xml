@@ -1,0 +1,5 @@
+<request user_id="111" action="convert" quota="400">
+  <file name="converted.xml" author="carol">
+    <content><![CDATA[Conversion result text]]></content>
+  </file>
+</request>

@@ -1,6 +1,6 @@
 import torch
 from GrammarRefactoring.refactor_grammar.checker import load_parser_lexer
-from cfg2pc.main import anonymize_folder_inputs
+from cfg2pc.main import parse_and_anonymize_folder_inputs
 from cfg2pc.query import marginal_query, marginal_query_cond, marginal_query_contiguous_cond, evi_query, marginal_sequence_query, sequential_query_contiguous_cond, marginal_map_query
 from cfg2pc.SQL_prob import marginal_proba, conditional_in_order, conditional_direct, _evi_weights, marginal_sequence, conditional_sequential, next_token
 from evaluation import save_results
@@ -12,8 +12,9 @@ from main import (
     GRAMMAR_DIR,
     MODEL_DIR,
     RESULTS_DIR,
-    SEEDS_DIR,
-    get_literal_token_mapping
+    DATASET_DIR,
+    get_literal_token_mapping,
+    load_domains_config
 )
 
 
@@ -30,20 +31,27 @@ def eval_inference_domain(
     domain, grammar_name, start_rule, skip_rules, max_length, inference_inputs, grammar_path
 ):
     # get the anonymized seeds
-    seeds_dir = SEEDS_DIR / domain
+    
+    #seeds_dir = SEEDS_DIR / domain
+    # train_dataset_dir = DATASET_DIR / domain / mode / "train"
     parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
     antlr_output_dir = GEN_PARSER_DIR / domain
-    print(antlr_output_dir)
+    
     _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
-    seeds = anonymize_folder_inputs(
-        seeds_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules
-    )
+    
     results = []
     results_string = (
         f"--------------Evaluation inference for the domain {domain}------------ \n \n"
     )
-    for mode in ["no-generate", "with-generate"]:
+    print(f"Evaluation inference for the domain {domain}")
+    for mode in ["no-generate"]:
         results_string += f"###### Evaluation for the mode {mode} ######### \n \n "
+
+        train_dataset_dir = DATASET_DIR / domain / mode / "train"
+        train_dataset = parse_and_anonymize_folder_inputs(
+            train_dataset_dir, parser_final_file_path, start_rule, lexer_cls, skip_rules,max_length
+        )
+        print(train_dataset[:2])
         # Load model
         model_save_path = MODEL_DIR / domain / f"{domain}-{mode}-{max_length}.pt"
         model = torch.load(model_save_path, weights_only=False)
@@ -51,14 +59,12 @@ def eval_inference_domain(
         lit_map = model.lit_map
         lit_size = max(l for l in lit_map.values()) + 1
 
-        print(seeds)
-
         # Evaluate inference for the different type of queries
 
         # # ##### MAR 1 ######
         toks_marginals = inference_inputs["MAR1"]
         res_list, res_str = eval_MAR1(
-            model, lit_map, max_length, lit_size, toks_marginals, seeds, mode, domain
+            model, lit_map, max_length, lit_size, toks_marginals, train_dataset, mode, domain
         )
         results += res_list
         results_string += res_str
@@ -66,7 +72,7 @@ def eval_inference_domain(
         # # ##### COND 1 ######
         seqs_cond = inference_inputs["COND1"]
         res_list, res_str = eval_COND1(
-            model, lit_map, max_length, lit_size, seqs_cond, seeds, mode, domain
+            model, lit_map, max_length, lit_size, seqs_cond, train_dataset, mode, domain
         )
         results += res_list
         results_string += res_str
@@ -82,7 +88,7 @@ def eval_inference_domain(
         #  ##### EVI ######
         seqs_cond = inference_inputs["EVI"]
         res_list, res_str = eval_EVI(
-            model, lit_map, max_length, lit_size, seqs_cond, seeds, mode, domain
+            model, lit_map, max_length, lit_size, seqs_cond, train_dataset, mode, domain
         )
         results += res_list
         results_string += res_str
@@ -155,21 +161,21 @@ def eval_EVI(model, lit_map, max_length, lit_size, seqs, seeds, mode, domain):
     """
     results = []
     str_res = ""
-    for tok in seqs:
+    for seq in seqs:
         str_res += "--EVI QUERY FROM PC -- \n"
-        prob_model = abs(evi_query(model, tok, lit_map, lit_size))
-        str_res += f"P({tok})={prob_model:.4f} \n"
+        prob_model = abs(evi_query(model, seq, lit_map, lit_size))
+        str_res += f"P({seq})={prob_model:.4f} \n"
 
         str_res += "--EVI QUERY FROM SEEDS -- \n"
-        prob_seeds = _evi_weights(tok, seeds)
-        str_res += f"P({tok})={prob_seeds:.4f} \n \n"
+        prob_seeds = _evi_weights(seq+["EOF"], seeds)
+        str_res += f"P({seq})={prob_seeds:.4f} \n \n"
 
         results.append(
             {
                 "domain": domain,
                 "mode": mode,
                 "query_type": "EVI",
-                "query": tok,
+                "query": seq,
                 "model_prob": prob_model,
                 "seed_prob": prob_seeds,
             }
@@ -203,8 +209,8 @@ def eval_COND1(model, lit_map, max_length, lit_size, seqs, seeds, mode, domain):
                 "domain": domain,
                 "mode": mode,
                 "query_type": "COND1",
-                "token": tok,
-                "given_token": tok2,
+                "token": tok2,
+                "given_token": tok,
                 "model_prob": prob_model,
                 "seed_prob": prob_seeds,
             }
@@ -340,51 +346,37 @@ def eval_MAP(model, lit_map, max_length, lit_size, toks, seeds, mode, domain):
     return results, str_res
 
 
-
-
 def analyze_results(file):
-    # Load your JSON from a file or directly as a string
+    # Load your JSON from a file
     with open(file, "r") as f:
         data = json.load(f)
 
-    # Structure to accumulate differences
-    stats = defaultdict(lambda: defaultdict(list))  # stats[query_type][mode] = list of diffs
-    all_modes = set()
+    # Structure to accumulate model and ground-truth probabilities
+    stats = defaultdict(lambda: {"gt": [], "mae": []})  # stats[(domain, query_type)] = {"gt": [...], "mae": [...]}
 
     for domain, examples in data.items():
         for example_group in examples:
             for entry in example_group:
-                mode = entry.get("mode")
                 query_type = entry.get("query_type")
                 model_prob = entry.get("model_prob")
                 seed_prob = entry.get("seed_prob")
 
-                # Some entries (like EVI) might not have token, but we only need probabilities
-                if mode and query_type and model_prob is not None and seed_prob is not None:
+                if query_type is not None and model_prob is not None and seed_prob is not None:
                     diff = abs(model_prob - seed_prob)
-                    stats[(domain, query_type)][mode].append(diff)
-                    all_modes.add(mode)
+                    stats[(domain, query_type)]["gt"].append(seed_prob)
+                    stats[(domain, query_type)]["mae"].append(diff)
 
-    all_modes = sorted(all_modes)  # Consistent column order
-
-     # Write LaTeX table
-    with open("results_table.tex", "w") as f:
-        f.write("\\begin{tabular}{ll" + "r" * len(all_modes) + "}\n")
+    # Write LaTeX table
+    with open("data/results/PC/results_inference_table.tex", "w") as f:
+        f.write("\\begin{tabular}{llrr}\n")
         f.write("\\toprule\n")
-        header = "Domain & Query Type"
-        for mode in all_modes:
-            header += f" & {mode}"
-        header += " \\\\\n"
-        f.write(header)
+        f.write("\\textbf{Domain} & \\textbf{Query Type} & \\textbf{Mean GT} & \\textbf{MAE} \\\\\n")
         f.write("\\midrule\n")
 
-        for (domain, query_type), mode_diffs in sorted(stats.items()):
-            row = f"{domain} & {query_type}"
-            for mode in all_modes:
-                diffs = mode_diffs.get(mode, [])
-                avg_diff = sum(diffs) / len(diffs) if diffs else 0.0
-                row += f" & {avg_diff:.4f}"
-            row += " \\\\\n"
+        for (domain, query_type), values in sorted(stats.items()):
+            mean_gt = sum(values["gt"]) / len(values["gt"]) if values["gt"] else 0.0
+            mae = sum(values["mae"]) / len(values["mae"]) if values["mae"] else 0.0
+            row = f"{domain} & {query_type} & {mean_gt:.4f} & {mae:.4f} \\\\\n"
             f.write(row)
 
         f.write("\\bottomrule\n")
@@ -392,16 +384,19 @@ def analyze_results(file):
 
     print("LaTeX table saved to results_table.tex")
 
-import json
-def eval_mar1_tokens(domain, literals, save_path, mode="no-generate"):
-    with open(save_path, "r") as f:
-        all_res = json.load(f)
+
+def eval_mar1_tokens(domain, literals, save_path, mode="no-generate",is_token=False):
+    try:
+        with open(save_path, "r") as f:
+            all_res = json.load(f)
+    except:
+        all_res={}
     
     valid_results = {}
 
     for lit in literals:
         try:
-            valid_results[lit]=prob_MAR1(domain, lit, mode) 
+            valid_results[lit]=prob_MAR1(domain, lit, mode,is_token) 
         except Exception as e:
             pass
 
@@ -411,16 +406,51 @@ def eval_mar1_tokens(domain, literals, save_path, mode="no-generate"):
         json.dump(all_res,f,indent=4)
     return all_res
 
-def prob_MAR1(domain, lit, mode):
-    literal_to_tokens = get_literal_token_mapping(domain)
-    token = literal_to_tokens[lit]
+def prob_MAR1(domain, lit, mode,is_token=False):
+    if not is_token:
+        literal_to_tokens = get_literal_token_mapping(domain)
+        token = literal_to_tokens[lit]
+    else:
+        token=lit
     inputs = [token]
     query_type = "MAR1"
     prob = compute_probability(domain, query_type, inputs, mode)
     return prob
 
+def eval_cond1_tokens(domain, literals, save_path, mode="no-generate",is_token=False):
+    try:
+        with open(save_path, "r") as f:
+            all_res = json.load(f)
+    except:
+        all_res={}
+    
+    valid_results = all_res.get(domain,{})
 
-def generate_table_latex_mar1(input_file):
+    for (lit1,lit2) in literals:
+        try:
+            valid_results[lit2+'|'+lit1]=prob_COND1(domain, lit1,lit2, mode,is_token) 
+        except Exception as e:
+            print(e)
+            pass
+
+    all_res[domain]=valid_results
+
+    with open(save_path, "w") as f:
+        json.dump(all_res,f,indent=4)
+    return all_res
+
+def prob_COND1(domain, lit1,lit2, mode,is_token=False):
+    if not is_token:
+        literal_to_tokens = get_literal_token_mapping(domain)
+        tok1,tok2 = literal_to_tokens[lit1],literal_to_tokens[lit2]
+    else:
+        tok1,tok2=lit1,lit2
+    inputs = [tok1,tok2]
+    query_type = "COND1"
+    prob = compute_probability(domain, query_type, inputs, mode)
+    return prob
+
+def generate_table_latex_distribution_seeds(input_file):
     with open(input_file, "r") as f:
         data = json.load(f)
     # Get all literals (row labels)
@@ -437,43 +467,81 @@ def generate_table_latex_mar1(input_file):
         row = [f'P("{literal}")']
         for domain in domains:
             value = round(data[domain][literal], 2)
-            row.append(f"{value:.2f}")
+            row.append(f"\\heatcolor{{{value:.2f}}}")
         latex += " & ".join(row) + " \\\\\n"
 
     latex += "\\end{tabular}"
     print(latex)
 
+def compute_xml_nested_structure_proba(domain,save_path,mode="no-generate"):
+    p_slash = prob_MAR1(domain, "SLASH", mode,is_token=True) 
+    p_slash_close = prob_MAR1(domain, "SLASH_CLOSE", mode,is_token=True) 
+    p_slash_cond_slash = prob_COND1(domain, "SLASH","SLASH", mode,is_token=True) 
+    p_slash_cond_slash_close = prob_COND1(domain, "SLASH_CLOSE","SLASH", mode,is_token=True)
+    p_nested_structure = p_slash * p_slash_close + p_slash_cond_slash * p_slash_cond_slash_close
 
-if __name__ == "__main__":
-    # config_file_path = "domains_config.json"
-    # domains_config = load_domains_config(config_file_path)
+    with open(save_path, "r") as f:
+        all_res = json.load(f)
+    valid_results = all_res.get(domain,{})
+    valid_results["nested structure"] = p_nested_structure
 
-    # domains = ["SQL", "B", "JANUS", "REDIS"]
+    with open(save_path, "w") as f:
+        json.dump(all_res,f,indent=4)
+    return all_res
 
-    # for domain in domains:
-    #     domain_config = domains_config[domain]
+###### MAIN FUNCTIONS TO RUN THE DIFFERENT EVAL #####
 
-    #     eval_inference_domain(
-    #         domain,
-    #         grammar_name=domain_config["grammar_name"],
-    #         start_rule=domain_config["start_rule"],
-    #         skip_rules=domain_config["skip_rules"],
-    #         max_length=domain_config["max_length"],
-    #         inference_inputs=domain_config["inference_inputs"],
-    #         grammar_path=domain_config["parser_path"]
-    #     )
-
-    # file = RESULTS_DIR / "PC" / "eval_PC_inference.json"
-    # analyze_results(file)
-
-
-    # Evaluate MAR 1 probabilities for different SQL seeds
-    literals = ["SELECT","FROM","WHERE","JOIN","ON","GROUP","ORDER","HAVING","NOT","UNION"]
+def run_eval_mar1_cond1_sql():
+    literals = ["SELECT","FROM","WHERE","JOIN","GROUP","ORDER","HAVING","UNION"]
+    cond_literals = [["SELECT","SELECT"]]
     res_path = RESULTS_DIR / "SEEDS" / "eval_mar1_domains_SQL.json"
     for domain in ["SQL1A","SQL2A","SQL3A","SQL4A"]:
-        print("Evaluating MAR1 tokens for domain",domain)
+        print("Evaluating MAR1 and COND1 tokens for domain",domain)
         eval_mar1_tokens(domain,literals,res_path)
+        eval_cond1_tokens(domain,cond_literals,res_path)
+    generate_table_latex_distribution_seeds(res_path)
 
-    generate_table_latex_mar1(res_path)
+def run_eval_mar1_cond1_xml():
+    tokens = ["Name","CDATA","COMMENT","EntityRef"]
+    res_path = RESULTS_DIR / "SEEDS" / "eval_mar1_domains_XML.json"
+    domains = ["XML1","XML2","XML3","XML4"]
+    for domain in domains:
+        print("Evaluating MAR1 tokens for domain",domain)
+        eval_mar1_tokens(domain,tokens,res_path,is_token=True)
+        compute_xml_nested_structure_proba(domain,res_path)
+    generate_table_latex_distribution_seeds(res_path)
+
+def run_eval_inference():
+    config_file_path = "domains_config.json"
+    domains_config = load_domains_config(config_file_path)
+
+    domains = ["SQL", "B", "JANUS", "REDIS"]
+    for domain in domains:
+        domain_config = domains_config[domain]
+
+        eval_inference_domain(
+            domain,
+            grammar_name=domain_config["grammar_name"],
+            start_rule=domain_config["start_rule"],
+            skip_rules=domain_config["skip_rules"],
+            max_length=domain_config["max_length"],
+            inference_inputs=domain_config["inference_inputs"],
+            grammar_path=domain_config["parser_path"]
+        )
+
+    file = RESULTS_DIR / "PC" / "eval_PC_inference.json"
+    analyze_results(file)
+
+
+if __name__ == "__main__":
+    # ## EVAL INFERENCE
+    # run_eval_inference()
+
+    ## Evaluate MAR1 and COND1 probabilities for different SQL seeds
+    run_eval_mar1_cond1_sql()
+
+    # ## Evaluate MAR1 and COND1 probabilities for different XML seeds
+    # run_eval_mar1_cond1_xml()
+
 
         

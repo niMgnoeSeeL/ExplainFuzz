@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:include schemaLocation="file.xsd"/>
+  <xs:element name="message">
+  <xs:complexType mixed="true">
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:sequence>
+        <xs:element ref="file" minOccurs="0" maxOccurs="unbounded"/>
+
+        <xs:element name="from" type="xs:string" minOccurs="0"/>
+        <xs:element name="to" type="xs:string" minOccurs="0"/>
+        <xs:element name="content" type="xs:string" minOccurs="0"/>
+      </xs:sequence>
+    </xs:choice>
+    <xs:attribute name="from" type="xs:string" use="optional"/>
+    <xs:attribute name="to" type="xs:string" use="optional"/>
+    <xs:attribute name="content" type="xs:string" use="optional"/>
+  </xs:complexType>
+</xs:element>
+</xs:schema>

@@ -1,0 +1,3 @@
+<file path="/var/app/data/config.json" name="config.json">
+  <content>{"key":"value &amp; test"}</content>
+</file>

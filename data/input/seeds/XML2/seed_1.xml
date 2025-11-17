@@ -1,0 +1,3 @@
+<request user_id="100" action="read" quota="50">
+  <query select="users/active"/>
+</request>

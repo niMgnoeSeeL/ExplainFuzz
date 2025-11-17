@@ -264,8 +264,6 @@ with gr.Blocks() as demo:
             ["SQL", "B", "REDIS", "JANUS"], label="Choose Domain", value="SQL"
         )
 
-        gr.Markdown("")
-
         mode = gr.Radio(
             ["with-generate", "no-generate"],
             value="no-generate",

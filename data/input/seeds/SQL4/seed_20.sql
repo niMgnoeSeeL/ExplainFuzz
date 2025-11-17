@@ -1,1 +1,1 @@
-SELECT id, AVG(salary) FROM employees GROUP BY id HAVING AVG(salary) > 300000;
+SELECT id, salary FROM employees GROUP BY id HAVING id > 2;

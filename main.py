@@ -14,6 +14,10 @@ from pathlib import Path
 from cfg2pc.main import main_build_train_model, main_sampling
 import json
 
+from xml_concretizer.utils import gen_all_context_paths
+from xml_concretizer.xml_concretizer import ConcretizerContext, concretize_many_and_write
+
+import os
 # === Global Path Variables ===
 BASE_DIR = Path("data")
 INTERMEDIATE_DIR = BASE_DIR / "intermediate"
@@ -298,6 +302,10 @@ def save_queries(partial_concrete_inputs,output_path):
         for input in partial_concrete_inputs:
             file.write(" ".join(input) + "\n")
 
+def save_final_inputs(concrete_inputs,output_path):
+    with open(output_path, "w") as file:
+        for input in concrete_inputs:
+            file.write(input + "\n")
 
 def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives="",dry_run=False,schema = None):
     output_dir = OUTPUT_DIR / "inputs" / domain
@@ -321,19 +329,46 @@ def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives
             dry_run=dry_run,
             schema = schema
         )
+    elif "XML" in domain:
+        partial_concrete_inputs = deanonymize_samples(domain, samples_path, output_path)
+
+        all_paths = gen_all_context_paths()
+        all_paths = list(all_paths.get("project_local",set())) + list(all_paths.get("system",set()))
+        context = ConcretizerContext(
+        corpus_paths=["xml_concretizer/auth_service_xml"],  # folder with existing XML files
+        seed_keywords=["user", "session", "token"],
+        all_paths=all_paths,
+        mode="mixed",       # realistic + edge-case sampling
+        mix_ratio=0.8,      # 80% realistic, 20% edge-case
+        seed=42,             # for reproducibility,
+        schema_folder="xml_concretizer/auth_service_xml/config/"
+    )
+        output_folder = output_dir / f"test_inputs_{mode.replace('-','_')}"
+        os.makedirs(output_folder, exist_ok=True)
+        
+        batches = 20 # TODO : try not to hard code this
+        seeds_folder = SEEDS_DIR / domain
+        concretize_many_and_write(
+            partial_concrete_inputs,
+            out_folder=output_folder,
+            context=context,
+            seeds_folder=seeds_folder,
+            batches=batches
+        )
+        print(f"--> {len(partial_concrete_inputs)*batches} xml inputs generated in this folder {output_folder}")
     else:
         partial_concrete_inputs = deanonymize_samples(domain, samples_path, output_path)
         concrete_queries = generate_concrete_queries(
             partial_concrete_inputs, domain, custom_directives
         )
-        save_queries(concrete_queries, output_path)
+        save_final_inputs(concrete_queries, output_path)
     return str(output_path)
 
 
 def main_generate_inputs(domain, mode, nb_concrete_inputs=200, token_condition = None,conninfo=None,dry_run=False,schema=None):
     # if domain == "SQL":
-    if "SQL" in domain:
-        nb_sample_inputs = nb_concrete_inputs // 20 + 1
+    if "SQL" in domain or "XML" in domain:
+        nb_sample_inputs = nb_concrete_inputs // 20 
     else:
         nb_sample_inputs = nb_concrete_inputs
     sample_inputs(domain, mode, nb_sample_inputs,token_condition)
@@ -375,29 +410,58 @@ def run_sql_models():
             print(" ")
     print(failing_domains)
 
+def run_xml_models():
+    failing_domains = []
+    for i in [2,3,4]:
+        domain = "XML"+str(i)
+        print(f"###### BUILDING MODEL FOR DOMAIN {domain} #########")
+        print(" ")
+        domain_config = domains_config[domain]
+        num_inputs = 10000
+        try:
+            build_model(
+                domain,
+                grammar_name=domain_config["grammar_name"],
+                initial_grammar_paths=domain_config["initial_grammar_paths"],
+                max_length=domain_config["max_length"],
+                seeds_dir=domain_config["seeds_dir"],
+                filter_non_executable=domain_config.get("filter_non_executable",False),
+                start_rule=domain_config["start_rule"],
+                num_inputs=num_inputs,
+                skip_rules=domain_config["skip_rules"],
+                with_serializer=domain_config["with_serializer"],
+                depth=domain_config["depth"],
+            )
+        except Exception as e:
+            print(e)
+            failing_domains.append(domain)
+        print(" ")
+    print(failing_domains)
+
 if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
     
-    domain = "SQL4A"
+    domain = "SQL1A"
     domain_config = domains_config[domain]
 
     num_inputs = 10000
 
-    build_model(
-        domain,
-        grammar_name=domain_config["grammar_name"],
-        initial_grammar_paths=domain_config["initial_grammar_paths"],
-        max_length=domain_config["max_length"],
-        seeds_dir=domain_config["seeds_dir"],
-        filter_non_executable=domain_config.get("filter_non_executable",False),
-        start_rule=domain_config["start_rule"],
-        num_inputs=num_inputs,
-        skip_rules=domain_config["skip_rules"],
-        with_serializer=domain_config["with_serializer"],
-        depth=domain_config["depth"],
-    )
+    # build_model(
+    #     domain,
+    #     grammar_name=domain_config["grammar_name"],
+    #     initial_grammar_paths=domain_config["initial_grammar_paths"],
+    #     max_length=domain_config["max_length"],
+    #     seeds_dir=domain_config["seeds_dir"],
+    #     filter_non_executable=domain_config.get("filter_non_executable",False),
+    #     start_rule=domain_config["start_rule"],
+    #     num_inputs=num_inputs,
+    #     skip_rules=domain_config["skip_rules"],
+    #     with_serializer=domain_config["with_serializer"],
+    #     depth=domain_config["depth"],
+    # )
 
     #run_sql_models()
-
-    #main_generate_inputs(domain, "no-generate", 1000)
+    #run_xml_models()
+    tok_cond = ['CharRef']*2
+    main_generate_inputs(domain, "no-generate", 60,tok_cond)

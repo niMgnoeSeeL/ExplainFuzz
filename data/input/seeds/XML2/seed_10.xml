@@ -1,0 +1,5 @@
+<request user_id="109" action="backup">
+  <file path="data/archive.xml" author="bob">
+    <content><![CDATA[Backup file content v1]]></content>
+  </file>
+</request>
