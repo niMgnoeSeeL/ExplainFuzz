@@ -3,8 +3,7 @@ from GrammarRefactoring.refactor_grammar.checker import load_parser_lexer
 from cfg2pc.main import parse_and_anonymize_folder_inputs
 from cfg2pc.query import marginal_query, marginal_query_cond, marginal_query_contiguous_cond, evi_query, marginal_sequence_query, sequential_query_contiguous_cond, marginal_map_query
 from cfg2pc.SQL_prob import marginal_proba, conditional_in_order, conditional_direct, _evi_weights, marginal_sequence, conditional_sequential, next_token
-from evaluation import save_results
-from collections import defaultdict
+from eval_scalability_perplexity import save_results
 import json
 from inference import compute_probability
 from main import (
@@ -346,45 +345,6 @@ def eval_MAP(model, lit_map, max_length, lit_size, toks, seeds, mode, domain):
     return results, str_res
 
 
-def analyze_results(file):
-    # Load your JSON from a file
-    with open(file, "r") as f:
-        data = json.load(f)
-
-    # Structure to accumulate model and ground-truth probabilities
-    stats = defaultdict(lambda: {"gt": [], "mae": []})  # stats[(domain, query_type)] = {"gt": [...], "mae": [...]}
-
-    for domain, examples in data.items():
-        for example_group in examples:
-            for entry in example_group:
-                query_type = entry.get("query_type")
-                model_prob = entry.get("model_prob")
-                seed_prob = entry.get("seed_prob")
-
-                if query_type is not None and model_prob is not None and seed_prob is not None:
-                    diff = abs(model_prob - seed_prob)
-                    stats[(domain, query_type)]["gt"].append(seed_prob)
-                    stats[(domain, query_type)]["mae"].append(diff)
-
-    # Write LaTeX table
-    with open("data/results/PC/results_inference_table.tex", "w") as f:
-        f.write("\\begin{tabular}{llrr}\n")
-        f.write("\\toprule\n")
-        f.write("\\textbf{Domain} & \\textbf{Query Type} & \\textbf{Mean GT} & \\textbf{MAE} \\\\\n")
-        f.write("\\midrule\n")
-
-        for (domain, query_type), values in sorted(stats.items()):
-            mean_gt = sum(values["gt"]) / len(values["gt"]) if values["gt"] else 0.0
-            mae = sum(values["mae"]) / len(values["mae"]) if values["mae"] else 0.0
-            row = f"{domain} & {query_type} & {mean_gt:.4f} & {mae:.4f} \\\\\n"
-            f.write(row)
-
-        f.write("\\bottomrule\n")
-        f.write("\\end{tabular}\n")
-
-    print("LaTeX table saved to results_table.tex")
-
-
 def eval_mar1_tokens(domain, literals, save_path, mode="no-generate",is_token=False):
     try:
         with open(save_path, "r") as f:
@@ -450,29 +410,6 @@ def prob_COND1(domain, lit1,lit2, mode,is_token=False):
     prob = compute_probability(domain, query_type, inputs, mode)
     return prob
 
-def generate_table_latex_distribution_seeds(input_file):
-    with open(input_file, "r") as f:
-        data = json.load(f)
-    # Get all literals (row labels)
-    literals = list(next(iter(data.values())).keys())
-    domains = list(data.keys())
-
-    # Start LaTeX table
-    latex = "\\begin{tabular}{l" + "c" * len(domains) + "}\n"
-    latex += "Literal & " + " & ".join(domains) + " \\\\\n"
-    latex += "\\hline\n"
-
-    # Fill table rows
-    for literal in literals:
-        row = [f'P("{literal}")']
-        for domain in domains:
-            value = round(data[domain][literal], 2)
-            row.append(f"\\heatcolor{{{value:.2f}}}")
-        latex += " & ".join(row) + " \\\\\n"
-
-    latex += "\\end{tabular}"
-    print(latex)
-
 def compute_xml_nested_structure_proba(domain,save_path,mode="no-generate"):
     p_slash = prob_MAR1(domain, "SLASH", mode,is_token=True) 
     p_slash_close = prob_MAR1(domain, "SLASH_CLOSE", mode,is_token=True) 
@@ -499,8 +436,7 @@ def run_eval_mar1_cond1_sql():
         print("Evaluating MAR1 and COND1 tokens for domain",domain)
         eval_mar1_tokens(domain,literals,res_path)
         eval_cond1_tokens(domain,cond_literals,res_path)
-    generate_table_latex_distribution_seeds(res_path)
-
+   
 def run_eval_mar1_cond1_xml():
     tokens = ["Name","CDATA","COMMENT","EntityRef"]
     res_path = RESULTS_DIR / "SEEDS" / "eval_mar1_domains_XML.json"
@@ -509,7 +445,6 @@ def run_eval_mar1_cond1_xml():
         print("Evaluating MAR1 tokens for domain",domain)
         eval_mar1_tokens(domain,tokens,res_path,is_token=True)
         compute_xml_nested_structure_proba(domain,res_path)
-    generate_table_latex_distribution_seeds(res_path)
 
 def run_eval_inference():
     config_file_path = "domains_config.json"
@@ -529,19 +464,18 @@ def run_eval_inference():
             grammar_path=domain_config["parser_path"]
         )
 
-    file = RESULTS_DIR / "PC" / "eval_PC_inference.json"
-    analyze_results(file)
-
 
 if __name__ == "__main__":
     # ## EVAL INFERENCE
     # run_eval_inference()
 
     ## Evaluate MAR1 and COND1 probabilities for different SQL seeds
-    run_eval_mar1_cond1_sql()
+    # run_eval_mar1_cond1_sql()
 
     # ## Evaluate MAR1 and COND1 probabilities for different XML seeds
     # run_eval_mar1_cond1_xml()
+
+    pass
 
 
         

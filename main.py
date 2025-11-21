@@ -442,26 +442,26 @@ if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
     
-    domain = "SQL1A"
+    domain = "MLIR"
     domain_config = domains_config[domain]
 
     num_inputs = 10000
 
-    # build_model(
-    #     domain,
-    #     grammar_name=domain_config["grammar_name"],
-    #     initial_grammar_paths=domain_config["initial_grammar_paths"],
-    #     max_length=domain_config["max_length"],
-    #     seeds_dir=domain_config["seeds_dir"],
-    #     filter_non_executable=domain_config.get("filter_non_executable",False),
-    #     start_rule=domain_config["start_rule"],
-    #     num_inputs=num_inputs,
-    #     skip_rules=domain_config["skip_rules"],
-    #     with_serializer=domain_config["with_serializer"],
-    #     depth=domain_config["depth"],
-    # )
+    build_model(
+        domain,
+        grammar_name=domain_config["grammar_name"],
+        initial_grammar_paths=domain_config["initial_grammar_paths"],
+        max_length=domain_config["max_length"],
+        seeds_dir=domain_config["seeds_dir"],
+        filter_non_executable=domain_config.get("filter_non_executable",False),
+        start_rule=domain_config["start_rule"],
+        num_inputs=num_inputs,
+        skip_rules=domain_config["skip_rules"],
+        with_serializer=domain_config["with_serializer"],
+        depth=domain_config["depth"],
+    )
 
     #run_sql_models()
     #run_xml_models()
-    tok_cond = ['CharRef']*2
-    main_generate_inputs(domain, "no-generate", 60,tok_cond)
+    # tok_cond = ['CharRef']*2
+    # main_generate_inputs(domain, "no-generate", 60,tok_cond)

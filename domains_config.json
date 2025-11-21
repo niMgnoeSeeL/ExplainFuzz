@@ -495,7 +495,7 @@
     "with_serializer": false,
     "skip_rules": ["WS"],
     "max_length": 35,
-    "depth": 20,
+    "depth": 100,
     "max_lengths": []
   },
   "XML": {

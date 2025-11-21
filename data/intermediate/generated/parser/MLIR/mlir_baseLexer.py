@@ -1,4 +1,4 @@
-# Generated from /Users/annaellebaiget/Desktop/MS_Thesis/ExplainFuzz/data/intermediate/grammars/final/MLIR/mlir_baseLexer.g4 by ANTLR 4.11.1
+# Generated from /Users/annaellebaiget/Desktop/MS_Thesis/ExplainFuzz/data/intermediate/grammars/final/MLIR/mlir_baseLexer.g4 by ANTLR 4.13.0
 from antlr4 import *
 from io import StringIO
 import sys
@@ -212,7 +212,7 @@ class mlir_baseLexer(Lexer):
 
     def __init__(self, input=None, output:TextIO = sys.stdout):
         super().__init__(input, output)
-        self.checkVersion("4.11.1")
+        self.checkVersion("4.13.0")
         self._interp = LexerATNSimulator(self, self.atn, self.decisionsToDFA, PredictionContextCache())
         self._actions = None
         self._predicates = None

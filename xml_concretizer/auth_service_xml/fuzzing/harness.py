@@ -94,7 +94,7 @@ def run_single(input_path: str, allow_xxe=False, timeout=5):
 
         # Detect XPath error
         if "XPath error for selector=" in line:
-            dyn.add("BUG06_xpath_injection_error")
+            dyn.add("xpath_injection_error")
         
         if "numeric parse error" in line:
             dyn.add("numeric_parsing_error")

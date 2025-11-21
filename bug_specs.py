@@ -212,7 +212,7 @@ BUG_SPECS_XML = {
     },
     "BUG06_xpath_injection_error": {
         "static_triggers": ["xpath_injection_candidate"],
-        "dynamic_triggers": ["BUG06_xpath_injection_error"],
+        "dynamic_triggers": ["xpath_injection_error"],
         "cond_token": "CDATA", 
         "complexity":"medium",
         "description": "Suspicious XPath expressions caused runtime errors when executed, revealing that untrusted input reached the query interpreter.",

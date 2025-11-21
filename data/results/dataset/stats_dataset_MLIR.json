@@ -1,0 +1,13 @@
+[
+    {
+        "domain": "MLIR",
+        "try_id": 1,
+        "nb_total_inputs": 10000,
+        "nb_invalid": 640,
+        "nb_executable": 9360,
+        "nb_valid": 9360,
+        "executable_rate": 0,
+        "success_rate_grammar": 93.6,
+        "fail_execute": 0
+    }
+]
