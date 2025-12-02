@@ -477,7 +477,7 @@ if __name__ == "__main__":
     # tok_cond = ['CharRef']*2
     # main_generate_inputs(domain, "no-generate", 60,tok_cond)
 
-    domain = "MLIR"
-    domain_config = domains_config[domain]
-    get_parsing_rate_samples_HMM(domain,"grammarinator_fuzzing/parsing-rate/pc_samples.txt",start_rule=domain_config["start_rule"],prefix_grammar=domain_config["grammar_name"])
+    # domain = "MLIR"
+    # domain_config = domains_config[domain]
+    # get_parsing_rate_samples_HMM(domain,"grammarinator_fuzzing/parsing-rate/pc_samples.txt",start_rule=domain_config["start_rule"],prefix_grammar=domain_config["grammar_name"])
     #get_parsing_rate_ground_truth(domain,start_rule=domain_config["start_rule"],prefix_grammar=domain_config["grammar_name"])
