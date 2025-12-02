@@ -12,6 +12,7 @@ out/
 anonymized_dataset/
 old/
 data/output/inputs/
+xml_concretizer/auth_service_xml/harness_results.json
 
 
 .DS_Store

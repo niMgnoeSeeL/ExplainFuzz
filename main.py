@@ -3,7 +3,7 @@ from GrammarRefactoring.refactor_grammar.LexerRuleExtractor import (
     get_literal_to_token_mapping,
 )
 from custom_generator_sql.LMM_concretization import generate_concrete_queries
-from grammarinator_fuzzing.main import main as grammarinator_fuzz_main
+from grammarinator_fuzzing.main import compute_parsing_ratio, main as grammarinator_fuzz_main
 from custom_generator_sql.main import main as custom_gen_sql_main
 from GrammarRefactoring.main import (
     refactor_grammar as grammar_refactoring_main,
@@ -57,6 +57,7 @@ def build_model(
     skip_rules=[],
     with_serializer=False,
     depth=20,
+    modes = ["no-generate","with-generate"]
 ):
     print("Inside build model")
     # Create necessary directories
@@ -83,14 +84,7 @@ def build_model(
     #                 GRAMMAR REFACTORING
     # ------------------------------------------------------------
     # This block handles grammar preprocessing to ensure
-    # compatibility with the PC compiler. It refactors ANTLR4
-    # grammars (Parser.g4, Lexer.g4) by simplifying rules,
-    # removing quantifiers (*, +, ?), and converting the grammar
-    # to a form similar to Chomsky Normal Form (CNF).
-    #
-    # The algorithm propagates and eliminates nullable rules,
-    # ensuring all productions meet structural constraints
-    # required for circuit construction.
+    # compatibility with the PC compiler.
     # ============================================================
 
     print("-----Refactoring the grammar----\n")
@@ -109,7 +103,7 @@ def build_model(
     ]
     ensure_directories_exist(refactoring_dirs)
 
-    grammar = grammar_refactoring_main(
+    grammar_refactoring_main(
         initial_grammar_paths,
         grammar_name,
         intermediate_dir,
@@ -128,7 +122,7 @@ def build_model(
     # ------------------------------------------------------------
     # This section launches the fuzzing campaign to generate a
     # large number of test inputs. Starting from a small seed set
-    # (e.g., ~5 examples), the system uses Grammarinator along
+    # the system uses Grammarinator along
     # with the refactored lexer and parser to generate 10,000 new
     # inputs that conform to the grammar.
     # ============================================================
@@ -177,9 +171,7 @@ def build_model(
     nb_epochs = 10
     model_save_dir = MODEL_DIR / domain
 
-    # # TODO : re put the correct one
-    # for mode in ["no-generate", "with-generate"]:
-    for mode in ["no-generate"]:
+    for mode in modes:
         print(
             f"--> Building the PC for the mode {mode.replace('-', ' ')} and max sequence length {max_length}"
         )
@@ -438,6 +430,25 @@ def run_xml_models():
         print(" ")
     print(failing_domains)
 
+def get_parsing_rate_ground_truth(domain,start_rule,prefix_grammar,folder_path = "anonymized_dataset/MLIR/no-generate/train/"):
+    # Ground truth folder
+    inputs = []
+    for filename in os.listdir(folder_path):
+        file_path = os.path.join(folder_path, filename)
+        with open(file_path, "r", encoding="utf-8") as infile:
+            input = infile.read()
+            inputs.append(input)
+
+    ratio = compute_parsing_ratio(domain,inputs,start_rule,prefix_grammar)
+    return ratio 
+
+def get_parsing_rate_samples_HMM(domain,file_path_samples,start_rule,prefix_grammar):
+    # Samples inputs from HMM
+    with open(file_path_samples, "r", encoding="utf-8") as infile:
+        inputs = infile.readlines()
+    ratio = compute_parsing_ratio(domain,inputs,start_rule,prefix_grammar)
+    return ratio 
+
 if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
@@ -447,21 +458,26 @@ if __name__ == "__main__":
 
     num_inputs = 10000
 
-    build_model(
-        domain,
-        grammar_name=domain_config["grammar_name"],
-        initial_grammar_paths=domain_config["initial_grammar_paths"],
-        max_length=domain_config["max_length"],
-        seeds_dir=domain_config["seeds_dir"],
-        filter_non_executable=domain_config.get("filter_non_executable",False),
-        start_rule=domain_config["start_rule"],
-        num_inputs=num_inputs,
-        skip_rules=domain_config["skip_rules"],
-        with_serializer=domain_config["with_serializer"],
-        depth=domain_config["depth"],
-    )
+    # build_model(
+    #     domain,
+    #     grammar_name=domain_config["grammar_name"],
+    #     initial_grammar_paths=domain_config["initial_grammar_paths"],
+    #     max_length=domain_config["max_length"],
+    #     seeds_dir=domain_config["seeds_dir"],
+    #     filter_non_executable=domain_config.get("filter_non_executable",False),
+    #     start_rule=domain_config["start_rule"],
+    #     num_inputs=num_inputs,
+    #     skip_rules=domain_config["skip_rules"],
+    #     with_serializer=domain_config["with_serializer"],
+    #     depth=domain_config["depth"],
+    # )
 
     #run_sql_models()
     #run_xml_models()
     # tok_cond = ['CharRef']*2
     # main_generate_inputs(domain, "no-generate", 60,tok_cond)
+
+    domain = "MLIR"
+    domain_config = domains_config[domain]
+    get_parsing_rate_samples_HMM(domain,"grammarinator_fuzzing/parsing-rate/pc_samples.txt",start_rule=domain_config["start_rule"],prefix_grammar=domain_config["grammar_name"])
+    #get_parsing_rate_ground_truth(domain,start_rule=domain_config["start_rule"],prefix_grammar=domain_config["grammar_name"])
