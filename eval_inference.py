@@ -117,10 +117,10 @@ def eval_inference_domain(
         # results_string += res_str
 
 
-    results_path = RESULTS_DIR / "PC"
+    results_path = RESULTS_DIR / "eval_inference"
     save_results(results_path, results, domain, "eval_PC_inference.json")
 
-    results_string_path = RESULTS_DIR / "PC" / "results_inference.txt"
+    results_string_path = RESULTS_DIR / "eval_inference" / "results_inference.txt"
     save_results_string(results_string_path, results_string)
 
     print(results_string)

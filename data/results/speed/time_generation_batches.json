@@ -1,0 +1,146 @@
+{
+  "SQL1A": {
+    "grammarinator": {
+      "mode": "no-generate",
+      "time": 3.0099470615386963,
+      "num_inputs": 5000,
+      "time_per_input": 0.0006019894123077392
+    },
+    "explainfuzz": {
+      "mode": "no-generate",
+      "time": 11.193740367889404,
+      "num_inputs": 5000,
+      "time_per_input": 0.002238748073577881,
+      "avg_PC_generation": 4.1410417556762695,
+      "time_per_input_PC": 0.0008282083511352539,
+      "time_concretization": 7.052698612213135,
+      "time_per_input_concretization": 0.001410539722442627
+    }
+  },
+  "SQL2A": {
+    "grammarinator": {
+      "mode": "no-generate",
+      "time": 3.0384366512298584,
+      "num_inputs": 5000,
+      "time_per_input": 0.0006076873302459717
+    },
+    "explainfuzz": {
+      "mode": "no-generate",
+      "time": 12.639246543248495,
+      "num_inputs": 5000,
+      "time_per_input": 0.002527849308649699,
+      "avg_PC_generation": 4.29839030901591,
+      "time_per_input_PC": 0.000859678061803182,
+      "time_concretization": 8.340856234232586,
+      "time_per_input_concretization": 0.0016681712468465172
+    }
+  },
+  "SQL3A": {
+    "grammarinator": {
+      "mode": "no-generate",
+      "time": 3.0901304880777993,
+      "num_inputs": 5000,
+      "time_per_input": 0.0006180260976155599
+    },
+    "explainfuzz": {
+      "mode": "no-generate",
+      "time": 14.177199284235636,
+      "num_inputs": 5000,
+      "time_per_input": 0.002835439856847127,
+      "avg_PC_generation": 4.3809694449106855,
+      "time_per_input_PC": 0.0008761938889821371,
+      "time_concretization": 9.796229839324951,
+      "time_per_input_concretization": 0.00195924596786499
+    }
+  },
+  "SQL4A": {
+    "grammarinator": {
+      "mode": "no-generate",
+      "time": 2.8920772870381675,
+      "num_inputs": 5000,
+      "time_per_input": 0.0005784154574076335
+    },
+    "explainfuzz": {
+      "mode": "no-generate",
+      "time": 12.851577997207642,
+      "num_inputs": 5000,
+      "time_per_input": 0.002570315599441528,
+      "avg_PC_generation": 4.318277517954509,
+      "time_per_input_PC": 0.0008636555035909018,
+      "time_concretization": 8.533300479253132,
+      "time_per_input_concretization": 0.0017066600958506263
+    }
+  },
+  "XML1": {
+    "grammarinator": {
+      "mode": "no-generate",
+      "time": 3.1157170136769614,
+      "num_inputs": 5000,
+      "time_per_input": 0.0006231434027353923
+    },
+    "explainfuzz": {
+      "mode": "no-generate",
+      "time": 1.9802746772766113,
+      "num_inputs": 5000,
+      "time_per_input": 0.00039605493545532227,
+      "avg_PC_generation": 1.576354185740153,
+      "time_per_input_PC": 0.0003152708371480306,
+      "time_concretization": 0.40392049153645826,
+      "time_per_input_concretization": 8.078409830729165e-5
+    }
+  },
+  "XML2": {
+    "grammarinator": {
+      "mode": "no-generate",
+      "time": 2.800842046737671,
+      "num_inputs": 5000,
+      "time_per_input": 0.0005601684093475342
+    },
+    "explainfuzz": {
+      "mode": "no-generate",
+      "time": 2.043648640314738,
+      "num_inputs": 5000,
+      "time_per_input": 0.0004087297280629476,
+      "avg_PC_generation": 1.5879933834075928,
+      "time_per_input_PC": 0.00031759867668151854,
+      "time_concretization": 0.45565525690714503,
+      "time_per_input_concretization": 9.113105138142901e-5
+    }
+  },
+  "XML3": {
+    "grammarinator": {
+      "mode": "no-generate",
+      "time": 3.021850029627482,
+      "num_inputs": 5000,
+      "time_per_input": 0.0006043700059254964
+    },
+    "explainfuzz": {
+      "mode": "no-generate",
+      "time": 1.994379997253418,
+      "num_inputs": 5000,
+      "time_per_input": 0.0003988759994506836,
+      "avg_PC_generation": 1.5884350935618083,
+      "time_per_input_PC": 0.00031768701871236167,
+      "time_concretization": 0.4059449036916096,
+      "time_per_input_concretization": 8.118898073832193e-5
+    }
+  },
+  "XML4": {
+    "grammarinator": {
+      "mode": "no-generate",
+      "time": 3.0939374764760337,
+      "num_inputs": 5000,
+      "time_per_input": 0.0006187874952952067
+    },
+    "explainfuzz": {
+      "mode": "no-generate",
+      "time": 1.951107343037923,
+      "num_inputs": 5000,
+      "time_per_input": 0.0003902214686075846,
+      "avg_PC_generation": 1.5748492081960042,
+      "time_per_input_PC": 0.00031496984163920084,
+      "time_concretization": 0.37625813484191895,
+      "time_per_input_concretization": 7.525162696838379e-5
+    }
+  }
+}

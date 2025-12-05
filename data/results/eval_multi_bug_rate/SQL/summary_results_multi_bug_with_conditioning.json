@@ -34,15 +34,15 @@
                 "std": 0.0
             },
             "per_bug_counts_distinct": {
-                "BUG01_order_email": {
-                    "mean": 9.0,
-                    "std": 0.0
-                },
                 "BUG03_where_salary": {
                     "mean": 9.0,
                     "std": 0.0
                 },
                 "BUG02_order_salary_ssn": {
+                    "mean": 9.0,
+                    "std": 0.0
+                },
+                "BUG01_order_email": {
                     "mean": 9.0,
                     "std": 0.0
                 }
@@ -82,10 +82,6 @@
                 "std": 4.909150186697852
             },
             "per_bug_counts_distinct": {
-                "BUG01_order_email": {
-                    "mean": 489.0,
-                    "std": 32.93427798915086
-                },
                 "BUG03_where_salary": {
                     "mean": 472.3333333333333,
                     "std": 32.601976763516795
@@ -93,6 +89,10 @@
                 "BUG02_order_salary_ssn": {
                     "mean": 95.66666666666667,
                     "std": 21.638443156156644
+                },
+                "BUG01_order_email": {
+                    "mean": 489.0,
+                    "std": 32.93427798915086
                 }
             }
         },
@@ -130,10 +130,6 @@
                 "std": 10.68674048633269
             },
             "per_bug_counts_distinct": {
-                "BUG01_order_email": {
-                    "mean": 483.6666666666667,
-                    "std": 102.50311648378741
-                },
                 "BUG03_where_salary": {
                     "mean": 466.0,
                     "std": 109.33434958877288
@@ -141,6 +137,10 @@
                 "BUG02_order_salary_ssn": {
                     "mean": 58.333333333333336,
                     "std": 10.077477638553983
+                },
+                "BUG01_order_email": {
+                    "mean": 483.6666666666667,
+                    "std": 102.50311648378741
                 }
             },
             "conditioning_token": "ORDER"
@@ -179,10 +179,6 @@
                 "std": 0.0
             },
             "per_bug_counts_distinct": {
-                "BUG01_order_email": {
-                    "mean": 421.6666666666667,
-                    "std": 24.944382578492945
-                },
                 "BUG03_where_salary": {
                     "mean": 458.6666666666667,
                     "std": 14.65908895153068
@@ -190,6 +186,10 @@
                 "BUG02_order_salary_ssn": {
                     "mean": 55.666666666666664,
                     "std": 3.299831645537222
+                },
+                "BUG01_order_email": {
+                    "mean": 421.6666666666667,
+                    "std": 24.944382578492945
                 }
             },
             "conditioning_token": "WHERE"
@@ -228,17 +228,13 @@
                 "std": 0.0
             },
             "per_bug_counts_distinct": {
-                "BUG06_join_email_ssn": {
-                    "mean": 2.0,
-                    "std": 0.816496580927726
-                },
-                "BUG02_order_salary_ssn": {
-                    "mean": 1.3333333333333333,
-                    "std": 0.9428090415820634
-                },
                 "BUG07_join_where_ssn": {
                     "mean": 20.333333333333332,
                     "std": 6.944222218666553
+                },
+                "BUG06_join_email_ssn": {
+                    "mean": 2.0,
+                    "std": 0.816496580927726
                 },
                 "BUG01_order_email": {
                     "mean": 24.333333333333332,
@@ -247,6 +243,10 @@
                 "BUG03_where_salary": {
                     "mean": 24.0,
                     "std": 7.0710678118654755
+                },
+                "BUG02_order_salary_ssn": {
+                    "mean": 1.3333333333333333,
+                    "std": 0.9428090415820634
                 }
             },
             "conditioning_token": "JOIN"
@@ -285,13 +285,13 @@
                 "std": 0.0
             },
             "per_bug_counts_distinct": {
-                "BUG01_order_email": {
-                    "mean": 6.0,
-                    "std": 1.4142135623730951
-                },
                 "BUG03_where_salary": {
                     "mean": 6.333333333333333,
                     "std": 0.4714045207910317
+                },
+                "BUG01_order_email": {
+                    "mean": 6.0,
+                    "std": 1.4142135623730951
                 }
             },
             "conditioning_token": "GROUP"
@@ -368,37 +368,37 @@
                 "std": 0.0
             },
             "per_bug_counts_distinct": {
+                "BUG07_join_where_ssn": {
+                    "mean": 3.0,
+                    "std": 0.0
+                },
                 "BUG06_join_email_ssn": {
                     "mean": 4.666666666666667,
                     "std": 0.4714045207910317
                 },
-                "BUG12_nested_select_ssn": {
-                    "mean": 1.0,
-                    "std": 0.0
-                },
-                "BUG02_order_salary_ssn": {
+                "BUG01_order_email": {
                     "mean": 5.0,
-                    "std": 0.0
-                },
-                "BUG04_join_salary_budget": {
-                    "mean": 1.0,
                     "std": 0.0
                 },
                 "BUG11_nested_salary": {
                     "mean": 1.0,
                     "std": 0.0
                 },
-                "BUG07_join_where_ssn": {
-                    "mean": 3.0,
+                "BUG04_join_salary_budget": {
+                    "mean": 1.0,
                     "std": 0.0
                 },
-                "BUG01_order_email": {
-                    "mean": 5.0,
+                "BUG12_nested_select_ssn": {
+                    "mean": 1.0,
                     "std": 0.0
                 },
                 "BUG03_where_salary": {
                     "mean": 9.666666666666666,
                     "std": 0.4714045207910317
+                },
+                "BUG02_order_salary_ssn": {
+                    "mean": 5.0,
+                    "std": 0.0
                 }
             }
         },
@@ -436,37 +436,37 @@
                 "std": 2.6822420141035432
             },
             "per_bug_counts_distinct": {
-                "BUG06_join_email_ssn": {
-                    "mean": 2.6666666666666665,
-                    "std": 1.247219128924647
-                },
-                "BUG12_nested_select_ssn": {
-                    "mean": 7.333333333333333,
-                    "std": 1.699673171197595
-                },
-                "BUG02_order_salary_ssn": {
-                    "mean": 45.333333333333336,
-                    "std": 12.036980056845191
-                },
-                "BUG11_nested_salary": {
-                    "mean": 9.666666666666666,
-                    "std": 3.39934634239519
-                },
                 "BUG07_join_where_ssn": {
                     "mean": 1.0,
                     "std": 0.0
-                },
-                "BUG01_order_email": {
-                    "mean": 120.33333333333333,
-                    "std": 16.858891488535722
                 },
                 "BUG13_union_email": {
                     "mean": 0.6666666666666666,
                     "std": 0.9428090415820634
                 },
+                "BUG06_join_email_ssn": {
+                    "mean": 2.6666666666666665,
+                    "std": 1.247219128924647
+                },
+                "BUG01_order_email": {
+                    "mean": 120.33333333333333,
+                    "std": 16.858891488535722
+                },
+                "BUG11_nested_salary": {
+                    "mean": 9.666666666666666,
+                    "std": 3.39934634239519
+                },
+                "BUG12_nested_select_ssn": {
+                    "mean": 7.333333333333333,
+                    "std": 1.699673171197595
+                },
                 "BUG03_where_salary": {
                     "mean": 122.66666666666667,
                     "std": 13.474255287605157
+                },
+                "BUG02_order_salary_ssn": {
+                    "mean": 45.333333333333336,
+                    "std": 12.036980056845191
                 }
             }
         },
@@ -504,10 +504,6 @@
                 "std": 9.773761927846525
             },
             "per_bug_counts_distinct": {
-                "BUG01_order_email": {
-                    "mean": 394.3333333333333,
-                    "std": 182.94686538871213
-                },
                 "BUG03_where_salary": {
                     "mean": 175.33333333333334,
                     "std": 229.13217922316267
@@ -515,6 +511,10 @@
                 "BUG02_order_salary_ssn": {
                     "mean": 77.66666666666667,
                     "std": 47.37322262863508
+                },
+                "BUG01_order_email": {
+                    "mean": 394.3333333333333,
+                    "std": 182.94686538871213
                 }
             },
             "conditioning_token": "ORDER"
@@ -553,6 +553,18 @@
                 "std": 1.931084899451315
             },
             "per_bug_counts_distinct": {
+                "BUG05_where_or_email_salary": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
+                "BUG01_order_email": {
+                    "mean": 132.0,
+                    "std": 140.06665080120487
+                },
+                "BUG03_where_salary": {
+                    "mean": 340.6666666666667,
+                    "std": 74.64285334548482
+                },
                 "BUG02_order_salary_ssn": {
                     "mean": 22.666666666666668,
                     "std": 27.82484900627894
@@ -560,18 +572,6 @@
                 "BUG04_where_or_salary": {
                     "mean": 1.3333333333333333,
                     "std": 1.8856180831641267
-                },
-                "BUG01_order_email": {
-                    "mean": 132.0,
-                    "std": 140.06665080120487
-                },
-                "BUG05_where_or_email_salary": {
-                    "mean": 0.3333333333333333,
-                    "std": 0.4714045207910317
-                },
-                "BUG03_where_salary": {
-                    "mean": 340.6666666666667,
-                    "std": 74.64285334548482
                 }
             },
             "conditioning_token": "WHERE"
@@ -610,13 +610,13 @@
                 "std": 36.92353209299216
             },
             "per_bug_counts_distinct": {
-                "BUG06_join_email_ssn": {
-                    "mean": 35.666666666666664,
-                    "std": 33.229839334884275
-                },
                 "BUG03_where_salary": {
                     "mean": 17.333333333333332,
                     "std": 15.69146972791976
+                },
+                "BUG06_join_email_ssn": {
+                    "mean": 35.666666666666664,
+                    "std": 33.229839334884275
                 },
                 "BUG01_order_email": {
                     "mean": 2.0,
@@ -663,6 +663,18 @@
                 "std": 42.78683312526049
             },
             "per_bug_counts_distinct": {
+                "BUG05_where_or_email_salary": {
+                    "mean": 1.0,
+                    "std": 1.4142135623730951
+                },
+                "BUG08_group_salary_email": {
+                    "mean": 4.333333333333333,
+                    "std": 5.436502143433364
+                },
+                "BUG09_group_by_having_ssn": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
                 "BUG06_join_email_ssn": {
                     "mean": 0.3333333333333333,
                     "std": 0.4714045207910317
@@ -671,33 +683,21 @@
                     "mean": 6.333333333333333,
                     "std": 8.956685895029603
                 },
-                "BUG15_join_group_email_salary": {
-                    "mean": 0.3333333333333333,
-                    "std": 0.4714045207910317
-                },
-                "BUG09_group_by_having_ssn": {
-                    "mean": 0.3333333333333333,
-                    "std": 0.4714045207910317
-                },
-                "BUG08_group_salary_email": {
-                    "mean": 4.333333333333333,
-                    "std": 5.436502143433364
+                "BUG03_where_salary": {
+                    "mean": 6.666666666666667,
+                    "std": 9.428090415820632
                 },
                 "BUG11_nested_salary": {
                     "mean": 6.666666666666667,
                     "std": 9.428090415820632
                 },
+                "BUG15_join_group_email_salary": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
                 "BUG04_where_or_salary": {
                     "mean": 1.0,
                     "std": 1.4142135623730951
-                },
-                "BUG05_where_or_email_salary": {
-                    "mean": 1.0,
-                    "std": 1.4142135623730951
-                },
-                "BUG03_where_salary": {
-                    "mean": 6.666666666666667,
-                    "std": 9.428090415820632
                 }
             },
             "conditioning_token": "GROUP"
@@ -736,21 +736,21 @@
                 "std": 47.14045207910317
             },
             "per_bug_counts_distinct": {
-                "BUG12_nested_select_ssn": {
-                    "mean": 0.3333333333333333,
-                    "std": 0.4714045207910317
+                "BUG03_where_salary": {
+                    "mean": 5.333333333333333,
+                    "std": 7.542472332656507
                 },
                 "BUG11_nested_salary": {
                     "mean": 5.333333333333333,
                     "std": 7.542472332656507
                 },
-                "BUG13_union_email": {
+                "BUG12_nested_select_ssn": {
                     "mean": 0.3333333333333333,
                     "std": 0.4714045207910317
                 },
-                "BUG03_where_salary": {
-                    "mean": 5.333333333333333,
-                    "std": 7.542472332656507
+                "BUG13_union_email": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
                 }
             },
             "conditioning_token": "UNION"
@@ -795,11 +795,7 @@
                     "mean": 2.0,
                     "std": 0.0
                 },
-                "BUG12_nested_select_ssn": {
-                    "mean": 1.0,
-                    "std": 0.0
-                },
-                "BUG02_order_salary_ssn": {
+                "BUG01_order_email": {
                     "mean": 1.0,
                     "std": 0.0
                 },
@@ -807,12 +803,16 @@
                     "mean": 1.0,
                     "std": 0.0
                 },
-                "BUG01_order_email": {
+                "BUG12_nested_select_ssn": {
                     "mean": 1.0,
                     "std": 0.0
                 },
                 "BUG03_where_salary": {
                     "mean": 4.0,
+                    "std": 0.0
+                },
+                "BUG02_order_salary_ssn": {
+                    "mean": 1.0,
                     "std": 0.0
                 }
             }
@@ -851,49 +851,49 @@
                 "std": 6.139925804835827
             },
             "per_bug_counts_distinct": {
-                "BUG06_join_email_ssn": {
-                    "mean": 12.666666666666666,
-                    "std": 5.436502143433364
-                },
-                "BUG12_nested_select_ssn": {
-                    "mean": 17.0,
-                    "std": 5.354126134736337
-                },
-                "BUG15_join_group_email_salary": {
+                "BUG05_where_or_email_salary": {
                     "mean": 0.3333333333333333,
                     "std": 0.4714045207910317
-                },
-                "BUG02_order_salary_ssn": {
-                    "mean": 9.0,
-                    "std": 1.4142135623730951
                 },
                 "BUG08_group_salary_email": {
                     "mean": 0.3333333333333333,
                     "std": 0.4714045207910317
                 },
+                "BUG07_join_where_ssn": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
+                "BUG06_join_email_ssn": {
+                    "mean": 12.666666666666666,
+                    "std": 5.436502143433364
+                },
+                "BUG01_order_email": {
+                    "mean": 14.666666666666666,
+                    "std": 4.496912521077347
+                },
                 "BUG11_nested_salary": {
                     "mean": 17.666666666666668,
                     "std": 7.039570693980958
                 },
-                "BUG07_join_where_ssn": {
+                "BUG12_nested_select_ssn": {
+                    "mean": 17.0,
+                    "std": 5.354126134736337
+                },
+                "BUG03_where_salary": {
+                    "mean": 95.33333333333333,
+                    "std": 15.456030825826172
+                },
+                "BUG02_order_salary_ssn": {
+                    "mean": 9.0,
+                    "std": 1.4142135623730951
+                },
+                "BUG15_join_group_email_salary": {
                     "mean": 0.3333333333333333,
                     "std": 0.4714045207910317
                 },
                 "BUG04_where_or_salary": {
                     "mean": 1.0,
                     "std": 0.816496580927726
-                },
-                "BUG01_order_email": {
-                    "mean": 14.666666666666666,
-                    "std": 4.496912521077347
-                },
-                "BUG05_where_or_email_salary": {
-                    "mean": 0.3333333333333333,
-                    "std": 0.4714045207910317
-                },
-                "BUG03_where_salary": {
-                    "mean": 95.33333333333333,
-                    "std": 15.456030825826172
                 }
             }
         },
@@ -931,10 +931,6 @@
                 "std": 27.500904631585406
             },
             "per_bug_counts_distinct": {
-                "BUG01_order_email": {
-                    "mean": 111.66666666666667,
-                    "std": 95.29719594802124
-                },
                 "BUG03_where_salary": {
                     "mean": 13.666666666666666,
                     "std": 17.249798710580816
@@ -942,6 +938,10 @@
                 "BUG02_order_salary_ssn": {
                     "mean": 29.0,
                     "std": 17.795130420052185
+                },
+                "BUG01_order_email": {
+                    "mean": 111.66666666666667,
+                    "std": 95.29719594802124
                 }
             },
             "conditioning_token": "ORDER"
@@ -980,13 +980,21 @@
                 "std": 12.036403117210723
             },
             "per_bug_counts_distinct": {
+                "BUG02_order_salary_ssn": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
+                "BUG01_order_email": {
+                    "mean": 1.3333333333333333,
+                    "std": 1.8856180831641267
+                },
                 "BUG12_nested_select_ssn": {
                     "mean": 19.666666666666668,
                     "std": 27.812866726670865
                 },
-                "BUG02_order_salary_ssn": {
-                    "mean": 0.3333333333333333,
-                    "std": 0.4714045207910317
+                "BUG03_where_salary": {
+                    "mean": 184.66666666666666,
+                    "std": 38.42163742245016
                 },
                 "BUG11_nested_salary": {
                     "mean": 22.0,
@@ -995,14 +1003,6 @@
                 "BUG04_where_or_salary": {
                     "mean": 2.0,
                     "std": 0.816496580927726
-                },
-                "BUG01_order_email": {
-                    "mean": 1.3333333333333333,
-                    "std": 1.8856180831641267
-                },
-                "BUG03_where_salary": {
-                    "mean": 184.66666666666666,
-                    "std": 38.42163742245016
                 }
             },
             "conditioning_token": "WHERE"
@@ -1041,17 +1041,13 @@
                 "std": 39.684869772860395
             },
             "per_bug_counts_distinct": {
-                "BUG06_join_email_ssn": {
-                    "mean": 63.666666666666664,
-                    "std": 46.54985380094001
-                },
-                "BUG02_order_salary_ssn": {
-                    "mean": 0.3333333333333333,
-                    "std": 0.4714045207910317
-                },
                 "BUG07_join_where_ssn": {
                     "mean": 2.6666666666666665,
                     "std": 2.0548046676563256
+                },
+                "BUG06_join_email_ssn": {
+                    "mean": 63.666666666666664,
+                    "std": 46.54985380094001
                 },
                 "BUG01_order_email": {
                     "mean": 3.3333333333333335,
@@ -1060,6 +1056,10 @@
                 "BUG03_where_salary": {
                     "mean": 3.0,
                     "std": 2.160246899469287
+                },
+                "BUG02_order_salary_ssn": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
                 }
             },
             "conditioning_token": "JOIN"
@@ -1139,21 +1139,21 @@
                 "std": 47.14045207910317
             },
             "per_bug_counts_distinct": {
-                "BUG12_nested_select_ssn": {
-                    "mean": 2.0,
-                    "std": 2.8284271247461903
+                "BUG03_where_salary": {
+                    "mean": 9.333333333333334,
+                    "std": 13.199326582148887
                 },
                 "BUG11_nested_salary": {
                     "mean": 9.333333333333334,
                     "std": 13.199326582148887
                 },
+                "BUG12_nested_select_ssn": {
+                    "mean": 2.0,
+                    "std": 2.8284271247461903
+                },
                 "BUG13_union_email": {
                     "mean": 1.3333333333333333,
                     "std": 1.8856180831641267
-                },
-                "BUG03_where_salary": {
-                    "mean": 9.333333333333334,
-                    "std": 13.199326582148887
                 }
             },
             "conditioning_token": "UNION"
@@ -1194,45 +1194,45 @@
                 "std": 0.0
             },
             "per_bug_counts_distinct": {
-                "BUG06_join_email_ssn": {
-                    "mean": 2.6666666666666665,
-                    "std": 1.247219128924647
-                },
-                "BUG12_nested_select_ssn": {
-                    "mean": 0.3333333333333333,
-                    "std": 0.4714045207910317
-                },
-                "BUG09_group_by_having_ssn": {
-                    "mean": 0.6666666666666666,
-                    "std": 0.4714045207910317
-                },
-                "BUG02_order_salary_ssn": {
-                    "mean": 3.3333333333333335,
-                    "std": 0.9428090415820634
-                },
-                "BUG04_join_salary_budget": {
-                    "mean": 0.3333333333333333,
-                    "std": 0.4714045207910317
-                },
                 "BUG08_group_salary_email": {
                     "mean": 0.6666666666666666,
-                    "std": 0.4714045207910317
-                },
-                "BUG11_nested_salary": {
-                    "mean": 0.3333333333333333,
                     "std": 0.4714045207910317
                 },
                 "BUG07_join_where_ssn": {
                     "mean": 1.0,
                     "std": 0.816496580927726
                 },
+                "BUG09_group_by_having_ssn": {
+                    "mean": 0.6666666666666666,
+                    "std": 0.4714045207910317
+                },
+                "BUG06_join_email_ssn": {
+                    "mean": 2.6666666666666665,
+                    "std": 1.247219128924647
+                },
                 "BUG01_order_email": {
                     "mean": 3.3333333333333335,
                     "std": 0.9428090415820634
                 },
+                "BUG11_nested_salary": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
+                "BUG04_join_salary_budget": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
+                "BUG12_nested_select_ssn": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
                 "BUG03_where_salary": {
                     "mean": 6.0,
                     "std": 3.559026084010437
+                },
+                "BUG02_order_salary_ssn": {
+                    "mean": 3.3333333333333335,
+                    "std": 0.9428090415820634
                 }
             }
         },
@@ -1270,49 +1270,49 @@
                 "std": 1.6268032729524768
             },
             "per_bug_counts_distinct": {
-                "BUG06_join_email_ssn": {
-                    "mean": 10.666666666666666,
-                    "std": 5.436502143433364
-                },
-                "BUG12_nested_select_ssn": {
-                    "mean": 6.0,
-                    "std": 4.08248290463863
-                },
-                "BUG09_group_by_having_ssn": {
-                    "mean": 0.6666666666666666,
-                    "std": 0.4714045207910317
-                },
-                "BUG02_order_salary_ssn": {
-                    "mean": 32.0,
-                    "std": 2.943920288775949
-                },
-                "BUG04_join_salary_budget": {
-                    "mean": 2.3333333333333335,
-                    "std": 3.2998316455372216
-                },
-                "BUG11_nested_salary": {
-                    "mean": 6.666666666666667,
-                    "std": 4.0276819911981905
-                },
                 "BUG07_join_where_ssn": {
                     "mean": 1.6666666666666667,
                     "std": 1.247219128924647
-                },
-                "BUG04_where_or_salary": {
-                    "mean": 0.6666666666666666,
-                    "std": 0.9428090415820634
-                },
-                "BUG01_order_email": {
-                    "mean": 88.66666666666667,
-                    "std": 5.557777333511022
                 },
                 "BUG13_union_email": {
                     "mean": 1.6666666666666667,
                     "std": 1.699673171197595
                 },
+                "BUG09_group_by_having_ssn": {
+                    "mean": 0.6666666666666666,
+                    "std": 0.4714045207910317
+                },
+                "BUG06_join_email_ssn": {
+                    "mean": 10.666666666666666,
+                    "std": 5.436502143433364
+                },
+                "BUG01_order_email": {
+                    "mean": 88.66666666666667,
+                    "std": 5.557777333511022
+                },
+                "BUG11_nested_salary": {
+                    "mean": 6.666666666666667,
+                    "std": 4.0276819911981905
+                },
+                "BUG12_nested_select_ssn": {
+                    "mean": 6.0,
+                    "std": 4.08248290463863
+                },
+                "BUG04_join_salary_budget": {
+                    "mean": 2.3333333333333335,
+                    "std": 3.2998316455372216
+                },
                 "BUG03_where_salary": {
                     "mean": 73.66666666666667,
                     "std": 9.104333522498443
+                },
+                "BUG02_order_salary_ssn": {
+                    "mean": 32.0,
+                    "std": 2.943920288775949
+                },
+                "BUG04_where_or_salary": {
+                    "mean": 0.6666666666666666,
+                    "std": 0.9428090415820634
                 }
             }
         },
@@ -1350,10 +1350,6 @@
                 "std": 16.847002371012145
             },
             "per_bug_counts_distinct": {
-                "BUG01_order_email": {
-                    "mean": 223.33333333333334,
-                    "std": 109.02395251605135
-                },
                 "BUG03_where_salary": {
                     "mean": 105.0,
                     "std": 146.37622757811462
@@ -1361,6 +1357,10 @@
                 "BUG02_order_salary_ssn": {
                     "mean": 45.666666666666664,
                     "std": 14.522013940527977
+                },
+                "BUG01_order_email": {
+                    "mean": 223.33333333333334,
+                    "std": 109.02395251605135
                 }
             },
             "conditioning_token": "ORDER"
@@ -1399,33 +1399,33 @@
                 "std": 26.02888950548772
             },
             "per_bug_counts_distinct": {
-                "BUG12_nested_select_ssn": {
-                    "mean": 9.333333333333334,
-                    "std": 13.199326582148887
-                },
-                "BUG02_order_salary_ssn": {
-                    "mean": 9.666666666666666,
-                    "std": 3.2998316455372216
-                },
-                "BUG11_nested_salary": {
-                    "mean": 14.333333333333334,
-                    "std": 20.27039439401436
-                },
-                "BUG04_where_or_salary": {
-                    "mean": 0.6666666666666666,
-                    "std": 0.9428090415820634
+                "BUG13_union_email": {
+                    "mean": 5.333333333333333,
+                    "std": 7.542472332656507
                 },
                 "BUG01_order_email": {
                     "mean": 61.333333333333336,
                     "std": 45.31617322276402
                 },
-                "BUG13_union_email": {
-                    "mean": 5.333333333333333,
-                    "std": 7.542472332656507
+                "BUG11_nested_salary": {
+                    "mean": 14.333333333333334,
+                    "std": 20.27039439401436
+                },
+                "BUG12_nested_select_ssn": {
+                    "mean": 9.333333333333334,
+                    "std": 13.199326582148887
                 },
                 "BUG03_where_salary": {
                     "mean": 177.33333333333334,
                     "std": 55.1140232205521
+                },
+                "BUG02_order_salary_ssn": {
+                    "mean": 9.666666666666666,
+                    "std": 3.2998316455372216
+                },
+                "BUG04_where_or_salary": {
+                    "mean": 0.6666666666666666,
+                    "std": 0.9428090415820634
                 }
             },
             "conditioning_token": "WHERE"
@@ -1464,13 +1464,13 @@
                 "std": 8.720983634634086
             },
             "per_bug_counts_distinct": {
-                "BUG06_join_email_ssn": {
-                    "mean": 33.333333333333336,
-                    "std": 45.02098276236192
-                },
                 "BUG03_where_salary": {
                     "mean": 5.333333333333333,
                     "std": 7.542472332656507
+                },
+                "BUG06_join_email_ssn": {
+                    "mean": 33.333333333333336,
+                    "std": 45.02098276236192
                 },
                 "BUG01_order_email": {
                     "mean": 2.0,
@@ -1521,13 +1521,13 @@
                     "mean": 0.6666666666666666,
                     "std": 0.4714045207910317
                 },
-                "BUG01_order_email": {
-                    "mean": 1.3333333333333333,
-                    "std": 1.247219128924647
-                },
                 "BUG09_group_by_having_ssn": {
                     "mean": 6.666666666666667,
                     "std": 3.7712361663282534
+                },
+                "BUG01_order_email": {
+                    "mean": 1.3333333333333333,
+                    "std": 1.247219128924647
                 }
             },
             "conditioning_token": "GROUP"
@@ -1566,17 +1566,17 @@
                 "std": 0.0
             },
             "per_bug_counts_distinct": {
-                "BUG12_nested_select_ssn": {
-                    "mean": 6.333333333333333,
-                    "std": 6.18241233033047
+                "BUG13_union_email": {
+                    "mean": 6.0,
+                    "std": 5.656854249492381
                 },
                 "BUG11_nested_salary": {
                     "mean": 10.333333333333334,
                     "std": 4.784233364802441
                 },
-                "BUG13_union_email": {
-                    "mean": 6.0,
-                    "std": 5.656854249492381
+                "BUG12_nested_select_ssn": {
+                    "mean": 6.333333333333333,
+                    "std": 6.18241233033047
                 },
                 "BUG03_where_salary": {
                     "mean": 9.666666666666666,

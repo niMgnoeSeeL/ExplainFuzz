@@ -35,6 +35,7 @@ SEEDS_DIR = INPUT_DIR / "seeds"
 MODEL_DIR = OUTPUT_DIR / "model"
 SAMPLES_DIR = INTERMEDIATE_DIR / "samples"
 RESULTS_DIR = BASE_DIR / "results"
+RESULTS_MODELS_DIR = RESULTS_DIR / "eval_models"
 
 def ensure_directories_exist(directories):
     for directory in directories:
