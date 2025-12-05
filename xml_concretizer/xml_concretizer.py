@@ -56,7 +56,7 @@ class ConcretizerContext:
         self.mode = mode
         self.mix_ratio = mix_ratio
         self.seed = seed
-        self.schema_metadata = get_metadata(schema_folder, file_save_metadata="xml_concretizer/metadata.json")
+        self.schema_metadata = get_metadata(schema_folder, file_save_metadata="xml_concretizer/out/metadata.json")
         self.main_tags = get_main_tags(self.schema_metadata) if self.schema_metadata else {}
         self.entities = ENTITIES
 

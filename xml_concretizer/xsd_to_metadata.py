@@ -239,9 +239,9 @@ if __name__ == "__main__":
     #         paths.append(p)
     # paths = ["xml_concretizer/auth_service_xml/config/user.xsd","xml_concretizer/auth_service_xml/config/file.xsd","xml_concretizer/auth_service_xml/config/request.xsd","xml_concretizer/auth_service_xml/config/query.xsd"]
     # metadata = parse_xsds_to_metadata(paths)
-    file_save_metadata = "xml_concretizer/metadata.json"
+    file_save_metadata = "xml_concretizer/out/metadata.json"
     schema_folder = "xml_concretizer/auth_service_xml/config/"
     metadata = get_metadata(schema_folder,file_save_metadata)
     # with open("xml_concretizer/metadata.json", "w", encoding="utf-8") as fout:
     #     json.dump(metadata, fout, indent=2, ensure_ascii=False)
-    print(f"Wrote metadata for {len(metadata)} elements to xml_concretizer/metadata.json")
+    print(f"Wrote metadata for {len(metadata)} elements to xml_concretizer/out/metadata.json")

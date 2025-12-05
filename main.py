@@ -36,10 +36,6 @@ MODEL_DIR = OUTPUT_DIR / "model"
 SAMPLES_DIR = INTERMEDIATE_DIR / "samples"
 RESULTS_DIR = BASE_DIR / "results"
 
-NEW_RESULTS_DIR = BASE_DIR / "new_results"
-RESULTS_OCTOBER = BASE_DIR / "results_october"
-
-
 def ensure_directories_exist(directories):
     for directory in directories:
         directory.mkdir(parents=True, exist_ok=True)
@@ -299,8 +295,8 @@ def save_final_inputs(concrete_inputs,output_path):
         for input in concrete_inputs:
             file.write(input + "\n")
 
-def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives="",dry_run=False,schema = None):
-    output_dir = OUTPUT_DIR / "inputs" / domain
+def concretization(domain, mode, conninfo, nb_concrete_inputs, output_dir = OUTPUT_DIR / "inputs", custom_directives="",dry_run=False,schema = None,batches=20):
+    output_dir = Path(output_dir) / domain
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / f"inputs_{mode.replace('-','_')}.txt"
 
@@ -317,7 +313,7 @@ def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives
             query_input=str(samples_path),
             output_path=output_path,
             max_queries=nb_concrete_inputs,
-            length_batch=20,
+            length_batch=batches,
             dry_run=dry_run,
             schema = schema
         )
@@ -338,7 +334,6 @@ def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives
         output_folder = output_dir / f"test_inputs_{mode.replace('-','_')}"
         os.makedirs(output_folder, exist_ok=True)
         
-        batches = 20 # TODO : try not to hard code this
         seeds_folder = SEEDS_DIR / domain
         concretize_many_and_write(
             partial_concrete_inputs,
@@ -357,14 +352,13 @@ def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives
     return str(output_path)
 
 
-def main_generate_inputs(domain, mode, nb_concrete_inputs=200, token_condition = None,conninfo=None,dry_run=False,schema=None):
-    # if domain == "SQL":
+def main_generate_inputs(domain, mode, output_dir = OUTPUT_DIR / "inputs", nb_concrete_inputs=200, token_condition = None,conninfo=None,dry_run=False,schema=None,batches=20):
     if "SQL" in domain or "XML" in domain:
-        nb_sample_inputs = nb_concrete_inputs // 20 
+        nb_sample_inputs = nb_concrete_inputs // batches 
     else:
         nb_sample_inputs = nb_concrete_inputs
     sample_inputs(domain, mode, nb_sample_inputs,token_condition)
-    output_path = concretization(domain, mode, conninfo, nb_concrete_inputs,dry_run=dry_run,schema = schema)
+    output_path = concretization(domain, mode, conninfo, nb_concrete_inputs,output_dir=output_dir,dry_run=dry_run,schema = schema,batches=batches)
     return output_path
 
 
@@ -448,6 +442,7 @@ def get_parsing_rate_samples_HMM(domain,file_path_samples,start_rule,prefix_gram
         inputs = infile.readlines()
     ratio = compute_parsing_ratio(domain,inputs,start_rule,prefix_grammar)
     return ratio 
+
 
 if __name__ == "__main__":
     config_file_path = "domains_config.json"
