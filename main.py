@@ -146,6 +146,7 @@ def build_model(
         fuzz_outputs_dir=fuzz_outputs_dir,
         dataset_dir=dataset_dir,
         num_inputs=num_inputs,
+        modes=modes,
         first_time=True,
         with_serializer=with_serializer,
         depth=depth,
@@ -327,9 +328,9 @@ def concretization(domain, mode, conninfo, nb_concrete_inputs, output_dir = OUTP
         corpus_paths=["xml_concretizer/auth_service_xml"],  # folder with existing XML files
         seed_keywords=["user", "session", "token"],
         all_paths=all_paths,
-        mode="mixed",       # realistic + edge-case sampling
-        mix_ratio=0.8,      # 80% realistic, 20% edge-case
-        seed=42,             # for reproducibility,
+        mode="mixed",       
+        mix_ratio=0.8,    
+        seed=42,            
         schema_folder="xml_concretizer/auth_service_xml/config/"
     )
         output_folder = output_dir / f"test_inputs_{mode.replace('-','_')}"
@@ -449,11 +450,13 @@ if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
     
-    domain = "MLIR"
+    domain = "XML1"
     domain_config = domains_config[domain]
 
     num_inputs = 10000
 
+    # modes = ["no-generate","with-generate"] # by default
+    modes = ["no-generate"]
     # build_model(
     #     domain,
     #     grammar_name=domain_config["grammar_name"],
@@ -466,10 +469,10 @@ if __name__ == "__main__":
     #     skip_rules=domain_config["skip_rules"],
     #     with_serializer=domain_config["with_serializer"],
     #     depth=domain_config["depth"],
+    #     modes = modes
     # )
 
-    #run_sql_models()
-    #run_xml_models()
+   
     # tok_cond = ['CharRef']*2
     # main_generate_inputs(domain, "no-generate", 60,tok_cond)
 
