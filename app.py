@@ -191,9 +191,11 @@ def prob_EVI(domain, input, mode):
     return f"P({input})={prob:.4f}"
 
 
-def generate_inputs(domain, mode, num_inputs, sql_conn=None):
+def generate_inputs(domain, mode, num_inputs, sql_conn=None,literal_condition=None):
+    literal_to_tokens = get_literal_token_mapping(domain)
+    token_condition = [literal_to_tokens[lit] for lit in literal_condition] if literal_condition else None
     filename = main_generate_inputs(
-        domain, mode, nb_concrete_inputs=num_inputs, conninfo=sql_conn
+        domain, mode, nb_concrete_inputs=num_inputs, conninfo=sql_conn,token_condition=token_condition
     )
     return filename
 
@@ -261,7 +263,7 @@ with gr.Blocks() as demo:
 
     with gr.Row():
         domain = gr.Radio(
-            ["SQL", "B", "REDIS", "JANUS"], label="Choose Domain", value="SQL"
+            ["SQL", "B", "REDIS", "JANUS","XML4"], label="Choose Domain", value="SQL"
         )
 
         mode = gr.Radio(
@@ -302,6 +304,7 @@ with gr.Blocks() as demo:
                 0, maximum=34, value=0, step=1, label="Position", visible=False
             )
             text = gr.Textbox(value=None, visible=False, label="Input")
+            literals = [literal1, literal2, literal3]
 
         # Update function
         def update_question_choices(qtype):
@@ -347,21 +350,6 @@ with gr.Blocks() as demo:
         prob_button = gr.Button("Get Probability")
         prob_output = gr.Label()
 
-        def update_token_dropdowns(domain):
-            tokens = get_tokens(domain)
-            return (
-                gr.update(choices=tokens, value=None, interactive=True),
-                gr.update(choices=tokens, value=None, interactive=True),
-                gr.update(choices=tokens, value=None, interactive=True),
-                tokens,
-            )
-
-        domain.change(
-            fn=update_token_dropdowns,
-            inputs=domain,
-            outputs=[literal1, literal2, literal3, token_list],
-        )
-
         prob_button.click(
             fn=dispatch_probability_function,
             inputs=[
@@ -377,25 +365,24 @@ with gr.Blocks() as demo:
             outputs=prob_output,
         )
 
-        with gr.Row():
-            gr.Markdown("### Or evaluate MAR1 for all tokens")
-            eval_all_btn = gr.Button("Evaluate All")
-            eval_all_output = gr.Textbox(label="Results")
-            eval_all_btn.click(
-                fn=eval_mar1_all_tokens,
-                inputs=[domain, mode],
-                outputs=eval_all_output,
-            )
-        with gr.Row():
-            gr.Markdown("### Or evaluate COND1 for all token pairs")
-            eval_all_cond1_btn = gr.Button("Evaluate All COND1")
-            eval_all_cond1_output = gr.Textbox(label="Results")
-            eval_all_cond1_btn.click(
-                fn=eval_cond1_all_tokens,
-                inputs=[domain, mode],
-                outputs=eval_all_cond1_output,
-            )
-
+        # with gr.Row():
+        #     gr.Markdown("### Or evaluate MAR1 for all tokens")
+        #     eval_all_btn = gr.Button("Evaluate All")
+        #     eval_all_output = gr.Textbox(label="Results")
+        #     eval_all_btn.click(
+        #         fn=eval_mar1_all_tokens,
+        #         inputs=[domain, mode],
+        #         outputs=eval_all_output,
+        #     )
+        # with gr.Row():
+        #     gr.Markdown("### Or evaluate COND1 for all token pairs")
+        #     eval_all_cond1_btn = gr.Button("Evaluate All COND1")
+        #     eval_all_cond1_output = gr.Textbox(label="Results")
+        #     eval_all_cond1_btn.click(
+        #         fn=eval_cond1_all_tokens,
+        #         inputs=[domain, mode],
+        #         outputs=eval_all_cond1_output,
+        #     )
 
     with gr.Tab("🧬 Input Generator"):
         sql_conn = gr.Textbox(
@@ -403,24 +390,98 @@ with gr.Blocks() as demo:
             placeholder="dbname=? user=? password=? host=? port=?",
         )
         num_inputs = gr.Slider(10, 1000, value=500, step=10, label="Number of Inputs")
+        
+        # --- OPTIONAL TOKEN SEQUENCE UI ---
+        use_token_sequence = gr.Checkbox(label="Condition the generation on a sequence of tokens?", value=False)
+
+        MAX_LEN = 10  # you can set the maximum allowed
+        seq_length = gr.Slider(1, MAX_LEN, value=1, step=1, label="Sequence Length", visible=False)
+
+        token_dropdowns = [
+            gr.Dropdown(get_tokens("SQL"), label=f"Token {i+1}", visible=False)
+            for i in range(MAX_LEN)
+        ]
+
         generate_btn = gr.Button("Generate")
         output_file = gr.File()
         generation_status = gr.Label()
 
-        def toggle_input_fields(domain):
-            return gr.update(visible=(domain == "SQL"))
+        def toggle_sequence_fields(use_seq):
+            updates = []
 
-        domain.change(fn=toggle_input_fields, inputs=domain, outputs=sql_conn)
+            # Show length chooser only if checkbox checked
+            updates.append(gr.update(visible=use_seq))
 
-        def run_generation(domain, mode, sql_conn, num_inputs):
+            
+            updates.append(gr.update(visible=True))
+            for _ in range(1,MAX_LEN):
+                updates.append(gr.update(visible=False))
+
+            return updates
+
+        use_token_sequence.change(
+            fn=toggle_sequence_fields,
+            inputs=use_token_sequence,
+            outputs=[seq_length] + token_dropdowns,
+        )
+
+        def update_token_dropdowns(length):
+            updates = []
+            for i in range(MAX_LEN):
+                if i < length:
+                    updates.append(gr.update(visible=True))
+                else:
+                    updates.append(gr.update(visible=False))
+            return updates
+
+        seq_length.change(
+            fn=update_token_dropdowns,
+            inputs=seq_length,
+            outputs=token_dropdowns,
+        )
+
+        def run_generation(domain, mode, sql_conn, num_inputs, use_seq, seq_length, *tokens):
+            token_condition = None
+            if use_seq:
+                token_condition = list(tokens[:seq_length])
+
             generation_status = f"Generating {num_inputs} inputs for {domain}..."
-            zip_file = generate_inputs(domain, mode, int(num_inputs), sql_conn)
+
+            # Pass token_condition as an extra argument
+            zip_file = generate_inputs(domain, mode, int(num_inputs), sql_conn, token_condition)
+
             return zip_file, f"Done! Download the generated inputs."
 
         generate_btn.click(
             fn=run_generation,
-            inputs=[domain, mode, sql_conn, num_inputs],
+            inputs=[domain, mode, sql_conn, num_inputs,
+                    use_token_sequence, seq_length] + token_dropdowns,
             outputs=[output_file, generation_status],
         )
+
+        def update_all_dropdowns(domain):
+            tokens = get_tokens(domain)
+
+            updates = []
+
+            # Update old literal dropdowns
+            for _ in literals:
+                updates.append(gr.update(choices=tokens, value=None, interactive=True))
+
+            # Update token sequence dropdowns
+            for _ in token_dropdowns:
+                updates.append(gr.update(choices=tokens, value=None, interactive=True))
+
+            updates.append(tokens)
+
+            return updates
+
+        domain.change(
+            fn=update_all_dropdowns,
+            inputs=domain,
+            outputs=literals + token_dropdowns + [token_list],
+        )
+
+        
 if __name__ == "__main__":
     demo.launch()
