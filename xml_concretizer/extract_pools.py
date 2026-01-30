@@ -99,8 +99,6 @@ def extract_pools_from_files(seeds_folder, top_k=200):
         "comment_pool": [t for t, _ in comment_ct.most_common(top_k)]
     }
    
-    with open("pools.json","w") as f:
-        json.dump(pools,f,indent=4)
     return pools
 
 if __name__ == "__main__":
@@ -113,4 +111,4 @@ if __name__ == "__main__":
     if "--out" in sys.argv:
         idx = sys.argv.index("--out")
         out = sys.argv[idx+1]
-    extract_pools_from_files(paths, output_file=out)
+    pools = extract_pools_from_files(paths, output_file=out)

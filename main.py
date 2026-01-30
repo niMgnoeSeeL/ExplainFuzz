@@ -18,6 +18,12 @@ from xml_concretizer.utils import gen_all_context_paths
 from xml_concretizer.xml_concretizer import ConcretizerContext, concretize_many_and_write
 
 import os
+import shutil
+from dotenv import load_dotenv
+
+load_dotenv()
+CONNINFO = os.getenv("CONNINFO",None)
+
 # === Global Path Variables ===
 BASE_DIR = Path("data")
 INTERMEDIATE_DIR = BASE_DIR / "intermediate"
@@ -35,15 +41,25 @@ SEEDS_DIR = INPUT_DIR / "seeds"
 MODEL_DIR = OUTPUT_DIR / "model"
 SAMPLES_DIR = INTERMEDIATE_DIR / "samples"
 RESULTS_DIR = BASE_DIR / "results"
-
-NEW_RESULTS_DIR = BASE_DIR / "new_results"
-RESULTS_OCTOBER = BASE_DIR / "results_october"
+RESULTS_MODELS_DIR = RESULTS_DIR / "eval_models"
 
 
 def ensure_directories_exist(directories):
     for directory in directories:
         directory.mkdir(parents=True, exist_ok=True)
 
+def empty_folder(folder: Path):
+    """
+    Deletes all files and subdirectories inside `folder`, but keeps the folder itself.
+    """
+    if not folder.exists():
+        return
+    
+    for item in folder.iterdir():
+        if item.is_dir():
+            shutil.rmtree(item)
+        else:
+            item.unlink()
 
 def build_model(
     domain,
@@ -149,6 +165,7 @@ def build_model(
         fuzz_outputs_dir=fuzz_outputs_dir,
         dataset_dir=dataset_dir,
         num_inputs=num_inputs,
+        modes=modes,
         first_time=True,
         with_serializer=with_serializer,
         depth=depth,
@@ -195,24 +212,6 @@ def build_model(
 
     return 
 
-
-# ============================================================
-#                      PC INFERENCE
-# ------------------------------------------------------------
-# This section enables querying the Probabilistic Circuit (PC)
-# to analyze and understand the structure of possible inputs.
-# Beyond sampling, it supports inference queries that estimate
-# the likelihood of specific grammatical patterns or constructs
-# (e.g., what is the probability that a WHERE clause appears
-# in SQL a query).
-# ============================================================
-
-
-def inference(domain, max_length, grammar_name, type_of_question):
-    "Make inference"
-    return
-
-
 # ====================================================================
 #                          PC Sampling
 # --------------------------------------------------------------------
@@ -249,6 +248,9 @@ def sample_inputs(domain, mode, nb_inputs,token_condition):
 # tokens to their actual string literals when it's a 1 to 1 mapping.
 # =====================================================================
 
+# ---------------------------------------------------------
+# General helpers
+# ---------------------------------------------------------
 
 def get_literal_token_mapping(domain: str):
     """Get the literal mapping from the lexer file"""
@@ -268,7 +270,7 @@ def get_literal_token_mapping(domain: str):
     return literal_token_mapping
 
 
-def deanonymize_samples(domain, samples_path, output_path):
+def deanonymize_samples(domain, samples_path):
     with open(samples_path, "r") as file:
         lines = file.readlines()
     samples = [q.strip().split() for q in lines]
@@ -299,73 +301,174 @@ def save_final_inputs(concrete_inputs,output_path):
         for input in concrete_inputs:
             file.write(input + "\n")
 
-def concretization(domain, mode, conninfo, nb_concrete_inputs, custom_directives="",dry_run=False,schema = None):
-    output_dir = OUTPUT_DIR / "inputs" / domain
-    output_dir.mkdir(parents=True, exist_ok=True)
-    output_path = output_dir / f"inputs_{mode.replace('-','_')}.txt"
 
-    input_file_name = f"anonymized_inputs_{mode.replace('-','_')}.txt"
-    samples_path = SAMPLES_DIR / domain / mode / input_file_name
+# ---------------------------------------------------------
+# Helpers for each domain type for generating inputs
+# ---------------------------------------------------------
 
-    # if domain == "SQL":
-    if "SQL" in domain:
-        conninfo = (
-            "dbname=testdb user=bloblo password=bloblotest host=127.0.0.1 port=5432"
-        )
-        custom_gen_sql_main(
-            conninfo,
-            query_input=str(samples_path),
-            output_path=output_path,
-            max_queries=nb_concrete_inputs,
-            length_batch=20,
-            dry_run=dry_run,
-            schema = schema
-        )
-    elif "XML" in domain:
-        partial_concrete_inputs = deanonymize_samples(domain, samples_path, output_path)
+def _concretize_sql(conninfo, samples_path, output_path, nb_concrete_inputs, dry_run, schema, batches):
+    """
+    SQL-specific concretization using a custom generator.
+    """
 
-        all_paths = gen_all_context_paths()
-        all_paths = list(all_paths.get("project_local",set())) + list(all_paths.get("system",set()))
-        context = ConcretizerContext(
-        corpus_paths=["xml_concretizer/auth_service_xml"],  # folder with existing XML files
-        seed_keywords=["user", "session", "token"],
-        all_paths=all_paths,
-        mode="mixed",       # realistic + edge-case sampling
-        mix_ratio=0.8,      # 80% realistic, 20% edge-case
-        seed=42,             # for reproducibility,
-        schema_folder="xml_concretizer/auth_service_xml/config/"
+    custom_gen_sql_main(
+        conninfo=conninfo,
+        query_input=str(samples_path),
+        output_path=output_path,
+        max_queries=nb_concrete_inputs,
+        length_batch=batches,
+        dry_run=dry_run,
+        schema=schema,
     )
-        output_folder = output_dir / f"test_inputs_{mode.replace('-','_')}"
-        os.makedirs(output_folder, exist_ok=True)
-        
-        batches = 20 # TODO : try not to hard code this
-        seeds_folder = SEEDS_DIR / domain
-        concretize_many_and_write(
-            partial_concrete_inputs,
-            out_folder=output_folder,
-            context=context,
-            seeds_folder=seeds_folder,
-            batches=batches
-        )
-        print(f"--> {len(partial_concrete_inputs)*batches} xml inputs generated in this folder {output_folder}")
-    else:
-        partial_concrete_inputs = deanonymize_samples(domain, samples_path, output_path)
-        concrete_queries = generate_concrete_queries(
-            partial_concrete_inputs, domain, custom_directives
-        )
-        save_final_inputs(concrete_queries, output_path)
     return str(output_path)
 
 
-def main_generate_inputs(domain, mode, nb_concrete_inputs=200, token_condition = None,conninfo=None,dry_run=False,schema=None):
-    # if domain == "SQL":
-    if "SQL" in domain or "XML" in domain:
-        nb_sample_inputs = nb_concrete_inputs // 20 
+def _concretize_xml(domain, mode, samples_path, output_dir, batches):
+    """
+    XML-specific concretization, followed by zipping the output folder.
+    """
+    # Step 1 — Partial de-anonymization
+    partial = deanonymize_samples(domain, samples_path)
+
+    # Step 2 — Build concretizer context
+    all_paths = gen_all_context_paths()
+    collected_paths = list(all_paths.get("project_local", set())) + list(all_paths.get("system", set()))
+
+    context = ConcretizerContext(
+        corpus_paths=["xml_concretizer/auth_service_xml"],
+        seed_keywords=["user", "session", "token"],
+        all_paths=collected_paths,
+        mode="mixed",
+        mix_ratio=0.8,
+        seed=42,
+        schema_folder="xml_concretizer/auth_service_xml/config/"
+    )
+
+    # Step 3 — Output folder
+    output_folder = output_dir / f"test_inputs_{mode.replace('-', '_')}"
+    output_folder.mkdir(parents=True, exist_ok=True)
+    empty_folder(output_folder)
+
+    seeds_folder = SEEDS_DIR / domain
+
+    concretize_many_and_write(
+        token_sequences=partial,
+        out_folder=output_folder,
+        seeds_folder=seeds_folder,
+        batches=batches,
+        context=context
+    )
+
+    count = len(partial) * batches
+    print(f"--> {count} XML inputs generated in: {output_folder}")
+
+    # Step 4 — ZIP everything
+    zip_path = str(output_folder) + ".zip"
+    shutil.make_archive(base_name=str(output_folder), format="zip", root_dir=output_folder)
+
+    return zip_path
+
+
+def _concretize_generic(domain, samples_path, output_path, custom_directives):
+    """
+    Generic fallback concretizer (non-SQL, non-XML).
+    """
+    partial = deanonymize_samples(domain, samples_path)
+    concrete_queries = generate_concrete_queries(partial, domain, custom_directives)
+    save_final_inputs(concrete_queries, output_path)
+    return str(output_path)
+
+
+# ---------------------------------------------------------
+# Main concretization dispatcher
+# ---------------------------------------------------------
+
+def concretization(
+    domain,
+    mode,
+    conninfo,
+    nb_concrete_inputs,
+    output_dir=OUTPUT_DIR / "inputs",
+    custom_directives="",
+    dry_run=False,
+    schema=None,
+    batches=20,
+):
+    """
+    Dispatches to the appropriate concretization method based on domain.
+    Returns the path to the final ZIP or TXT file.
+    """
+    # Standardize output directory
+    output_dir = Path(output_dir) / domain
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+
+    # Paths
+    output_path = output_dir / f"inputs_{mode.replace('-', '_')}.txt"
+    input_name = f"anonymized_inputs_{mode.replace('-', '_')}.txt"
+    samples_path = SAMPLES_DIR / domain / mode / input_name
+
+    # Domain dispatch
+    if "SQL" in domain:
+        return _concretize_sql(
+            conninfo, samples_path, output_path,
+            nb_concrete_inputs=nb_concrete_inputs,
+            dry_run=dry_run,
+            schema=schema,
+            batches=batches,
+        )
+
+    elif "XML" in domain:
+        return _concretize_xml(
+            domain, mode, samples_path, output_dir, batches
+        )
+
     else:
-        nb_sample_inputs = nb_concrete_inputs
-    sample_inputs(domain, mode, nb_sample_inputs,token_condition)
-    output_path = concretization(domain, mode, conninfo, nb_concrete_inputs,dry_run=dry_run,schema = schema)
-    return output_path
+        return _concretize_generic(
+            domain, samples_path, output_path, custom_directives
+        )
+
+
+# ---------------------------------------------------------
+# Top-level generator
+# ---------------------------------------------------------
+
+def main_generate_inputs(
+    domain,
+    mode,
+    output_dir=OUTPUT_DIR / "inputs",
+    nb_concrete_inputs=200,
+    token_condition=None,
+    conninfo=CONNINFO,
+    dry_run=False,
+    schema=None,
+    batches=20,
+):
+    """
+    High-level orchestrator for your Gradio UI:
+    1. sample_inputs
+    2. concretization (delegated)
+    """
+    # Determine how many anonymized samples to produce
+    if "SQL" in domain or "XML" in domain:
+        nb_samples = nb_concrete_inputs // batches
+    else:
+        nb_samples = nb_concrete_inputs
+
+    # Step 1 — sampling
+    sample_inputs(domain, mode, nb_samples, token_condition)
+
+    # Step 2 — concretization
+    return concretization(
+        domain=domain,
+        mode=mode,
+        conninfo=conninfo,
+        nb_concrete_inputs=nb_concrete_inputs,
+        output_dir=output_dir,
+        dry_run=dry_run,
+        schema=schema,
+        batches=batches,
+    )
 
 
 def load_domains_config(file_path):
@@ -449,31 +552,34 @@ def get_parsing_rate_samples_HMM(domain,file_path_samples,start_rule,prefix_gram
     ratio = compute_parsing_ratio(domain,inputs,start_rule,prefix_grammar)
     return ratio 
 
+
 if __name__ == "__main__":
     config_file_path = "domains_config.json"
     domains_config = load_domains_config(config_file_path)
     
-    domain = "MLIR"
+    domain = "XML4"
     domain_config = domains_config[domain]
 
     num_inputs = 10000
 
-    # build_model(
-    #     domain,
-    #     grammar_name=domain_config["grammar_name"],
-    #     initial_grammar_paths=domain_config["initial_grammar_paths"],
-    #     max_length=domain_config["max_length"],
-    #     seeds_dir=domain_config["seeds_dir"],
-    #     filter_non_executable=domain_config.get("filter_non_executable",False),
-    #     start_rule=domain_config["start_rule"],
-    #     num_inputs=num_inputs,
-    #     skip_rules=domain_config["skip_rules"],
-    #     with_serializer=domain_config["with_serializer"],
-    #     depth=domain_config["depth"],
-    # )
+    # modes = ["no-generate","with-generate"] # by default
+    modes = ["with-generate"]
+    build_model(
+        domain,
+        grammar_name=domain_config["grammar_name"],
+        initial_grammar_paths=domain_config["initial_grammar_paths"],
+        max_length=domain_config["max_length"],
+        seeds_dir=domain_config["seeds_dir"],
+        filter_non_executable=domain_config.get("filter_non_executable",False),
+        start_rule=domain_config["start_rule"],
+        num_inputs=num_inputs,
+        skip_rules=domain_config["skip_rules"],
+        with_serializer=domain_config["with_serializer"],
+        depth=domain_config["depth"],
+        modes = modes
+    )
 
-    #run_sql_models()
-    #run_xml_models()
+   
     # tok_cond = ['CharRef']*2
     # main_generate_inputs(domain, "no-generate", 60,tok_cond)
 

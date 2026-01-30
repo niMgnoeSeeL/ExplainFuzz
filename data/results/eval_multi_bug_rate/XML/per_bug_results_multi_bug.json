@@ -10,37 +10,37 @@
         },
         "ExplainFuzz": {
             "per_bug_counts_distinct": {
-                "BUG05_xpath_injection_observed": {
-                    "mean": 230.66666666666666,
-                    "std": 8.339997335464536
-                },
-                "BUG02_numeric_overflow_bug": {
-                    "mean": 539.6666666666666,
-                    "std": 4.9216076867444665
-                },
                 "BUG07_namespace_confusion": {
                     "mean": 42.333333333333336,
                     "std": 6.944222218666553
-                },
-                "BUG06_xpath_injection_error": {
-                    "mean": 0.3333333333333333,
-                    "std": 0.4714045207910317
-                },
-                "BUG04_read_sensitive_local_files": {
-                    "mean": 222.0,
-                    "std": 1.4142135623730951
                 },
                 "BUG08_cdata_injection": {
                     "mean": 0.6666666666666666,
                     "std": 0.9428090415820634
                 },
-                "BUG03_read_system_file": {
-                    "mean": 108.0,
-                    "std": 10.424330514074594
-                },
                 "BUG01_control_bug": {
                     "mean": 910.6666666666666,
                     "std": 14.38363267359428
+                },
+                "BUG06_xpath_injection_error": {
+                    "mean": 0.3333333333333333,
+                    "std": 0.4714045207910317
+                },
+                "BUG02_numeric_overflow_bug": {
+                    "mean": 539.6666666666666,
+                    "std": 4.9216076867444665
+                },
+                "BUG05_xpath_injection_observed": {
+                    "mean": 230.66666666666666,
+                    "std": 8.339997335464536
+                },
+                "BUG04_read_sensitive_local_files": {
+                    "mean": 222.0,
+                    "std": 1.4142135623730951
+                },
+                "BUG03_read_system_file": {
+                    "mean": 108.0,
+                    "std": 10.424330514074594
                 }
             }
         }
@@ -56,41 +56,41 @@
         },
         "ExplainFuzz": {
             "per_bug_counts_distinct": {
-                "BUG05_xpath_injection_observed": {
-                    "mean": 166.0,
-                    "std": 13.366625103842281
-                },
-                "BUG02_numeric_overflow_bug": {
-                    "mean": 189.66666666666666,
-                    "std": 5.2493385826745405
-                },
                 "BUG07_namespace_confusion": {
                     "mean": 277.3333333333333,
                     "std": 8.73053390247253
-                },
-                "BUG06_xpath_injection_error": {
-                    "mean": 8.0,
-                    "std": 2.160246899469287
-                },
-                "BUG04_read_sensitive_local_files": {
-                    "mean": 97.66666666666667,
-                    "std": 14.522013940527977
-                },
-                "BUG09_comment_logic_bypass": {
-                    "mean": 1.0,
-                    "std": 0.816496580927726
                 },
                 "BUG08_cdata_injection": {
                     "mean": 49.0,
                     "std": 2.160246899469287
                 },
-                "BUG03_read_system_file": {
-                    "mean": 48.0,
-                    "std": 5.715476066494082
-                },
                 "BUG01_control_bug": {
                     "mean": 591.6666666666666,
                     "std": 22.425184255405547
+                },
+                "BUG06_xpath_injection_error": {
+                    "mean": 8.0,
+                    "std": 2.160246899469287
+                },
+                "BUG02_numeric_overflow_bug": {
+                    "mean": 189.66666666666666,
+                    "std": 5.2493385826745405
+                },
+                "BUG09_comment_logic_bypass": {
+                    "mean": 1.0,
+                    "std": 0.816496580927726
+                },
+                "BUG05_xpath_injection_observed": {
+                    "mean": 166.0,
+                    "std": 13.366625103842281
+                },
+                "BUG04_read_sensitive_local_files": {
+                    "mean": 97.66666666666667,
+                    "std": 14.522013940527977
+                },
+                "BUG03_read_system_file": {
+                    "mean": 48.0,
+                    "std": 5.715476066494082
                 }
             }
         }
@@ -106,41 +106,41 @@
         },
         "ExplainFuzz": {
             "per_bug_counts_distinct": {
-                "BUG02_numeric_overflow_bug": {
-                    "mean": 452.3333333333333,
-                    "std": 10.624918300339484
-                },
-                "BUG05_xpath_injection_observed": {
-                    "mean": 271.3333333333333,
-                    "std": 12.81492185782739
-                },
                 "BUG07_namespace_confusion": {
                     "mean": 45.666666666666664,
                     "std": 1.699673171197595
-                },
-                "BUG06_xpath_injection_error": {
-                    "mean": 4.0,
-                    "std": 0.816496580927726
-                },
-                "BUG04_read_sensitive_local_files": {
-                    "mean": 143.66666666666666,
-                    "std": 8.9566858950296
-                },
-                "BUG09_comment_logic_bypass": {
-                    "mean": 50.0,
-                    "std": 6.97614984548545
                 },
                 "BUG08_cdata_injection": {
                     "mean": 3.3333333333333335,
                     "std": 3.39934634239519
                 },
-                "BUG03_read_system_file": {
-                    "mean": 63.666666666666664,
-                    "std": 4.784233364802441
-                },
                 "BUG01_control_bug": {
                     "mean": 859.3333333333334,
                     "std": 22.866763848189994
+                },
+                "BUG06_xpath_injection_error": {
+                    "mean": 4.0,
+                    "std": 0.816496580927726
+                },
+                "BUG02_numeric_overflow_bug": {
+                    "mean": 452.3333333333333,
+                    "std": 10.624918300339484
+                },
+                "BUG09_comment_logic_bypass": {
+                    "mean": 50.0,
+                    "std": 6.97614984548545
+                },
+                "BUG05_xpath_injection_observed": {
+                    "mean": 271.3333333333333,
+                    "std": 12.81492185782739
+                },
+                "BUG04_read_sensitive_local_files": {
+                    "mean": 143.66666666666666,
+                    "std": 8.9566858950296
+                },
+                "BUG03_read_system_file": {
+                    "mean": 63.666666666666664,
+                    "std": 4.784233364802441
                 }
             }
         }
@@ -156,41 +156,41 @@
         },
         "ExplainFuzz": {
             "per_bug_counts_distinct": {
-                "BUG05_xpath_injection_observed": {
-                    "mean": 175.33333333333334,
-                    "std": 14.613540144521982
-                },
-                "BUG02_numeric_overflow_bug": {
-                    "mean": 261.6666666666667,
-                    "std": 23.79542439676633
-                },
                 "BUG07_namespace_confusion": {
                     "mean": 59.666666666666664,
                     "std": 9.285592184789412
-                },
-                "BUG06_xpath_injection_error": {
-                    "mean": 68.66666666666667,
-                    "std": 3.7712361663282534
-                },
-                "BUG04_read_sensitive_local_files": {
-                    "mean": 93.33333333333333,
-                    "std": 10.498677165349081
-                },
-                "BUG09_comment_logic_bypass": {
-                    "mean": 9.666666666666666,
-                    "std": 3.2998316455372216
                 },
                 "BUG08_cdata_injection": {
                     "mean": 70.33333333333333,
                     "std": 6.018490028422597
                 },
-                "BUG03_read_system_file": {
-                    "mean": 39.666666666666664,
-                    "std": 8.219218670625303
-                },
                 "BUG01_control_bug": {
                     "mean": 425.6666666666667,
                     "std": 20.531818125912658
+                },
+                "BUG06_xpath_injection_error": {
+                    "mean": 68.66666666666667,
+                    "std": 3.7712361663282534
+                },
+                "BUG02_numeric_overflow_bug": {
+                    "mean": 261.6666666666667,
+                    "std": 23.79542439676633
+                },
+                "BUG09_comment_logic_bypass": {
+                    "mean": 9.666666666666666,
+                    "std": 3.2998316455372216
+                },
+                "BUG05_xpath_injection_observed": {
+                    "mean": 175.33333333333334,
+                    "std": 14.613540144521982
+                },
+                "BUG04_read_sensitive_local_files": {
+                    "mean": 93.33333333333333,
+                    "std": 10.498677165349081
+                },
+                "BUG03_read_system_file": {
+                    "mean": 39.666666666666664,
+                    "std": 8.219218670625303
                 }
             }
         }

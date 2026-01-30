@@ -13,13 +13,13 @@ from main import (
     GRAMMAR_DIR,
     MODEL_DIR,
     SEEDS_DIR,
-    RESULTS_OCTOBER,
+    RESULTS_DIR,
+    RESULTS_MODELS_DIR,
     ensure_directories_exist,
     load_domains_config,
 )
 import multiprocessing
 import matplotlib.pyplot as plt
-
 
 def save_results(
     results_path: Path, new_result: dict, domain: str, filename: str = "results.json"
@@ -51,7 +51,7 @@ def evaluate_grammar(domain, grammar_name):
     parser_final_file_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
     grammar_metrics = analyze_antlr_grammar(parser_final_file_path)
     grammar_metrics["domain"] = domain
-    results_grammar_dir = RESULTS_OCTOBER / "grammars"
+    results_grammar_dir = RESULTS_DIR / "eval_grammars"
     save_results(results_grammar_dir, grammar_metrics, domain, "results_grammars.json")
 
 
@@ -63,7 +63,7 @@ def evaluate_PCFG(
     skip_rules,
 ):
     modes = ["no-generate"]
-    results_pcfg_dir = RESULTS_OCTOBER / "PCFG"
+    results_pcfg_dir = RESULTS_MODELS_DIR / "PCFG"
     dataset_dir = DATASET_DIR / domain
     antlr_output_dir = GEN_PARSER_DIR / domain
     grammar_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
@@ -103,7 +103,7 @@ def evaluate_seeds(domain, grammar_name, start_rule, skip_rules,max_lengths):
         domain, grammar_name, grammar_path, start_rule, skip_rules
     )
     res = compute_metrics_seeds(seeds_anonymized, domain,max_lengths)
-    results_seeds_dir = RESULTS_OCTOBER / "SEEDS"
+    results_seeds_dir = RESULTS_DIR / "eval_seeds"
     save_results(results_seeds_dir, res, domain, "eval_seeds.json")
     return res["max_sequence_length"]
 
@@ -112,7 +112,7 @@ def evaluate_llm(lengths, domain, grammar_name, start_rule, skip_rules):
     modes = ["no-generate"]
     grammar_path = GRAMMAR_DIR / "final" / domain / f"{grammar_name}Parser.g4"
     dataset_dir = DATASET_DIR / domain
-    results_llm_dir = RESULTS_OCTOBER / "LLM"
+    results_llm_dir = RESULTS_MODELS_DIR / "LLM"
     antlr_output_dir = GEN_PARSER_DIR / domain
     _, lexer_cls = load_parser_lexer(grammar_name, antlr_output_dir)
     seeds_anonymized = get_seeds_anonymized(
@@ -200,7 +200,7 @@ def evaluate_PC(
             pc_metrics["mode"] = mode
             pc_metrics["max_length"] = max_length
 
-            results_pc_dir = RESULTS_OCTOBER / "PC"
+            results_pc_dir = RESULTS_MODELS_DIR / "PC"
             # save_results(results_pc_dir, pc_metrics, domain, "eval_PC_model.json")
             save_results(results_pc_dir, pc_metrics, domain, "eval_scalability.json")
             lengths_success.add(max_length)

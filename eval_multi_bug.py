@@ -364,7 +364,7 @@ def run_all_sql_evaluations(domains, repetitions=3, num_inputs=10000):
     
     for domain in domains:
         print(f"\n--- Evaluating {domain} ---")
-        file_path = f"data/results/multi_bug_rate/results_multi_bug_{domain}.json"
+        file_path = f"data/results/eval_multi_bug_rate/results_multi_bug_{domain}.json"
         run_sql_multi_bug_evaluation(
             domain=domain,
             file_path=file_path,
@@ -380,8 +380,8 @@ def run_all_sql_evaluations(domains, repetitions=3, num_inputs=10000):
         print(f"\n--- Conditioning evaluation for {domain} ---")
         run_sql_conditioning_evaluation(
             domain=domain,
-            input_file_path=f"data/results/multi_bug_rate/results_multi_bug_{domain}.json",
-            output_file_path=f"data/results/multi_bug_rate/results_multi_bug_{domain}_with_conditioning.json",
+            input_file_path=f"data/results/eval_multi_bug_rate/results_multi_bug_{domain}.json",
+            output_file_path=f"data/results/eval_multi_bug_rate/results_multi_bug_{domain}_with_conditioning.json",
             num_inputs=num_inputs,
             repetitions=repetitions
         )
@@ -395,7 +395,7 @@ def run_all_xml_evaluations(domains, repetitions=3, num_inputs=10000):
     
     for domain in domains:
         print(f"\n--- Evaluating {domain} ---")
-        res_file = f"data/results/multi_bug_rate/XML/eval_multi_bug_{domain}.json"
+        res_file = f"data/results/eval_multi_bug_rate/XML/eval_multi_bug_{domain}.json"
         run_xml_multi_bug_evaluation(domain, res_file, num_inputs=num_inputs, repetitions=repetitions)
     
     print("\n" + "=" * 60)
@@ -404,8 +404,8 @@ def run_all_xml_evaluations(domains, repetitions=3, num_inputs=10000):
     
     for domain in domains:
         print(f"\n--- Conditioning evaluation for {domain} ---")
-        input_file = f"data/results/multi_bug_rate/XML/eval_multi_bug_{domain}.json"
-        output_file = f"data/results/multi_bug_rate/XML/eval_cond_{domain}.json"
+        input_file = f"data/results/eval_multi_bug_rate/XML/eval_multi_bug_{domain}.json"
+        output_file = f"data/results/eval_multi_bug_rate/XML/eval_cond_{domain}.json"
         run_xml_conditioning_evaluation(
             domain=domain,
             input_file_path=input_file,

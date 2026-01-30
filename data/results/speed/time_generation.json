@@ -1,0 +1,38 @@
+{
+    "SQL1A": {
+        "grammarinator": {
+            "mode": "no-generate",
+            "time": 3.029085318247477,
+            "num_inputs": 5000,
+            "time_per_input": 0.0006058170636494954
+        },
+        "explainfuzz": {
+            "mode": "no-generate",
+            "time": 88.85156559944153,
+            "num_inputs": 5000,
+            "time_per_input": 0.017770313119888307,
+            "avg_PC_generation": 81.36125906308492,
+            "time_per_input_PC": 0.016272251812616982,
+            "time_concretization": 7.490306536356613,
+            "time_per_input_concretization": 0.0014980613072713225
+        }
+    },
+    "XML1": {
+        "grammarinator": {
+            "mode": "no-generate",
+            "time": 2.954059282938639,
+            "num_inputs": 5000,
+            "time_per_input": 0.0005908118565877278
+        },
+        "explainfuzz": {
+            "mode": "no-generate",
+            "time": 33.45479337374369,
+            "num_inputs": 5000,
+            "time_per_input": 0.006690958674748738,
+            "avg_PC_generation": 33.014703591664635,
+            "time_per_input_PC": 0.006602940718332927,
+            "time_concretization": 0.44008978207905614,
+            "time_per_input_concretization": 8.801795641581122e-05
+        }
+    }
+}
